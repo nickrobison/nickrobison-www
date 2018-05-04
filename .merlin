@@ -1,5 +1,5 @@
 PKG cohttp cow cowabloga cstruct lwt mirage mirage-unix mirage-http
-PKG mirage-net-unix mirage-clock-unix mirage-console.unix mirage-fs-unit
+PKG mirage-net-macosx mirage-clock-macosx mirage-console.macosx mirage-fs-unit
 PKG rrd
 
 B src/_build
