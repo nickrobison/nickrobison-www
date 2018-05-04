@@ -31,10 +31,16 @@ module Global = struct
 
   let uri = Uri.of_string
 
+  let nav_links =
+    tag "ul" ~cls:"left" (list [
+        tag "li" (a ~href:(uri "/blog/") (string "Blog"));
+        tag "li" (a ~href:(uri "/projects/") (string "Projects"))
+      ])
+
   let top_nav = Cowabloga.Foundation.top_nav
-      ~title:(p (string "Test Blog"))
+      ~title:(p (string "Nick Robison"))
       ~title_uri:(uri "/")
-      ~nav_links: []
+      ~nav_links: nav_links
 
   let t ~title ~headers ~content ~read:_ ~domain =
     let scheme = match fst domain with `Http -> "http" | `Https -> "https" in
@@ -75,7 +81,7 @@ module Index = struct
         div ~cls:"row" (div ~cls:"small-12 columns" footer)
       ]
     in
-    Global.t ~title:"NickRobison" ~headers:[] ~content ~domain ~read
+    Global.t ~title:"Nick Robison" ~headers:[] ~content ~domain ~read
 end
 
 
