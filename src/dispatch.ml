@@ -34,6 +34,8 @@ module Make
     | `Not_found p -> `Not_found (Uri.to_string p)
     | `Redirect p -> `Redirect (Uri.to_string p)
 
+  let mk f path = f >|= (fun f -> cowabloga (f path))
+
   let test () =
     Lwt.return (`Html (Lwt.return "Hello world"))
 
@@ -50,7 +52,9 @@ module Make
     Lwt.catch asset (fun e ->
         Log.warn (fun f ->
             f "got error while getting %s: %s" path_s (Printexc.to_string e));
-    not_found domain path)
+        not_found domain path)
+
+  let read_entry tmpl name = tmpl_read tmpl name >|= Cow.Markdown.of_string
 
   let respond_ok ?(headers=[]) body =
     body >>= fun body ->
@@ -58,16 +62,30 @@ module Make
     let headers = Cohttp.Header.of_list headers in
     S.respond_string ~headers ~status ~body ()
 
+  (** Page feeds. *)
+
+  let blog_feed domain tmpl =
+    Data.Feed.blog domain (fun n -> read_entry tmpl ("/blog/"^n))
+
+  (** Page types *)
+
   let index domain tmpl =
     let read = tmpl_read tmpl in
     Pages.Index.t ~domain ~read >|= cowabloga
 
+  let blog domain tmpl =
+    let feed = blog_feed domain tmpl in
+    let entries = Data.Blog.entries in
+    let read = tmpl_read tmpl in
+    Blog.dispatch ~domain ~feed ~entries ~read
 
   let dispatch domain fs tmpl =
     let index = index domain tmpl in
+    let blog = blog domain tmpl in
     function
     | ["index.html"]
     | [""] | [] -> index
+    | "blog" :: tl -> mk blog tl
     | path -> asset domain fs path
 
   let not_found ~uri () =
