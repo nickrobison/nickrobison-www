@@ -24,6 +24,13 @@ module Blog = struct
         body = "2018-test-blog.md";
         permalink = "2018-test-blog";
       };
+      {
+        updated =  date(2018, 04, 01, 15, 00);
+        authors = [nick];
+        subject = "Second blog entry";
+        body = "2018-second-blog.md";
+        permalink = "2018-second-blog";
+      };
     ]
 end
 

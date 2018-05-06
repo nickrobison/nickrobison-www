@@ -22,7 +22,7 @@ let make ?title ~read ~domain content =
     (**
 let copyright f = match f.rights with None -> [] | Some r -> [`Data r]
      *)
-(** TODO: Get the real copyright *)
+(** TODO: Get the real copyright. Looks like the feed is not being propogated correctly. *)
 let copyright _ = []
 
 let blog_index ~feed ~entries ~read ~domain =
@@ -75,6 +75,7 @@ let dispatch ~feed ~entries ~read ~domain =
   let f = function
     | ["index.html"]
     | [""] | [] -> blog_index
+    | ["atom.xml"] -> atom_feed
     | [x] -> blog_entry x
     | x -> not_found ~domain x
   in
