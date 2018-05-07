@@ -117,6 +117,8 @@ module Make
 
   let start http fs tmpl clock =
     let host = Key_gen.host () in
+    let http_port = Key_gen.http_port () in
+    let host = host ^ ":" ^ (string_of_int http_port) in
     let domain = `Http, host in
     let dispatch = dispatch domain fs tmpl in
     let callback = create domain dispatch in
