@@ -122,6 +122,8 @@ module Make
     let domain = `Http, host in
     let dispatch = dispatch domain fs tmpl in
     let callback = create domain dispatch in
+    let build_id = Key_gen.build_id () in
+    Log.info (fun f -> f "Build version: %s" build_id);
     Log.info (fun f -> f "Listening on %s" (Site_config.base_uri domain));
       http (`TCP (Key_gen.http_port ())) callback
 
