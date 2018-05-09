@@ -5,6 +5,8 @@ src/Makefile
 src/Makefile
 src/main.ml
 src/key_gen.ml
+src/*.tar.gz
+src/*.raw
 
 src/static_files.ml
 src/static_files.mli
@@ -20,3 +22,4 @@ src/mirage-unikernel-nickrobison_www-macosx.opam
 src/myocamlbuild.ml
 src/www
 
+tools/_build
