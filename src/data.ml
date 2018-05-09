@@ -12,39 +12,37 @@ end
 
 module Blog = struct
 
-   let log_src = Logs.Src.create "blog" ~doc:"Web server"
+  exception YAML_EXCEPTION of string
+
+  (** Simple helper function to get an array from a Yaml.value. *)
+  let get_array yaml =
+    match yaml with
+    | `A obj -> obj
+    | _ -> raise (YAML_EXCEPTION "Nope")
+
+
+  let log_src = Logs.Src.create "blog" ~doc:"Web server"
   module Log = (val Logs.src_log log_src: Logs.LOG)
   type t = Cowabloga.Blog.Entry.t
   open People
 
-  let entries posts =
-    let yameled = Yaml.of_string_exn posts in
-    Log.info (fun f -> f "Posts of [%s]" posts);
+  let entries yaml_file =
     let open Cowabloga.Date in
     let open Cowabloga.Blog.Entry in
-    [
-      {
+    let yaml = Yaml.of_string_exn yaml_file in
+    let entries = ref [] in
+    let posts = Ezjsonm.(get_array (find yaml ["posts"])) in
+    List.iter (fun p ->
+        let post = {
         updated = date(2018, 05, 04, 17, 00);
         authors = [nick];
-        subject = "Test blog entry";
+        subject = Ezjsonm.(get_string (find p ["title"]));
         body = "2018-test-blog.md";
         permalink = "2018-test-blog";
-      };
-      {
-        updated =  date(2018, 04, 01, 15, 00);
-        authors = [nick];
-        subject = "Second blog entry";
-        body = "2018-second-blog.md";
-        permalink = "2018-second-blog";
-      };
-      {
-        updated = date(2014, 01, 31, 16, 00);
-        authors = [nick];
-        subject = "Love, Fire, and Blase Pascal";
-        body = "2014-01-31-love-fire-and-blaise-pascal.md";
-        permalink = "2014-bliase";
-      }
-    ]
+      } in
+        entries := post :: !entries
+      ) posts;
+    !entries
 end
 
 module Feed = struct
