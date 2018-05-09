@@ -1,10 +1,11 @@
 
 module Blog: sig
 
+
   type t = Cowabloga.Blog.Entry.t
 (** The type for blog entries. *)
 
-  val entries: t list
+  val entries: string -> t list
 end
 
 module Feed: sig

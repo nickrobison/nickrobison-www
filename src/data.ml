@@ -11,9 +11,15 @@ end
 
 
 module Blog = struct
+
+   let log_src = Logs.Src.create "blog" ~doc:"Web server"
+  module Log = (val Logs.src_log log_src: Logs.LOG)
   type t = Cowabloga.Blog.Entry.t
   open People
-  let entries =
+
+  let entries posts =
+    let yameled = Yaml.of_string_exn posts in
+    Log.info (fun f -> f "Posts of [%s]" posts);
     let open Cowabloga.Date in
     let open Cowabloga.Blog.Entry in
     [
@@ -31,6 +37,13 @@ module Blog = struct
         body = "2018-second-blog.md";
         permalink = "2018-second-blog";
       };
+      {
+        updated = date(2014, 01, 31, 16, 00);
+        authors = [nick];
+        subject = "Love, Fire, and Blase Pascal";
+        body = "2014-01-31-love-fire-and-blaise-pascal.md";
+        permalink = "2014-bliase";
+      }
     ]
 end
 

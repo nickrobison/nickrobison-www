@@ -75,7 +75,8 @@ module Make
 
   let blog domain tmpl =
     let feed = blog_feed domain tmpl in
-    let entries = Data.Blog.entries in
+    tmpl_read tmpl "posts.yml" >>= fun posts ->
+    let entries = Data.Blog.entries posts in
     let read = tmpl_read tmpl in
     Blog.dispatch ~domain ~feed ~entries ~read
 

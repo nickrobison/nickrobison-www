@@ -42,7 +42,8 @@ let http =
 let dispatch = (http $ http_server (conduit_direct stack))
 
 let packages = [package "cow"; package "cowabloga"; package ~ocamlfind:["rrd"]
-                  ~min:"1.0.1" "xapi-rrd"; package "c3"; package "core";
+                  ~min:"1.0.1" "xapi-rrd"; package "c3"; package "astring";
+                package "yaml";
                package "duration"; package "ptime"]
 
 let () =
