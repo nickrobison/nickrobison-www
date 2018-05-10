@@ -1,11 +1,9 @@
-open Core
-
 let string_of_scheme = function `Http -> "http" | `Https -> "https"
 let base_uri (scheme, host) = string_of_scheme scheme ^ "://" ^ host ^ "/"
 
 let uri (scheme, host) path =
-  let path = String.concat ~sep:"/" path in
-  let host_split = String.lsplit2 ~on:':' host in
+  let path = String.concat "/" path in
+  let host_split = Astring.String.cut ~sep:":" host in
   let host = match host_split with
     | Some x -> fst x
     | None -> host
