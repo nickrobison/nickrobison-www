@@ -12,6 +12,11 @@ end
 
 module Blog = struct
 
+  let log_src = Logs.Src.create "blog" ~doc:"Web server"
+  module Log = (val Logs.src_log log_src: Logs.LOG)
+  type t = Cowabloga.Blog.Entry.t
+  open People
+
   exception YAML_EXCEPTION of string
 
   (** Simple helper function to get an array from a Yaml.value. *)
@@ -20,29 +25,47 @@ module Blog = struct
     | `A obj -> obj
     | _ -> raise (YAML_EXCEPTION "Nope")
 
+  let int_from_list list nth =
+    let inth = List.nth list nth in
+    Log.info (fun f -> f "Int to parse at [%d] %s" nth inth);
+    int_of_string (inth)
+ 
+  let build_md_link (d: Cowabloga.Date.date) title =
+    (string_of_int d.year) ^ "-" ^ (string_of_int d.month) ^ "-.md"
 
-  let log_src = Logs.Src.create "blog" ~doc:"Web server"
-  module Log = (val Logs.src_log log_src: Logs.LOG)
-  type t = Cowabloga.Blog.Entry.t
-  open People
+  
+  (** Another part of OCaml that defeats me. Regexp. *)
+  let parse_date date_string =
+    let split_string = String.split_on_char 'T' date_string in
+    let date_string = String.split_on_char '-' (List.nth split_string 0) in
+    let split_time_string  = (List.nth split_string 1) in
+    let time_string = String.split_on_char ':' (String.sub split_time_string 0 (String.index split_time_string '+')) in
+    Cowabloga.Date.date(int_from_list date_string 0,
+                                   int_from_list date_string 1,
+                                   int_from_list date_string 2,
+                                   int_from_list time_string 0,
+                                   int_from_list time_string 1)
 
   let entries yaml_file =
-    let open Cowabloga.Date in
     let open Cowabloga.Blog.Entry in
     let yaml = Yaml.of_string_exn yaml_file in
-    let entries = ref [] in
     let posts = Ezjsonm.(get_array (find yaml ["posts"])) in
-    List.iter (fun p ->
-        let post = {
-        updated = date(2018, 05, 04, 17, 00);
+    List.fold_left (fun acc p ->
+        let title =  Ezjsonm.(get_string (find p ["title"])) in
+        Log.info (fun f -> f "Parsing [%s]" title);
+        let draft = Ezjsonm.mem p ["draft"] in
+        if draft then acc
+        else begin
+        let date = parse_date Ezjsonm.(get_string (find p ["date"])) in
+        {
+        updated = date;
         authors = [nick];
-        subject = Ezjsonm.(get_string (find p ["title"]));
-        body = "2018-test-blog.md";
+        subject = title;
+        body = "test";
         permalink = "2018-test-blog";
-      } in
-        entries := post :: !entries
-      ) posts;
-    !entries
+      } :: acc
+      end
+      ) [] posts
 end
 
 module Feed = struct
