@@ -25,15 +25,22 @@ module Blog = struct
     | `A obj -> obj
     | _ -> raise (YAML_EXCEPTION "Nope")
 
+  let padded_string_of_int int =
+    let int_string = (string_of_int int) in
+    if String.length int_string == 1 then "0" ^ int_string else int_string
+
   let int_from_list list nth =
     let inth = List.nth list nth in
     Log.info (fun f -> f "Int to parse at [%d] %s" nth inth);
     int_of_string (inth)
- 
-  let build_md_link (d: Cowabloga.Date.date) title =
-    (string_of_int d.year) ^ "-" ^ (string_of_int d.month) ^ "-.md"
 
-  
+  let build_md_link (d: Cowabloga.Date.date) title =
+    Log.info (fun f -> f "Parsing title: [%s]" title);
+    (string_of_int d.year) ^ "-"
+    ^ (padded_string_of_int d.month) ^ "-"
+    ^ (padded_string_of_int d.day) ^ "-"
+    ^ String.lowercase_ascii (Stringext.replace_all (Stringext.replace_all title " " "-") "’" "") ^ ".md"
+
   (** Another part of OCaml that defeats me. Regexp. *)
   let parse_date date_string =
     let split_string = String.split_on_char 'T' date_string in
@@ -61,7 +68,7 @@ module Blog = struct
         updated = date;
         authors = [nick];
         subject = title;
-        body = "test";
+        body = build_md_link date title;
         permalink = "2018-test-blog";
       } :: acc
       end
