@@ -12,7 +12,7 @@ end
 
 module Blog = struct
 
-  let log_src = Logs.Src.create "blog" ~doc:"Web server"
+  let log_src = Logs.Src.create "data" ~doc:"Web server"
   module Log = (val Logs.src_log log_src: Logs.LOG)
   type t = Cowabloga.Blog.Entry.t
   open People
@@ -31,15 +31,28 @@ module Blog = struct
 
   let int_from_list list nth =
     let inth = List.nth list nth in
-    Log.info (fun f -> f "Int to parse at [%d] %s" nth inth);
     int_of_string (inth)
 
   let build_md_link (d: Cowabloga.Date.date) title =
-    Log.info (fun f -> f "Parsing title: [%s]" title);
+    (** Filter out special characters that are causing titles to be wrong. *)
+    let regexp = Re.compile (Re.alt [
+      (Re.char ':');
+      (Re.char '?');
+      (Re.str "’");
+      (Re.char ',');
+      (Re.str "-");
+      (Re.punct);
+    ]) in
+    let filtered = String.lowercase_ascii (Stringext.replace_all
+                                (Re.replace_string regexp "" title)
+                                " " "-")
+        in
+    Log.info (fun f -> f "Parsing title: [%s]" filtered);
     (string_of_int d.year) ^ "-"
     ^ (padded_string_of_int d.month) ^ "-"
     ^ (padded_string_of_int d.day) ^ "-"
-    ^ String.lowercase_ascii (Stringext.replace_all (Stringext.replace_all title " " "-") "’" "") ^ ".md"
+    (** We also need to convert everything to lowercase and remove the spaces. *)
+    ^ Re.replace_string (Re.compile (Re.str "-–-")) "-" filtered
 
   (** Another part of OCaml that defeats me. Regexp. *)
   let parse_date date_string =
@@ -63,13 +76,20 @@ module Blog = struct
         let draft = Ezjsonm.mem p ["draft"] in
         if draft then acc
         else begin
-        let date = parse_date Ezjsonm.(get_string (find p ["date"])) in
+          let date = parse_date Ezjsonm.(get_string (find p ["date"])) in
+          let link = build_md_link date title in
+          Log.info (fun f -> f "Built link [%s]" link);
         {
         updated = date;
         authors = [nick];
         subject = title;
-        body = build_md_link date title;
-        permalink = "2018-test-blog";
+        (**
+        body = link ^ ".md";
+       
+        permalink = link;
+        *)
+        body = link ^ ".md";
+        permalink = link;
       } :: acc
       end
       ) [] posts

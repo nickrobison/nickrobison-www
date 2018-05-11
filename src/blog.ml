@@ -3,6 +3,10 @@ open Cow.Html
 
 type t = Cowabloga.Blog.Entry.t
 
+let log_src = Logs.Src.create "blog" ~doc:"Web server"
+module Log = (val Logs.src_log log_src: Logs.LOG)
+
+
 let not_found ~domain x =
   let uri = Site_config.uri domain ("blog" :: x) in
   `Not_found uri
@@ -55,7 +59,9 @@ let blog_entries ~feed ~entries ~read ~domain =
   Lwt_list.map_s (blog_entry ~domain ~read ~feed ~entries) entries
 
 let atom_feed ~feed ~entries =
+  Log.info (fun f -> f "Building atom feed");
   let headers = Cowabloga.Headers.atom in
+  Log.info (fun f -> f "Built atom headers.");
   let feed =
     Cowabloga.Blog.to_atom ~feed ~entries
     >|= Cow.Atom.xml_of_feed
@@ -65,7 +71,9 @@ let atom_feed ~feed ~entries =
 
 (** Construct an HTTP dispatch funciton for the blog. *)
 let dispatch ~feed ~entries ~read ~domain =
+  Log.info (fun f -> f "Getting ready to dispatch");
   atom_feed ~feed ~entries >>= fun atom_feed ->
+  Log.info (fun f -> f "Built atom feed");
   blog_index ~domain ~feed ~entries ~read >>= fun blog_index ->
   blog_entries ~domain ~read ~feed ~entries >>= fun blog_entries ->
   let blog_entry x =

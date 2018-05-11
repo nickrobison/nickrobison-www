@@ -1,5 +1,38 @@
 open Core
 
+
+let string_replace = [
+  Re.replace_string (Re.compile (Re.alt [
+      (Re.str "&#8216;");
+      (Re.str "&#8217;");
+    ])) ~by:"'";
+  Re.replace_string (Re.compile (Re.str "&nbsp;")) ~by:"";
+  Re.replace_string (Re.compile (Re.str "&#8211;")) ~by:"-";
+  Re.replace_string (Re.compile (Re.seq [
+      (Re.str "/ref=");
+      (Re.rep (Re.compl [Re.char '"']));
+    ])) ~by:"/replaced";
+  Re.replace_string (Re.compile (Re.seq [
+      (Re.str "/?");
+      (Re.rep (Re.compl [Re.char '"']));
+    ])) ~by:"replaced";
+  String.lstrip;
+]
+
+let process_line (line: string) =
+  List.fold string_replace ~init:line ~f:(fun l f -> f l)
+
+(** Regex for skipping lines in the markdown, that we don't need*)
+let skip_regex = Re.compile (Re.alt [
+    Re.str "kcite";
+    Re.seq [
+      Re.char '<';
+      Re.opt (Re.char '/');
+      Re.str "p";
+    ];
+    Re.str "</div>";
+  ])
+
 (** Creates the directory, prints a warning if the directory already exists.
     * This doesn't handle any special cases for not being able to create dir.
 *)
@@ -45,10 +78,14 @@ let process_file in_dir file out_dir =
         if (String.is_prefix line "---") then begin
           in_comment := (not !in_comment);
         end
-        (** If we're in the comment, output to the yaml list*)
         else if !in_comment then yaml_lines := line :: !yaml_lines
-        else md_lines := line :: !md_lines
+          (** Now, filter out lines that we don't want*)
+        else begin
+          let matches = Re.matches skip_regex line in
+          if phys_equal (List.length matches) 0 then md_lines := process_line line :: !md_lines
+        end
         done
+             (** If we're in the comment, output to the yaml list*)
       with End_of_file ->
         print_endline "Done with file";
     )
