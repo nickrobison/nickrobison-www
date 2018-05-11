@@ -1,4 +1,4 @@
-FROM ocaml/opam:alpine
+FROM ocaml/opam:alpine-3.5_ocaml-4.04.2 
 RUN sudo apk add --update sudo
 COPY . /home/opam/src
 RUN sudo chown -R opam /home/opam/src
