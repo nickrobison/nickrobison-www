@@ -18,11 +18,11 @@ As I do, I thought it might be interesting to give a few statistics, complement
 
 Some cool images:<figure id="attachment_418" style="width: 1565px" class="wp-caption aligncenter">
 
-[<img class=" wp-image-418" title="2012WorldMap" alt="" src="https://secure.nickrobison.com:443/wp-content/uploads/2013/01/Screen-Shot-2013-01-26-at-3.18.10-PM.png" width="1565" height="645" srcset="https://www.nickrobison.com/wp-content/uploads/2013/01/Screen-Shot-2013-01-26-at-3.18.10-PM.png 1565w, https://www.nickrobison.com/wp-content/uploads/2013/01/Screen-Shot-2013-01-26-at-3.18.10-PM-300x123.png 300w, https://www.nickrobison.com/wp-content/uploads/2013/01/Screen-Shot-2013-01-26-at-3.18.10-PM-1024x422.png 1024w, https://www.nickrobison.com/wp-content/uploads/2013/01/Screen-Shot-2013-01-26-at-3.18.10-PM-500x206.png 500w" sizes="(max-width: 1565px) 100vw, 1565px" />][1]<figcaption class="wp-caption-text">Where are they coming from?</figcaption></figure> 
+[<img class=" wp-image-418" title="2012WorldMap" alt="" src="https://secure.nickrobison.com:443/wp-content/uploads/2013/01/Screen-Shot-2013-01-26-at-3.18.10-PM.png" width="1565" height="645" srcset="/images/2013/01/Screen-Shot-2013-01-26-at-3.18.10-PM.png 1565w, /images/2013/01/Screen-Shot-2013-01-26-at-3.18.10-PM-300x123.png 300w, /images/2013/01/Screen-Shot-2013-01-26-at-3.18.10-PM-1024x422.png 1024w, /images/2013/01/Screen-Shot-2013-01-26-at-3.18.10-PM-500x206.png 500w" sizes="(max-width: 1565px) 100vw, 1565px" />][1]<figcaption class="wp-caption-text">Where are they coming from?</figcaption></figure> 
 
 As you can see, the overwhelming number of visitors are coming from the US.<figure id="attachment_421" style="width: 613px" class="wp-caption aligncenter">
 
-[<img class="size-full wp-image-421" alt="'merica likes this." src="https://secure.nickrobison.com:443/wp-content/uploads/2013/01/Screen-Shot-2013-01-26-at-3.18.42-PM.png" width="613" height="441" srcset="https://www.nickrobison.com/wp-content/uploads/2013/01/Screen-Shot-2013-01-26-at-3.18.42-PM.png 613w, https://www.nickrobison.com/wp-content/uploads/2013/01/Screen-Shot-2013-01-26-at-3.18.42-PM-300x215.png 300w, https://www.nickrobison.com/wp-content/uploads/2013/01/Screen-Shot-2013-01-26-at-3.18.42-PM-417x300.png 417w" sizes="(max-width: 613px) 100vw, 613px" />][2]<figcaption class="wp-caption-text">&#8216;merica likes this.</figcaption></figure> 
+[<img class="size-full wp-image-421" alt="'merica likes this." src="https://secure.nickrobison.com:443/wp-content/uploads/2013/01/Screen-Shot-2013-01-26-at-3.18.42-PM.png" width="613" height="441" srcset="/images/2013/01/Screen-Shot-2013-01-26-at-3.18.42-PM.png 613w, /images/2013/01/Screen-Shot-2013-01-26-at-3.18.42-PM-300x215.png 300w, /images/2013/01/Screen-Shot-2013-01-26-at-3.18.42-PM-417x300.png 417w" sizes="(max-width: 613px) 100vw, 613px" />][2]<figcaption class="wp-caption-text">&#8216;merica likes this.</figcaption></figure> 
 
 And, within the US most of the visitors were from Indiana. What a surprise.
 
@@ -36,7 +36,7 @@ Thanks to everyone for reading, it means a lot to know that you&#8217;re out the
 
 <figure id="attachment_423" style="width: 500px" class="wp-caption aligncenter">
 
-[<img class="size-full wp-image-423" alt="Happy Birthday!" src="https://secure.nickrobison.com:443/wp-content/uploads/2013/01/cupcake-candles.jpg" width="500" height="667" srcset="https://www.nickrobison.com/wp-content/uploads/2013/01/cupcake-candles.jpg 500w, https://www.nickrobison.com/wp-content/uploads/2013/01/cupcake-candles-224x300.jpg 224w" sizes="(max-width: 500px) 100vw, 500px" />][3]<figcaption class="wp-caption-text">Happy Birthday!</figcaption></figure> 
+[<img class="size-full wp-image-423" alt="Happy Birthday!" src="https://secure.nickrobison.com:443/wp-content/uploads/2013/01/cupcake-candles.jpg" width="500" height="667" srcset="/images/2013/01/cupcake-candles.jpg 500w, /images/2013/01/cupcake-candles-224x300.jpg 224w" sizes="(max-width: 500px) 100vw, 500px" />][3]<figcaption class="wp-caption-text">Happy Birthday!</figcaption></figure> 
 
 
 

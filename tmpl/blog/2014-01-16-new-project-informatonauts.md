@@ -2,7 +2,7 @@ There comes a time in very man&#8217;s life, when he looks at his buddy and utte
 
 
 
-[<img class="aligncenter size-full wp-image-697" alt="Informatonauts Logo" src="http://www.nickrobison.com/wp-content/uploads/2014/01/Informatonauts-Logo.png" width="1400" height="1400" srcset="https://www.nickrobison.com/wp-content/uploads/2014/01/Informatonauts-Logo.png 1400w, https://www.nickrobison.com/wp-content/uploads/2014/01/Informatonauts-Logo-150x150.png 150w, https://www.nickrobison.com/wp-content/uploads/2014/01/Informatonauts-Logo-300x300.png 300w, https://www.nickrobison.com/wp-content/uploads/2014/01/Informatonauts-Logo-1024x1024.png 1024w" sizes="(max-width: 1400px) 100vw, 1400px" />][1]
+[<img class="aligncenter size-full wp-image-697" alt="Informatonauts Logo" src="/images/2014/01/Informatonauts-Logo.png" width="1400" height="1400" srcset="/images/2014/01/Informatonauts-Logo.png 1400w, /images/2014/01/Informatonauts-Logo-150x150.png 150w, /images/2014/01/Informatonauts-Logo-300x300.png 300w, /images/2014/01/Informatonauts-Logo-1024x1024.png 1024w" sizes="(max-width: 1400px) 100vw, 1400px" />][1]
 
 
 
@@ -30,7 +30,7 @@ Until next time, never stop exploring.
 
 
 
-[1]: http://www.nickrobison.com/wp-content/uploads/2014/01/Informatonauts-Logo.png
+[1]: /images/2014/01/Informatonauts-Logo.png
 [2]: http://www.nikhilgopal.com/ "The World of Nikhil"
 [3]: http://informatonauts.wordpress.com "The Informatonauts"
 [4]: http://informatonauts.wordpress.com "The Webpage"

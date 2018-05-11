@@ -14,11 +14,11 @@ Without further ado, I present you 2013, in stats.
 
 The pretty pictures:<figure id="attachment_712" style="width: 1033px" class="wp-caption aligncenter">
 
-[<img class="size-full wp-image-712" alt="The world is watching" src="http://www.nickrobison.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-27-at-10.42.31-AM.png" width="1033" height="486" srcset="https://www.nickrobison.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-27-at-10.42.31-AM.png 1033w, https://www.nickrobison.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-27-at-10.42.31-AM-300x141.png 300w, https://www.nickrobison.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-27-at-10.42.31-AM-1024x481.png 1024w, https://www.nickrobison.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-27-at-10.42.31-AM-500x235.png 500w" sizes="(max-width: 1033px) 100vw, 1033px" />][2]<figcaption class="wp-caption-text">The world is watching</figcaption></figure> 
+[<img class="size-full wp-image-712" alt="The world is watching" src="/images/2014/01/Screen-Shot-2014-01-27-at-10.42.31-AM.png" width="1033" height="486" srcset="/images/2014/01/Screen-Shot-2014-01-27-at-10.42.31-AM.png 1033w, /images/2014/01/Screen-Shot-2014-01-27-at-10.42.31-AM-300x141.png 300w, /images/2014/01/Screen-Shot-2014-01-27-at-10.42.31-AM-1024x481.png 1024w, /images/2014/01/Screen-Shot-2014-01-27-at-10.42.31-AM-500x235.png 500w" sizes="(max-width: 1033px) 100vw, 1033px" />][2]<figcaption class="wp-caption-text">The world is watching</figcaption></figure> 
 
 As usual, most traffic comes almost entirely from the US, with a bit from Canada and Europe.<figure id="attachment_713" style="width: 1035px" class="wp-caption aligncenter">
 
-[<img class=" wp-image-713" alt="US Visitors 2013" src="http://www.nickrobison.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-27-at-10.43.30-AM.png" width="1035" height="488" srcset="https://www.nickrobison.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-27-at-10.43.30-AM.png 1035w, https://www.nickrobison.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-27-at-10.43.30-AM-300x141.png 300w, https://www.nickrobison.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-27-at-10.43.30-AM-1024x482.png 1024w, https://www.nickrobison.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-27-at-10.43.30-AM-500x235.png 500w" sizes="(max-width: 1035px) 100vw, 1035px" />][3]<figcaption class="wp-caption-text">Westward Ho!</figcaption></figure> 
+[<img class=" wp-image-713" alt="US Visitors 2013" src="/images/2014/01/Screen-Shot-2014-01-27-at-10.43.30-AM.png" width="1035" height="488" srcset="/images/2014/01/Screen-Shot-2014-01-27-at-10.43.30-AM.png 1035w, /images/2014/01/Screen-Shot-2014-01-27-at-10.43.30-AM-300x141.png 300w, /images/2014/01/Screen-Shot-2014-01-27-at-10.43.30-AM-1024x482.png 1024w, /images/2014/01/Screen-Shot-2014-01-27-at-10.43.30-AM-500x235.png 500w" sizes="(max-width: 1035px) 100vw, 1035px" />][3]<figcaption class="wp-caption-text">Westward Ho!</figcaption></figure> 
 
 In a surprising shift, the bulk of visitors are now from Washington (specifically Seattle), with Indiana supplying the third most traffic. Apparently I&#8217;m more interesting to Chicago then I am to my own family. (Yes, that was me showing my new PNW passive-aggressive side).
 
@@ -26,9 +26,9 @@ So that&#8217;s the state of the website, we&#8217;re but a small blip in the wo
 
 So thanks for sticking with me for another year, hopefully things will only continue to get better.<figure id="attachment_423" style="width: 500px" class="wp-caption aligncenter">
 
-[<img class="size-full wp-image-423  " alt="Another year old, and maybe a bit wide" src="http://www.nickrobison.com/wp-content/uploads/2013/01/cupcake-candles.jpg" width="500" height="667" srcset="https://www.nickrobison.com/wp-content/uploads/2013/01/cupcake-candles.jpg 500w, https://www.nickrobison.com/wp-content/uploads/2013/01/cupcake-candles-224x300.jpg 224w" sizes="(max-width: 500px) 100vw, 500px" />][4]<figcaption class="wp-caption-text">Another year older, and maybe a bit wiser</figcaption></figure>
+[<img class="size-full wp-image-423  " alt="Another year old, and maybe a bit wide" src="/images/2013/01/cupcake-candles.jpg" width="500" height="667" srcset="/images/2013/01/cupcake-candles.jpg 500w, /images/2013/01/cupcake-candles-224x300.jpg 224w" sizes="(max-width: 500px) 100vw, 500px" />][4]<figcaption class="wp-caption-text">Another year older, and maybe a bit wiser</figcaption></figure>
 
 [1]: http://www.nickrobison.com/2013/01/26/happy-birthday/ "Happy Birthday!"
-[2]: http://www.nickrobison.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-27-at-10.42.31-AM.png
-[3]: http://www.nickrobison.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-27-at-10.43.30-AM.png
-[4]: http://www.nickrobison.com/wp-content/uploads/2013/01/cupcake-candles.jpg
+[2]: /images/2014/01/Screen-Shot-2014-01-27-at-10.42.31-AM.png
+[3]: /images/2014/01/Screen-Shot-2014-01-27-at-10.43.30-AM.png
+[4]: /images/2013/01/cupcake-candles.jpg

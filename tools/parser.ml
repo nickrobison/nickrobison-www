@@ -6,14 +6,17 @@ let string_replace = [
   String.lstrip;
 ]
 
+let scheme_regex =
+  (Re.seq [
+           (Re.rep1 Re.alnum);
+           Re.str "://";
+         ])
+
 (** Regex for extracting URIs from individual lines*)
 let uri_regex =
   Re.compile (Re.seq [
       (** Scheme *)
-      (Re.group (Re.seq [
-           (Re.rep1 Re.alnum);
-           Re.str "://";
-         ]));
+      (Re.group scheme_regex);
       (** Hostname *)
       (Re.group (Re.rep1 (Re.compl [
            Re.char '/';
@@ -26,6 +29,21 @@ let uri_regex =
          ])))
     ])
 
+(** Look for any URIs that match our hostname and rewrite them*)
+let rewrite_uri hostname uri =
+  print_endline ("Matching: " ^ hostname ^ " against: www.nickrobison.com");
+  if String.equal hostname "www.nickrobison.com" then begin
+    print_endline "Matched uri";
+    Re.replace_string (Re.compile (Re.seq [
+        scheme_regex;
+        Re.str "www.nickrobison.com/wp-content/uploads/";
+      ])) ~by:"/images/" uri
+  end
+  else begin
+    print_endline "No match";
+    uri
+      end
+
 let handle_uri line =
   let all = Re.all uri_regex line in
   if phys_equal (List.length all) 0 then line else begin
@@ -34,10 +52,12 @@ let handle_uri line =
         let group = Re.Group.all m in
         let hostname = Array.get group 2 in
         let params = Array.get group 3 in
+        print_endline ("Hostname: " ^ hostname);
+        print_endline ("Full name: " ^ (rewrite_uri hostname (Array.get group 0)));
         (** Within the params string, replace all the equals signs and amperands, then replace the old params with the new params in the line*)
         let params_replaced = Re.replace_string (Re.compile (Re.char '=')) ~by:"&#61;"
             (Re.replace_string (Re.compile (Re.char '&')) ~by:"&#38;" params) in
-        Re.replace_string (Re.compile (Re.str params)) params_replaced acc
+        rewrite_uri hostname (Re.replace_string (Re.compile (Re.str params)) params_replaced acc)
       ) ~init:line;
   end
 
