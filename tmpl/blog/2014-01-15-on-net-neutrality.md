@@ -173,7 +173,7 @@ Enjoy it while it lasts.
 
 
 
-[1]: http://www.boxofficemojo.com/yearly/chart//ref&#61;2008 "Movies of 2008"
+[1]: http://www.boxofficemojo.com/yearly/chart/?yr&#61;2008 "Movies of 2008"
 [2]: http://www.billboard.com/charts/2008/year-end "Albums of 2008"
 [3]: http://bizbeatblog.dallasnews.com/2014/01/att-ceo-on-net-neutrality-we-will-continue-to-abide-by-the-rules.html/
 [4]: http://www.fcc.gov/guides/wireless-devices-airplanes

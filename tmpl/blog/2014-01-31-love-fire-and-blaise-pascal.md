@@ -104,7 +104,7 @@ This is a powerful story. This is a stunning story. This is a transformative sto
 
 [1]: http://www.buzzsugar.com/15-Most-Romantic-Movie-Scenes-7372134#photo-7372180 "15 Movie Moments to Make You Vomit"
 [2]: http://www.amazon.com/In-Sunlight-Shadow-Mark-Helprin/dp/0544102606 "A Great Book, but Wordy"
-[3]: http://www.youtube.com/watch/ref&#61;XvtXgNtYFMs
-[4]: http://www.youtube.com/watch/ref&#61;62_qeGgvlpM
+[3]: http://www.youtube.com/watch?v&#61;XvtXgNtYFMs
+[4]: http://www.youtube.com/watch?v&#61;62_qeGgvlpM
 [5]: http://feastofsaints.com/ancientnew.htm "Feast of Saints"
 [6]: http://pascalianawakenings.blogspot.com/2007/11/on-this-day-pascals-night-of-fire_23.html "Pascal's Night of Fire"

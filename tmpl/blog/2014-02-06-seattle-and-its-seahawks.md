@@ -18,4 +18,4 @@ GO HAWKS!
 [2]: http://seattlesportsnet.files.wordpress.com/2013/01/imin.jpg
 [3]: http://mmqb.si.com/2014/01/20/richard-sherman-interview-michael-crabtree/
 [4]: http://bleacherreport.com/articles/1920011-marshawn-lynchs-touchdown-registered-seismic-activity
-[5]: http://www.youtube.com/watch/ref&#61;d6VHZcR4xLQ
+[5]: http://www.youtube.com/watch?v&#61;d6VHZcR4xLQ

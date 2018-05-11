@@ -280,7 +280,7 @@ I&#8217;ve attached the citations for the articles mentioned, unfortunately they
 
 
 
-<img class=" " alt="" src="https://cardiobrief.files.wordpress.com/2012/12/screen-shot-2012-12-13-at-2-57-27-pm.png/ref&#61;268/ref&#61;300" width="268" height="299" /><figcaption class="wp-caption-text">cardiobrief.files.wordpress.com</figcaption></figure>
+<img class=" " alt="" src="https://cardiobrief.files.wordpress.com/2012/12/screen-shot-2012-12-13-at-2-57-27-pm.png?w&#61;268&#38;h&#61;300" width="268" height="299" /><figcaption class="wp-caption-text">cardiobrief.files.wordpress.com</figcaption></figure>
 
 
 

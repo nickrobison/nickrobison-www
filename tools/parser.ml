@@ -1,33 +1,45 @@
 open Core
 
+(** Partially curried functions for replacing certain occurances in lines. *)
 let string_replace = [
-  (**
-  Re.replace_string (Re.compile (Re.alt [
-      (Re.str "&#8216;");
-      (Re.str "&#8217;");
-    ])) ~by:"'";
-  *)
   Re.replace_string (Re.compile (Re.str "&nbsp;")) ~by:"";
-  (**
-  Re.replace_string (Re.compile (Re.str "&#8211;")) ~by:"-";
-  *)
-  Re.replace_string (Re.compile (Re.alt [
-      (Re.str "/ref=");
-      (Re.seq [
-          (Re.alt [
-              (Re.char '?');
-              (Re.char '&');
-            ]);
-          (Re.rep1 (Re.alt [
-               Re.char '_';
-               Re.alpha;
-               Re.alnum;
-             ]));
-          (Re.char '=');
-        ]);
-    ])) ~by:"/ref&#61;";
   String.lstrip;
 ]
+
+(** Regex for extracting URIs from individual lines*)
+let uri_regex =
+  Re.compile (Re.seq [
+      (** Scheme *)
+      (Re.group (Re.seq [
+           (Re.rep1 Re.alnum);
+           Re.str "://";
+         ]));
+      (** Hostname *)
+      (Re.group (Re.rep1 (Re.compl [
+           Re.char '/';
+         ])));
+      (** Query options*)
+      (Re.group (Re.rep1 (Re.compl [
+           Re.char '"';
+           Re.char '\n';
+           Re.char ' ';
+         ])))
+    ])
+
+let handle_uri line =
+  let all = Re.all uri_regex line in
+  if phys_equal (List.length all) 0 then line else begin
+    (** Loop through all the matches and do the replace *)
+    List.fold all ~f:(fun acc m ->
+        let group = Re.Group.all m in
+        let hostname = Array.get group 2 in
+        let params = Array.get group 3 in
+        (** Within the params string, replace all the equals signs and amperands, then replace the old params with the new params in the line*)
+        let params_replaced = Re.replace_string (Re.compile (Re.char '=')) ~by:"&#61;"
+            (Re.replace_string (Re.compile (Re.char '&')) ~by:"&#38;" params) in
+        Re.replace_string (Re.compile (Re.str params)) params_replaced acc
+      ) ~init:line;
+  end
 
 let process_line (line: string) =
   List.fold string_replace ~init:line ~f:(fun l f -> f l)
@@ -92,7 +104,7 @@ let process_file in_dir file out_dir =
           (** Now, filter out lines that we don't want*)
         else begin
           let matches = Re.matches skip_regex line in
-          if phys_equal (List.length matches) 0 then md_lines := process_line line :: !md_lines
+          if phys_equal (List.length matches) 0 then md_lines := handle_uri (process_line line) :: !md_lines
         end
         done
              (** If we're in the comment, output to the yaml list*)

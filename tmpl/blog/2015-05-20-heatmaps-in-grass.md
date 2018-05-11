@@ -302,7 +302,7 @@ take a moment to marvel at what a GUI is supposed to look like.<a href="#rf10-81
 [2]: http://www.nickrobison.com/2013/07/03/compile-saga-for-mac-os-x/ "Compile SAGA for Mac OS X"
 [3]: http://trac.osgeo.org/osgeo4w/
 [4]: http://brew.sh "Do you brew?"
-[5]: https://www.google.com/url/ref&#61;t/ref&#61;j/ref&#61;/ref&#61;s/ref&#61;web/ref&#61;1/ref&#61;rja/ref&#61;8/ref&#61;0CCAQFjAA/ref&#61;http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FWorld_Geodetic_System/ref&#61;1AYGVPn_KdPJgwTNnYKQDw/ref&#61;AFQjCNG6hY1N2uckXgX7a2giTmhcx_5GrA/ref&#61;bv.74115972,d.eXY "WGS84"
+[5]: https://www.google.com/url?sa&#61;t&#38;rct&#61;j&#38;q&#61;&#38;esrc&#61;s&#38;source&#61;web&#38;cd&#61;1&#38;cad&#61;rja&#38;uact&#61;8&#38;ved&#61;0CCAQFjAA&#38;url&#61;http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FWorld_Geodetic_System&#38;ei&#61;1AYGVPn_KdPJgwTNnYKQDw&#38;usg&#61;AFQjCNG6hY1N2uckXgX7a2giTmhcx_5GrA&#38;bvm&#61;bv.74115972,d.eXY "WGS84"
 [6]: http://www.nickrobison.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-02-at-2.16.06-PM.png
 [7]: http://www.nickrobison.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-02-at-2.22.44-PM.png
 [8]: http://www.nickrobison.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-02-at-2.30.29-PM.png

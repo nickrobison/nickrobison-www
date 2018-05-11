@@ -86,7 +86,7 @@ If this is truly the case, then our witness shouldn&#8217;t be sharing the power
 
 
 
-The first chapter of Chuck Colson&#8217;s seminal book on <a title="How Now Shall We Live" href="http://www.amazon.com/How-Now-Shall-We-Live/dp/084235588X/ref&#61;sr_1_1/ref&#61;UTF8/ref&#61;1349975856/ref&#61;8-1/ref&#61;how+now+shall+we+live" target="_blank">apologetics</a> is the story of the transformation of a prison in Peru, literally from hell to heaven. He starts his book with the end result, we stand and defend the faith because this is what it leads to, not because it will pass away if we don&#8217;t, but because the world needs what we have. What a powerful, powerful image of our testimony and witness in Christ. We share the power of life and the hope of the future, not the power of hell of the fear of death.
+The first chapter of Chuck Colson&#8217;s seminal book on <a title="How Now Shall We Live" href="http://www.amazon.com/How-Now-Shall-We-Live/dp/084235588X/ref&#61;sr_1_1?ie&#61;UTF8&#38;qid&#61;1349975856&#38;sr&#61;8-1&#38;keywords&#61;how+now+shall+we+live" target="_blank">apologetics</a> is the story of the transformation of a prison in Peru, literally from hell to heaven. He starts his book with the end result, we stand and defend the faith because this is what it leads to, not because it will pass away if we don&#8217;t, but because the world needs what we have. What a powerful, powerful image of our testimony and witness in Christ. We share the power of life and the hope of the future, not the power of hell of the fear of death.
 
 
 

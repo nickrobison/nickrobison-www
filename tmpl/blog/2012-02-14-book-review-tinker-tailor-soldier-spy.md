@@ -12,4 +12,4 @@ While I&#8217;m normally a huge fan of the spy novels and international thriller
 
 **Verdict:** Pass
 
-[1]: http://www.amazon.com/Tinker-Tailor-Soldier-Spy-George/dp/014312093X/ref&#61;sr_1_1/ref&#61;UTF8/ref&#61;1329233460/ref&#61;8-1
+[1]: http://www.amazon.com/Tinker-Tailor-Soldier-Spy-George/dp/014312093X/ref&#61;sr_1_1?ie&#61;UTF8&#38;qid&#61;1329233460&#38;sr&#61;8-1
