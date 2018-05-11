@@ -18,6 +18,7 @@ posts:
       - theism
       - UW
     
+    file: 2013-04-10-book-review-where-the-conflict-really-lies.md
   -
     title: City Conversations Part 1 – Knowing God
     author: nick
@@ -38,6 +39,7 @@ posts:
       - seattle
       - truth
     
+    file: 2012-11-18-city-conversations-part-1-knowing-god.md
   -
     title: Three Minute Thesis
     author: nick
@@ -55,6 +57,7 @@ posts:
       - UW
       - virtualization
     
+    file: 2013-04-21-three-minute-thesis.md
   -
     title: He is Risen
     author: nick
@@ -71,6 +74,7 @@ posts:
       - Resurrection
       - Victory
     
+    file: 2013-03-31-he-is-risen.md
   -
     title: Home, Sweet Home
     author: nick
@@ -88,6 +92,7 @@ posts:
       - pinterest
       - twitter
     
+    file: 2013-01-03-home-sweet-home-3.md
   -
     title: '2012 – Year in Review: Books'
     author: nick
@@ -101,6 +106,7 @@ posts:
       - books
       - year in review
     
+    file: 2013-01-01-2012-year-in-review-books.md
   -
     title: On Cooking
     author: nick
@@ -115,6 +121,7 @@ posts:
       - getting takeout
       - quitting cooking
     
+    file: 2014-01-16-on-cooking.md
   -
     title: Skole
     author: nick
@@ -129,6 +136,7 @@ posts:
       - bacon
       - school
     
+    file: 2012-03-03-skole.md
   -
     title: Happy 2nd Birthday!
     author: nick
@@ -144,6 +152,7 @@ posts:
       - google analytics
       - happy birthday
     
+    file: 2014-01-27-happy-2nd-birthday.md
   -
     title: Compile SAGA for Mac OS X
     author: nick
@@ -162,22 +171,8 @@ posts:
       - kml
       - OS X
       - saga
-  -
-    title: 'Sermon: Not as the world gives'
-    author: nick
-    type: post
-    date: 2013-12-10T18:43:27+00:00
-    url: /2013/12/10/sermon-not-as-the-world-gives/
-    featured_image: /wp-content/uploads/2013/12/the_course_of_empire__destruction-large-1000x288.jpg
-    enclosure:
-      - |
-        http://s3.amazonaws.com/churchplantmedia-cms/emmanuel_anglican_church/nick_robison_peace.mp3
-        9816525
-        audio/mpeg
-        
-    categories:
-      - Sermons
     
+    file: 2013-07-03-compile-saga-for-mac-os-x.md
   -
     title: 'Book Review: The Cellist of Sarajevo'
     author: nick
@@ -193,6 +188,7 @@ posts:
       - reviews
       - sarajevo
     
+    file: 2012-02-06-book-review-the-cellist-of-sarajevo.md
   -
     title: On Net Neutrality
     author: nick
@@ -216,6 +212,7 @@ posts:
       - public utility
       - verizon
     
+    file: 2014-01-15-on-net-neutrality.md
   -
     title: this is to mother you
     author: nick
@@ -232,3 +229,625 @@ posts:
       - music
       - opiate mass
       - poetry
+    
+    file: 2012-09-30-this-is-to-mother-you.md
+  -
+    title: Danmark
+    author: admin
+    type: post
+    date: 2012-01-26T21:39:27+00:00
+    url: /2012/01/26/danmark/
+    featured_image: /wp-content/uploads/2012/01/P1100373-1000x288.jpg
+    categories:
+      - Study Abroad
+      - Travel
+    
+    file: 2012-01-26-danmark.md
+  -
+    title: Seattle and its Seahawks
+    author: nick
+    type: post
+    date: 2014-02-06T16:00:55+00:00
+    url: /2014/02/06/seattle-and-its-seahawks/
+    featured_image: /wp-content/uploads/2014/02/RM3_0087-660x330.jpg
+    categories:
+      - Lifestream
+    tags:
+      - 12th man
+      - beastquake
+      - football
+      - seahawks
+      - seattle
+    
+    file: 2014-02-06-seattle-and-its-seahawks.md
+  -
+    title: Men
+    author: nick
+    type: post
+    date: 2012-01-29T12:35:39+00:00
+    url: /2012/01/29/men/
+    featured_image: /wp-content/uploads/2012/01/funbooth-56-of-90-800x288.jpg
+    categories:
+      - Bros
+      - Photos
+    
+    file: 2012-01-29-men.md
+  -
+    title: Sir, you have something on your forehead
+    author: nick
+    type: post
+    date: -001-11-30T00:00:00+00:00
+    draft: true
+    url: /?p=755
+    categories:
+      - Uncategorized
+    
+    file: 2014-03-05-.md
+  -
+    title: Microsoft in 2014
+    author: nick
+    type: post
+    date: 2014-04-09T22:21:44+00:00
+    url: /2014/04/09/microsoft-in-2014/
+    featured_image: /wp-content/uploads/2014/04/build-2014-672x372.jpg
+    categories:
+      - Technoloy
+    tags:
+      - BUILD
+      - microsoft
+      - seattle
+      - technology
+      - windows
+    
+    file: 2014-04-09-microsoft-in-2014.md
+  -
+    title: Jesus Christ, Hope
+    author: nick
+    type: post
+    date: 2012-12-24T22:42:22+00:00
+    url: /2012/12/24/jesus-christ-hope/
+    categories:
+      - Musings
+      - Theology
+    tags:
+      - advent
+      - christ
+      - death
+      - government
+      - hope
+      - king
+      - love
+      - nations
+      - salvation
+      - violence
+    
+    file: 2012-12-24-jesus-christ-hope.md
+  -
+    title: Heatmaps in GRASS
+    author: nick
+    type: post
+    date: -001-11-30T00:00:00+00:00
+    draft: true
+    url: /?p=813
+    categories:
+      - Guides
+    
+    file: 2015-05-20-heatmaps-in-grass.md
+  -
+    title: '2013: Year in Review'
+    author: nick
+    type: post
+    date: -001-11-30T00:00:00+00:00
+    draft: true
+    url: /?p=679
+    categories:
+      - Uncategorized
+    
+    file: 2014-01-03-.md
+  -
+    title: Increase/Decrease
+    author: nick
+    type: post
+    date: 2012-09-03T05:37:57+00:00
+    url: /2012/09/03/increasedecrease/
+    categories:
+      - Musings
+      - Theology
+    tags:
+      - alturism
+      - community
+      - sacrifice
+      - socialism
+      - St. Augustine
+    
+    file: 2012-09-03-increasedecrease.md
+  -
+    title: Don’t You Care That I’m Dying?
+    author: nick
+    type: post
+    date: 2014-04-10T15:00:30+00:00
+    url: /2014/04/10/dont-you-care-that-im-dying/
+    featured_image: /wp-content/uploads/2013/01/Helsinki-Cathedral-1000x288.jpg
+    categories:
+      - Musings
+      - Policy
+      - Theology
+    tags:
+      - catholic
+      - healthcare
+      - right to die
+      - social teaching
+    
+    file: 2014-04-10-dont-you-care-that-im-dying.md
+  -
+    title: Avis
+    author: nick
+    type: post
+    date: 2012-02-01T20:13:20+00:00
+    url: /2012/02/01/avis/
+    categories:
+      - Study Abroad
+      - Travel
+    tags:
+      - danish
+      - local celebrity
+      - newspaper
+    
+    file: 2012-02-01-avis.md
+  -
+    title: subtle
+    author: nick
+    type: post
+    date: 2012-03-19T12:34:15+00:00
+    url: /2012/03/19/subtle/
+    categories:
+      - Musings
+      - Theology
+    tags:
+      - life
+      - routine
+    
+    file: 2012-03-19-subtle.md
+  -
+    title: Happy Birthday!
+    author: nick
+    type: post
+    date: 2013-01-26T23:28:20+00:00
+    url: /2013/01/26/happy-birthday/
+    featured_image: /wp-content/uploads/2013/01/cupcake-candles-500x288.jpg
+    categories:
+      - Housekeeping
+      - Lifestream
+    tags:
+      - google analytics
+      - happy birthday
+      - statistics
+      - year in review
+    
+    file: 2013-01-26-happy-birthday.md
+  -
+    title: U-Dub
+    author: nick
+    type: post
+    date: 2012-02-07T08:37:16+00:00
+    url: /2012/02/07/u-dub/
+    categories:
+      - Lifestream
+    tags:
+      - economists
+      - informatics
+      - NLM
+      - washington
+    
+    file: 2012-02-07-u-dub.md
+  -
+    title: Being Healthy
+    author: nick
+    type: post
+    date: 2012-02-07T22:31:15+00:00
+    url: /2012/02/07/being-healthy/
+    categories:
+      - Uncategorized
+    tags:
+      - healthy food
+      - wlfi
+      - youtube
+    
+    file: 2012-02-07-being-healthy.md
+  -
+    title: Seattle
+    author: nick
+    type: post
+    date: 2012-08-30T23:51:34+00:00
+    url: /2012/08/30/seattle/
+    categories:
+      - Lifestream
+    tags:
+      - comcast
+      - life
+      - seattle
+      - UW
+      - walmart
+    
+    file: 2012-08-30-seattle.md
+  -
+    title: Girl, Interrupting
+    author: nick
+    type: post
+    date: 2012-12-14T06:44:05+00:00
+    url: /2012/12/13/girl-interrupting/
+    categories:
+      - Musings
+      - Theology
+    tags:
+      - grace
+      - Jairus
+      - justice
+      - mercy
+      - pain
+      - suffering
+      - truth
+    
+    file: 2012-12-13-girl-interrupting.md
+  -
+    title: 'New Project: Informatonauts'
+    author: nick
+    type: post
+    date: 2014-01-16T16:00:02+00:00
+    url: /2014/01/16/new-project-informatonauts/
+    categories:
+      - Lifestream
+    tags:
+      - informatonauts
+      - narcissism
+      - podcasting
+      - UW
+    
+    file: 2014-01-16-new-project-informatonauts.md
+  -
+    title: one
+    author: nick
+    type: post
+    date: 2012-09-16T00:13:41+00:00
+    url: /2012/09/15/one/
+    categories:
+      - Lifestream
+    tags:
+      - ballard
+      - bellevue
+      - church
+      - food
+      - seattle
+      - UW
+      - walking
+    
+    file: 2012-09-15-one.md
+  -
+    title: A Prayer
+    author: nick
+    type: post
+    date: 2014-04-18T22:28:37+00:00
+    url: /2014/04/18/a-prayer/
+    featured_image: /wp-content/uploads/2012/09/DSC_0012-1000x288.jpg
+    categories:
+      - Art
+      - Poetry
+    tags:
+      - academia
+      - imminence
+      - james ka smith
+      - prayer
+    
+    file: 2014-04-18-a-prayer.md
+  -
+    title: '2012 – Year in Review: Travel'
+    author: nick
+    type: post
+    date: 2012-12-31T19:56:45+00:00
+    url: /2012/12/31/2012-year-in-review-travel/
+    categories:
+      - Lifestream
+    tags:
+      - travel
+      - year in review
+    
+    file: 2012-12-31-2012-year-in-review-travel.md
+  -
+    title: Dry Bones
+    author: nick
+    type: post
+    date: -001-11-30T00:00:00+00:00
+    draft: true
+    url: /?p=482
+    categories:
+      - Uncategorized
+    
+    file: 2013-02-16-.md
+  -
+    title: New Informatonauts
+    author: nick
+    type: post
+    date: 2014-01-30T01:53:50+00:00
+    url: /2014/01/29/new-informatonauts/
+    featured_image: /wp-content/uploads/2014/01/Informatonauts-2-672x372.jpg
+    categories:
+      - Lifestream
+    tags:
+      - informatonauts
+      - nerd culture
+      - podcast
+      - technology
+    
+    file: 2014-01-29-new-informatonauts.md
+  -
+    title: '2012 – Year in Review: Music'
+    author: nick
+    type: post
+    date: 2012-12-31T21:29:12+00:00
+    url: /2012/12/31/2012-year-in-review-music/
+    categories:
+      - Lifestream
+    tags:
+      - andrew booth
+      - aura dione
+      - bon iver
+      - josh garrels
+      - music
+      - paper route
+      - the opiate mass
+      - tim christensen
+    
+    file: 2012-12-31-2012-year-in-review-music.md
+  -
+    title: Koncert
+    author: nick
+    type: post
+    date: 2012-01-29T14:23:17+00:00
+    url: /2012/01/29/koncert/
+    categories:
+      - Concerts
+      - Music
+      - Study Abroad
+      - Travel
+    
+    file: 2012-01-29-koncert.md
+  -
+    title: Roskilde
+    author: nick
+    type: post
+    date: 2012-02-05T10:43:33+00:00
+    url: /2012/02/05/roskilde/
+    categories:
+      - Photos
+      - Study Abroad
+      - Travel
+      - Uncategorized
+    tags:
+      - art
+      - helvetica
+      - roskilde
+    
+    file: 2012-02-05-roskilde.md
+  -
+    title: Lent
+    author: nick
+    type: post
+    date: 2013-02-14T06:01:07+00:00
+    url: /2013/02/13/lent/
+    featured_image: /wp-content/uploads/2013/02/Books-1000x288.jpg
+    categories:
+      - Lifestream
+      - Theology
+    tags:
+      - flatland
+      - genesis
+      - healing
+      - journaling
+      - lent
+      - leon kass
+      - orthodoxy
+      - prayer
+      - quantum physics
+    
+    file: 2013-02-13-lent.md
+  -
+    title: 'Book Review: Tinker, Tailor, Soldier, Spy'
+    author: nick
+    type: post
+    date: 2012-02-14T15:54:22+00:00
+    url: /2012/02/14/book-review-tinker-tailor-soldier-spy/
+    categories:
+      - Books
+      - Reviews
+    tags:
+      - books
+      - la carre
+      - spy novels
+    
+    file: 2012-02-14-book-review-tinker-tailor-soldier-spy.md
+  -
+    title: The Problem with Sin
+    author: nick
+    type: post
+    date: 2012-10-11T17:41:02+00:00
+    url: /2012/10/11/the-problem-with-sin/
+    categories:
+      - Theology
+    tags:
+      - augustine
+      - death
+      - emmanuel
+      - hell
+      - life
+      - redemption
+      - religion
+      - sin
+    
+    file: 2012-10-11-the-problem-with-sin.md
+  -
+    title: Syddanmark
+    author: nick
+    type: post
+    date: 2012-02-22T22:54:57+00:00
+    url: /2012/02/22/syddanmark/
+    featured_image: /wp-content/uploads/2012/02/Kolding_web-1000x288.jpg
+    categories:
+      - Photos
+      - Study Abroad
+      - Travel
+    tags:
+      - kebab
+      - kolding
+      - lamps
+      - odense
+      - velje
+    
+    file: 2012-02-22-syddanmark.md
+  -
+    title: New Look, New Feel, Old Soul
+    author: nick
+    type: post
+    date: 2014-01-28T16:00:58+00:00
+    url: /2014/01/28/new-look-new-feel-old-soul/
+    featured_image: /wp-content/uploads/2013/07/468319_70689252.jpg
+    categories:
+      - Housekeeping
+    tags:
+      - "2014"
+      - nginx
+      - wordpress
+    
+    file: 2014-01-28-new-look-new-feel-old-soul.md
+  -
+    title: Updates
+    author: nick
+    type: post
+    date: 2013-03-20T23:59:42+00:00
+    url: /2013/03/20/update/
+    featured_image: /wp-content/uploads/2013/01/kittens.jpg
+    categories:
+      - Housekeeping
+      - Lifestream
+    
+    file: 2013-03-20-update.md
+  -
+    title: Servant Leadership
+    author: nick
+    type: post
+    date: -001-11-30T00:00:00+00:00
+    draft: true
+    url: /?p=221
+    categories:
+      - Uncategorized
+    
+    file: 2012-10-29-.md
+  -
+    title: A Clash of Civilizations?
+    author: nick
+    type: post
+    date: -001-11-30T00:00:00+00:00
+    draft: true
+    url: /?p=68
+    categories:
+      - Uncategorized
+    
+    file: 2012-02-03-.md
+  -
+    title: Let heaven come
+    author: nick
+    type: post
+    date: 2013-03-07T08:15:10+00:00
+    url: /2013/03/07/letheavencome/
+    featured_image: /wp-content/uploads/2013/03/663092_26111643-1000x288.jpg
+    categories:
+      - Theology
+    tags:
+      - glory
+      - God
+      - heaven
+      - jesus
+      - lovingkindness
+      - Moses
+      - sin
+      - surrender
+      - worship
+    
+    file: 2013-03-07-letheavencome.md
+  -
+    title: PeerCDN and Questions of Privacy
+    author: nick
+    type: post
+    date: -001-11-30T00:00:00+00:00
+    draft: true
+    url: /?p=600
+    categories:
+      - Uncategorized
+    
+    file: 2013-04-13-.md
+  -
+    title: Love, Fire, and Blaise Pascal
+    author: nick
+    type: post
+    date: 2014-01-31T16:00:27+00:00
+    url: /2014/01/31/love-fire-and-blaise-pascal/
+    featured_image: /wp-content/uploads/2013/01/Helsinki-Cathedral-1000x288.jpg
+    categories:
+      - Theology
+    tags:
+      - jesus
+      - love
+      - pascal
+      - St. Augustine
+    
+    file: 2014-01-31-love-fire-and-blaise-pascal.md
+  -
+    title: '2012 – Year in Review: Photos'
+    author: nick
+    type: post
+    date: 2013-01-02T18:42:10+00:00
+    url: /2013/01/02/2012-year-in-review-photos/
+    featured_image: /wp-content/uploads/2013/01/DSC_0149-1000x288.jpg
+    categories:
+      - Lifestream
+    tags:
+      - "2012"
+      - estonia
+      - family
+      - friends
+      - helsinki
+      - idaho
+      - london
+      - photos
+      - roadtrip
+      - san diego
+      - tallinn
+      - travel
+      - year in review
+    
+    file: 2013-01-02-2012-year-in-review-photos.md
+  -
+    title: '2012: Year in Review – Movies'
+    author: nick
+    type: post
+    date: 2013-01-12T03:18:13+00:00
+    url: /2013/01/11/2012-year-in-review-movies/
+    featured_image: /wp-content/uploads/2013/01/filmcamera-1000x288.jpg
+    categories:
+      - Lifestream
+    tags:
+      - guest post
+      - movies
+      - year in review
+    
+    file: 2013-01-11-2012-year-in-review-movies.md
+  -
+    title: WordPress on Amazon EC2
+    author: nick
+    type: post
+    date: -001-11-30T00:00:00+00:00
+    draft: true
+    url: /?p=388
+    categories:
+      - Uncategorized
+    
+    file: 2013-01-22-.md

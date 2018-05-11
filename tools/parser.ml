@@ -115,6 +115,8 @@ let process_file in_dir file out_dir =
   (** Now, write the md and return the yaml*)
   let output_file = Filename.concat out_dir file in
   Out_channel.write_all output_file ~data:(String.concat ?sep:(Some "\n") (List.rev !md_lines));
+  (** Add the file name, so we can look it up later in the Unikernel. *)
+  yaml_lines := ("file: " ^ file) :: !yaml_lines;
   (** We need to append the '-' to the head of the first element in the list*)
   let yaml_ordered = List.rev !yaml_lines in
   ( "-\n" ^ (add_padding 2) ^ (List.hd_exn yaml_ordered)) :: (List.tl_exn yaml_ordered |>

@@ -87,8 +87,10 @@ module Blog = struct
         body = link ^ ".md";
        
         permalink = link;
-        *)
+        
         body = link ^ ".md";
+        *)
+        body = Ezjsonm.(get_string (find p ["file"]));
         permalink = link;
       } :: acc
       end
