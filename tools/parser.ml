@@ -33,14 +33,12 @@ let uri_regex =
 let rewrite_uri hostname uri =
   print_endline ("Matching: " ^ hostname ^ " against: www.nickrobison.com");
   if String.equal hostname "www.nickrobison.com" then begin
-    print_endline "Matched uri";
     Re.replace_string (Re.compile (Re.seq [
         scheme_regex;
         Re.str "www.nickrobison.com/wp-content/uploads/";
-      ])) ~by:"/images/" uri
+      ])) ~by:"https://files.nickrobison.com/images/" uri
   end
   else begin
-    print_endline "No match";
     uri
       end
 

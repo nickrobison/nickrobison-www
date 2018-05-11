@@ -10,9 +10,9 @@ So, while in the end it may just be football. Ok, it is just football, and when 
 
 GO HAWKS!
 
-<a href="/images/2014/02/WP_20140205_007.jpg"><img class="aligncenter  wp-image-745" alt="Coach Pete" src="/images/2014/02/WP_20140205_007.jpg" width="2592" height="1456" srcset="/images/2014/02/WP_20140205_007.jpg 2592w, /images/2014/02/WP_20140205_007-300x168.jpg 300w, /images/2014/02/WP_20140205_007-1024x575.jpg 1024w" sizes="(max-width: 2592px) 100vw, 2592px" /></a>
+<a href="https://files.nickrobison.com/images/2014/02/WP_20140205_007.jpg"><img class="aligncenter  wp-image-745" alt="Coach Pete" src="https://files.nickrobison.com/images/2014/02/WP_20140205_007.jpg" width="2592" height="1456" srcset="https://files.nickrobison.com/images/2014/02/WP_20140205_007.jpg 2592w, https://files.nickrobison.com/images/2014/02/WP_20140205_007-300x168.jpg 300w, https://files.nickrobison.com/images/2014/02/WP_20140205_007-1024x575.jpg 1024w" sizes="(max-width: 2592px) 100vw, 2592px" /></a>
 
-<a href="/images/2014/02/WP_20140205_015.jpg"><img class="aligncenter  wp-image-746" alt="Legion of Boom" src="/images/2014/02/WP_20140205_015.jpg" width="1456" height="2592" srcset="/images/2014/02/WP_20140205_015.jpg 1456w, /images/2014/02/WP_20140205_015-168x300.jpg 168w, /images/2014/02/WP_20140205_015-575x1024.jpg 575w" sizes="(max-width: 1456px) 100vw, 1456px" /></a>
+<a href="https://files.nickrobison.com/images/2014/02/WP_20140205_015.jpg"><img class="aligncenter  wp-image-746" alt="Legion of Boom" src="https://files.nickrobison.com/images/2014/02/WP_20140205_015.jpg" width="1456" height="2592" srcset="https://files.nickrobison.com/images/2014/02/WP_20140205_015.jpg 1456w, https://files.nickrobison.com/images/2014/02/WP_20140205_015-168x300.jpg 168w, https://files.nickrobison.com/images/2014/02/WP_20140205_015-575x1024.jpg 575w" sizes="(max-width: 1456px) 100vw, 1456px" /></a>
 
 [1]: https://twitter.com/MikeBakerAP/status/418132555020255233/photo/1
 [2]: http://seattlesportsnet.files.wordpress.com/2013/01/imin.jpg

@@ -1,12 +1,12 @@
 2012 wasn&#8217;t a huge year for me with music. I tend to buy almost all of my albums on physical CDs or Vinyl and with traveling that wasn&#8217;t really feasible. Still, my iTunes shows 514 new songs over 68 artists and 79 albums. Looking at my <a title="Nick Robison's last.fm" href="http://www.last.fm/user/nickrobison" target="_blank">last.fm</a> account (still going strong!) you can see my top artists:
 
-<a href="http://www.nickrobison.com/2012/12/31/2012-year-in-review-music/screen-shot-2012-12-31-at-3-01-43-pm/" rel="attachment wp-att-278"><img class="aligncenter  wp-image-278" alt="2012TopArtists" src="/images/2012/12/Screen-Shot-2012-12-31-at-3.01.43-PM.png" width="520" height="326" srcset="/images/2012/12/Screen-Shot-2012-12-31-at-3.01.43-PM.png 650w, /images/2012/12/Screen-Shot-2012-12-31-at-3.01.43-PM-300x187.png 300w, /images/2012/12/Screen-Shot-2012-12-31-at-3.01.43-PM-479x300.png 479w" sizes="(max-width: 520px) 100vw, 520px" /></a>
+<a href="http://www.nickrobison.com/2012/12/31/2012-year-in-review-music/screen-shot-2012-12-31-at-3-01-43-pm/" rel="attachment wp-att-278"><img class="aligncenter  wp-image-278" alt="2012TopArtists" src="https://files.nickrobison.com/images/2012/12/Screen-Shot-2012-12-31-at-3.01.43-PM.png" width="520" height="326" srcset="https://files.nickrobison.com/images/2012/12/Screen-Shot-2012-12-31-at-3.01.43-PM.png 650w, https://files.nickrobison.com/images/2012/12/Screen-Shot-2012-12-31-at-3.01.43-PM-300x187.png 300w, https://files.nickrobison.com/images/2012/12/Screen-Shot-2012-12-31-at-3.01.43-PM-479x300.png 479w" sizes="(max-width: 520px) 100vw, 520px" /></a>
 
 
 
 Sufjan strong! Of course, it doesn&#8217;t hurt that I have 20 of his albums. Looking at my top tracks:
 
-<a href="http://www.nickrobison.com/2012/12/31/2012-year-in-review-music/screen-shot-2012-12-31-at-3-33-06-pm/" rel="attachment wp-att-279"><img class="aligncenter  wp-image-279" alt="2012TopTracks" src="/images/2012/12/Screen-Shot-2012-12-31-at-3.33.06-PM.png" width="456" height="309" srcset="/images/2012/12/Screen-Shot-2012-12-31-at-3.33.06-PM.png 651w, /images/2012/12/Screen-Shot-2012-12-31-at-3.33.06-PM-300x203.png 300w, /images/2012/12/Screen-Shot-2012-12-31-at-3.33.06-PM-441x300.png 441w" sizes="(max-width: 456px) 100vw, 456px" /></a>
+<a href="http://www.nickrobison.com/2012/12/31/2012-year-in-review-music/screen-shot-2012-12-31-at-3-33-06-pm/" rel="attachment wp-att-279"><img class="aligncenter  wp-image-279" alt="2012TopTracks" src="https://files.nickrobison.com/images/2012/12/Screen-Shot-2012-12-31-at-3.33.06-PM.png" width="456" height="309" srcset="https://files.nickrobison.com/images/2012/12/Screen-Shot-2012-12-31-at-3.33.06-PM.png 651w, https://files.nickrobison.com/images/2012/12/Screen-Shot-2012-12-31-at-3.33.06-PM-300x203.png 300w, https://files.nickrobison.com/images/2012/12/Screen-Shot-2012-12-31-at-3.33.06-PM-441x300.png 441w" sizes="(max-width: 456px) 100vw, 456px" /></a>
 
 
 
