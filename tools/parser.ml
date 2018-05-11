@@ -1,21 +1,31 @@
 open Core
 
-
 let string_replace = [
+  (**
   Re.replace_string (Re.compile (Re.alt [
       (Re.str "&#8216;");
       (Re.str "&#8217;");
     ])) ~by:"'";
+  *)
   Re.replace_string (Re.compile (Re.str "&nbsp;")) ~by:"";
+  (**
   Re.replace_string (Re.compile (Re.str "&#8211;")) ~by:"-";
-  Re.replace_string (Re.compile (Re.seq [
+  *)
+  Re.replace_string (Re.compile (Re.alt [
       (Re.str "/ref=");
-      (Re.rep (Re.compl [Re.char '"']));
-    ])) ~by:"/replaced";
-  Re.replace_string (Re.compile (Re.seq [
-      (Re.str "/?");
-      (Re.rep (Re.compl [Re.char '"']));
-    ])) ~by:"replaced";
+      (Re.seq [
+          (Re.alt [
+              (Re.char '?');
+              (Re.char '&');
+            ]);
+          (Re.rep1 (Re.alt [
+               Re.char '_';
+               Re.alpha;
+               Re.alnum;
+             ]));
+          (Re.char '=');
+        ]);
+    ])) ~by:"/ref&#61;";
   String.lstrip;
 ]
 

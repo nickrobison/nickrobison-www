@@ -1,4 +1,4 @@
-Last Sunday, I had the opportunity to deliver the weekly homily at <a title="Emmanuel Anglican" href="http://emmanuelseattle.com" target="_blank">Emmanuel Anglican Church</a> during our celebration of the Advent week of 'peace'.
+Last Sunday, I had the opportunity to deliver the weekly homily at <a title="Emmanuel Anglican" href="http://emmanuelseattle.com" target="_blank">Emmanuel Anglican Church</a> during our celebration of the Advent week of &#8216;peace&#8217;.
 
 
 
@@ -6,11 +6,11 @@ The sermon was based on a <a title="Jesus Christ, Hope" href="http://www.nickrob
 
 
 
-In listening to the audio the first thing that struck me was 'man, do I talk fast'. As one of my friends so elegantly put it. 'You need to reign in the tongue racehorses that pull your mental chariot'. So, apologies for the extremely rapid pace of the dialogue. I'm working on that.
+In listening to the audio the first thing that struck me was &#8216;man, do I talk fast&#8217;. As one of my friends so elegantly put it. &#8216;You need to reign in the tongue racehorses that pull your mental chariot&#8217;. So, apologies for the extremely rapid pace of the dialogue. I&#8217;m working on that.
 
 
 
-You can get the audio <a title="Peace - Audio" href="http://s3.amazonaws.com/churchplantmedia-cms/emmanuel_anglican_church/nick_robison_peace.mp3" target="_blank">here</a> and the slides are available [here][1] (which you may want to follow along with, as there's a bit of artwork involved).
+You can get the audio <a title="Peace - Audio" href="http://s3.amazonaws.com/churchplantmedia-cms/emmanuel_anglican_church/nick_robison_peace.mp3" target="_blank">here</a> and the slides are available [here][1] (which you may want to follow along with, as there&#8217;s a bit of artwork involved).
 
 
 

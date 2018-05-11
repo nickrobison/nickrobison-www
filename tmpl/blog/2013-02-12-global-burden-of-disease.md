@@ -1,12 +1,12 @@
-On Thursday I had the opportunity to attend the annual report of the _UW School of Medicine_ by Dean Ramsey, you can see the powerpoint and videos <a title="Annual Address 2013" href="http://www.uwmedicine.org/Global/News/Announcements/2013/Pages/Dean-Ramsey's-Annual-Address.aspx" target="_blank">here</a> and it's probably worth your time. It's truly an honor and a blessing to be apart of a community as dynamic and innovative as this one, the sheer amount of scientific output and the impact of that output is pretty incredible.
+On Thursday I had the opportunity to attend the annual report of the _UW School of Medicine_ by Dean Ramsey, you can see the powerpoint and videos <a title="Annual Address 2013" href="http://www.uwmedicine.org/Global/News/Announcements/2013/Pages/Dean-Ramsey's-Annual-Address.aspx" target="_blank">here</a> and it&#8217;s probably worth your time. It&#8217;s truly an honor and a blessing to be apart of a community as dynamic and innovative as this one, the sheer amount of scientific output and the impact of that output is pretty incredible.
 
 
 
-As we entered the auditorium we were handed a piece of history, for the first time in its history _<a title="The Lancet" href="http://www.thelancet.com/journals/lancet/issue/current" target="_blank">The Lancet</a> _devoted an entire issue to a single research project, and not only a single issue, but three issues combined into one. That project was _The Global Burden of Disease Study 2010_ lead by the UW _<a title="IHME" href="http://www.healthmetricsandevaluation.org/" target="_blank">Institute for Health Metrics and Evaluation</a>. _Needless to say the University is extremely excited about this and given the institute is only a few years old, it's a pretty big deal. One of the articles they mentioned particularly stood out to me and I thought warranted discussion here.
+As we entered the auditorium we were handed a piece of history, for the first time in its history _<a title="The Lancet" href="http://www.thelancet.com/journals/lancet/issue/current" target="_blank">The Lancet</a> _devoted an entire issue to a single research project, and not only a single issue, but three issues combined into one. That project was _The Global Burden of Disease Study 2010_ lead by the UW _<a title="IHME" href="http://www.healthmetricsandevaluation.org/" target="_blank">Institute for Health Metrics and Evaluation</a>. _Needless to say the University is extremely excited about this and given the institute is only a few years old, it&#8217;s a pretty big deal. One of the articles they mentioned particularly stood out to me and I thought warranted discussion here.
 
 
 
-The article is titled _A comparative risk assessment of burden of disease and injury attributable to 67 risk factors and risk factor clusters in 21 regions, 1990-2010: a systematic analysis for the Global Burden of Disease Study 2010 (1). _After all, it's not a real academic paper unless it has a ridiculously long and wordy title (the article also has a crazy number of co-authors).
+The article is titled _A comparative risk assessment of burden of disease and injury attributable to 67 risk factors and risk factor clusters in 21 regions, 1990-2010: a systematic analysis for the Global Burden of Disease Study 2010 (1). _After all, it&#8217;s not a real academic paper unless it has a ridiculously long and wordy title (the article also has a crazy number of co-authors).
 
 
 
@@ -26,11 +26,11 @@ As the title states, they looked at 67 different risk factors (e.g. Lead exposur
 
 
 
-For clarification, childhood underweight comes from malnutrition and poverty in both breastfeeding and early (up to 5 years) development, it also includes nutritional deficiencies found in native diets (such as rice). Household air pollution largely comes from burning waste indoors to cook food, most developed areas don't have this type of pollution, it's primarily found in poverty stricken areas. Tobacco smoke speaks for itself.
+For clarification, childhood underweight comes from malnutrition and poverty in both breastfeeding and early (up to 5 years) development, it also includes nutritional deficiencies found in native diets (such as rice). Household air pollution largely comes from burning waste indoors to cook food, most developed areas don&#8217;t have this type of pollution, it&#8217;s primarily found in poverty stricken areas. Tobacco smoke speaks for itself.
 
 
 
-In 2010, the findings were different, here the 3 leading factors were: high blood pressure (7.0%), tobacco smoking including second-hand smoke (6.3%) and alcohol use (5.5%). That's a pretty significant difference and I think really shows that we've begun a shift from death by poverty to death by prosperity. In looking at the percent change of various risk factors the 6 with the greatest increase are:
+In 2010, the findings were different, here the 3 leading factors were: high blood pressure (7.0%), tobacco smoking including second-hand smoke (6.3%) and alcohol use (5.5%). That&#8217;s a pretty significant difference and I think really shows that we&#8217;ve begun a shift from death by poverty to death by prosperity. In looking at the percent change of various risk factors the 6 with the greatest increase are:
 
 
 
@@ -55,7 +55,7 @@ High Sodium: +33%
 </li>
 </ul>
 
-Of those, 4 could be classified into the upper tiers of <em>Maslow's Hierarchy </em>(2), and are strongly linked to an overabundance as opposed to an absence of supply.
+Of those, 4 could be classified into the upper tiers of <em>Maslow&#8217;s Hierarchy </em>(2), and are strongly linked to an overabundance as opposed to an absence of supply.
 
 
 
@@ -245,30 +245,30 @@ Global Deaths
 </tr>
 </table>
 
-Note: The 'Global Death' numbers are my own calculation based on data provided in the article, they are not part of the original study.
+Note: The &#8216;Global Death&#8217; numbers are my own calculation based on data provided in the article, they are not part of the original study.
 
 
 
-3 of the 1990 chief burdens are on this list, and we can see a definite upwards trend in the numbers of raw deaths globally, yet the number of deaths related to these factors are decreasing by a significant margin. This indicates that we're seeing a <em>true</em> decrease in these types issues, not just a confounding shift. It's important to note that for the <em>sub-Sahara </em>regions of Africa childhood underweight and household pollutants are still the leading disease burdens, but in areas such as <em>Southern Latin America</em> and <em>Eastern Europe</em> these issues have largely shrunk.
+3 of the 1990 chief burdens are on this list, and we can see a definite upwards trend in the numbers of raw deaths globally, yet the number of deaths related to these factors are decreasing by a significant margin. This indicates that we&#8217;re seeing a <em>true</em> decrease in these types issues, not just a confounding shift. It&#8217;s important to note that for the <em>sub-Sahara </em>regions of Africa childhood underweight and household pollutants are still the leading disease burdens, but in areas such as <em>Southern Latin America</em> and <em>Eastern Europe</em> these issues have largely shrunk.
 
 
 
-So what does this mean? I think there are 2 major takeaways from this data, but it's important to note that what follows is a high level abstraction. It don't have the space or the energy to fully elucidate on mechanisms for improving low-income healthcare, nor from this article can we find causative factors, merely trends, which I'll try to address.
+So what does this mean? I think there are 2 major takeaways from this data, but it&#8217;s important to note that what follows is a high level abstraction. It don&#8217;t have the space or the energy to fully elucidate on mechanisms for improving low-income healthcare, nor from this article can we find causative factors, merely trends, which I&#8217;ll try to address.
 
 
 
 <ol>
 <li>
-Over the past 20 years we've seen definite fruit of anti-poverty and global health initiatives around the world. There are a myriad of reasons for this, but the data shows that globally poverty is on the downward slope. Just the other week <em>The Gates Foundation </em>announced that we've accomplished the goal of <a title="Gates Foundation Annual Letter 2013" href="http://t.co/ZsR6bt4L" target="_blank">halving extreme poverty by 2015</a>. Granted there's still an incredible amount of work to do, and things are not bright and sunny in all quadrants of the globe, but things are improving, and noticably so. Even more encouraging, discussions can now shift towards building sustainable health care systems and improving not only quantity of life, but quality. We're now starting to see regions with the ability to make decisions that extend beyond the immediate and into the near and long-term future. And that's extremely exciting.
+Over the past 20 years we&#8217;ve seen definite fruit of anti-poverty and global health initiatives around the world. There are a myriad of reasons for this, but the data shows that globally poverty is on the downward slope. Just the other week <em>The Gates Foundation </em>announced that we&#8217;ve accomplished the goal of <a title="Gates Foundation Annual Letter 2013" href="http://t.co/ZsR6bt4L" target="_blank">halving extreme poverty by 2015</a>. Granted there&#8217;s still an incredible amount of work to do, and things are not bright and sunny in all quadrants of the globe, but things are improving, and noticably so. Even more encouraging, discussions can now shift towards building sustainable health care systems and improving not only quantity of life, but quality. We&#8217;re now starting to see regions with the ability to make decisions that extend beyond the immediate and into the near and long-term future. And that&#8217;s extremely exciting.
 </li>
 <li>
-Prosperity is killing us, literally. In as much as we now have choices in how we live our lives, we're beginning to show that we're really not all that good at making healthy choices. We need to work towards teaching people how to take ownership of their own lifestyles and wellbeing, encouraging and incentivizing healthy living. Unfortunately, these new issues don't lend themselves particularly well to large scale, 'government style' interventions. Resource problems can be solved by providing resources, but issues of lifestyle and choice can only be solved through direct intervention into the lives of the individuals. It will be really interesting to see how the NGOs and Sovereign governments respond to the changing needs of the next 20 years. The same methods we've used in the past will most likely prove insufficient in the future, it'll take new thinking, new initiatives, and new methods.
+Prosperity is killing us, literally. In as much as we now have choices in how we live our lives, we&#8217;re beginning to show that we&#8217;re really not all that good at making healthy choices. We need to work towards teaching people how to take ownership of their own lifestyles and wellbeing, encouraging and incentivizing healthy living. Unfortunately, these new issues don&#8217;t lend themselves particularly well to large scale, &#8216;government style&#8217; interventions. Resource problems can be solved by providing resources, but issues of lifestyle and choice can only be solved through direct intervention into the lives of the individuals. It will be really interesting to see how the NGOs and Sovereign governments respond to the changing needs of the next 20 years. The same methods we&#8217;ve used in the past will most likely prove insufficient in the future, it&#8217;ll take new thinking, new initiatives, and new methods.
 </li>
 </ol>
 
 
 
-Overall, I think this study is extremely exciting, it's encouraging to see real results that have a measurable impact on the lives of real people. This isn't just some random statistic or obscure factoid, this is the truth that 163% <em>less</em> people died from malnutrition in the past 20 years. That's 1,403,835 brothers, sisters, uncles, aunts, moms, dads, best friends, who are now alive and being. I'm optimistic that the next 20 years will see similar improvements in lifespan and quality, and now the fight has come to us. As citizens of the '1st world' it's a little embarrassing that we're leading the world in deaths, and deaths due to things like lack of exercise, overeating, and smoking, death by luxuries. But now we have the opportunity to change that, we can lead the change in our own communities and families to truly save lives.
+Overall, I think this study is extremely exciting, it&#8217;s encouraging to see real results that have a measurable impact on the lives of real people. This isn&#8217;t just some random statistic or obscure factoid, this is the truth that 163% <em>less</em> people died from malnutrition in the past 20 years. That&#8217;s 1,403,835 brothers, sisters, uncles, aunts, moms, dads, best friends, who are now alive and being. I&#8217;m optimistic that the next 20 years will see similar improvements in lifespan and quality, and now the fight has come to us. As citizens of the &#8216;1st world&#8217; it&#8217;s a little embarrassing that we&#8217;re leading the world in deaths, and deaths due to things like lack of exercise, overeating, and smoking, death by luxuries. But now we have the opportunity to change that, we can lead the change in our own communities and families to truly save lives.
 
 
 
@@ -276,11 +276,11 @@ So go forth!
 
 
 
-I've attached the citations for the articles mentioned, unfortunately they're not <em>Open Access, </em>but maybe you can be sneaky and find them.
+I&#8217;ve attached the citations for the articles mentioned, unfortunately they&#8217;re not <em>Open Access, </em>but maybe you can be sneaky and find them.
 
 
 
-<img class=" " alt="" src="https://cardiobrief.files.wordpress.com/2012/12/screen-shot-2012-12-13-at-2-57-27-pm.png?w=268&h=300" width="268" height="299" /><figcaption class="wp-caption-text">cardiobrief.files.wordpress.com</figcaption></figure>
+<img class=" " alt="" src="https://cardiobrief.files.wordpress.com/2012/12/screen-shot-2012-12-13-at-2-57-27-pm.png/ref&#61;268/ref&#61;300" width="268" height="299" /><figcaption class="wp-caption-text">cardiobrief.files.wordpress.com</figcaption></figure>
 
 
 

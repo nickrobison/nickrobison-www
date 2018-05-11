@@ -14,7 +14,7 @@
 
 > for when you need me I will do
 
-> what your own mother didn't do
+> what your own mother didn&#8217;t do
 
 > which is to mother you
 > 
@@ -42,7 +42,7 @@
 > 
 > 
 > 
-> for child I am so glad I've found you
+> for child I am so glad I&#8217;ve found you
 
 > although my arms have always been around you
 
@@ -54,7 +54,7 @@
 > 
 > 
 > 
-> and I'm here to mother you, to comfort and to get you through
+> and I&#8217;m here to mother you, to comfort and to get you through
 
 > through when your nights are lonely
 
@@ -66,4 +66,4 @@
 
 __
 
-- <a title="This Is To Mother You" href="http://theopiatemass.bandcamp.com/track/this-is-to-mother-you" target="_blank">The Opiate Mass <em>Volume 2: Albatross </em></a>
+&#8211; <a title="This Is To Mother You" href="http://theopiatemass.bandcamp.com/track/this-is-to-mother-you" target="_blank">The Opiate Mass <em>Volume 2: Albatross </em></a>

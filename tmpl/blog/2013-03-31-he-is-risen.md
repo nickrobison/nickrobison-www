@@ -32,7 +32,7 @@
 
 > <sup>18 </sup>I will gather those of you who mourn for the festival,
 
-> so that you will no longer suffer reproach.<sup>[<a title="See footnote c" href="http://www.biblegateway.com/passagereplaced">c</a>]</sup>
+> so that you will no longer suffer reproach.<sup>[<a title="See footnote c" href="http://www.biblegateway.com/passage//ref&#61;zephaniah%203/ref&#61;ESV#fen-ESV-22839c">c</a>]</sup>
 
 > <sup>19 </sup>Behold, at that time I will deal
 
@@ -60,7 +60,7 @@
 > 
 > 
 
-> - Zephaniah 3:14-20 (ESV)
+> &#8211; Zephaniah 3:14-20 (ESV)
 > 
 > 
 > 

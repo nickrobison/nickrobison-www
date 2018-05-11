@@ -1,4 +1,4 @@
-I don't normally write book reviews, for a time I gave it a shot, but it turned out to be incredibly tedious for both the writer and the reader; however, over the past 4 months I've had the opportunity to be involved in a faculty/graduate student luncheon here at UW discussing <a title="Alvin Plantinga" href="http://en.wikipedia.org/wiki/Alvin_Plantinga" target="_blank">Dr. Alvin Plantinga's</a> new book _Where the Conflict Really Lies: Science, Religion, & Naturalism_ and I thought it deserved a bit of discussion here.
+I don&#8217;t normally write book reviews, for a time I gave it a shot, but it turned out to be incredibly tedious for both the writer and the reader; however, over the past 4 months I&#8217;ve had the opportunity to be involved in a faculty/graduate student luncheon here at UW discussing <a title="Alvin Plantinga" href="http://en.wikipedia.org/wiki/Alvin_Plantinga" target="_blank">Dr. Alvin Plantinga&#8217;s</a> new book _Where the Conflict Really Lies: Science, Religion, & Naturalism_ and I thought it deserved a bit of discussion here.
 
 <figure style="width: 300px" class="wp-caption alignnone">
 
@@ -12,7 +12,7 @@ Starting out, I had really high hopes for this book. I had heard from many sourc
 
 > there is superficial conflict but deep concord between science and **theistic** religion, but superficial concord and deep conflict between science and naturalism.
 > 
-> - pg. 3 (emphasis added)
+> &#8211; pg. 3 (emphasis added)
 > 
 > 
 
@@ -30,12 +30,12 @@ However; it’s not all bad news. The logical consistency displayed throughout t
 
 In conclusion, if you’re a potential looking for resources in explaining theism and the pitfalls of unguided naturalism, look no further then this book. If, on the other hand, you find yourself in the position of defending Christian faith and explaining reasons for why you believe what you do this is probably not the best book to consult.
 
-Unfortunately, at this point, I don't have a ton of great resources to recommend to readers.  A number of years ago I often referenced J.P Moreland's <a title="Scaling the Secular City" href="http://www.amazon.com/Scaling-Secular-City-Defense-Christianity/dp/0801062225/replaced" target="_blank"><em>Scaling the Secular City</em></a>_ _ as a go-to resource for philosophical points. John Polkinghorne has some great books such as _<a title="Quantum Physics and Theology" href="http://www.amazon.com/Quantum-Physics-Theology-Unexpected-Kinship/dp/0300138407/replaced" target="_blank">Quantum Physics and Theology</a> _and _<a title="Belief in God in an Age of Science" href="http://www.amazon.com/Belief-Science-Polkinghorne-F-R-S-K-B-E/dp/0300099495/replaced" target="_blank">Belief in God in an Age of Science</a> _which are similar to Plantinga's book, but a little different. A lot of people that I know rave about Tim Keller's <a title="The Reason for God" href="http://www.amazon.com/Reason-God-Belief-Age-Skepticism/dp/1594483493/replaced" target="_blank"><em>The Reason for God</em></a>_, _though I haven't read it and can't speak to its content. Finally, Alister McGrath's _<a title="Glimpsing the Face of God" href="http://www.amazon.com/Glimpsing-Face-God-Alister-McGrath/dp/0745951422/replaced" target="_blank">Glimpsing the Face of God</a>_ is absolutely phenomenal, though quite different from the preceding resources.
+Unfortunately, at this point, I don&#8217;t have a ton of great resources to recommend to readers.  A number of years ago I often referenced J.P Moreland&#8217;s <a title="Scaling the Secular City" href="http://www.amazon.com/Scaling-Secular-City-Defense-Christianity/dp/0801062225/ref&#61;sr_1_1/ref&#61;books/ref&#61;UTF8/ref&#61;1365571257/ref&#61;1-1" target="_blank"><em>Scaling the Secular City</em></a>_ _ as a go-to resource for philosophical points. John Polkinghorne has some great books such as _<a title="Quantum Physics and Theology" href="http://www.amazon.com/Quantum-Physics-Theology-Unexpected-Kinship/dp/0300138407/ref&#61;sr_1_sc_1/ref&#61;books/ref&#61;UTF8/ref&#61;1365571360/ref&#61;1-1-spell" target="_blank">Quantum Physics and Theology</a> _and _<a title="Belief in God in an Age of Science" href="http://www.amazon.com/Belief-Science-Polkinghorne-F-R-S-K-B-E/dp/0300099495/ref&#61;sr_1_1/ref&#61;books/ref&#61;UTF8/ref&#61;1365571402/ref&#61;1-1" target="_blank">Belief in God in an Age of Science</a> _which are similar to Plantinga&#8217;s book, but a little different. A lot of people that I know rave about Tim Keller&#8217;s <a title="The Reason for God" href="http://www.amazon.com/Reason-God-Belief-Age-Skepticism/dp/1594483493/ref&#61;sr_1_1/ref&#61;books/ref&#61;UTF8/ref&#61;1365571451/ref&#61;1-1" target="_blank"><em>The Reason for God</em></a>_, _though I haven&#8217;t read it and can&#8217;t speak to its content. Finally, Alister McGrath&#8217;s _<a title="Glimpsing the Face of God" href="http://www.amazon.com/Glimpsing-Face-God-Alister-McGrath/dp/0745951422/ref&#61;sr_1_1/ref&#61;books/ref&#61;UTF8/ref&#61;1365571510/ref&#61;1-1" target="_blank">Glimpsing the Face of God</a>_ is absolutely phenomenal, though quite different from the preceding resources.
 
 
 
-If there are any books that you've found to be especially insightful for helpful, please leave a link in the comments.
+If there are any books that you&#8217;ve found to be especially insightful for helpful, please leave a link in the comments.
 
 
 
-[1]: http://www.amazon.com/gp/product/0199812098/replaced
+[1]: http://www.amazon.com/gp/product/0199812098/ref&#61;s9_psimh_gw_p14_d0_i1/ref&#61;ATVPDKIKX0DER/ref&#61;center-2/ref&#61;1EX4K1MVBMPP48MY8P1M/ref&#61;101/ref&#61;1389517282/ref&#61;507846

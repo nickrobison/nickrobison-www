@@ -1,4 +1,4 @@
-Today is Christmas Eve and the 4th and final week of Advent, during which the 'Love' candle is lit to signify God's love for us in sending his son Jesus. For me personally, this week (what has elapsed thus far) has been about something different, hope. In the light of the turmoil of past several weeks, both corporately and personally, it seems a bit crass that things are continuing as they always have, the sun rises and sets, the days are getting colder (finally), the snow's beginning to fall and yet, the world around us seems to be spinning out of our control.
+Today is Christmas Eve and the 4th and final week of Advent, during which the &#8216;Love&#8217; candle is lit to signify God&#8217;s love for us in sending his son Jesus. For me personally, this week (what has elapsed thus far) has been about something different, hope. In the light of the turmoil of past several weeks, both corporately and personally, it seems a bit crass that things are continuing as they always have, the sun rises and sets, the days are getting colder (finally), the snow&#8217;s beginning to fall and yet, the world around us seems to be spinning out of our control.
 
 Against this chaos is arrayed the mystery and the promise of Advent, the arrival of the great King who would set all things right, or so it is proclaimed.
 
@@ -8,7 +8,7 @@ As I began this week I was reading and reflecting on the story of The Tower of B
 > 
 > Then they said, “Come, let us build ourselves a city and a tower with its top in the heavens, and let us make a name for ourselves, lest we be dispersed over the face of the whole earth.”
 > 
-> - Genesis 11:4 (ESV)
+> &#8211; Genesis 11:4 (ESV)
 
 
 
@@ -18,17 +18,17 @@ A tower to the top of the heavens, lest the earth flood again. A city to protect
 > 
 > But, as men cannot engender new forces, but only unite and direct existing ones, they have no other means of preserving themselves than the formation, by aggregation, of a sum of forces great enough to overcome the resistance. These they have to bring into play by means of a single motive power, and cause to act in concert.
 > 
-> - Ch. 6 'The Social Contract'
+> &#8211; Ch. 6 &#8216;The Social Contract&#8217;
 
 
 
-Immediately we see, out of fear rises power and violence. And indeed, the history of humanity is written in blood and war. Homer's great epic opens:
+Immediately we see, out of fear rises power and violence. And indeed, the history of humanity is written in blood and war. Homer&#8217;s great epic opens:
 
 > 
 > 
 > Sing, Goddess of the wrath of Achilles&#8230;.
 > 
-> - 'The Iliad' Book I
+> &#8211; &#8216;The Iliad&#8217; Book I
 
 
 
@@ -38,17 +38,17 @@ The Harvard historian David Landes in discussing the Spanish conquest of the Inc
 > 
 > It is a bloody story, full of cruelty and bad faith, condescension and sanctimony; but one must not judge these events in terms of the good, the bad, and the ugly. They all deserved one another.
 > 
-> - 'The Wealth and Poverty of Nations' Ch. 7
+> &#8211; &#8216;The Wealth and Poverty of Nations&#8217; Ch. 7
 
 
 
-Indeed, history has been man's quest for glory, whatever the cost. H. Richard Neibuhr observes that:
+Indeed, history has been man&#8217;s quest for glory, whatever the cost. H. Richard Neibuhr observes that:
 
 > 
 > 
 > &#8230;man strives for glory, lest no glory be had.
 > 
-> - 'The Responsible Self' Ch. 5
+> &#8211; &#8216;The Responsible Self&#8217; Ch. 5
 
 
 
@@ -62,21 +62,21 @@ Against this dispair the hope of Advent arrives. But is it enough? Is it more th
 > 
 > Hear it every Christmas time
 
-> But hope and history won't rhyme
+> But hope and history won&#8217;t rhyme
 
-> So what's it worth
+> So what&#8217;s it worth
 
 > This peace on Earth
 > 
-> - 'Peace on Earth' | U2
+> &#8211; &#8216;Peace on Earth&#8217; | U2
 
 
 
-But the story of Christ's birth is truly something different. Christ was born in a stable, not in a palace. His was immaculate conception, not divine intercourse. At his birth no comets appeared, the mountains did not shake. Zeus remained in Olympus. Heroes are always born into conflict, born to fathers fearful of usurpation, or absent mothers. His was an uneventful entry into the world unheralded by strife or paternal jealousy. People at the time would have know the ancient stories, they would have known the patterns of divinity and monarchal inheritance. They would have known strife, war, and fear. The _Pax Romana_ (if it can even be called that) was just beginning, ending unrest, conquest, and civil war. Yet, this was different. If this truly was the messiah, if this was God incarnate, he would represent a decisive break from the patterns of old, he would not be a god they knew.
+But the story of Christ&#8217;s birth is truly something different. Christ was born in a stable, not in a palace. His was immaculate conception, not divine intercourse. At his birth no comets appeared, the mountains did not shake. Zeus remained in Olympus. Heroes are always born into conflict, born to fathers fearful of usurpation, or absent mothers. His was an uneventful entry into the world unheralded by strife or paternal jealousy. People at the time would have know the ancient stories, they would have known the patterns of divinity and monarchal inheritance. They would have known strife, war, and fear. The _Pax Romana_ (if it can even be called that) was just beginning, ending unrest, conquest, and civil war. Yet, this was different. If this truly was the messiah, if this was God incarnate, he would represent a decisive break from the patterns of old, he would not be a god they knew.
 
 
 
-But that's the point. He is something different, his divinity is not the divinity they're used to. He's not the same old god, he hasn't come to do the same old things. This is not cyclical time, this is a great leap forward (to co-opt the phrase). But this still doesn't answer the question, is this merely a hope only for the salvation of the believers? Does this have anything to offer for the world at large? Did God come to do more then save us from our sin or make us moral people?
+But that&#8217;s the point. He is something different, his divinity is not the divinity they&#8217;re used to. He&#8217;s not the same old god, he hasn&#8217;t come to do the same old things. This is not cyclical time, this is a great leap forward (to co-opt the phrase). But this still doesn&#8217;t answer the question, is this merely a hope only for the salvation of the believers? Does this have anything to offer for the world at large? Did God come to do more then save us from our sin or make us moral people?
 
 > 
 > 
@@ -106,11 +106,11 @@ But that's the point. He is something different, his divinity is not the divinit
 
 > The zeal of the Lord of hosts will do this.
 > 
-> - Isaiah 9:6-7 (ESV)
+> &#8211; Isaiah 9:6-7 (ESV)
 
 
 
-'&#8230; and the government shall be upon his shoulders'. This single phrase smashes through the walls of the religious circles and pours out into the streets proclaiming that yes, this hope is for everyone. The Kingdom of God is at hand and it is not for the elected few. Christ is different, he represents a break from the scars old, from the strivings for glory and power, and a chance for something new. The arrival of Christ is the ushering in of the kingdom of Christ, not in the sense of a government of man, but a chance for the redemption of man himself through a divine presence the like the world has never seen before. No longer will man be made 'good' through submission to the law, the limits of power observed by all the great thinkers will finally be overcome by making each man accountable to a perfect source of laws and his innermost desires, his inner strife will be made right through the perfect love of a divine savior. Man has nothing in him to save his soul, but Christ will do that for him.
+&#8216;&#8230; and the government shall be upon his shoulders&#8217;. This single phrase smashes through the walls of the religious circles and pours out into the streets proclaiming that yes, this hope is for everyone. The Kingdom of God is at hand and it is not for the elected few. Christ is different, he represents a break from the scars old, from the strivings for glory and power, and a chance for something new. The arrival of Christ is the ushering in of the kingdom of Christ, not in the sense of a government of man, but a chance for the redemption of man himself through a divine presence the like the world has never seen before. No longer will man be made &#8216;good&#8217; through submission to the law, the limits of power observed by all the great thinkers will finally be overcome by making each man accountable to a perfect source of laws and his innermost desires, his inner strife will be made right through the perfect love of a divine savior. Man has nothing in him to save his soul, but Christ will do that for him.
 
 > 
 > 
@@ -124,17 +124,17 @@ But that's the point. He is something different, his divinity is not the divinit
 
 > Bring me your peace and my wounds, they will heal
 > 
-> - 'The Voice' | Eimear Quinn
+> &#8211; &#8216;The Voice&#8217; | Eimear Quinn
 
 
 
-We stand in tension with the past, we cannot undo the pain, we cannot unlearn what we know, and we cannot expect new life when standing squarely in the traditions and mindsets that brought us here in the first place. Humanity does not have the answer to the world's ils, we've tried and nothing seems to work. Man will never be at peace, there is too much resistance.
+We stand in tension with the past, we cannot undo the pain, we cannot unlearn what we know, and we cannot expect new life when standing squarely in the traditions and mindsets that brought us here in the first place. Humanity does not have the answer to the world&#8217;s ils, we&#8217;ve tried and nothing seems to work. Man will never be at peace, there is too much resistance.
 
 > 
 > 
 > In the world you will have tribulation. But take heart; I have overcome the world.
 > 
-> - John 16:33b (ESV)
+> &#8211; John 16:33b (ESV)
 
 
 
@@ -142,7 +142,7 @@ Take heart, the world has already been overcome, in him there is not more resist
 
 
 
-As we celebrate the Lord's entry into this world know that we celebrate not simply our salvation from sins, or the fulfillment of years of waiting, but we celebrate the one true answer to the pain and bloodshed of the world around us. Christ is coming! Christ is here!
+As we celebrate the Lord&#8217;s entry into this world know that we celebrate not simply our salvation from sins, or the fulfillment of years of waiting, but we celebrate the one true answer to the pain and bloodshed of the world around us. Christ is coming! Christ is here!
 
 > 
 > 

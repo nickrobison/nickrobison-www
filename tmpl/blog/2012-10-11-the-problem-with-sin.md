@@ -1,4 +1,4 @@
-Why is being a sinner such a big deal? In our culture there are few things more condemning then accusing a person of sin. Which is really an interesting concept considering that 'sinning' is a result of breaking a defined moral code; however, if one does not subscribe to said moral code they should not feel guilty for failing to uphold all its standards, and especially the moral concept of 'sin', as it refers not simply to a moral system, but to an inherently religious one. Sin is an offense against a god, but if you don't believe in said god, why should be concerned with offending it? I certainly don't fear for the wrath of Apollos. In real life however, this rarely seems to be the case, walk up to any acquaintance, or random person on the street, call them a sinner and watch their reaction (please don't do this), it will range from indignation, to rage, to that loathing we reserve for only the worst episodes of our favorite TV shows, or that one kid in class who always blurts out the answers (I am intimately familiar with this situation). Now, try this same action on a Christian acquaintance, invariably the response you'll get is a slightly puzzled 'yes?', agreeing with your point but failing to divine the purpose of pointing out such an obvious fact.
+Why is being a sinner such a big deal? In our culture there are few things more condemning then accusing a person of sin. Which is really an interesting concept considering that &#8216;sinning&#8217; is a result of breaking a defined moral code; however, if one does not subscribe to said moral code they should not feel guilty for failing to uphold all its standards, and especially the moral concept of &#8216;sin&#8217;, as it refers not simply to a moral system, but to an inherently religious one. Sin is an offense against a god, but if you don&#8217;t believe in said god, why should be concerned with offending it? I certainly don&#8217;t fear for the wrath of Apollos. In real life however, this rarely seems to be the case, walk up to any acquaintance, or random person on the street, call them a sinner and watch their reaction (please don&#8217;t do this), it will range from indignation, to rage, to that loathing we reserve for only the worst episodes of our favorite TV shows, or that one kid in class who always blurts out the answers (I am intimately familiar with this situation). Now, try this same action on a Christian acquaintance, invariably the response you&#8217;ll get is a slightly puzzled &#8216;yes?&#8217;, agreeing with your point but failing to divine the purpose of pointing out such an obvious fact.
 
 
 
@@ -6,17 +6,17 @@ So, why is this the case?
 
 
 
-Aside from the high level of moral condescension, I am so holy that I am able to look down upon your sub-par level of moral compliance and point out your failings as such, calling someone a sinner is in fact condemning them to hell, and by extension condemning them to death. We know quite clearly from the book of Romans that the ultimate resultant of sin is death (8:2, 6:23) (we're ignoring of course the fact that the ultimate resultant of life is death, here we're concerned with death in terms of a larger spiritual dynamic), so being in possession of sin is being in possession of an express ticket to a place you probably don't want to go. This isn't merely a scriptural assertion, it logically follows that a perfect God would be unable to be in true relationship with imperfect objects without sacrificing a least a measure of his perfection, and since perfection for God is not a state of achievement but a state of being, he can no more give up his perfection as I can give up being a bit of a nerd, it's innate to who I am (a quite poor example, I know). So, that explains the severity of the accusation of sin, but not the difference in the responses between the religious and the non-religious, or still the question of why a secular person feels some sense of obligation to a religious moral code.
+Aside from the high level of moral condescension, I am so holy that I am able to look down upon your sub-par level of moral compliance and point out your failings as such, calling someone a sinner is in fact condemning them to hell, and by extension condemning them to death. We know quite clearly from the book of Romans that the ultimate resultant of sin is death (8:2, 6:23) (we&#8217;re ignoring of course the fact that the ultimate resultant of life is death, here we&#8217;re concerned with death in terms of a larger spiritual dynamic), so being in possession of sin is being in possession of an express ticket to a place you probably don&#8217;t want to go. This isn&#8217;t merely a scriptural assertion, it logically follows that a perfect God would be unable to be in true relationship with imperfect objects without sacrificing a least a measure of his perfection, and since perfection for God is not a state of achievement but a state of being, he can no more give up his perfection as I can give up being a bit of a nerd, it&#8217;s innate to who I am (a quite poor example, I know). So, that explains the severity of the accusation of sin, but not the difference in the responses between the religious and the non-religious, or still the question of why a secular person feels some sense of obligation to a religious moral code.
 
 
 
-I submit to you a theory, one that I have observed in my own experiences and validated through the experiences of others, as always, your mileage may vary. I submit to you the idea that most people believe in some form of god and most (though perhaps a smaller number then the first group) believe in the idea of hell. There's a belief in an overarching moral-ethical system, and though they may not know what it is, most people will do their best to keep it. And here's where the divergence occurs, a humanist system is incapable of separating a person's actions from the person's self. _Congito ergo sum_ becomes _Facium ergo sum_ I DO therefore I am (thanks Google), because the self, the person, has arisen out of chaos for no definite reason, its purpose, its value, must be generated by doing. You are what you eat, and your choices make you (so says a purely mechanistic system), and since sin is the antithesis of the divine (e.g. evil) saying a person does sin (or evil) is equivalent to saying they are, in their essence, evil. So while a person may not be 'good', no one is, but at least they're trying, at least they're not evil. But if their essence is evil (a scathing condemnation) how can they ever hope to enter into the presence of whatever divine entity ordered the world? How can they ever hope to be 'good' if they are evil? There is a sense of definiteness to sin, a seemingly unrecoverable situation. Is it any wonder people would take offense to being called sinners? And this illustrates the great divorce between the secular and the religious, Christians are quite comfortable with the idea of sin (perhaps too comfortable in many cases), again in Romans we see that sin is in fact the natural state of mankind (3:23), man was born into sin, his flesh is evil but his soul has hope for redemption. This isn't a singularly Christian concept, much of ancient philosophy is concerned with the idea of redemption of the flesh; however, only Christianity offers a logically coherent system of redemption (another time, another place). Thus, to a Christian, being called a sinner is not a startling revelation, or even a condemning one, for we have the redemption of the flesh through the person of Jesus Christ. We are not eternally separated from the divine by our own failings, because we have been justified not by our own works (actions stemming from the sinful flesh) but by the actions of the Lord Jesus (Romans 3:23-28). Thus sin is not a pronouncement of death, but an observation of reality, and a reiteration of the need for redemption and the hope of true life. This however is only good news for those who choose to see Christ as Lord, without him there is no hope, so pronouncing sin on a person, devoid of the person of Christ, is pronouncing a death sentence, which  it seems to me, to borrow a lyric from hip-hop (I think I can do that in a religious post):
+I submit to you a theory, one that I have observed in my own experiences and validated through the experiences of others, as always, your mileage may vary. I submit to you the idea that most people believe in some form of god and most (though perhaps a smaller number then the first group) believe in the idea of hell. There&#8217;s a belief in an overarching moral-ethical system, and though they may not know what it is, most people will do their best to keep it. And here&#8217;s where the divergence occurs, a humanist system is incapable of separating a person&#8217;s actions from the person&#8217;s self. _Congito ergo sum_ becomes _Facium ergo sum_ I DO therefore I am (thanks Google), because the self, the person, has arisen out of chaos for no definite reason, its purpose, its value, must be generated by doing. You are what you eat, and your choices make you (so says a purely mechanistic system), and since sin is the antithesis of the divine (e.g. evil) saying a person does sin (or evil) is equivalent to saying they are, in their essence, evil. So while a person may not be &#8216;good&#8217;, no one is, but at least they&#8217;re trying, at least they&#8217;re not evil. But if their essence is evil (a scathing condemnation) how can they ever hope to enter into the presence of whatever divine entity ordered the world? How can they ever hope to be &#8216;good&#8217; if they are evil? There is a sense of definiteness to sin, a seemingly unrecoverable situation. Is it any wonder people would take offense to being called sinners? And this illustrates the great divorce between the secular and the religious, Christians are quite comfortable with the idea of sin (perhaps too comfortable in many cases), again in Romans we see that sin is in fact the natural state of mankind (3:23), man was born into sin, his flesh is evil but his soul has hope for redemption. This isn&#8217;t a singularly Christian concept, much of ancient philosophy is concerned with the idea of redemption of the flesh; however, only Christianity offers a logically coherent system of redemption (another time, another place). Thus, to a Christian, being called a sinner is not a startling revelation, or even a condemning one, for we have the redemption of the flesh through the person of Jesus Christ. We are not eternally separated from the divine by our own failings, because we have been justified not by our own works (actions stemming from the sinful flesh) but by the actions of the Lord Jesus (Romans 3:23-28). Thus sin is not a pronouncement of death, but an observation of reality, and a reiteration of the need for redemption and the hope of true life. This however is only good news for those who choose to see Christ as Lord, without him there is no hope, so pronouncing sin on a person, devoid of the person of Christ, is pronouncing a death sentence, which  it seems to me, to borrow a lyric from hip-hop (I think I can do that in a religious post):
 
 
 
-> Well that's a pretty bad way to start a conversation.
+> Well that&#8217;s a pretty bad way to start a conversation.
 > 
-> - Kanye West 'Power'
+> &#8211; Kanye West &#8216;Power&#8217;
 
 
 
@@ -26,11 +26,11 @@ Over the years the Church has done an excellent job placing sin front and center
 
 > Almighty God, you are always more ready to hear than we to pray, and to give more than we either desire or deserve.
 > 
-> - Daily Collect for the 16th Sunday after Pentacost
+> &#8211; Daily Collect for the 16th Sunday after Pentacost
 
 
 
-But without that last part, without the promise of redemption, we don't speak the voice of hope, but the voice of death. If we approach people and start with death, how do we think we can get to the life? Or, if someone doesn't believe in 'our version of god' why would the threat of spending eternity apart from him be any kind of incentive?
+But without that last part, without the promise of redemption, we don&#8217;t speak the voice of hope, but the voice of death. If we approach people and start with death, how do we think we can get to the life? Or, if someone doesn&#8217;t believe in &#8216;our version of god&#8217; why would the threat of spending eternity apart from him be any kind of incentive?
 
 As I was discussing this idea with my <a title="The Twitter of Mark Robison" href="https://twitter.com/markarobison" target="_blank">Dad</a> he pointed out the story of Zacchaeus from Luke 19, especially this verse:
 
@@ -38,21 +38,21 @@ As I was discussing this idea with my <a title="The Twitter of Mark Robison" hre
 
 > And Zacchaeus stood and said to the Lord, “Behold, Lord, the half of my goods I give to the poor. And if I have defrauded anyone of anything, I restore it fourfold.”
 > 
-> - Luke 19:8 ESV
+> &#8211; Luke 19:8 ESV
 
 
 
-Awesome! Repenting of sin and making restitution, a glorious win against the power of the devil! But something is conspicuously absent from the preceding verses. Christ never called out his sin, never, go ahead, read the passage 'in context', it's not there. Zacchaeus simply looked into the eyes of the Lord and was convicted of his wrong and moved to repentance. That's it, no great sermons, no fire from on high, simply being in the presence of the Lord, looking upon the face of the Savior, was enough for him to renounce his former life.
+Awesome! Repenting of sin and making restitution, a glorious win against the power of the devil! But something is conspicuously absent from the preceding verses. Christ never called out his sin, never, go ahead, read the passage &#8216;in context&#8217;, it&#8217;s not there. Zacchaeus simply looked into the eyes of the Lord and was convicted of his wrong and moved to repentance. That&#8217;s it, no great sermons, no fire from on high, simply being in the presence of the Lord, looking upon the face of the Savior, was enough for him to renounce his former life.
 
 
 
 > Indeed, I count everything as loss because of the surpassing worth of knowing Christ Jesus my Lord. For his sake I have suffered the loss of all things and count them as rubbish, in order that I may gain Christ.
 > 
-> - Philippians 3:8 ESV
+> &#8211; Philippians 3:8 ESV
 
 
 
-As St. Augustine once said 'Love God, and do as you please'. The idea being that as we come further and further into the presence of the Lord, as we continue to seek his face, as we begin to fully know the mind of Christ, we become less and less enthralled with our own sin, we desire less our own glory and more the glory of God. True relationship with God cannot but lead to a transformation of the soul, and it will always result in a change in our behavior and desires. In the words of the old hymn:
+As St. Augustine once said &#8216;Love God, and do as you please&#8217;. The idea being that as we come further and further into the presence of the Lord, as we continue to seek his face, as we begin to fully know the mind of Christ, we become less and less enthralled with our own sin, we desire less our own glory and more the glory of God. True relationship with God cannot but lead to a transformation of the soul, and it will always result in a change in our behavior and desires. In the words of the old hymn:
 
 
 
@@ -64,43 +64,43 @@ As St. Augustine once said 'Love God, and do as you please'. The idea being that
 
 > In the light of His glory and grace.
 > 
-> - Turn Your Eyes Upon Jesus
+> &#8211; Turn Your Eyes Upon Jesus
 
 
 
-Christ is the hope of glory, being free of sin is the result of change it isn't the end in itself. As Father Dan at Emmanuel says:
+Christ is the hope of glory, being free of sin is the result of change it isn&#8217;t the end in itself. As Father Dan at Emmanuel says:
 
 
 
-> The Holy Spirit doesn't convict us of our sin for the sake of sin itself, but for how we're treating the Divine Majesty.
+> The Holy Spirit doesn&#8217;t convict us of our sin for the sake of sin itself, but for how we&#8217;re treating the Divine Majesty.
 
 
 
-If this is truly the case, then our witness shouldn't be sharing the power of death (which is nothing) but the story of life, the hope of Christ, and his transforming power in our lives. How do we do that? I'm glad you asked, by doing exactly what the Lord has commanded us:
+If this is truly the case, then our witness shouldn&#8217;t be sharing the power of death (which is nothing) but the story of life, the hope of Christ, and his transforming power in our lives. How do we do that? I&#8217;m glad you asked, by doing exactly what the Lord has commanded us:
 
 
 
 > In the same way, let your light shine before others, so that<span style="font-size: xx-small;"><span style="line-height: 10px;"> </span></span>they may see your good works and give glory to your Father who is in heaven.
 > 
-> - Matthew 5:16 ESV
+> &#8211; Matthew 5:16 ESV
 
 
 
-The first chapter of Chuck Colson's seminal book on <a title="How Now Shall We Live" href="http://www.amazon.com/How-Now-Shall-We-Live/dp/084235588X/replaced" target="_blank">apologetics</a> is the story of the transformation of a prison in Peru, literally from hell to heaven. He starts his book with the end result, we stand and defend the faith because this is what it leads to, not because it will pass away if we don't, but because the world needs what we have. What a powerful, powerful image of our testimony and witness in Christ. We share the power of life and the hope of the future, not the power of hell of the fear of death.
+The first chapter of Chuck Colson&#8217;s seminal book on <a title="How Now Shall We Live" href="http://www.amazon.com/How-Now-Shall-We-Live/dp/084235588X/ref&#61;sr_1_1/ref&#61;UTF8/ref&#61;1349975856/ref&#61;8-1/ref&#61;how+now+shall+we+live" target="_blank">apologetics</a> is the story of the transformation of a prison in Peru, literally from hell to heaven. He starts his book with the end result, we stand and defend the faith because this is what it leads to, not because it will pass away if we don&#8217;t, but because the world needs what we have. What a powerful, powerful image of our testimony and witness in Christ. We share the power of life and the hope of the future, not the power of hell of the fear of death.
 
 
 
 > &#8230;always being prepared to make a defense to anyone who asks you for a reason for the hope that is in you; yet do it with gentleness and respect, <sup>16 </sup>having a good conscience, so that, when you are slandered, those who revile your good behavior in Christ may be put to shame.
 > 
-> - 1 Peter 3:15-16 ESV
+> &#8211; 1 Peter 3:15-16 ESV
 
 
 
-The famous 'apologetics' verse in the bible, a reason for the HOPE you have within you, and the intrinsic link between our witness and our actions. Elton Trueblood once wrote 'no one has ever been argued into the kingdom of God', but in scripture we see that merely a touch from God, a glance into his eyes is enough to change a person forever. Likewise, as the image of Christ in the world we are the reflection of his glory and his triumph over death, we must at all times, in all ways, live worthy of that calling and not allow our sinful nature to occlude that reflection. We must show the world that living a life pleasing to God is a worthwhile endeavor, that he is indeed worthy of our praise and obedience.
+The famous &#8216;apologetics&#8217; verse in the bible, a reason for the HOPE you have within you, and the intrinsic link between our witness and our actions. Elton Trueblood once wrote &#8216;no one has ever been argued into the kingdom of God&#8217;, but in scripture we see that merely a touch from God, a glance into his eyes is enough to change a person forever. Likewise, as the image of Christ in the world we are the reflection of his glory and his triumph over death, we must at all times, in all ways, live worthy of that calling and not allow our sinful nature to occlude that reflection. We must show the world that living a life pleasing to God is a worthwhile endeavor, that he is indeed worthy of our praise and obedience.
 
 
 
-And now dear reader, I use the singular because I'm sure only my father has slogged through all of this to reach the belabored conclusion (and Lori of course). Through our actions and our words, let us always give glory to God above, the God of all peace who longs to pour out blessing upon us and redeem us from the chains of death. Let us not tell the story of death, but the story of life and in everything proclaim the mystery of faith, the truth of the only hope the world has for redemption and true life.
+And now dear reader, I use the singular because I&#8217;m sure only my father has slogged through all of this to reach the belabored conclusion (and Lori of course). Through our actions and our words, let us always give glory to God above, the God of all peace who longs to pour out blessing upon us and redeem us from the chains of death. Let us not tell the story of death, but the story of life and in everything proclaim the mystery of faith, the truth of the only hope the world has for redemption and true life.
 
 
 
