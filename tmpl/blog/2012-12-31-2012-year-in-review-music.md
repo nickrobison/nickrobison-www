@@ -14,7 +14,7 @@ I&#8217;m not really proud of this list. Reveals a darker, club-like side of mys
 
 **New Artists:**<figure style="width: 348px" class="wp-caption aligncenter">
 
-[<img class=" " alt="" src="http://www.lydtapet.net/wp-content/uploads/image/damn_crystals.jpg" width="348" height="179" />][1]<figcaption class="wp-caption-text">Tim Christensen and the Damn Crystals &#8211; http://www.lydtapet.net/</figcaption></figure> 
+<img class=" " alt="" src="http://www.lydtapet.net/wp-content/uploads/image/damn_crystals.jpg" width="348" height="179" /><figcaption class="wp-caption-text">Tim Christensen and the Damn Crystals &#8211; http://www.lydtapet.net/</figcaption></figure> 
 
 My host parents took me to see these guys in concert when I first got to Denmark. They&#8217;re a pretty great rock band and one of the most famous in the Danish music scene. Their new album just came out and it&#8217;s pretty great.
 
@@ -22,7 +22,7 @@ My host parents took me to see these guys in concert when I first got to Denmark
 
 
 
-[<img class=" alignnone" alt="" src="https://2.bp.blogspot.com/-aHXxMWrcne0/T-SBZ_tigHI/AAAAAAAADO8/1xzD2dJ-fXI/s1600/aura.jpg" width="384" height="238" />][2]
+<img class=" alignnone" alt="" src="https://2.bp.blogspot.com/-aHXxMWrcne0/T-SBZ_tigHI/AAAAAAAADO8/1xzD2dJ-fXI/s1600/aura.jpg" width="384" height="238" />
 
 Dansk pop to the max! Aura is fierce, loud, and awesome. You couldn&#8217;t go into a club or store without hearing some Aura on the radio. Looking forward to her making a splash in the states.
 
@@ -30,13 +30,13 @@ Dansk pop to the max! Aura is fierce, loud, and awesome. You couldn&#8217;t go i
 
 
 
-[<img class=" alignnone" alt="" src="https://userserve-ak.last.fm/serve/500/56877581/Josh+Garrels+JoshGarrels.png" />][3]
+<img class=" alignnone" alt="" src="https://userserve-ak.last.fm/serve/500/56877581/Josh+Garrels+JoshGarrels.png" />
 
 A friend of mine turned me on to this guy. I wasn&#8217;t prepared to like him as much as I do. Really chill folk, mixed with some rock and a little bit of hip-hop. Indiana native now transplanted to Oregon (almost cool). Even more awesome is the fact that he&#8217;s a solid Christian with a great faith and testimony. And to top it all off, he released his latest album for free in FLAC format, I like this guy.
 
 <figure style="width: 500px" class="wp-caption alignnone">
 
-[<img alt="" src="https://3.bp.blogspot.com/-m3-qtISDNHk/TeBgBv9GqtI/AAAAAAAAAts/2BwTYlNmUOA/s1600/paperroute.jpg" width="500" height="375" />][4]<figcaption class="wp-caption-text">Paper Route &#8211; blog.hegreaterthani.com</figcaption></figure> 
+<img alt="" src="https://3.bp.blogspot.com/-m3-qtISDNHk/TeBgBv9GqtI/AAAAAAAAAts/2BwTYlNmUOA/s1600/paperroute.jpg" width="500" height="375" /><figcaption class="wp-caption-text">Paper Route &#8211; blog.hegreaterthani.com</figcaption></figure> 
 
 
 

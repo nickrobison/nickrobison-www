@@ -72,6 +72,7 @@ module Blog = struct
     let posts = Ezjsonm.(get_array (find yaml ["posts"])) in
     List.fold_left (fun acc p ->
         let title =  Ezjsonm.(get_string (find p ["title"])) in
+        let url = Ezjsonm.(get_string (find p ["url"])) in
         Log.info (fun f -> f "Parsing [%s]" title);
         let draft = Ezjsonm.mem p ["draft"] in
         if draft then acc
@@ -83,15 +84,9 @@ module Blog = struct
         updated = date;
         authors = [nick];
         subject = title;
-        (**
-        body = link ^ ".md";
-       
-        permalink = link;
-        
-        body = link ^ ".md";
-        *)
         body = Ezjsonm.(get_string (find p ["file"]));
-        permalink = link;
+        (** We have to trim off the leading / which comes by default from wordpress. *)
+        permalink = String.sub url 1 ((String.length url) - 1);
       } :: acc
       end
       ) [] posts

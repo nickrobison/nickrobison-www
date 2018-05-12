@@ -1,9 +1,50 @@
 open Core
 
+let replace_markdown line =
+  let new_line = ref line in
+  let regex = Re.compile (Re.alt [(Re.seq [
+      Re.group (Re.str "[");
+      Re.char '<';
+      Re.rep1 Re.alpha;
+      Re.char ' ';
+    ]);
+     Re.seq [
+      Re.str "/>";
+      Re.group (Re.seq [
+          Re.str "][";
+          Re.rep1 Re.digit;
+          Re.char ']';
+        ])
+    ]
+    ]) in
+  let matches = Re.all regex !new_line in
+  let left_match = List.hd matches in
+  match left_match with
+  | None -> !new_line
+  | Some l ->
+    let left_groups = Re.Group.all l in
+    Array.iter left_groups ~f:(fun g -> print_endline ("Left match group: " ^ g));
+    new_line := Re.replace_string (Re.compile (Re.str (Array.get left_groups 2))) ~by:"" !new_line;
+    let right_match = List.nth matches 1 in
+    match right_match with
+    | None -> !new_line
+    | Some r ->
+      let right_groups = Re.Group.all r in
+       Array.iter right_groups ~f:(fun g -> print_endline ("Right match group: " ^ g));
+      Re.replace_string (Re.compile (Re.str (Array.get right_groups 2))) ~by:"<" !new_line
+
+
 (** Partially curried functions for replacing certain occurances in lines. *)
 let string_replace = [
   Re.replace_string (Re.compile (Re.str "&nbsp;")) ~by:"";
+  (** Remove markdown image links. *)
   String.lstrip;
+  Re.replace_string (Re.compile (Re.str "[<")) ~by:"<";
+  Re.replace_string (Re.compile (Re.seq [
+      Re.str "/>][";
+      Re.rep1 Re.digit;
+      Re.char ']';
+    ])) ~by:"/>";
 ]
 
 let scheme_regex =
@@ -31,7 +72,6 @@ let uri_regex =
 
 (** Look for any URIs that match our hostname and rewrite them*)
 let rewrite_uri hostname uri =
-  print_endline ("Matching: " ^ hostname ^ " against: www.nickrobison.com");
   if String.equal hostname "www.nickrobison.com" then begin
     Re.replace_string (Re.compile (Re.seq [
         scheme_regex;
@@ -50,8 +90,6 @@ let handle_uri line =
         let group = Re.Group.all m in
         let hostname = Array.get group 2 in
         let params = Array.get group 3 in
-        print_endline ("Hostname: " ^ hostname);
-        print_endline ("Full name: " ^ (rewrite_uri hostname (Array.get group 0)));
         (** Within the params string, replace all the equals signs and amperands, then replace the old params with the new params in the line*)
         let params_replaced = Re.replace_string (Re.compile (Re.char '=')) ~by:"&#61;"
             (Re.replace_string (Re.compile (Re.char '&')) ~by:"&#38;" params) in

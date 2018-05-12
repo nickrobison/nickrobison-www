@@ -32,7 +32,7 @@
 
 > <sup>18 </sup>I will gather those of you who mourn for the festival,
 
-> so that you will no longer suffer reproach.<sup>[<a title="See footnote c" href="http://www.biblegateway.com/passage/?search&#61;zephaniah%203&#38;version&#61;ESV#fen-ESV-22839c">c</a>]</sup>
+> so that you will no longer suffer reproach.<sup><a title="See footnote c" href="http://www.biblegateway.com/passage/?search&#61;zephaniah%203&#38;version&#61;ESV#fen-ESV-22839c">c</a>]</sup>
 
 > <sup>19 </sup>Behold, at that time I will deal
 

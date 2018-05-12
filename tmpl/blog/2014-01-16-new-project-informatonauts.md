@@ -2,7 +2,7 @@ There comes a time in very man&#8217;s life, when he looks at his buddy and utte
 
 
 
-[<img class="aligncenter size-full wp-image-697" alt="Informatonauts Logo" src="https://files.nickrobison.com/images/2014/01/Informatonauts-Logo.png" width="1400" height="1400" srcset="https://files.nickrobison.com/images/2014/01/Informatonauts-Logo.png 1400w, https://files.nickrobison.com/images/2014/01/Informatonauts-Logo-150x150.png 150w, https://files.nickrobison.com/images/2014/01/Informatonauts-Logo-300x300.png 300w, https://files.nickrobison.com/images/2014/01/Informatonauts-Logo-1024x1024.png 1024w" sizes="(max-width: 1400px) 100vw, 1400px" />][1]
+<img class="aligncenter size-full wp-image-697" alt="Informatonauts Logo" src="https://files.nickrobison.com/images/2014/01/Informatonauts-Logo.png" width="1400" height="1400" srcset="https://files.nickrobison.com/images/2014/01/Informatonauts-Logo.png 1400w, https://files.nickrobison.com/images/2014/01/Informatonauts-Logo-150x150.png 150w, https://files.nickrobison.com/images/2014/01/Informatonauts-Logo-300x300.png 300w, https://files.nickrobison.com/images/2014/01/Informatonauts-Logo-1024x1024.png 1024w" sizes="(max-width: 1400px) 100vw, 1400px" />
 
 
 

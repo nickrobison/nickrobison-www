@@ -2,7 +2,7 @@ I don&#8217;t normally write book reviews, for a time I gave it a shot, but it t
 
 <figure style="width: 300px" class="wp-caption alignnone">
 
-[<img class="  " alt="" src="https://3.bp.blogspot.com/-2RIidhenA28/T0YhTOGGLZI/AAAAAAAAH-Q/CexBYZl_avw/s1600/where+the+conflict+really+lies.jpeg" width="300" height="451" />][1]<figcaption class="wp-caption-text">apologetics315.com</figcaption></figure> 
+<img class="  " alt="" src="https://3.bp.blogspot.com/-2RIidhenA28/T0YhTOGGLZI/AAAAAAAAH-Q/CexBYZl_avw/s1600/where+the+conflict+really+lies.jpeg" width="300" height="451" /><figcaption class="wp-caption-text">apologetics315.com</figcaption></figure> 
 
 
 
