@@ -10,7 +10,9 @@ Though I really did NOT get the chance to see much of what I was looking forward
 
 
 
-5. Hope Springs (Mandate Pictures)<figure style="width: 220px" class="wp-caption alignnone">
+5. Hope Springs (Mandate Pictures)
+
+<figure  class="wp-caption alignnone">
 
 <img alt="" src="http://upload.wikimedia.org/wikipedia/en/thumb/0/03/Hope_Springs_2012.jpg/220px-Hope_Springs_2012.jpg" width="220" height="321" /><figcaption class="wp-caption-text">wikimedia.org</figcaption></figure> 
 
@@ -18,7 +20,9 @@ What an incredibly underrated film. I barely even heard anything about it, until
 
 
 
-4. Brave (Disney/Pixar)<figure style="width: 210px" class="wp-caption alignnone">
+4. Brave (Disney/Pixar)
+
+<figure  class="wp-caption alignnone">
 
 <img class=" " alt="" src="http://upload.wikimedia.org/wikipedia/en/9/96/Brave_Poster.jpg" width="210" height="311" /><figcaption class="wp-caption-text">wikimedia.org</figcaption></figure> 
 
@@ -26,7 +30,9 @@ This movie was much much more than the trailers cracked it up to be. I heard mix
 
 
 
-3. Pitch Perfect (Universal Pictures)<figure style="width: 206px" class="wp-caption alignnone">
+3. Pitch Perfect (Universal Pictures)
+
+<figure  class="wp-caption alignnone">
 
 <img class=" " alt="" src="http://upload.wikimedia.org/wikipedia/en/4/46/Promotional_poster_for_film_%22Pitch_Perfect%22.jpg" width="206" height="326" /><figcaption class="wp-caption-text">wikimedia.org</figcaption></figure> 
 
@@ -34,7 +40,9 @@ Just for fun. Okay? Who would I be if I hadn’t seen Rebel Wilson and Anna Kend
 
 
 
-2. Perks of Being a Wallflower (Summit Entertainment)<figure style="width: 204px" class="wp-caption alignnone">
+2. Perks of Being a Wallflower (Summit Entertainment)
+
+<figure  class="wp-caption alignnone">
 
 <img class=" " alt="" src="http://upload.wikimedia.org/wikipedia/en/0/0b/The_Perks_of_Being_a_Wallflower_Poster.jpg" width="204" height="302" /><figcaption class="wp-caption-text">wikimedia.org</figcaption></figure> 
 
@@ -42,7 +50,9 @@ This was my favorite book when I was fifteen. Naturally, I was terrified of it b
 
 
 
-1. Django Unchained (The Weinstein Company)<figure style="width: 203px" class="wp-caption alignnone">
+1. Django Unchained (The Weinstein Company)
+
+<figure  class="wp-caption alignnone">
 
 <img class=" " alt="" src="http://upload.wikimedia.org/wikipedia/en/8/8b/Django_Unchained_Poster.jpg" width="203" height="301" /><figcaption class="wp-caption-text">wikimedia.org</figcaption></figure> 
 

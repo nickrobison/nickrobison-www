@@ -31,20 +31,51 @@ let replace_markdown line =
     | Some r ->
       let right_groups = Re.Group.all r in
        Array.iter right_groups ~f:(fun g -> print_endline ("Right match group: " ^ g));
-      Re.replace_string (Re.compile (Re.str (Array.get right_groups 2))) ~by:"<" !new_line
+       Re.replace_string (Re.compile (Re.str (Array.get right_groups 2))) ~by:"<" !new_line
 
+(** Regex for pulling things out of the figures. *)
+let figure_reg = (Re.compile (Re.seq([
+      Re.str "<figure";
+      Re.rep1 Re.notnl;
+      Re.group (Re.seq([
+          Re.str "style=\"";
+          Re.rep1 (Re.compl([
+              Re.char '"';
+            ]));
+          Re.char '"';
+        ]));
+      Re.rep1 (Re.compl([
+          Re.char '>';
+        ]));
+        Re.char '>';
+    ])))
+
+(** Fixes html figure elements by applying the following transformations.
+    * Adds a double new line to fix inline elements.
+    * Removes the embedded style info.
+*)
+let fix_figure line =
+  Re.replace figure_reg ~f:(fun g ->
+      let groups = Re.Group.all g in
+      let full_string = (Array.get groups 0) in
+      "\n\n" ^ (Re.replace_string (Re.compile
+                                   (Re.str
+                                      (Array.get groups 1))))
+             ~by:"" full_string
+    ) line
 
 (** Partially curried functions for replacing certain occurances in lines. *)
 let string_replace = [
   Re.replace_string (Re.compile (Re.str "&nbsp;")) ~by:"";
-  (** Remove markdown image links. *)
   String.lstrip;
+  (** There should be a better way remove the markdown tags *)
   Re.replace_string (Re.compile (Re.str "[<")) ~by:"<";
   Re.replace_string (Re.compile (Re.seq [
       Re.str "/>][";
       Re.rep1 Re.digit;
       Re.char ']';
     ])) ~by:"/>";
+  fix_figure;
 ]
 
 let scheme_regex =
@@ -163,9 +194,7 @@ let process_file in_dir file out_dir =
           if phys_equal (List.length matches) 0 then md_lines := handle_uri (process_line line) :: !md_lines
         end
         done
-             (** If we're in the comment, output to the yaml list*)
-      with End_of_file ->
-        print_endline "Done with file";
+      with End_of_file -> ()
     )
     ~finally:(fun () -> In_channel.close file_chan);
   (** Now, write the md and return the yaml*)

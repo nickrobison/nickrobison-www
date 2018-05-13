@@ -12,7 +12,9 @@ Sufjan strong! Of course, it doesn&#8217;t hurt that I have 20 of his albums. Lo
 
 I&#8217;m not really proud of this list. Reveals a darker, club-like side of myself with a little too much Pop country. Still, no hating on Sia. These stats are a little incomplete as I did a huge chunk of my listening on my phone, which doesn&#8217;t scrobble.
 
-**New Artists:**<figure style="width: 348px" class="wp-caption aligncenter">
+**New Artists:**
+
+<figure  class="wp-caption aligncenter">
 
 <img class=" " alt="" src="http://www.lydtapet.net/wp-content/uploads/image/damn_crystals.jpg" width="348" height="179" /><figcaption class="wp-caption-text">Tim Christensen and the Damn Crystals &#8211; http://www.lydtapet.net/</figcaption></figure> 
 
@@ -34,7 +36,9 @@ Dansk pop to the max! Aura is fierce, loud, and awesome. You couldn&#8217;t go i
 
 A friend of mine turned me on to this guy. I wasn&#8217;t prepared to like him as much as I do. Really chill folk, mixed with some rock and a little bit of hip-hop. Indiana native now transplanted to Oregon (almost cool). Even more awesome is the fact that he&#8217;s a solid Christian with a great faith and testimony. And to top it all off, he released his latest album for free in FLAC format, I like this guy.
 
-<figure style="width: 500px" class="wp-caption alignnone">
+
+
+<figure  class="wp-caption alignnone">
 
 <img alt="" src="https://3.bp.blogspot.com/-m3-qtISDNHk/TeBgBv9GqtI/AAAAAAAAAts/2BwTYlNmUOA/s1600/paperroute.jpg" width="500" height="375" /><figcaption class="wp-caption-text">Paper Route &#8211; blog.hegreaterthani.com</figcaption></figure> 
 
@@ -46,7 +50,9 @@ Late to the game on this one, I &#8216;discovered&#8217; these guys based on the
 
 **Top 5 Albums:**
 
-5. The Peace of Wild Things &#8211; Paper Route<figure style="width: 200px" class="wp-caption alignnone">
+5. The Peace of Wild Things &#8211; Paper Route
+
+<figure  class="wp-caption alignnone">
 
 <img alt="" src="http://www.hypebot.com/.a/6a00d83451b36c69e2017615b0cb1a970c-200wi" width="200" height="200" /><figcaption class="wp-caption-text">hypebot.com</figcaption></figure> 
 
@@ -54,7 +60,9 @@ Over the past few months I&#8217;ve been constantly listening to this album whil
 
 
 
-4. Thou/Art &#8211; The Opiate Mass<figure style="width: 300px" class="wp-caption alignnone">
+4. Thou/Art &#8211; The Opiate Mass
+
+<figure  class="wp-caption alignnone">
 
 <img class=" " alt="" src="http://www.theopiatemass.org/Catalog/Audio/4/Sleeve.png" width="300" height="300" /><figcaption class="wp-caption-text">theopiatemass.org</figcaption></figure> 
 
@@ -62,7 +70,9 @@ Progressive Sacred Music for Cathedral. &#8216;nuf said. I&#8217;ve listened to 
 
 
 
-3. Love & War & The Sea In-Between &#8211; Josh Garrels<figure style="width: 280px" class="wp-caption alignnone">
+3. Love & War & The Sea In-Between &#8211; Josh Garrels
+
+<figure  class="wp-caption alignnone">
 
 <img alt="" src="https://ecx.images-amazon.com/images/I/61EbyqV6o-L._SL500_AA280_.jpg" width="280" height="280" /><figcaption class="wp-caption-text">amazon.com</figcaption></figure> 
 
@@ -70,13 +80,17 @@ Grabbed this album when it was free on his website. The opening track &#8216;Whi
 
 
 
-2. The Rest Liturgy 2 &#8211; Andrew Booth<figure style="width: 280px" class="wp-caption alignnone">
+2. The Rest Liturgy 2 &#8211; Andrew Booth
+
+<figure  class="wp-caption alignnone">
 
 <img alt="" src="https://ecx.images-amazon.com/images/I/61WhzVZbLGL._SL500_AA280_.jpg" width="280" height="280" /><figcaption class="wp-caption-text">amazon.com</figcaption></figure> 
 
 My close friend, and mentor, [Andrew Booth][5] released his 4th album at the end of 2011 and it may be his best so far (tied with the 1st Rest Liturgy). Some mornings in Denmark I would wake up really stressed or done with the whole undergrad thing and I&#8217;d put Andy&#8217;s album on and just rest in the spirit. I&#8217;d come out the other side rejuvenated and ready for another day, everytime, without fail. Hard to recommend top tracks, just put the album on and listen all the way through, it&#8217;s worth it. The mix is fantastic, and the musical content is outstanding, highly, highly recommended.
 
-1. Bon Iver &#8211; Bon Iver<figure style="width: 600px" class="wp-caption alignnone">
+1. Bon Iver &#8211; Bon Iver
+
+<figure  class="wp-caption alignnone">
 
 <img alt="" src="https://behance.vo.llnwd.net/profiles3/104182/projects/1290085/23ccdcd03c0d0070d8d62650a2e76477.jpg" width="600" height="480" /><figcaption class="wp-caption-text">behance.vo.llnwd.net</figcaption></figure> 
 

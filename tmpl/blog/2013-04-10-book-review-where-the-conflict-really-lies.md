@@ -1,6 +1,8 @@
 I don&#8217;t normally write book reviews, for a time I gave it a shot, but it turned out to be incredibly tedious for both the writer and the reader; however, over the past 4 months I&#8217;ve had the opportunity to be involved in a faculty/graduate student luncheon here at UW discussing <a title="Alvin Plantinga" href="http://en.wikipedia.org/wiki/Alvin_Plantinga" target="_blank">Dr. Alvin Plantinga&#8217;s</a> new book _Where the Conflict Really Lies: Science, Religion, & Naturalism_ and I thought it deserved a bit of discussion here.
 
-<figure style="width: 300px" class="wp-caption alignnone">
+
+
+<figure  class="wp-caption alignnone">
 
 <img class="  " alt="" src="https://3.bp.blogspot.com/-2RIidhenA28/T0YhTOGGLZI/AAAAAAAAH-Q/CexBYZl_avw/s1600/where+the+conflict+really+lies.jpeg" width="300" height="451" /><figcaption class="wp-caption-text">apologetics315.com</figcaption></figure> 
 

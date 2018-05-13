@@ -4,7 +4,9 @@ In total (according to <a title="Nick Robison's GoodReads" href="http://www.good
 
 **Fiction** **(or, maybe real):**
 
-5. Zero Day: A Novel &#8211; Mark Russinovich<figure style="width: 200px" class="wp-caption alignnone">
+5. Zero Day: A Novel &#8211; Mark Russinovich
+
+<figure  class="wp-caption alignnone">
 
 <img alt="" src="http://thereadersroundtable.com/mystery/wp-content/uploads/2011/03/zero-day-200-x-306.png" width="200" height="306" /><figcaption class="wp-caption-text">thereadersroundtable.com</figcaption></figure> 
 
@@ -12,7 +14,9 @@ For those of you who don&#8217;t know, <a title="Mark Russinovich's Blog" href="
 
 
 
-4. A Game of Thrones: A Song of Ice and Fire Book #1 &#8211; George R.R. Martin<figure style="width: 196px" class="wp-caption alignnone">
+4. A Game of Thrones: A Song of Ice and Fire Book #1 &#8211; George R.R. Martin
+
+<figure  class="wp-caption alignnone">
 
 <img class=" " alt="" src="http://www.themoderndaypirates.com/pirates/wp-content/uploads/2010/04/Game-of-thrones.jpg" width="196" height="298" /><figcaption class="wp-caption-text">themoderndaypirates.com</figcaption></figure> 
 
@@ -20,7 +24,9 @@ The first book of Martin&#8217;s epic fantasy series is quite possibly his best.
 
 
 
-3. Dune &#8211; Frank Herbert<figure style="width: 200px" class="wp-caption alignnone">
+3. Dune &#8211; Frank Herbert
+
+<figure  class="wp-caption alignnone">
 
 <img class=" " alt="" src="http://inliner.cluster02eu.s.memonic.ch/84/8469cd58-0603-4814-8793-1de34e24e638/412z9fe2e6l.jpg" width="200" height="300" /><figcaption class="wp-caption-text">memonic.ch</figcaption></figure> 
 
@@ -28,7 +34,9 @@ One of the greatest pieces of science fiction, ever. This was my 3rd time throug
 
 
 
-2. Cryptonomicon &#8211; Neal Stephenson<figure style="width: 198px" class="wp-caption alignnone">
+2. Cryptonomicon &#8211; Neal Stephenson
+
+<figure  class="wp-caption alignnone">
 
 <img class=" " alt="" src="http://images.indiebound.com/804/512/9780060512804.jpg" width="198" height="320" /><figcaption class="wp-caption-text">indiebound.com</figcaption></figure> 
 
@@ -36,7 +44,9 @@ I first heard about this book while reading an <a title="Sealand, Haven Co, and 
 
 
 
-1. Anna Karenina &#8211; Leo Tolstoy<figure style="width: 209px" class="wp-caption alignnone">
+1. Anna Karenina &#8211; Leo Tolstoy
+
+<figure  class="wp-caption alignnone">
 
 <img class=" " alt="" src="http://1.bp.blogspot.com/-G1NFiAekJYc/TowcHlf8_CI/AAAAAAAAAe0/4-laAvKxi5w/s1600/anna-karenina1.jpg" width="209" height="320" /><figcaption class="wp-caption-text">http://storybookloveaffair.blogspot.com/</figcaption></figure> 
 
@@ -46,7 +56,9 @@ Wow. Just, wow. Full disclosure, it took me two tries to finally get through thi
 
 **Non-Fiction (or, pretending to be real)**
 
-5. Is Everyone Hanging Out Without Me? (And Other Concerns) &#8211; Mindy Kaling<figure style="width: 212px" class="wp-caption alignnone">
+5. Is Everyone Hanging Out Without Me? (And Other Concerns) &#8211; Mindy Kaling
+
+<figure  class="wp-caption alignnone">
 
 <img class=" " alt="" src="http://hellogiggles.com/wp-content/uploads/2012/05/04/Mindy-Kaling-book-cover.jpg" width="212" height="318" /><figcaption class="wp-caption-text">hellogiggles.com</figcaption></figure> 
 
@@ -54,7 +66,9 @@ I love biographies. I love reading about the lives of the other people and heari
 
 
 
-4. A Place for Truth &#8211; Dallas Willard<figure style="width: 259px" class="wp-caption alignnone">
+4. A Place for Truth &#8211; Dallas Willard
+
+<figure  class="wp-caption alignnone">
 
 <img class=" " alt="" src="http://westernthm.files.wordpress.com/2011/04/a-place-for-truth.jpg" width="259" height="389" /><figcaption class="wp-caption-text">http://marccortez.com/</figcaption></figure> 
 
@@ -62,7 +76,9 @@ A collection of presentations from various _<a title="Veritas Forum" href="http
 
 
 
-3. Dealers of Lightning &#8211; Michael Hiltzik<figure style="width: 200px" class="wp-caption alignnone">
+3. Dealers of Lightning &#8211; Michael Hiltzik
+
+<figure  class="wp-caption alignnone">
 
 <img alt="" src="http://i43.tower.com/images/mm100317487/dealers-lightning-xerox-parc-dawn-computer-age-michael-hiltzik-paperback-cover-art.jpg" width="200" height="303" /><figcaption class="wp-caption-text">tower.com</figcaption></figure> 
 
@@ -70,13 +86,17 @@ The spiritual continuation of Katie Hafner&#8217;s _<a title="Where Wizards Sta
 
 
 
-2. Born Again &#8211; Chuck Colson<figure style="width: 200px" class="wp-caption alignnone">
+2. Born Again &#8211; Chuck Colson
+
+<figure  class="wp-caption alignnone">
 
 <img alt="" src="http://i43.tower.com/images/mm112130949/born-again-charles-colson-paperback-cover-art.jpg" width="200" height="308" /><figcaption class="wp-caption-text">tower.com</figcaption></figure> 
 
 I&#8217;m not sure why I picked up this book. I probably read about it on some website and in looking for reading material found it on the Kindle. Halfway through I grabbed a signed copy on Amazon, I had to have it. As most of Colson&#8217;s heyday came before I was born/alert to the world, much of the book was brand new to me and really gave me some new perspective on the scandal I&#8217;d read about in High School. One of the things I was most impressed with was Colson&#8217;s refusal to defame anyone or pass the buck to the higher-ups or blame bad luck. He was open and honest about his faults and failures and places where his actions may have been technically legal, but definitely in a grey moral area. As he describes his conversion and early growth as a Christian I was struck by the bi-partisan nature of his spiritual life, time and time again he emphasizes the closeness of his spiritual brothers in-spite of their political leanings, a subtly that it seems is largely lost in our modern day. While Colson has his share of critics, I think this book does an excellent job revealing his true character and motivation. A great book on a great man.
 
-1. The Ascent of Money &#8211; Naill Ferguson<figure style="width: 195px" class="wp-caption alignnone">
+1. The Ascent of Money &#8211; Naill Ferguson
+
+<figure  class="wp-caption alignnone">
 
 <img class=" " alt="" src="http://www.paperplus.co.nz/books/250/332/9781410415332.jpg" width="195" height="320" /><figcaption class="wp-caption-text">paperplus.co.nz</figcaption></figure> 
 
