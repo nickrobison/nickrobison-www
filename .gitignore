@@ -23,3 +23,5 @@ src/myocamlbuild.ml
 src/www
 
 tools/_build
+_build
+parser.*
