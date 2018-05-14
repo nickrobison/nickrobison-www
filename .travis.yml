@@ -4,6 +4,10 @@ sudo: required
 env:
   - OCAML_VERSION=4.04
 
+addons:
+  apt:
+    updated: true
+
 before_install:
   - source scripts/env.sh
 
@@ -11,15 +15,14 @@ install:
   - wget https://raw.githubusercontent.com/ocaml/ocaml-ci-scripts/master/.travis-ocaml.sh
   - bash -ex .travis-ocaml.sh
   - make depends
-  - echo $PATH
   - export PATH=/home/travis/.opam/4.04.2/bin:$PATH
 
 script:
   - make build
 
-#before_deploy:
-#  - sudo apt-get -qq update
-#  - sudo apt-get install python
+before_deploy:
+  - sudo apt-get install python
+  - bash -ex scripts/init_gcloud.sh
 
 #deploy:
 #  - make deploy
