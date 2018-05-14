@@ -1,4 +1,4 @@
-PKGS := mirage core jbuild depext
+PKGS := mirage core depext jbuilder
 
 .PHONY: depends tools clean build deploy
 
