@@ -26,3 +26,5 @@ tools/_build
 _build
 parser.*
 TAGS
+# Don't commit the API credentials
+client-secret.json
