@@ -1,13 +1,17 @@
 PKGS := mirage core jbuild depext
 
-.PHONY: depends tools clean
+.PHONY: depends tools clean build deploy
+
+build:
+	@scripts/build.sh
+
+install:
 
 depends:
 	opam install -y $(PKGS)
 
-
 parser.byte:
-	corebuild tools/parser.byte 
+	corebuild tools/parser.byte
 
 tools: parser.byte
 

@@ -1,0 +1,18 @@
+language: c
+sudo: required
+
+global:
+  env:
+    - OCAML_VERSION=4.04
+
+before_install:
+  - source scripts/env.sh
+
+install:
+  - wget https://raw.githubusercontent.com/ocaml/ocaml-ci-scripts/master/.travis-ocaml.sh
+  - bash -ex ./travis-ocaml.sh
+  - make depends
+
+script:
+  - make build
+
