@@ -1,11 +1,12 @@
-PKGS := mirage core jbuild
+PKGS := mirage core jbuilder
 
 .PHONY: depends tools clean build deploy
 
 build:
 	@scripts/build.sh
 
-install:
+deploy:
+	@scripts/deploy.sh
 
 depends:
 	opam install -y $(PKGS)
