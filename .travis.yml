@@ -17,9 +17,9 @@ install:
 script:
   - make build
 
-before_deploy:
-  - sudo apt-get -qq update
-  - sudo apt-get install python
+#before_deploy:
+#  - sudo apt-get -qq update
+#  - sudo apt-get install python
 
-deploy:
-  - make deploy
+#deploy:
+#  - make deploy
