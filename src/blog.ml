@@ -83,7 +83,7 @@ let dispatch ~feed ~entries ~read ~domain =
     | ["index.html"]
     | [""] | [] -> blog_index
     | ["atom.xml"] -> atom_feed
-    | ["entries"; x] -> blog_entry x
+    | "entries" :: x :: tl -> blog_entry ("entries/" ^ x)
     | hd :: [] -> blog_index
     | x -> not_found ~domain x
   in
