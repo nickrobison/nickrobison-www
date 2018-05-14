@@ -3,10 +3,10 @@ PKGS := mirage core depext jbuilder
 .PHONY: depends tools clean build deploy
 
 build:
-	@scripts/build.sh
+	scripts/build.sh
 
 deploy:
-	@scripts/deploy.sh
+	scripts/deploy.sh
 
 depends:
 	opam install -y $(PKGS)
