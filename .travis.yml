@@ -11,7 +11,15 @@ install:
   - wget https://raw.githubusercontent.com/ocaml/ocaml-ci-scripts/master/.travis-ocaml.sh
   - bash -ex .travis-ocaml.sh
   - make depends
+  - echo $PATH
+  - export PATH=/home/travis/.opam/4.04.2/bin:$PATH
 
 script:
   - make build
 
+before_deploy:
+  - sudo apt-get -qq update
+  - sudo apt-get install python
+
+deploy:
+  - make deploy
