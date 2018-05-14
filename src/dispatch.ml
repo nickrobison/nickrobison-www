@@ -67,6 +67,9 @@ module Make
   let blog_feed domain tmpl =
     Data.Feed.blog domain (fun n -> read_entry tmpl ("/blog/"^n))
 
+  let updates_feed domain tmpl =
+    Data.Feed.updates domain (read_entry tmpl)
+
   let updates_feeds domain tmpl =
     tmpl_read tmpl "posts.yml" >>= fun posts ->
     let entries = Data.Blog.entries posts in
@@ -75,6 +78,12 @@ module Make
     ])
 
   (** Page types *)
+
+  let updates domain tmpl =
+    let feed = updates_feed domain tmpl in
+    let read = tmpl_read tmpl in
+    updates_feeds domain tmpl >>= fun feeds ->
+    Pages.Updates.dispatch ~domain ~feed ~feeds ~read
 
   let index domain tmpl =
     let read = tmpl_read tmpl in
@@ -91,10 +100,12 @@ module Make
   let dispatch domain fs tmpl =
     let index = index domain tmpl in
     let blog = blog domain tmpl in
+    let updates = updates domain tmpl in
     function
     | ["index.html"]
     | [""] | [] -> index
     | "blog" :: tl -> mk blog tl
+    | "updates" :: tl -> mk updates tl
     | path -> asset domain fs path
 
   let not_found ~uri () =

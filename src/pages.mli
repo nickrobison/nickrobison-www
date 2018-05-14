@@ -2,6 +2,8 @@ open Www_types
 
 type t = read:string read -> domain:domain -> contents Lwt.t
 
+type dispatch = feed:Cowabloga.Atom_feed.t -> read:string read -> Www_types.dispatch
+
 module Global: sig
   (** Global page template. *)
 
@@ -14,3 +16,12 @@ module Index: sig
 
   val t: feeds: Cowabloga.Feed.feed list -> t
 end
+
+module Updates: sig
+  (** Update pages. *)
+  val dispatch: feeds:Cowabloga.Feed.feed list -> dispatch
+  (** [dispatch f] is the dispatch function serving [/updates/],
+    [/updates/index.html] and [/updates/atom.xml] using the contents
+      extracted from [f]. *)
+end
+

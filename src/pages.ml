@@ -5,7 +5,11 @@ open Www_types
 
 type t = read:string read -> domain:domain -> contents Lwt.t
 
-type dispatch = read:string read -> Www_types.dispatch
+type dispatch = feed:Cowabloga.Atom_feed.t -> read:string read -> Www_types.dispatch
+
+let not_found ~domain section path =
+  let uri = Site_config.uri domain (section :: path) in
+  `Not_found uri
 
 let get_extension filename =
   try
@@ -80,11 +84,47 @@ module Index = struct
                     small (a ~href:(uri "/updates/") (string "all"))
                   ])
                 ++ recent
-               )]);
+               )
+          ]);
         div ~cls:"row" (div ~cls:"small-12 columns" footer)
       ]
     in
     Global.t ~title:"Nick Robison" ~headers:[] ~content ~domain ~read
 end
 
+module Updates = struct
+
+  let make ~read ~domain content =
+    let uri = Uri.of_string "/updates/atom.xml" in
+    let headers =
+      link ~rel:"alternate" ~ty:"application/atom+xml" uri in
+    let title = "Updates" in
+    Global.t ~title ~headers ~content ~read ~domain
+
+  let atom_feed ~feed ~feeds =
+    let content_type_atom = Cowabloga.Headers.atom in
+    let feed = Cowabloga.Feed.to_atom ~meta:feed ~feeds
+      >|= Cow.Atom.xml_of_feed
+      >|= Cow.Xml.to_string
+    in
+    Lwt.return (`Page (content_type_atom, feed))
+
+  let dispatch ~feeds ~feed ~read ~domain =
+    Cowabloga.Feed.to_html feeds >>= fun recent ->
+    atom_feed ~feed ~feeds >>= fun atom_feed ->
+    make ~domain ~read
+      (div ~cls:"row" (
+          div ~cls:"small-12 medium-9 large-6 front_updates" (
+            h2 (string "Site Updates "
+                ++ small (string "across the blog"))
+            ++ recent)))
+    >>= fun content ->
+    let f = function
+      | ["index.html"]
+      | [""] | [] -> content
+      | ["atom.xml"] -> atom_feed
+      | x -> not_found ~domain "updates" x
+    in
+    Lwt.return f
+end
 

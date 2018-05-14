@@ -106,6 +106,16 @@ module Feed = struct
     author = None;
     read_entry
   }
+
+  let updates scheme read_entry = {
+    Cowabloga.Atom_feed.base_uri = Site_config.base_uri scheme;
+    id = "updates/";
+    title = "Nick Robison updates";
+    subtitle = None;
+    rights = None;
+    author = None;
+    read_entry
+  }
 end
 
 
