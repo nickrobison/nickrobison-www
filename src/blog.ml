@@ -25,13 +25,16 @@ let copyright f = match f.rights with None -> [] | Some r -> [`Data r]
 (** TODO: Get the real copyright. Looks like the feed is not being propogated correctly. *)
 let copyright _ = []
 
-let blog_index ~feed ~entries ~read ~domain =
-  let recent_posts = Cowabloga.Blog.recent_posts feed entries in
+let blog_index ~feed ~entries ~read ~domain offset =
+  let offset_multiple = offset * 10 in
+  let filtered_entries = Core_kernel.List.sub (List.sort (fun (a: Cowabloga.Blog.Entry.t) (b: Cowabloga.Blog.Entry.t) ->
+    compare (Cowabloga.Date.atom_date b.updated) (Cowabloga.Date.atom_date a.updated)) entries) offset_multiple (offset_multiple + 10) in
+  let recent_posts = Cowabloga.Blog.recent_posts feed filtered_entries in
   let copyright = copyright feed in
   let sidebar =
     Cowabloga.Foundation.Sidebar.t ~title:"Recent Posts" ~content:recent_posts
   in
-  Cowabloga.Blog.to_html ?sep:None ~feed ~entries >>= fun posts ->
+  Cowabloga.Blog.to_html ?sep:None ~feed ~entries:filtered_entries >>= fun posts ->
   (** let { title; subtitle; _ } = feed in *)
   let content =
     Cowabloga.Foundation.Blog.t ~title:"" ~subtitle:None ~sidebar ~posts ~copyright ()
@@ -70,7 +73,7 @@ let dispatch ~feed ~entries ~read ~domain =
   Log.info (fun f -> f "Getting ready to dispatch");
   atom_feed ~feed ~entries >>= fun atom_feed ->
   Log.info (fun f -> f "Built atom feed");
-  blog_index ~domain ~feed ~entries ~read >>= fun blog_index ->
+  blog_index ~domain ~feed ~entries ~read 0 >>= fun blog_index ->
   blog_entries ~domain ~read ~feed ~entries >>= fun blog_entries ->
   let blog_entry x =
     try List.assoc x blog_entries
@@ -80,7 +83,8 @@ let dispatch ~feed ~entries ~read ~domain =
     | ["index.html"]
     | [""] | [] -> blog_index
     | ["atom.xml"] -> atom_feed
-    | [x] -> blog_entry x
+    | ["entries"; x] -> blog_entry x
+    | hd :: [] -> blog_index
     | x -> not_found ~domain x
   in
   Lwt.return f
