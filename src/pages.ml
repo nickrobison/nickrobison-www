@@ -47,16 +47,9 @@ module Global = struct
     let fonts =
       scheme ^ "://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" in
     let font =
-      link ~attrs:[
-        "rel", "stylesheet";
-        "href", "/css/font-awesome.css"
-      ] empty
+      link ~rel: "stylesheet" (Uri.of_string "/css/font-awesome.css")
       ++
-      link ~attrs:[
-        "href", fonts;
-        "rel", "stylesheet";
-        "type", "text/css"
-      ] empty
+      link ~rel: "stylesheet" ~ty: "text/css" (Uri.of_string fonts)
     in
     let headers = font @ headers in
     let content = top_nav @ content in

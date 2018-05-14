@@ -14,11 +14,7 @@ let not_found ~domain x =
 let make ?title ~read ~domain content =
   let uri = Uri.of_string "/blog/atom.xml" in
   let headers =
-    link ~attrs:[
-      "rel", "alternate";
-      "type", "application/atom+xml";
-      "href", Uri.to_string uri;
-    ] empty
+    link ~rel: "alternate" ~ty: "application/atom+xml" uri;
   in
   let title = "Blog" ^ match title with None -> "" | Some x -> " :: " ^ x
   in
