@@ -12,5 +12,5 @@ end
 module Index: sig
   (** The main index page. *)
 
-  val t: t 
+  val t: feeds: Cowabloga.Feed.feed list -> t
 end

@@ -67,11 +67,19 @@ module Make
   let blog_feed domain tmpl =
     Data.Feed.blog domain (fun n -> read_entry tmpl ("/blog/"^n))
 
+  let updates_feeds domain tmpl =
+    tmpl_read tmpl "posts.yml" >>= fun posts ->
+    let entries = Data.Blog.entries posts in
+    Lwt.return([
+      `Blog (blog_feed domain tmpl, entries);
+    ])
+
   (** Page types *)
 
   let index domain tmpl =
     let read = tmpl_read tmpl in
-    Pages.Index.t ~domain ~read >|= cowabloga
+    updates_feeds domain tmpl >>= fun feeds ->
+    Pages.Index.t ~domain ~feeds ~read >|= cowabloga
 
   let blog domain tmpl =
     let feed = blog_feed domain tmpl in

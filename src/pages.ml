@@ -66,11 +66,21 @@ module Index = struct
 
   let uri = Uri.of_string
 
-  let t ~read ~domain =
+  let t ~feeds ~read ~domain =
     read_file read "/intro.md" >>= fun l1 ->
     read_file read "/intro-f.html" >>= fun footer ->
+    Cowabloga.Feed.to_html ~limit:12 feeds >>= fun recent ->
     let content = list [
-        div ~cls:"row" (div ~cls:"small-12 columns" l1);
+        div ~cls:"row" (list [
+            (div ~cls:"small-12 medium-6 columns" l1);
+            div ~cls:"small-12 medium-6 columns front_updates"
+               (h4 (list [
+                    a ~href:(uri "/updates/atom.xml") (i ~cls:"fa fa-rss" empty);
+                    string " Recent Updates ";
+                    small (a ~href:(uri "/updates/") (string "all"))
+                  ])
+                ++ recent
+               )]);
         div ~cls:"row" (div ~cls:"small-12 columns" footer)
       ]
     in
