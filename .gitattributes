@@ -1,0 +1,5 @@
+files/fonts/* linguist-vendored
+files/js/* linguist-vendored
+files/css/css/* linguist-vendored
+files/css/font-*.css linguist-vendored
+files/foundation* linguist-vendored
