@@ -87,6 +87,7 @@ module Blog = struct
         body = Ezjsonm.(get_string (find p ["file"]));
         (** We have to trim off the leading / which comes by default from wordpress. *)
         permalink = String.sub url 1 ((String.length url) - 1);
+        tags = Some(["test"; "tag"; "list"]);
       } :: acc
       end
       ) [] posts
