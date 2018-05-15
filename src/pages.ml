@@ -54,6 +54,8 @@ module Global = struct
       link ~rel: "stylesheet" (Uri.of_string "/css/font-awesome.css")
       ++
       link ~rel: "stylesheet" ~ty: "text/css" (Uri.of_string fonts)
+      ++
+      link ~rel: "icon" ~ty: "image/png" (Uri.of_string "/favicon.ico")
     in
     let headers = font @ headers in
     let content = top_nav @ content in
