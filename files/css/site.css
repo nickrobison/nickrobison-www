@@ -10,6 +10,11 @@ h1,h2,h3,h4,h5,h6 { margin-top: 2rem; }
 .front_updates a i { font-style: normal; color: #332222; }
 .front_updates .front_date { color: #777799; }
 
+/* Need these three settings in order ot make the topbar black. */
+.contain-to-grid, .top-bar, .top-bar-section li a:not(.button) {
+    background: black;
+}
+
 .panel {
   padding-top: 0.5rem;
 }
@@ -26,12 +31,7 @@ article a:hover {
   display: inline;
 }
 
-body {
-  background-image: url(/graphics/cloud-bg.png);
-  background-repeat: repeat-x;
-}
-
-code {
+codeo {
   font-weight: normal;
   margin-bottom: 1em;
   font-size: 100%;
@@ -124,7 +124,7 @@ div.trace-viewer button {
 
 
 
-# Blog post
+/* Blog post */
 .responsive-blog-post {
     margin-bottom: 4rem;
 }
@@ -171,9 +171,8 @@ div.trace-viewer button {
     color: #8a8a8a;
 }
 
-# Tag cloud
+/* Tag cloud */
 .tag-cloud-section {
-    background: #7b93a4;
     padding: 4rem;
     max-width: 800px;
     margin: 0 auto;
@@ -183,7 +182,7 @@ div.trace-viewer button {
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
-    color: #e6e6e6;
+    color: #7b93a4;
     border-bottom: 1px solid #cacaca;
     padding: 1rem 0;
     margin-bottom: 1rem;
