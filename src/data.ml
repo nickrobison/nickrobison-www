@@ -61,6 +61,12 @@ module Blog = struct
     | false -> None
     | true -> (Some (Uri.of_string (Ezjsonm.(get_string (find yaml ["featured_image"])))))
 
+  let get_tags yaml =
+    let has_key = Ezjsonm.(mem yaml ["tags"]) in
+    match has_key with
+    | false -> None
+    | true -> Some(Ezjsonm.(get_list get_string (find yaml ["tags"])))
+
   (** Another part of OCaml that defeats me. Regexp. *)
   let parse_date date_string =
     let split_string = String.split_on_char 'T' date_string in
@@ -96,7 +102,7 @@ module Blog = struct
         (** We have to trim off the leading / which comes by default from wordpress. *)
         permalink = String.sub url 1 ((String.length url) - 1);
         image = get_featured_image p;
-        tags = Some(["test"; "tag"; "list"]);
+        tags = get_tags p;
       } :: acc
       end
       ) [] posts
