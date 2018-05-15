@@ -25,3 +25,4 @@ src/www
 tools/_build
 _build
 parser.*
+TAGS
