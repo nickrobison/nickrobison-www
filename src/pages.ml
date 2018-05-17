@@ -38,11 +38,13 @@ module Global = struct
   let nav_links =
     tag "ul" ~cls:"left" (list [
         tag "li" (a ~href:(uri "/blog/") (string "Blog"));
+        (**
         tag "li" (a ~href:(uri "/projects/") (string "Projects"))
+        *)
       ])
 
   let top_nav = Cowabloga.Foundation.top_nav
-      ~title:(p (string "Nick Robison"))
+      ~title:(p (string "Hello, my name is Nick"))
       ~title_uri:(uri "/")
       ~nav_links: nav_links
 
