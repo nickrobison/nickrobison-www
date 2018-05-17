@@ -25,12 +25,8 @@ let copyright f = match f.rights with None -> [] | Some r -> [`Data r]
 (** TODO: Get the real copyright. Looks like the feed is not being propogated correctly. *)
 let copyright _ = []
 
-let blog_index ~feed ~entries ~read ~domain ~page_range =
-  let recent_posts = Cowabloga.Blog.recent_posts feed entries in
+let blog_index ~feed ~entries ~read ~domain ~page_range ~sidebar =
   let copyright = copyright feed in
-  let sidebar =
-    Cowabloga.Foundation.Sidebar.t ~title:"Recent Posts" ~content:recent_posts
-  in
   Cowabloga.Blog.to_html ?sep:None ~feed ~entries:entries >>= fun posts ->
   (** let { title; subtitle; _ } = feed in *)
   let content =
@@ -43,9 +39,12 @@ let make_index_pages ~feed ~entries ~read ~domain partition =
   let paritioned = List.sort Cowabloga.Blog.Entry.compare entries |>
                    Base.List.groupi ~break:(fun i _ _ -> i mod partition = 0)
   in
+  let sidebar =
+    Cowabloga.Foundation.Sidebar.t ~title:"Recent Posts" ~content:(Cowabloga.Blog.recent_posts feed (List.hd paritioned))
+  in
   Lwt_list.mapi_s (fun idx entries ->
       let idx_offset = idx + 1 in
-      blog_index ~feed ~entries ~read ~domain ~page_range:(idx_offset, total_pages) >>= fun index_page ->
+      blog_index ~feed ~entries ~read ~domain ~sidebar ~page_range:(idx_offset, total_pages) >>= fun index_page ->
       Lwt.return(("blog/" ^ string_of_int (idx + 1)), index_page)) paritioned
 
 let blog_entry ~feed ~entries ~read ~domain entry =
