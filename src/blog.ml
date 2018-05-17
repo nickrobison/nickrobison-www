@@ -25,18 +25,27 @@ let copyright f = match f.rights with None -> [] | Some r -> [`Data r]
 (** TODO: Get the real copyright. Looks like the feed is not being propogated correctly. *)
 let copyright _ = []
 
-let blog_index ~feed ~entries ~read ~domain =
-  let recent_posts = Cowabloga.Blog.recent_posts feed entries in
+let blog_index ~feed ~entries ~read ~domain ~page_range ~sidebar =
   let copyright = copyright feed in
-  let sidebar =
-    Cowabloga.Foundation.Sidebar.t ~title:"Recent Posts" ~content:recent_posts
-  in
-  Cowabloga.Blog.to_html ?sep:None ~feed ~entries >>= fun posts ->
+  Cowabloga.Blog.to_html ?sep:None ~feed ~entries:entries >>= fun posts ->
   (** let { title; subtitle; _ } = feed in *)
   let content =
-    Cowabloga.Foundation.Blog.t ~title:"" ~subtitle:None ~sidebar ~posts ~copyright ()
+    Cowabloga.Foundation.Blog.t ~title:"" ~subtitle:None ~sidebar ~posts ~copyright ?pages:(Some(page_range)) ()
   in
   make ~domain ~read content
+
+let make_index_pages ~feed ~entries ~read ~domain partition =
+  let total_pages = List.length entries mod partition in
+  let paritioned = List.sort Cowabloga.Blog.Entry.compare entries |>
+                   Base.List.groupi ~break:(fun i _ _ -> i mod partition = 0)
+  in
+  let sidebar =
+    Cowabloga.Foundation.Sidebar.t ~title:"Recent Posts" ~content:(Cowabloga.Blog.recent_posts feed (List.hd paritioned))
+  in
+  Lwt_list.mapi_s (fun idx entries ->
+      let idx_offset = idx + 1 in
+      blog_index ~feed ~entries ~read ~domain ~sidebar ~page_range:(idx_offset, total_pages) >>= fun index_page ->
+      Lwt.return(("blog/" ^ string_of_int (idx + 1)), index_page)) paritioned
 
 let blog_entry ~feed ~entries ~read ~domain entry =
   let recent_posts = Cowabloga.Blog.recent_posts feed entries in
@@ -70,17 +79,23 @@ let dispatch ~feed ~entries ~read ~domain =
   Log.info (fun f -> f "Getting ready to dispatch");
   atom_feed ~feed ~entries >>= fun atom_feed ->
   Log.info (fun f -> f "Built atom feed");
-  blog_index ~domain ~feed ~entries ~read >>= fun blog_index ->
   blog_entries ~domain ~read ~feed ~entries >>= fun blog_entries ->
+  make_index_pages ~domain ~read ~feed ~entries 10 >>= fun index_pages ->
+  let index_page page =
+    (**blog_index_page ~domain ~feed ~entries ~read page >|= (fun f -> f)*)
+    try List.assoc page index_pages
+    with Not_found -> not_found ~domain [page]
+  in
   let blog_entry x =
     try List.assoc x blog_entries
     with Not_found -> not_found ~domain [x]
   in
   let f = function
     | ["index.html"]
-    | [""] | [] -> blog_index
+    | [""] | [] -> index_page ("blog/" ^ "1")
     | ["atom.xml"] -> atom_feed
-    | [x] -> blog_entry x
+    | "entries" :: x :: tl -> blog_entry ("entries/" ^ x)
+    | hd :: [] -> index_page ("blog/" ^ hd)
     | x -> not_found ~domain x
   in
   Lwt.return f

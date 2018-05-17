@@ -65,7 +65,7 @@ let fix_figure line =
     ) line
 
 (** Partially curried functions for replacing certain occurances in lines. *)
-let string_replace = [
+let markdown_string_replace = [
   Re.replace_string (Re.compile (Re.str "&nbsp;")) ~by:"";
   String.lstrip;
   (** There should be a better way remove the markdown tags *)
@@ -127,9 +127,9 @@ let handle_uri line =
         rewrite_uri hostname (Re.replace_string (Re.compile (Re.str params)) params_replaced acc)
       ) ~init:line;
   end
-
-let process_line (line: string) =
-  List.fold string_replace ~init:line ~f:(fun l f -> f l)
+(** Apply the various transformations to the markdown lines. *)
+let process_md_line (line: string) =
+  List.fold markdown_string_replace ~init:line ~f:(fun l f -> f l)
 
 (** Regex for skipping lines in the markdown, that we don't need*)
 let skip_regex = Re.compile (Re.alt [
@@ -141,6 +141,15 @@ let skip_regex = Re.compile (Re.alt [
     ];
     Re.str "</div>";
   ])
+
+let yaml_string_replace = [
+  Re.replace_string (Re.compile (Re.str "/wp-content/uploads/"))
+    ~by: "https://files.nickrobison.com/images/"
+]
+
+(** Apply the various transformations to the markdown lines. *)
+let process_yaml_line line =
+  List.fold yaml_string_replace ~init:line ~f:(fun l f -> f l)
 
 (** Creates the directory, prints a warning if the directory already exists.
     * This doesn't handle any special cases for not being able to create dir.
@@ -187,11 +196,11 @@ let process_file in_dir file out_dir =
         if (String.is_prefix line "---") then begin
           in_comment := (not !in_comment);
         end
-        else if !in_comment then yaml_lines := line :: !yaml_lines
+        else if !in_comment then yaml_lines := (process_yaml_line line) :: !yaml_lines
           (** Now, filter out lines that we don't want*)
         else begin
           let matches = Re.matches skip_regex line in
-          if phys_equal (List.length matches) 0 then md_lines := handle_uri (process_line line) :: !md_lines
+          if phys_equal (List.length matches) 0 then md_lines := handle_uri (process_md_line line) :: !md_lines
         end
         done
       with End_of_file -> ()

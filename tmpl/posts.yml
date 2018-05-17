@@ -4,8 +4,8 @@ posts:
     author: nick
     type: post
     date: 2013-04-10T16:00:02+00:00
-    url: /2013-04-10-book-review-where-the-conflict-really-lies
-    featured_image: /wp-content/uploads/2013/02/Books-1000x288.jpg
+    url: /entries/2013-04-10-book-review-where-the-conflict-really-lies
+    featured_image: https://files.nickrobison.com/images/2013/02/Books-1000x288.jpg
     categories:
       - Books
     tags:
@@ -24,7 +24,7 @@ posts:
     author: nick
     type: post
     date: 2012-11-18T11:26:04+00:00
-    url: /2012-11-18-city-conversations-part-1-knowing-god
+    url: /entries/2012-11-18-city-conversations-part-1-knowing-god
     categories:
       - Theology
     tags:
@@ -45,8 +45,8 @@ posts:
     author: nick
     type: post
     date: 2013-04-21T17:00:52+00:00
-    url: /2013-04-21-three-minute-thesis
-    featured_image: /wp-content/uploads/2013/01/filmcamera-1000x288.jpg
+    url: /entries/2013-04-21-three-minute-thesis
+    featured_image: https://files.nickrobison.com/images/2013/01/filmcamera-1000x288.jpg
     categories:
       - Lifestream
     tags:
@@ -63,8 +63,8 @@ posts:
     author: nick
     type: post
     date: 2013-03-31T18:08:11+00:00
-    url: /2013-03-31-he-is-risen
-    featured_image: /wp-content/uploads/2013/03/663092_26111643-1000x288.jpg
+    url: /entries/2013-03-31-he-is-risen
+    featured_image: https://files.nickrobison.com/images/2013/03/663092_26111643-1000x288.jpg
     categories:
       - Lifestream
       - Theology
@@ -80,7 +80,7 @@ posts:
     author: nick
     type: post
     date: 2013-01-04T04:51:39+00:00
-    url: /2013-01-03-home-sweet-home-3
+    url: /entries/2013-01-03-home-sweet-home-3
     categories:
       - Housekeeping
     tags:
@@ -98,7 +98,7 @@ posts:
     author: nick
     type: post
     date: 2013-01-02T06:56:55+00:00
-    url: /2013-01-01-2012-year-in-review-books
+    url: /entries/2013-01-01-2012-year-in-review-books
     categories:
       - Lifestream
     tags:
@@ -112,7 +112,7 @@ posts:
     author: nick
     type: post
     date: 2014-01-16T18:00:06+00:00
-    url: /2014-01-16-on-cooking
+    url: /entries/2014-01-16-on-cooking
     categories:
       - Lifestream
     tags:
@@ -127,7 +127,7 @@ posts:
     author: nick
     type: post
     date: 2012-03-03T17:42:40+00:00
-    url: /2012-03-03-skole
+    url: /entries/2012-03-03-skole
     categories:
       - Study Abroad
       - Travel
@@ -142,8 +142,8 @@ posts:
     author: nick
     type: post
     date: 2014-01-27T18:51:48+00:00
-    url: /2014-01-27-happy-2nd-birthday
-    featured_image: /wp-content/uploads/2013/01/cupcake-candles-500x288.jpg
+    url: /entries/2014-01-27-happy-2nd-birthday
+    featured_image: https://files.nickrobison.com/images/2013/01/cupcake-candles-500x288.jpg
     categories:
       - Housekeeping
       - Lifestream
@@ -158,8 +158,8 @@ posts:
     author: nick
     type: post
     date: 2013-07-03T20:09:45+00:00
-    url: /2013-07-03-compile-saga-for-mac-os-x
-    featured_image: /wp-content/uploads/2013/07/468319_70689252.jpg
+    url: /entries/2013-07-03-compile-saga-for-mac-os-x
+    featured_image: https://files.nickrobison.com/images/2013/07/468319_70689252.jpg
     categories:
       - Guides
       - Technology
@@ -178,7 +178,7 @@ posts:
     author: nick
     type: post
     date: 2012-02-06T19:18:49+00:00
-    url: /2012-02-06-book-review-the-cellist-of-sarajevo
+    url: /entries/2012-02-06-book-review-the-cellist-of-sarajevo
     categories:
       - Books
       - Reviews
@@ -194,8 +194,8 @@ posts:
     author: nick
     type: post
     date: 2014-01-16T04:55:16+00:00
-    url: /2014-01-15-on-net-neutrality
-    featured_image: /wp-content/uploads/2013/02/TheWorld-1000x288.jpg
+    url: /entries/2014-01-15-on-net-neutrality
+    featured_image: https://files.nickrobison.com/images/2013/02/TheWorld-1000x288.jpg
     categories:
       - Musings
       - Policy
@@ -218,7 +218,7 @@ posts:
     author: nick
     type: post
     date: 2012-09-30T20:04:18+00:00
-    url: /2012-09-30-this-is-to-mother-you
+    url: /entries/2012-09-30-this-is-to-mother-you
     categories:
       - Art
       - Music
@@ -236,8 +236,8 @@ posts:
     author: admin
     type: post
     date: 2012-01-26T21:39:27+00:00
-    url: /2012-01-26-danmark
-    featured_image: /wp-content/uploads/2012/01/P1100373-1000x288.jpg
+    url: /entries/2012-01-26-danmark
+    featured_image: https://files.nickrobison.com/images/2012/01/P1100373-1000x288.jpg
     categories:
       - Study Abroad
       - Travel
@@ -248,8 +248,8 @@ posts:
     author: nick
     type: post
     date: 2014-02-06T16:00:55+00:00
-    url: /2014-02-06-seattle-and-its-seahawks
-    featured_image: /wp-content/uploads/2014/02/RM3_0087-660x330.jpg
+    url: /entries/2014-02-06-seattle-and-its-seahawks
+    featured_image: https://files.nickrobison.com/images/2014/02/RM3_0087-660x330.jpg
     categories:
       - Lifestream
     tags:
@@ -265,8 +265,8 @@ posts:
     author: nick
     type: post
     date: 2012-01-29T12:35:39+00:00
-    url: /2012-01-29-men
-    featured_image: /wp-content/uploads/2012/01/funbooth-56-of-90-800x288.jpg
+    url: /entries/2012-01-29-men
+    featured_image: https://files.nickrobison.com/images/2012/01/funbooth-56-of-90-800x288.jpg
     categories:
       - Bros
       - Photos
@@ -288,8 +288,8 @@ posts:
     author: nick
     type: post
     date: 2014-04-09T22:21:44+00:00
-    url: /2014-04-09-microsoft-in-2014
-    featured_image: /wp-content/uploads/2014/04/build-2014-672x372.jpg
+    url: /entries/2014-04-09-microsoft-in-2014
+    featured_image: https://files.nickrobison.com/images/2014/04/build-2014-672x372.jpg
     categories:
       - Technoloy
     tags:
@@ -305,7 +305,7 @@ posts:
     author: nick
     type: post
     date: 2012-12-24T22:42:22+00:00
-    url: /2012-12-24-jesus-christ-hope
+    url: /entries/2012-12-24-jesus-christ-hope
     categories:
       - Musings
       - Theology
@@ -349,7 +349,7 @@ posts:
     author: nick
     type: post
     date: 2012-09-03T05:37:57+00:00
-    url: /2012-09-03-increasedecrease
+    url: /entries/2012-09-03-increasedecrease
     categories:
       - Musings
       - Theology
@@ -366,8 +366,8 @@ posts:
     author: nick
     type: post
     date: 2014-04-10T15:00:30+00:00
-    url: /2014-04-10-dont-you-care-that-im-dying
-    featured_image: /wp-content/uploads/2013/01/Helsinki-Cathedral-1000x288.jpg
+    url: /entries/2014-04-10-dont-you-care-that-im-dying
+    featured_image: https://files.nickrobison.com/images/2013/01/Helsinki-Cathedral-1000x288.jpg
     categories:
       - Musings
       - Policy
@@ -384,7 +384,7 @@ posts:
     author: nick
     type: post
     date: 2012-02-01T20:13:20+00:00
-    url: /2012-02-01-avis
+    url: /entries/2012-02-01-avis
     categories:
       - Study Abroad
       - Travel
@@ -399,7 +399,7 @@ posts:
     author: nick
     type: post
     date: 2012-03-19T12:34:15+00:00
-    url: /2012-03-19-subtle
+    url: /entries/2012-03-19-subtle
     categories:
       - Musings
       - Theology
@@ -413,8 +413,8 @@ posts:
     author: nick
     type: post
     date: 2013-01-26T23:28:20+00:00
-    url: /2013-01-26-happy-birthday
-    featured_image: /wp-content/uploads/2013/01/cupcake-candles-500x288.jpg
+    url: /entries/2013-01-26-happy-birthday
+    featured_image: https://files.nickrobison.com/images/2013/01/cupcake-candles-500x288.jpg
     categories:
       - Housekeeping
       - Lifestream
@@ -430,7 +430,7 @@ posts:
     author: nick
     type: post
     date: 2012-02-07T08:37:16+00:00
-    url: /2012-02-07-u-dub
+    url: /entries/2012-02-07-u-dub
     categories:
       - Lifestream
     tags:
@@ -445,7 +445,7 @@ posts:
     author: nick
     type: post
     date: 2012-02-07T22:31:15+00:00
-    url: /2012-02-07-being-healthy
+    url: /entries/2012-02-07-being-healthy
     categories:
       - Uncategorized
     tags:
@@ -459,7 +459,7 @@ posts:
     author: nick
     type: post
     date: 2012-08-30T23:51:34+00:00
-    url: /2012-08-30-seattle
+    url: /entries/2012-08-30-seattle
     categories:
       - Lifestream
     tags:
@@ -475,7 +475,7 @@ posts:
     author: nick
     type: post
     date: 2012-12-14T06:44:05+00:00
-    url: /2012-12-13-girl-interrupting
+    url: /entries/2012-12-13-girl-interrupting
     categories:
       - Musings
       - Theology
@@ -494,7 +494,7 @@ posts:
     author: nick
     type: post
     date: 2014-01-16T16:00:02+00:00
-    url: /2014-01-16-new-project-informatonauts
+    url: /entries/2014-01-16-new-project-informatonauts
     categories:
       - Lifestream
     tags:
@@ -509,7 +509,7 @@ posts:
     author: nick
     type: post
     date: 2012-09-16T00:13:41+00:00
-    url: /2012-09-15-one
+    url: /entries/2012-09-15-one
     categories:
       - Lifestream
     tags:
@@ -523,28 +523,11 @@ posts:
     
     file: 2012-09-15-one.md
   -
-    title: A Prayer
-    author: nick
-    type: post
-    date: 2014-04-18T22:28:37+00:00
-    url: /2014-04-18-a-prayer
-    featured_image: /wp-content/uploads/2012/09/DSC_0012-1000x288.jpg
-    categories:
-      - Art
-      - Poetry
-    tags:
-      - academia
-      - imminence
-      - james ka smith
-      - prayer
-    
-    file: 2014-04-18-a-prayer.md
-  -
     title: '2012 – Year in Review: Travel'
     author: nick
     type: post
     date: 2012-12-31T19:56:45+00:00
-    url: /2012-12-31-2012-year-in-review-travel
+    url: /entries/2012-12-31-2012-year-in-review-travel
     categories:
       - Lifestream
     tags:
@@ -568,8 +551,8 @@ posts:
     author: nick
     type: post
     date: 2014-01-30T01:53:50+00:00
-    url: /2014-01-29-new-informatonauts
-    featured_image: /wp-content/uploads/2014/01/Informatonauts-2-672x372.jpg
+    url: /entries/2014-01-29-new-informatonauts
+    featured_image: https://files.nickrobison.com/images/2014/01/Informatonauts-2-672x372.jpg
     categories:
       - Lifestream
     tags:
@@ -584,7 +567,7 @@ posts:
     author: nick
     type: post
     date: 2012-12-31T21:29:12+00:00
-    url: /2012-12-31-2012-year-in-review-music
+    url: /entries/2012-12-31-2012-year-in-review-music
     categories:
       - Lifestream
     tags:
@@ -603,7 +586,7 @@ posts:
     author: nick
     type: post
     date: 2012-01-29T14:23:17+00:00
-    url: /2012-01-29-koncert
+    url: /entries/2012-01-29-koncert
     categories:
       - Concerts
       - Music
@@ -616,7 +599,7 @@ posts:
     author: nick
     type: post
     date: 2012-02-05T10:43:33+00:00
-    url: /2012-02-05-roskilde
+    url: /entries/2012-02-05-roskilde
     categories:
       - Photos
       - Study Abroad
@@ -633,8 +616,8 @@ posts:
     author: nick
     type: post
     date: 2013-02-14T06:01:07+00:00
-    url: /2013-02-13-lent
-    featured_image: /wp-content/uploads/2013/02/Books-1000x288.jpg
+    url: /entries/2013-02-13-lent
+    featured_image: https://files.nickrobison.com/images/2013/02/Books-1000x288.jpg
     categories:
       - Lifestream
       - Theology
@@ -655,7 +638,7 @@ posts:
     author: nick
     type: post
     date: 2012-02-14T15:54:22+00:00
-    url: /2012-02-14-book-review-tinker-tailor-soldier-spy
+    url: /entries/2012-02-14-book-review-tinker-tailor-soldier-spy
     categories:
       - Books
       - Reviews
@@ -670,7 +653,7 @@ posts:
     author: nick
     type: post
     date: 2012-10-11T17:41:02+00:00
-    url: /2012-10-11-the-problem-with-sin
+    url: /entries/2012-10-11-the-problem-with-sin
     categories:
       - Theology
     tags:
@@ -689,8 +672,8 @@ posts:
     author: nick
     type: post
     date: 2012-02-22T22:54:57+00:00
-    url: /2012-02-22-syddanmark
-    featured_image: /wp-content/uploads/2012/02/Kolding_web-1000x288.jpg
+    url: /entries/2012-02-22-syddanmark
+    featured_image: https://files.nickrobison.com/images/2012/02/Kolding_web-1000x288.jpg
     categories:
       - Photos
       - Study Abroad
@@ -708,8 +691,8 @@ posts:
     author: nick
     type: post
     date: 2014-01-28T16:00:58+00:00
-    url: /2014-01-28-new-look-new-feel-old-soul
-    featured_image: /wp-content/uploads/2013/07/468319_70689252.jpg
+    url: /entries/2014-01-28-new-look-new-feel-old-soul
+    featured_image: https://files.nickrobison.com/images/2013/07/468319_70689252.jpg
     categories:
       - Housekeeping
     tags:
@@ -723,8 +706,8 @@ posts:
     author: nick
     type: post
     date: 2013-03-20T23:59:42+00:00
-    url: /2013-03-20-update
-    featured_image: /wp-content/uploads/2013/01/kittens.jpg
+    url: /entries/2013-03-20-update
+    featured_image: https://files.nickrobison.com/images/2013/01/kittens.jpg
     categories:
       - Housekeeping
       - Lifestream
@@ -757,8 +740,8 @@ posts:
     author: nick
     type: post
     date: 2013-03-07T08:15:10+00:00
-    url: /2013-03-07-letheavencome
-    featured_image: /wp-content/uploads/2013/03/663092_26111643-1000x288.jpg
+    url: /entries/2013-03-07-letheavencome
+    featured_image: https://files.nickrobison.com/images/2013/03/663092_26111643-1000x288.jpg
     categories:
       - Theology
     tags:
@@ -789,8 +772,8 @@ posts:
     author: nick
     type: post
     date: 2014-01-31T16:00:27+00:00
-    url: /2014-01-31-love-fire-and-blaise-pascal
-    featured_image: /wp-content/uploads/2013/01/Helsinki-Cathedral-1000x288.jpg
+    url: /entries/2014-01-31-love-fire-and-blaise-pascal
+    featured_image: https://files.nickrobison.com/images/2013/01/Helsinki-Cathedral-1000x288.jpg
     categories:
       - Theology
     tags:
@@ -805,8 +788,8 @@ posts:
     author: nick
     type: post
     date: 2013-01-02T18:42:10+00:00
-    url: /2013-01-02-2012-year-in-review-photos
-    featured_image: /wp-content/uploads/2013/01/DSC_0149-1000x288.jpg
+    url: /entries/2013-01-02-2012-year-in-review-photos
+    featured_image: https://files.nickrobison.com/images/2013/01/DSC_0149-1000x288.jpg
     categories:
       - Lifestream
     tags:
@@ -830,8 +813,8 @@ posts:
     author: nick
     type: post
     date: 2013-01-12T03:18:13+00:00
-    url: /2013-01-11-2012-year-in-review-movies
-    featured_image: /wp-content/uploads/2013/01/filmcamera-1000x288.jpg
+    url: /entries/2013-01-11-2012-year-in-review-movies
+    featured_image: https://files.nickrobison.com/images/2013/01/filmcamera-1000x288.jpg
     categories:
       - Lifestream
     tags:

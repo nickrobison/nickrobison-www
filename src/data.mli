@@ -13,6 +13,9 @@ module Feed: sig
   type t = Www_types.domain -> Cow.Html.t Www_types.read -> Cowabloga.Atom_feed.t
 
   val blog: t
+
+  val updates: t
+    (** The static feed for site updates. *)
 end
 
 val empty_feed: Cowabloga.Atom_feed.t
