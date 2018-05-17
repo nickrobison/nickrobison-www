@@ -34,7 +34,7 @@ let blog_index ~feed ~entries ~read ~domain ~page_range =
   Cowabloga.Blog.to_html ?sep:None ~feed ~entries:entries >>= fun posts ->
   (** let { title; subtitle; _ } = feed in *)
   let content =
-    Cowabloga.Foundation.Blog.t ~title:"" ~subtitle:None ~sidebar ~posts ~copyright ()
+    Cowabloga.Foundation.Blog.t ~title:"" ~subtitle:None ~sidebar ~posts ~copyright ?pages:(Some(page_range)) ()
   in
   make ~domain ~read content
 
