@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Mirage settings
-export MIRAGE_IMAGE=virtio
+export MIRAGE_IMAGE=xen
 export HOSTNAME=blog.nickrobison.com
 export BUILD_ID=$(date +%s)
 
