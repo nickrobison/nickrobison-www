@@ -2,9 +2,10 @@
 
 set -e
 
-pushd src
-solo5-mkimage disk.raw nickrobison_www.${MIRAGE_IMAGE}
-tar -zcvf mirage-${BUILD_ID}.tar.gz disk.raw
+ls .
+ls src/
+#solo5-mkimage disk.raw src/nickrobison_www.${MIRAGE_IMAGE}
+#tar -zcvf mirage-${BUILD_ID}.tar.gz disk.raw
 
 # Upload the image
 gsutil cp mirage-${BUILD_ID}.tar.gz gs://${GS_BUCKET}
@@ -39,4 +40,4 @@ while true; do
 done
 
 echo "Finished deploying instance"
-popd
+
