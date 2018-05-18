@@ -42,8 +42,8 @@ let http =
 let dispatch = (http $ http_server (conduit_direct stack))
 
 let packages = [package "cow"; package "cowabloga"; package "astring";
-               package "ezjsonm"; package "re"; package "sexplib" ~min:"0.11.0";
-               package "duration"; package "ptime"; package "base" ~min:"0.11.0"]
+               package "ezjsonm"; package "re";
+               package "duration"; package "ptime";]
 
 let () =
   let tracing = None in
