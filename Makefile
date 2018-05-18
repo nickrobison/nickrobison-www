@@ -10,6 +10,7 @@ deploy:
 
 depends:
 	opam install -y $(PKGS)
+	opam pin add -y cowabloga https://github.com/nickrobison/cowabloga.git
 
 parser.byte:
 	corebuild tools/parser.byte

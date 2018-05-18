@@ -15,7 +15,7 @@ install:
   - wget https://raw.githubusercontent.com/ocaml/ocaml-ci-scripts/master/.travis-ocaml.sh
   - bash -ex .travis-ocaml.sh
   - make depends
-  - export PATH=/home/travis/.opam/4.04.2/bin:$PATH
+  - export PATH=/home/travis/.opam/4.05.0/bin:$PATH
 
 script:
   - make build
