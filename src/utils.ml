@@ -1,7 +1,16 @@
+let foldi t ~init ~f =
+  snd (List.fold_left (fun (i, acc) v -> (i + 1, f i acc v)) (0, init) t)
 
-(**
+let sub l ~pos ~len =
+  if pos < 0 || len < 0 || pos > List.length l - len then raise (Invalid_argument "Utils.sub");
+  List.rev
+    (foldi l ~init: [] ~f:(fun i acc el ->
+         if i >= pos && i < (pos + len)
+         then el :: acc
+         else acc))
+
 let take offset amount list =
-  let sub_list = List.sub list offset ((List.length list) - 1)
+  let sub_list = sub list offset ((List.length list) - 1)
   in
   let rec take_rec amount list =
     match amount with
@@ -11,10 +20,6 @@ let take offset amount list =
       | hd :: tl -> hd :: take_rec (amount - 1) tl
   in
   take_rec amount sub_list
-*)
-
-let foldi t ~init ~f =
-  snd (List.fold_left (fun (i, acc) v -> (i + 1, f i acc v)) (0, init) t)
 
 let groupi l ~break =
   let groups =
