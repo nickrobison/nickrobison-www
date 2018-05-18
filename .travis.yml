@@ -1,0 +1,24 @@
+language: c
+sudo: required
+env:
+  - OCAML_VERSION=4.06
+addons:
+  apt:
+    updated: true
+before_install:
+  - source scripts/env.sh
+install:
+  - wget https://raw.githubusercontent.com/ocaml/ocaml-ci-scripts/master/.travis-ocaml.sh
+  - bash -ex .travis-ocaml.sh
+  - make depends
+  - export PATH=/home/travis/.opam/4.06.1/bin:$PATH
+script:
+  - make build
+before_deploy:
+  - openssl aes-256-cbc -K $encrypted_e48455ed36d7_key -iv $encrypted_e48455ed36d7_iv -in client-secret.json.enc -out client-secret.json -d
+  - sudo apt-get install python
+  - bash -ex scripts/init_gcloud.sh
+
+deploy:
+  provider: script
+  script: make deploy

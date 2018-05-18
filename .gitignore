@@ -18,7 +18,7 @@ src/fat*.img
 src/make-fat*.sh
 
 src/.mirage.config
-src/mirage-unikernel-nickrobison_www-macosx.opam
+src/*.opam
 src/myocamlbuild.ml
 src/www
 
@@ -26,3 +26,5 @@ tools/_build
 _build
 parser.*
 TAGS
+# Don't commit the API credentials
+client-secret.json

@@ -82,8 +82,19 @@ module Blog = struct
 
   let entries yaml_file =
     let open Cowabloga.Blog.Entry in
+    (**
+    I don't know when we can bring yaml back into the mix, but we'll stick with JSON for now.
     let yaml = Yaml.of_string_exn yaml_file in
-    let posts = Ezjsonm.(get_array (find yaml ["posts"])) in
+    *)
+    let yaml = Ezjsonm.from_string yaml_file in
+    let js_first = match yaml with
+      | `A a -> List.hd a
+      | _ -> raise (YAML_EXCEPTION "Cannot get first array")
+    in
+    let posts = match Ezjsonm.find js_first ["posts"] with
+    | `A p -> p
+    | _ -> raise (YAML_EXCEPTION "Cannot get posts")
+    in
     List.fold_left (fun acc p ->
         let title =  Ezjsonm.(get_string (find p ["title"])) in
         let url = Ezjsonm.(get_string (find p ["url"])) in

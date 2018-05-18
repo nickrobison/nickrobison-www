@@ -37,7 +37,7 @@ let blog_index ~feed ~entries ~read ~domain ~page_range ~sidebar =
 let make_index_pages ~feed ~entries ~read ~domain partition =
   let total_pages = List.length entries mod partition in
   let paritioned = List.sort Cowabloga.Blog.Entry.compare entries |>
-                   Base.List.groupi ~break:(fun i _ _ -> i mod partition = 0)
+                  Utils.groupi ~break:(fun i _ _ -> i mod partition = 0)
   in
   let sidebar =
     Cowabloga.Foundation.Sidebar.t ~title:"Recent Posts" ~content:(Cowabloga.Blog.recent_posts feed (List.hd paritioned))

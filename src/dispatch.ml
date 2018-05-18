@@ -71,7 +71,7 @@ module Make
     Data.Feed.updates domain (read_entry tmpl)
 
   let updates_feeds domain tmpl =
-    tmpl_read tmpl "posts.yml" >>= fun posts ->
+    tmpl_read tmpl "posts.json" >>= fun posts ->
     let entries = Data.Blog.entries posts in
     Lwt.return([
       `Blog (blog_feed domain tmpl, entries);
@@ -92,7 +92,7 @@ module Make
 
   let blog domain tmpl =
     let feed = blog_feed domain tmpl in
-    tmpl_read tmpl "posts.yml" >>= fun posts ->
+    tmpl_read tmpl "posts.json" >>= fun posts ->
     let entries = Data.Blog.entries posts in
     let read = tmpl_read tmpl in
     Blog.dispatch ~domain ~feed ~entries ~read

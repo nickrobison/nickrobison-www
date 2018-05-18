@@ -41,10 +41,9 @@ let http =
 
 let dispatch = (http $ http_server (conduit_direct stack))
 
-let packages = [package "cow"; package "cowabloga"; package ~ocamlfind:["rrd"]
-                  ~min:"1.0.1" "xapi-rrd"; package "c3"; package "astring";
-                package "yaml"; package "ezjsonm"; package "re";
-               package "duration"; package "ptime"; package "core_kernel"]
+let packages = [package "cow"; package "cowabloga"; package "astring";
+               package "ezjsonm"; package "re";
+               package "duration"; package "ptime";]
 
 let () =
   let tracing = None in
