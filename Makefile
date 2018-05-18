@@ -1,4 +1,4 @@
-PKGS := core depext jbuilder
+PKGS := depext jbuilder
 
 .PHONY: depends tools clean build deploy
 
