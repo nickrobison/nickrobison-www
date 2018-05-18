@@ -230,8 +230,17 @@ let parse input_dir output_dir () =
       let yaml = process_file input_dir f output_dir in
       acc @ yaml) |>
   (fun yaml_lines ->
+     let yaml_string = String.concat ?sep:(Some ("\n" ^ (add_padding 1))) yaml_lines in
      let yaml_file = Filename.concat output_dir "posts.yml" in
-     Out_channel.write_all yaml_file ~data:(String.concat ?sep:(Some ("\n" ^ (add_padding 1))) yaml_lines)
+     Out_channel.write_all yaml_file ~data:yaml_string;
+     let json_file = Filename.concat output_dir "posts.json" in
+     let json = match Yaml.yaml_of_string yaml_string with
+       | Ok y -> (match Yaml.to_json y with
+         | Ok j -> j
+         | Error _ -> raise Not_found)
+       | Error _ -> raise Not_found
+     in
+     Out_channel.write_all json_file ~data:Ezjsonm.(to_string (wrap json))
   )
 
 

@@ -1,1 +1,1 @@
-true: package(re)
+true: package(re yaml ezjsonm)
