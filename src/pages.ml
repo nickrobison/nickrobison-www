@@ -53,7 +53,9 @@ module Global = struct
     let fonts =
       scheme ^ "://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" in
     let font =
-      link ~rel: "stylesheet" (Uri.of_string "/css/font-awesome.css")
+      link ~rel: "stylesheet" (Uri.of_string "https://pro.fontawesome.com/releases/v5.0.13/css/all.css")
+        ~attrs:["integrity", "sha384-oi8o31xSQq8S0RpBcb4FaLB8LJi9AT8oIdmS1QldR8Ui7KUQjNAnDlJjp55Ba8FG";
+               "crossorigin", "anonymous"]
       ++
       link ~rel: "stylesheet" ~ty: "text/css" (Uri.of_string fonts)
       ++
