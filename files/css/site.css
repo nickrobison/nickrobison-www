@@ -13,13 +13,17 @@ h1,h2,h3,h4,h5,h6 { margin-top: 2rem; }
 /* Need these three settings in order ot make the topbar black. */
 .contain-to-grid, .top-bar, .top-bar-section li a:not(.button) {
     background: black;
+    font-family: "Trirong"; san-serif;
+    font-weight: light;
 }
 
 .panel {
   padding-top: 0.5rem;
 }
 
-body,h1,h2,h3,h4,h5,h6 { font-family: "Source Sans Pro"; }
+h1,h2,h3,h3,h5,h6 { font-family: "Trirong", serif}
+
+body { font-family: "Rubik"; san-serif}
 
 a { color: #333399; }
 p a { border-bottom: 1px dotted #999999; }
@@ -129,8 +133,8 @@ div.trace-viewer button {
     margin-bottom: 4rem;
 }
 
-.responsive-blog-post p {
-    color: #8a8a8a;
+.responsive-blog-post h4 a {
+    font-family: "Trirong", serif
 }
 
 .responsive-blog-post .button {
@@ -208,7 +212,6 @@ div.trace-viewer button {
     color: #e6e6e6;
     margin: 3px;
     text-transform: uppercase;
-    font-weight: bold;
 }
 
 .tag-cloud .tag-cloud-individual-tag .fa {
