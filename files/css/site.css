@@ -21,7 +21,9 @@ h1,h2,h3,h4,h5,h6 { margin-top: 2rem; }
   padding-top: 0.5rem;
 }
 
-h1,h2,h3,h3,h5,h6 { font-family: "Trirong", serif}
+h1,h2,h3,h3,h5,h6 {
+    font-family: "Trirong", serif;
+}
 
 body { font-family: "Rubik"; san-serif}
 
@@ -126,6 +128,18 @@ div.trace-viewer button {
   padding: 0.2em;
 }
 
+.align-center {
+
+    -webkit-box-pack: center;
+
+    -webkit-justify-content: center;
+
+    -ms-flex-pack: center;
+
+    justify-content: center;
+
+}
+
 
 
 /* Blog post */
@@ -134,7 +148,9 @@ div.trace-viewer button {
 }
 
 .responsive-blog-post h4 a {
-    font-family: "Trirong", serif
+    font-family: "Trirong", serif;
+    font-style: italic;
+    font-weight: lighter;
 }
 
 .responsive-blog-post .button {
