@@ -13,7 +13,7 @@ h1,h2,h3,h4,h5,h6 { margin-top: 2rem; }
 /* Need these three settings in order ot make the topbar black. */
 .top-bar, .top-bar ul {
     background-color: black;
-    font-family: "Trirong"; san-serif;
+    font-family: "Rubik"; san-serif;
     font-weight: light;
 }
 
@@ -34,10 +34,10 @@ h1,h2,h3,h4,h5,h6 { margin-top: 2rem; }
 }
 
 h1,h2,h3,h3,h5,h6 {
-    font-family: "Trirong", serif;
+    font-family: "Rubik", san-serif;
 }
 
-body { font-family: "Rubik"; san-serif}
+body { font-family: "Trirong"; serif}
 
 a { color: #333399; }
 p a { border-bottom: 1px dotted #999999; }
