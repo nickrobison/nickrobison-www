@@ -11,10 +11,22 @@ h1,h2,h3,h4,h5,h6 { margin-top: 2rem; }
 .front_updates .front_date { color: #777799; }
 
 /* Need these three settings in order ot make the topbar black. */
-.contain-to-grid, .top-bar, .top-bar-section li a:not(.button) {
-    background: black;
+.top-bar, .top-bar ul {
+    background-color: black;
     font-family: "Trirong"; san-serif;
     font-weight: light;
+}
+
+.top-bar a {
+    color: white;
+}
+
+.menu .menu-text {
+    padding: 0rem 1rem;
+}
+
+.footer-hr {
+    max-width: 100%;
 }
 
 .panel {
@@ -139,8 +151,6 @@ div.trace-viewer button {
     justify-content: center;
 
 }
-
-
 
 /* Blog post */
 .responsive-blog-post {
