@@ -1,29 +1,26 @@
 language: c
 sudo: required
 services:
-  - docker
+- docker
 env:
   global:
-    - OCAML_VERSION=4.05
-    - BUILD_ID=$(date +%s)
-#addons:
-#  apt:
-#    updated: true
+  - OCAML_VERSION=4.05
+  - BUILD_ID=$(date +%s)
 before_install:
-  - source scripts/env.sh
-#install:
-#  - wget https://raw.githubusercontent.com/ocaml/ocaml-ci-scripts/master/.travis-ocaml.sh
-#  - bash -ex .travis-ocaml.sh
-#  - make depends
-#  - export PATH=/home/travis/.opam/4.06.1/bin:$PATH
+- source scripts/env.sh
 script:
-  - docker pull nickrobison/mirage-virtio:3.0.8
-  - docker run --rm -v "${PWD}:/home/opam/mirage" -w /home/opam/mirage -e BUILD_ID nickrobison/mirage-virtio:3.0.8 make build
+- docker pull nickrobison/mirage-virtio:3.0.8
+- docker run --rm -v "${PWD}:/home/opam/mirage" -w /home/opam/mirage -e BUILD_ID nickrobison/mirage-virtio:3.0.8
+  make build
 before_deploy:
-  - openssl aes-256-cbc -K $encrypted_e48455ed36d7_key -iv $encrypted_e48455ed36d7_iv -in client-secret.json.enc -out client-secret.json -d
-  - bash -ex scripts/init_gcloud.sh
-
+- openssl aes-256-cbc -K $encrypted_e48455ed36d7_key -iv $encrypted_e48455ed36d7_iv
+  -in client-secret.json.enc -out client-secret.json -d
+- bash -ex scripts/init_gcloud.sh
 deploy:
   skip_cleanup: true
   provider: script
   script: make deploy
+
+notifications:
+  slack:
+    secure: SzziGGDo1hatDGaeHShxBVndR3+NwoHrdt9s1dVO5xAWIxsKFLdp7MTN279g536sXNN2H+Z5kqGkOC88uUqdbI6mew4g5JG+tVpT6MGlum9j2AU6KPKS2+Cux6/XBRUodct6VJyGBE8DtxiAY8uIVLRobQKAouajLWJFFSJGZD+UmfBKFEksEntUfvxBwWjp5/XEyKPyDcVagDuLWuD3dvJzprjpJe2bwcUvioVNU0fkjCrHJsvbIR8DMCcggwRZBk/zxTv0He/XBasP/499B/izt/UvqxaAmUzpJ/JRAN5Q/ypm1QvL2KFtywGSwpV5t7LKUF6yVSz1yf7fk8qZ+EZQSkl6dpO9IiBa3cKo936zq3XY2FXJ3mimGX2eCc/tcViDbznJFmj+zHg2cWhtb3J40z1zePr5P53jU+WmVoMtKu7X9suRZBtKRuiO/GFzcfoLrfqXmCFvm4Zlm3kHgYxKfdNdykFAseHClNtUJ2zepONTCrd29efRlAhXpNNgZZv/tRu62a6PkG9Zp5cvsBk4WI4EY78QbdmRwMr4/4yBUbWqidW+ZLyl0eCq2WnPChCoXZNPsdAYYI4K8uB3xthbZqy9HyBRkXZ6F1PoNRC6+5EMAN7ftEfTP/pZuX3dvhcqR9QqMSgO6tXpsYdUFVo6Ub2pHloudq8cJVWD+Ew=

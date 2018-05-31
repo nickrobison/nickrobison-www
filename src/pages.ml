@@ -36,24 +36,26 @@ module Global = struct
   let uri = Uri.of_string
 
   let nav_links =
-    tag "ul" ~cls:"left" (list [
-        tag "li" (a ~href:(uri "/blog/") (string "Blog"));
-        (**
+    list [
+      tag "li" (a ~href:(uri "/blog/") (string "Blog"));
+      (**
         tag "li" (a ~href:(uri "/projects/") (string "Projects"))
-        *)
-      ])
+      *)
+      ]
 
   let top_nav = Cowabloga.Foundation.top_nav
-      ~title:(p (string "Hello, my name is Nick"))
+      ~title:(string "Hello, my name is Nick")
       ~title_uri:(uri "/")
       ~nav_links: nav_links
 
   let t ~title ~headers ~content ~read:_ ~domain =
     let scheme = match fst domain with `Http -> "http" | `Https -> "https" in
     let fonts =
-      scheme ^ "://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" in
+      scheme ^ "://fonts.googleapis.com/css?family=Rubik|Trirong|Source+Sans+Pro:400,600,700" in
     let font =
-      link ~rel: "stylesheet" (Uri.of_string "/css/font-awesome.css")
+      link ~rel: "stylesheet" (Uri.of_string "https://pro.fontawesome.com/releases/v5.0.13/css/all.css")
+        ~attrs:["integrity", "sha384-oi8o31xSQq8S0RpBcb4FaLB8LJi9AT8oIdmS1QldR8Ui7KUQjNAnDlJjp55Ba8FG";
+               "crossorigin", "anonymous"]
       ++
       link ~rel: "stylesheet" ~ty: "text/css" (Uri.of_string fonts)
       ++
@@ -79,9 +81,9 @@ module Index = struct
     read_file read "/intro-f.html" >>= fun footer ->
     Cowabloga.Feed.to_html ~limit:12 feeds >>= fun recent ->
     let content = list [
-        div ~cls:"row" (list [
-            (div ~cls:"small-12 medium-6 columns" l1);
-            div ~cls:"small-12 medium-6 columns front_updates"
+        div ~cls:"grid-x" (list [
+            (div ~cls:"cell medium-6 large-4 large-offset-2" l1);
+            div ~cls:"cell medium-6 large-4 front_updates"
                (h4 (list [
                     a ~href:(uri "/updates/atom.xml") (i ~cls:"fa fa-rss" empty);
                     string " Recent Updates ";
@@ -90,7 +92,7 @@ module Index = struct
                 ++ recent
                )
           ]);
-        div ~cls:"row" (div ~cls:"small-12 columns" footer)
+        div ~cls:"grid-x" (div ~cls:"cell large-8 large-offset-2" footer)
       ]
     in
     Global.t ~title:"Nick Robison" ~headers:[] ~content ~domain ~read
@@ -117,8 +119,8 @@ module Updates = struct
     Cowabloga.Feed.to_html feeds >>= fun recent ->
     atom_feed ~feed ~feeds >>= fun atom_feed ->
     make ~domain ~read
-      (div ~cls:"row" (
-          div ~cls:"small-12 medium-9 large-6 front_updates" (
+      (div ~cls:"grid-x" (
+          div ~cls:"cell medium-9 large-6 front_updates" (
             h2 (string "Site Updates "
                 ++ small (string "across the blog"))
             ++ recent)))

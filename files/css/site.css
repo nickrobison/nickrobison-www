@@ -11,15 +11,33 @@ h1,h2,h3,h4,h5,h6 { margin-top: 2rem; }
 .front_updates .front_date { color: #777799; }
 
 /* Need these three settings in order ot make the topbar black. */
-.contain-to-grid, .top-bar, .top-bar-section li a:not(.button) {
-    background: black;
+.top-bar, .top-bar ul {
+    background-color: black;
+    font-family: "Rubik"; san-serif;
+    font-weight: light;
+}
+
+.top-bar a {
+    color: white;
+}
+
+.menu .menu-text {
+    padding: 0rem 1rem;
+}
+
+.footer-hr {
+    max-width: 100%;
 }
 
 .panel {
   padding-top: 0.5rem;
 }
 
-body,h1,h2,h3,h4,h5,h6 { font-family: "Source Sans Pro"; }
+h1,h2,h3,h3,h5,h6 {
+    font-family: "Rubik", san-serif;
+}
+
+body { font-family: "Trirong"; serif}
 
 a { color: #333399; }
 p a { border-bottom: 1px dotted #999999; }
@@ -122,15 +140,27 @@ div.trace-viewer button {
   padding: 0.2em;
 }
 
+.align-center {
 
+    -webkit-box-pack: center;
+
+    -webkit-justify-content: center;
+
+    -ms-flex-pack: center;
+
+    justify-content: center;
+
+}
 
 /* Blog post */
 .responsive-blog-post {
     margin-bottom: 4rem;
 }
 
-.responsive-blog-post p {
-    color: #8a8a8a;
+.responsive-blog-post h4 a {
+    font-family: "Trirong", serif;
+    font-style: italic;
+    font-weight: lighter;
 }
 
 .responsive-blog-post .button {
@@ -208,7 +238,6 @@ div.trace-viewer button {
     color: #e6e6e6;
     margin: 3px;
     text-transform: uppercase;
-    font-weight: bold;
 }
 
 .tag-cloud .tag-cloud-individual-tag .fa {

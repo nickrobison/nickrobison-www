@@ -28,7 +28,6 @@ let copyright _ = []
 let blog_index ~feed ~entries ~read ~domain ~page_range ~sidebar =
   let copyright = copyright feed in
   Cowabloga.Blog.to_html ?sep:None ~feed ~entries:entries >>= fun posts ->
-  (** let { title; subtitle; _ } = feed in *)
   let content =
     Cowabloga.Foundation.Blog.t ~title:"" ~subtitle:None ~sidebar ~posts ~copyright ?pages:(Some(page_range)) ()
   in
@@ -53,8 +52,7 @@ let blog_entry ~feed ~entries ~read ~domain entry =
   let sidebar = Cowabloga.Foundation.Sidebar.t ~title:"Recent Posts" ~content:recent_posts
   in
   Cowabloga.Blog.Entry.to_html ~feed ~entry >>= fun posts ->
-  (**  let { title; subtitle; _ } = feed in *)
-  let content = Cowabloga.Foundation.Blog.t ~title:"hello" ~subtitle:None ~sidebar ~posts ~copyright ()
+  let content = Cowabloga.Foundation.Blog.t ~title:"" ~subtitle:None ~sidebar ~posts ~copyright ()
   in
   let title = entry.Cowabloga.Blog.Entry.subject in
   make ~domain ~read ~title content >>= fun content ->
