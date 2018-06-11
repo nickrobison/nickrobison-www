@@ -36,9 +36,6 @@ module Make
 
   let mk f path = f >|= (fun f -> cowabloga (f path))
 
-  let test () =
-    Lwt.return (`Html (Lwt.return "Hello world"))
-
   let fs_read = size_then_read ~pp_error:FS.pp_error ~size:FS.size ~read:FS.read
 
     let not_found domain path =
@@ -97,13 +94,18 @@ module Make
     let read = tmpl_read tmpl in
     Blog.dispatch ~domain ~feed ~entries ~read
 
+  let stats domain =
+    Stats.dispatch ~domain
+
   let dispatch domain fs tmpl =
     let index = index domain tmpl in
     let blog = blog domain tmpl in
     let updates = updates domain tmpl in
+    let stats = stats domain in
     function
     | ["index.html"]
     | [""] | [] -> index
+    | "stats" :: tl -> mk stats tl
     | "blog" :: tl -> mk blog tl
     | "updates" :: tl -> mk updates tl
     | path -> asset domain fs path
