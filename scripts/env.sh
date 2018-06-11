@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Install syslinux
 
@@ -18,6 +18,15 @@
 #sudo add-apt-repository --yes ppa:nickrobison/backports
 #sudo apt-get update -qq
 #sudo apt-get install -y syslinux/backports
+
+# Setup OPAM
+export OCAML_VERSION=4.05
+export OCAML_VERSION_FULL=4.05.0
+# If there's no cache dir, then we need to init things
+if [ -d /home/travis/.opam/4.05.0 ]; then
+    echo "Switch exists, not initializing"
+    export OPAM_INIT=false
+fi
 
 # Mirage settings
 export MIRAGE_IMAGE=virtio
