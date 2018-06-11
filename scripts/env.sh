@@ -23,7 +23,7 @@
 export OCAML_VERSION=4.05
 export OCAML_VERSION_FULL=4.05.0
 # If there's no cache dir, then we need to init things
-if [ -d /home/travis/.opam/${OCAML_FULL_VERSION} ]; then
+if [ -d /home/travis/.opam/"${OCAML_FULL_VERSION}" ]; then
     echo "Switch exists, not initializing"
     export OPAM_INIT=false
 fi
