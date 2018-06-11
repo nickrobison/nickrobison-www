@@ -7,6 +7,7 @@ services:
 - docker
 env:
   global:
+  - OPAMINIT=false
   - OCAML_VERSION=4.05
   - BUILD_ID=$(date +%s)
 before_install:
@@ -15,6 +16,8 @@ install:
 - wget https://raw.githubusercontent.com/ocaml/ocaml-ci-scripts/master/.travis-ocaml.sh
 # Script throws an exception if the switch already exists, so we need to swallow it.
 - bash .travis-ocaml.sh
+- opam switch 4.05.0
+- eval $(opam config env)
 - make depends
 - export PATH=/home/travis/.opam/4.05.0/bin:$PATH
 script:
