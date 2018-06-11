@@ -2,13 +2,11 @@ language: c
 sudo: required
 cache:
   directories:
-    - /home/travis/.opam/4.0.5
+    - /home/travis/.opam/
 services:
 - docker
 env:
   global:
-  - OPAMINIT=false
-  - OCAML_VERSION=4.05
   - BUILD_ID=$(date +%s)
 before_install:
 - source scripts/env.sh
@@ -16,10 +14,10 @@ install:
 - wget https://raw.githubusercontent.com/ocaml/ocaml-ci-scripts/master/.travis-ocaml.sh
 # Script throws an exception if the switch already exists, so we need to swallow it.
 - bash .travis-ocaml.sh
-- opam switch 4.05.0
+- opam switch $OCAML_FULL_VERSION
 - eval $(opam config env)
 - make depends
-- export PATH=/home/travis/.opam/4.05.0/bin:$PATH
+- export PATH=/home/travis/.opam/$OCAML_FULL_VERSION/bin:$PATH
 script:
 #- docker pull nickrobison/mirage-virtio:3.0.8
 #- docker run --rm -v "${PWD}:/home/opam/mirage" -w /home/opam/mirage -e BUILD_ID nickrobison/mirage-virtio:3.0.8
