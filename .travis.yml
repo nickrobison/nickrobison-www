@@ -18,10 +18,11 @@ install:
 - eval $(opam config env)
 - make depends
 - export PATH=/home/travis/.opam/$OCAML_FULL_VERSION/bin:$PATH
+- opam update && opam upgrade
 script:
-#- docker pull nickrobison/mirage-virtio:3.0.8
-#- docker run --rm -v "${PWD}:/home/opam/mirage" -w /home/opam/mirage -e BUILD_ID nickrobison/mirage-virtio:3.0.8
 - make build
+- docker pull nickrobison/mirage-virtio:3.0.8
+- docker run --rm -v "${PWD}:/home/opam/mirage" -w /home/opam/mirage -e BUILD_ID nickrobison/mirage-virtio:3.0.8 scripts/bundle.sh
 before_deploy:
 - openssl aes-256-cbc -K $encrypted_e48455ed36d7_key -iv $encrypted_e48455ed36d7_iv
   -in client-secret.json.enc -out client-secret.json -d

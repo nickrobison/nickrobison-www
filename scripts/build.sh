@@ -19,5 +19,5 @@ make -j2
 popd
 
 # Create the tarball
-solo5-mkimage disk.raw src/nickrobison_www.${MIRAGE_IMAGE}
-tar -zcvf mirage-${BUILD_ID}.tar.gz disk.raw
+#solo5-mkimage disk.raw src/nickrobison_www.${MIRAGE_IMAGE}
+#tar -zcvf mirage-${BUILD_ID}.tar.gz disk.raw
