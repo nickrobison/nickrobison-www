@@ -23,6 +23,7 @@ h1,h2,h3,h4,h5,h6 { margin-top: 2rem; }
 
 .menu .menu-text {
     padding: 0rem 1rem;
+    font-weight: 400;
 }
 
 .footer-hr {
@@ -34,14 +35,14 @@ h1,h2,h3,h4,h5,h6 { margin-top: 2rem; }
 }
 
 h1,h2,h3,h3,h5,h6 {
-    font-family: "Rubik", san-serif;
+    font-family: "Ovo", san-serif;
 }
 
-body { font-family: "Trirong"; serif}
+body { font-family: "Muli"; san-serif}
 
 a { color: #333399; }
 p a { border-bottom: 1px dotted #999999; }
-p { margin-top: 0.7rem; margin-bottom: 0.2rem; line-height: 1.4rem }
+p { margin-top: 0.7rem; margin-bottom: 0.2rem;}
 
 article a:hover {
   color: #333333;
@@ -158,8 +159,7 @@ div.trace-viewer button {
 }
 
 .responsive-blog-post h4 a {
-    font-family: "Trirong", serif;
-    font-style: italic;
+    font-family: "Ovo", serif;
     font-weight: lighter;
 }
 

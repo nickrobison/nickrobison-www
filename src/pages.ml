@@ -52,7 +52,7 @@ module Global = struct
   let t ~title ~headers ~content ~read:_ ~domain =
     let scheme = match fst domain with `Http -> "http" | `Https -> "https" in
     let fonts =
-      scheme ^ "://fonts.googleapis.com/css?family=Rubik|Trirong|Source+Sans+Pro:400,600,700" in
+      scheme ^ "://fonts.googleapis.com/css?family=Ovo|Muli|Rubik|Trirong|Source+Sans+Pro:400,600,700" in
     let font =
       link ~rel: "stylesheet" (Uri.of_string "https://pro.fontawesome.com/releases/v5.0.13/css/all.css")
         ~attrs:["integrity", "sha384-oi8o31xSQq8S0RpBcb4FaLB8LJi9AT8oIdmS1QldR8Ui7KUQjNAnDlJjp55Ba8FG";
