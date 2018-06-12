@@ -29,3 +29,8 @@ module About: sig
 
   val t: t
 end
+
+module Projects: sig
+
+  val t: t
+end

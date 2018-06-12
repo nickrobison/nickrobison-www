@@ -91,6 +91,10 @@ module Make
     let read = tmpl_read tmpl in
     Pages.About.t ~domain ~read >|= cowabloga
 
+  let projects domain tmpl =
+    let read = tmpl_read tmpl in
+    Pages.Projects.t ~domain ~read >|= cowabloga
+
   let blog domain tmpl =
     let feed = blog_feed domain tmpl in
     tmpl_read tmpl "posts.json" >>= fun posts ->
@@ -104,6 +108,7 @@ module Make
   let dispatch domain fs tmpl =
     let index = index domain tmpl in
     let about = about domain tmpl in
+    let projects = projects domain tmpl in
     let blog = blog domain tmpl in
     let updates = updates domain tmpl in
     let stats = stats domain in
@@ -111,6 +116,7 @@ module Make
     | ["index.html"]
     | [""] | [] -> index
     | ["about"] -> about
+    | ["projects"] -> projects
     | "stats" :: tl -> mk stats tl
     | "blog" :: tl -> mk blog tl
     | "updates" :: tl -> mk updates tl
