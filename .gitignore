@@ -1,5 +1,5 @@
 src/_build
-src/nickrobison_www.*
+src/nickrobison_www*
 src/main.native
 src/Makefile
 src/Makefile
