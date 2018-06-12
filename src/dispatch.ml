@@ -92,8 +92,15 @@ module Make
     Pages.About.t ~domain ~read >|= cowabloga
 
   let projects domain tmpl =
+    let projects: Data.Projects.t list = [
+      {
+        title = "Test Project";
+        location = "github.com";
+        description = "test description";
+      };
+    ] in
     let read = tmpl_read tmpl in
-    Projects.t ~domain ~read >|= cowabloga
+    Projects.t ~projects ~domain ~read >|= cowabloga
 
   let blog domain tmpl =
     let feed = blog_feed domain tmpl in

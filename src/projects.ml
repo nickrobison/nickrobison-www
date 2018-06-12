@@ -5,6 +5,15 @@ open Www_types
 
 type t = read:string read -> domain:domain -> contents Lwt.t
 
+module Entry = struct
+  type t = {
+    title: string;
+    location: string;
+    description: string;
+  }
+end
+
+
 let centered_content content ?spacing () =
   let grid_cls = match spacing with
     | None -> "cell"
@@ -38,8 +47,11 @@ let read_file tmpl_read f =
   | _ -> Lwt.return []
 
 
-let t ~read ~domain =
+let t ~projects ~read ~domain =
+  Pages.Global.t ~title:"Projects" ~headers:[] ~content:(string "Hello!") ~domain ~read
+  (**
   read_file read "/projects.md" >>= fun pbody ->
     let content = centered_content pbody ?spacing:(Some "medium-8 medium-offset-2") ()
     in
     Pages.Global.t ~title:"About" ~headers:[] ~content ~domain ~read
+  *)

@@ -8,6 +8,17 @@ module Blog: sig
   val entries: string -> t list
 end
 
+module Projects: sig
+  type t = {
+    title: string;
+    location: string;
+    description: string;
+  }
+
+  val entries: t list
+end
+
+
 module Feed: sig
 
   type t = Www_types.domain -> Cow.Html.t Www_types.read -> Cowabloga.Atom_feed.t

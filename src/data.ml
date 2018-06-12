@@ -9,6 +9,17 @@ module People = struct
   }
 end
 
+module Projects = struct
+  type t = {
+    title: string;
+    location: string;
+    description: string;
+  }
+
+  let entries = []
+end
+
+
 
 module Blog = struct
 
