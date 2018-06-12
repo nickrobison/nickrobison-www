@@ -140,7 +140,7 @@ module About = struct
     read_file read "/about.md" >>= fun abody ->
     let content = list [
         div ~cls:"grid-x" (list [
-            (div ~cls:"cell medium-6 large-4 large-offset-2" abody);
+            (div ~cls:"cell medium-6 medium-offset-3 large-4 large-offset-4" abody);
           ]);
       ]
     in
