@@ -93,7 +93,7 @@ module Make
 
   let projects domain tmpl =
     let read = tmpl_read tmpl in
-    Pages.Projects.t ~domain ~read >|= cowabloga
+    Projects.t ~domain ~read >|= cowabloga
 
   let blog domain tmpl =
     let feed = blog_feed domain tmpl in
