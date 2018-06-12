@@ -38,6 +38,7 @@ module Global = struct
   let nav_links =
     list [
       tag "li" (a ~href:(uri "/blog/") (string "Blog"));
+      tag "li" (a ~href:(uri "/about") (string "About"));
       (**
         tag "li" (a ~href:(uri "/projects/") (string "Projects"))
       *)
@@ -134,3 +135,14 @@ module Updates = struct
     Lwt.return f
 end
 
+module About = struct
+  let t ~read ~domain =
+    read_file read "/about.md" >>= fun abody ->
+    let content = list [
+        div ~cls:"grid-x" (list [
+            (div ~cls:"cell medium-6 large-4 large-offset-2" abody);
+          ]);
+      ]
+    in
+    Global.t ~title:"About" ~headers:[] ~content ~domain ~read
+end
