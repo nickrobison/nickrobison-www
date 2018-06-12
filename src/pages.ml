@@ -42,12 +42,20 @@ module Global = struct
       (**
         tag "li" (a ~href:(uri "/projects/") (string "Projects"))
       *)
-      ]
+    ]
+
+  let right_links =
+    list [
+      tag "li" (a ~href:(uri "https://twitter.com/nickrobison") (i ~cls:"fab fa-twitter fa-lg" empty));
+      tag "li" (a ~href:(uri "https://github.com/nickrobison") (i ~cls:"fab fa-github fa-lg" empty));
+      tag "li" (a ~href:(uri "https://www.linkedin.com/in/nickrobison/") (i ~cls:"fab fa-linkedin fa-lg" empty));
+    ]
 
   let top_nav = Cowabloga.Foundation.top_nav
       ~title:(string "Hello, my name is Nick")
       ~title_uri:(uri "/")
-      ~nav_links: nav_links
+      ~nav_links
+      ~right_links
 
   let t ~title ~headers ~content ~read:_ ~domain =
     let scheme = match fst domain with `Http -> "http" | `Https -> "https" in
@@ -63,7 +71,7 @@ module Global = struct
       link ~rel: "icon" ~ty: "image/png" (Uri.of_string "/favicon.ico")
     in
     let headers = font @ headers in
-    let content = top_nav @ content in
+    let content = top_nav () @ content in
     let body =
       Cowabloga.Foundation.body ~highlight:"/css/magula.css"
         ~title ~headers ~content
