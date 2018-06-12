@@ -25,3 +25,7 @@ module Updates: sig
       extracted from [f]. *)
 end
 
+module About: sig
+
+  val t: t
+end

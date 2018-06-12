@@ -38,20 +38,29 @@ module Global = struct
   let nav_links =
     list [
       tag "li" (a ~href:(uri "/blog/") (string "Blog"));
+      tag "li" (a ~href:(uri "/about") (string "About"));
       (**
         tag "li" (a ~href:(uri "/projects/") (string "Projects"))
       *)
-      ]
+    ]
+
+  let right_links =
+    list [
+      tag "li" (a ~href:(uri "https://twitter.com/nickrobison") (i ~cls:"fab fa-twitter fa-lg" empty));
+      tag "li" (a ~href:(uri "https://github.com/nickrobison") (i ~cls:"fab fa-github fa-lg" empty));
+      tag "li" (a ~href:(uri "https://www.linkedin.com/in/nickrobison/") (i ~cls:"fab fa-linkedin fa-lg" empty));
+    ]
 
   let top_nav = Cowabloga.Foundation.top_nav
       ~title:(string "Hello, my name is Nick")
       ~title_uri:(uri "/")
-      ~nav_links: nav_links
+      ~nav_links
+      ~right_links
 
   let t ~title ~headers ~content ~read:_ ~domain =
     let scheme = match fst domain with `Http -> "http" | `Https -> "https" in
     let fonts =
-      scheme ^ "://fonts.googleapis.com/css?family=Rubik|Trirong|Source+Sans+Pro:400,600,700" in
+      scheme ^ "://fonts.googleapis.com/css?family=Ovo|Muli|Rubik|Trirong|Source+Sans+Pro:400,600,700" in
     let font =
       link ~rel: "stylesheet" (Uri.of_string "https://pro.fontawesome.com/releases/v5.0.13/css/all.css")
         ~attrs:["integrity", "sha384-oi8o31xSQq8S0RpBcb4FaLB8LJi9AT8oIdmS1QldR8Ui7KUQjNAnDlJjp55Ba8FG";
@@ -62,7 +71,7 @@ module Global = struct
       link ~rel: "icon" ~ty: "image/png" (Uri.of_string "/favicon.ico")
     in
     let headers = font @ headers in
-    let content = top_nav @ content in
+    let content = top_nav () @ content in
     let body =
       Cowabloga.Foundation.body ~highlight:"/css/magula.css"
         ~title ~headers ~content
@@ -134,3 +143,14 @@ module Updates = struct
     Lwt.return f
 end
 
+module About = struct
+  let t ~read ~domain =
+    read_file read "/about.md" >>= fun abody ->
+    let content = list [
+        div ~cls:"grid-x" (list [
+            (div ~cls:"cell medium-6 medium-offset-3 large-4 large-offset-4" abody);
+          ]);
+      ]
+    in
+    Global.t ~title:"About" ~headers:[] ~content ~domain ~read
+end
