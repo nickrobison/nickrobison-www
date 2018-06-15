@@ -5,17 +5,24 @@ module Blog: sig
   type t = Cowabloga.Blog.Entry.t
 (** The type for blog entries. *)
 
-  val entries: string -> t list
+  val entries: yaml_file:string -> t list
+  (** Gets the blog entries from the given index file. *)
 end
 
 module Projects: sig
+
+  module Location: sig
+    type t = [`Github of Uri.t | `Bitbucket of Uri.t]
+  end
+
   type t = {
     title: string;
-    location: string;
+    location: Location.t;
     description: string;
   }
 
   val entries: t list
+  (** Get the list of project entires. *)
 end
 
 

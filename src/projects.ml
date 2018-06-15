@@ -2,6 +2,7 @@ open Printf
 open Lwt.Infix
 open Cow.Html
 open Www_types
+open Data.Projects
 
 type t = read:string read -> domain:domain -> contents Lwt.t
 
@@ -46,12 +47,18 @@ let read_file tmpl_read f =
   | Some "html" -> read (fun s -> Cow.Html.of_string s)
   | _ -> Lwt.return []
 
+let build_project project =
+  div (list [
+       tag "hr" empty;
+    h4 (string project.title);
+    p (string project.description);
+    ])
 
-let t ~projects ~read ~domain =
-  Pages.Global.t ~title:"Projects" ~headers:[] ~content:(string "Hello!") ~domain ~read
-  (**
-  read_file read "/projects.md" >>= fun pbody ->
-    let content = centered_content pbody ?spacing:(Some "medium-8 medium-offset-2") ()
-    in
-    Pages.Global.t ~title:"About" ~headers:[] ~content ~domain ~read
-  *)
+let t ~read ~domain =
+  let content = div (list [
+      h1 (string "Projects");
+      p (string "A list of interesting projects I've been working on.\nEither things that I've started, or heavily contribute to.");
+      list (List.map (fun proj -> build_project proj) entries);
+    ])
+  in
+  Pages.Global.t ~title:"Projects" ~headers:[] ~content:(centered_content content ()) ~domain ~read

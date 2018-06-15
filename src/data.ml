@@ -10,13 +10,36 @@ module People = struct
 end
 
 module Projects = struct
+
+  module Location  = struct
+    type t = [`Github of Uri.t | `Bitbucket of Uri.t]
+  end
+
   type t = {
     title: string;
-    location: string;
+    location: Location.t;
     description: string;
   }
 
-  let entries = []
+  let fasttuple = {
+    title = "FastTuple";
+    location = (`Github (Uri.of_string "https://github.com/nickrobison/fasttuple"));
+    description = "Fast tuple desc"
+  }
+
+  let go_cddns = {
+    title = "Go-CDDNS";
+    location = (`Github (Uri.of_string "https://github.com/nickrobison/else-let"));
+    description = "Simple client for dynamically updating Cloudflare DNS records";
+  }
+
+  let else_let = {
+    title = "Else-Let";
+    location = (`Github (Uri.of_string "https://github.com/nickrobison/else-let"));
+    description = "Clojure macro for conditional binding of values, in the face nils.";
+  }
+
+  let entries = [fasttuple; go_cddns; else_let]
 end
 
 
@@ -91,7 +114,7 @@ module Blog = struct
                         int_from_list time_string 1)
 
 
-  let entries yaml_file =
+  let entries ~yaml_file =
     let open Cowabloga.Blog.Entry in
     (**
     I don't know when we can bring yaml back into the mix, but we'll stick with JSON for now.
