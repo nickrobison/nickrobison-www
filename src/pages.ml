@@ -38,10 +38,8 @@ module Global = struct
   let nav_links =
     list [
       tag "li" (a ~href:(uri "/blog/") (string "Blog"));
+      tag "li" (a ~href:(uri "/projects") (string "Projects"));
       tag "li" (a ~href:(uri "/about") (string "About"));
-      (**
-        tag "li" (a ~href:(uri "/projects/") (string "Projects"))
-      *)
     ]
 
   let right_links =
@@ -146,11 +144,15 @@ end
 module About = struct
   let t ~read ~domain =
     read_file read "/about.md" >>= fun abody ->
-    let content = list [
-        div ~cls:"grid-x" (list [
-            (div ~cls:"cell medium-6 medium-offset-3 large-4 large-offset-4" abody);
-          ]);
-      ]
+    let content = Utils.Style.centered_content abody ?spacing:(Some "medium-6 medium-offset-3 large-4 large-offset-4") ()
+    in
+    Global.t ~title:"About" ~headers:[] ~content ~domain ~read
+end
+
+module Projects = struct
+  let t ~read ~domain =
+    read_file read "/projects.md" >>= fun pbody ->
+    let content = Utils.Style.centered_content pbody ?spacing:(Some "medium-8 medium-offset-2") ()
     in
     Global.t ~title:"About" ~headers:[] ~content ~domain ~read
 end

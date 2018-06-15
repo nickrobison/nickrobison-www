@@ -16,3 +16,7 @@ val groupi: 'a list -> break:(int -> 'a -> 'a -> bool) -> 'a list list
 
 val group: 'a list -> break:('a -> 'a -> bool) -> 'a list list
 
+module Style: sig
+
+  val centered_content: Cow.Html.t -> ?spacing: string -> unit -> Cow.Html.t
+end

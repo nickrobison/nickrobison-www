@@ -9,6 +9,90 @@ module People = struct
   }
 end
 
+module Projects = struct
+
+  module Location  = struct
+    open Cow.Html
+    type t = [`Github of Uri.t | `Bitbucket of Uri.t]
+
+    type size =
+      | Small
+      | Large
+      | XL
+      | XXL
+
+    let string_of_size size =
+      match size with
+      | Small -> "fa-sm"
+      | Large -> "fa-lg"
+      | XL -> "fa-2x"
+      | XXL -> "fa-3x"
+
+    let mk icon href ?cls ?size () =
+      let sz = match size with
+        | Some s -> " " ^ (string_of_size s)
+        | None -> ""
+      in
+      let icon_cls = "fab " ^ "fa-" ^ icon ^ sz
+      in
+      let cls2 = match cls with
+        | Some c -> c
+        | None -> ""
+      in
+      a ~cls:cls2 ~href (i ~cls:icon_cls empty)
+
+    let mk_link loc ?cls ?sizing  () =
+      match loc with
+      | `Github l -> mk "github" l ?cls ?size:sizing ()
+      | `Bitbucket l -> mk "bitbucket" l ?cls ?size:sizing ()
+  end
+
+  type t = {
+    title: string;
+    location: Location.t;
+    description: Cow.Markdown.t;
+  }
+
+  let trestle = {
+    title = "Trestle";
+    location = (`Bitbucket (Uri.of_string "https://bitbucket.org/nickrobison/trestle"));
+    description = Cow.Markdown.of_string "Novel graph-based spatio-temporal database, designed to improve management of complex, time-varying spatial data.\nCore deliverable of my PhD research.\n\nNot public yet, but will be soon!"
+  }
+
+  let fasttuple = {
+    title = "FastTuple";
+    location = (`Github (Uri.of_string "https://github.com/nickrobison/fasttuple"));
+    description = Cow.Markdown.of_string "Tuple library for the JVM. Allows for really quick operations over large arrays by using bytecode generation and efficient memory layout.\n\nForked from the original Boundary project, with a few improvements.";
+  }
+
+  let go_cddns = {
+    title = "Go-CDDNS";
+    location = (`Github (Uri.of_string "https://github.com/nickrobison/else-let"));
+    description = Cow.Markdown.of_string "Go library for dynamically updating Cloudflare DNS records.\nUsed primarily to expose my internal development resources over the internet.";
+  }
+
+  let else_let = {
+    title = "Else-Let";
+    location = (`Github (Uri.of_string "https://github.com/nickrobison/else-let"));
+    description = Cow.Markdown.of_string "Clojure macro for conditional binding of values. Mimics the *Optional.orElse()* functionality in Java.";
+  }
+
+  let homebrew = {
+    title = "Homebrew-OSGEO";
+    location = (`Github (Uri.of_string "https://github.com/osgeo/homebrew-osgeo4mac"));
+    description = Cow.Markdown.of_string "I help maintain the [Homebrew](https://brew.sh) tap for various Geospatial packages on MacOS."
+  }
+
+  let nickrobison = {
+    title = "nickrobison.com";
+    location = (`Github (Uri.of_string "https://github.com/nickrobison/nickrobison-www"));
+    description = Cow.Markdown.of_string "This website is a [Mirage Unikernel](https://mirage.io) written in OCaml and running on Google Compute Engine.";
+  }
+
+  let entries = [trestle; fasttuple; nickrobison; homebrew; go_cddns; else_let]
+end
+
+
 
 module Blog = struct
 
@@ -80,7 +164,7 @@ module Blog = struct
                         int_from_list time_string 1)
 
 
-  let entries yaml_file =
+  let entries ~yaml_file =
     let open Cowabloga.Blog.Entry in
     (**
     I don't know when we can bring yaml back into the mix, but we'll stick with JSON for now.
