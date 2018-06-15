@@ -37,3 +37,20 @@ let groupi l ~break =
   | l -> List.rev_map List.rev l
 
 let group l ~break = groupi l ~break:(fun _ x y -> break x y)
+
+
+module Style = struct
+  open Cow.Html
+
+  let centered_content content ?spacing () =
+  let grid_cls = match spacing with
+    | None -> "cell"
+    | Some e -> "cell " ^ e
+  in
+   list [
+        div ~cls:"grid-x" (list [
+            (div ~cls:grid_cls content);
+          ]);
+      ]
+
+end
