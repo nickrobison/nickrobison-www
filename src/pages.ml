@@ -38,8 +38,8 @@ module Global = struct
   let nav_links =
     list [
       tag "li" (a ~href:(uri "/blog/") (string "Blog"));
+      tag "li" (a ~href:(uri "/projects") (string "Projects"));
       tag "li" (a ~href:(uri "/about") (string "About"));
-      tag "li" (a ~href:(uri "/projects") (string "Projects"))
     ]
 
   let right_links =
