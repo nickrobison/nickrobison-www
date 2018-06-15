@@ -165,6 +165,7 @@ module Blog = struct
 
 
   let entries ~yaml_file =
+    Log.info (fun f -> f "Entries is called.");
     let open Cowabloga.Blog.Entry in
     (**
     I don't know when we can bring yaml back into the mix, but we'll stick with JSON for now.

@@ -2,6 +2,19 @@ open Lwt.Infix
 
 let err fmt = Fmt.kstrf failwith fmt
 
+let domain_of_string x =
+  let uri = Uri.of_string x in
+  let scheme = match Uri.scheme uri with
+    | Some "http" -> `Http
+    | Some "https" -> `Https
+    | _ -> err "%s: wrong scheme for redirect. Should be either http:// or https://." x
+  in
+  let host = match Uri.host uri with
+    | Some x -> x
+    | None -> err "%s: missing hostname for redirect." x
+  in
+  scheme, host
+
 module Make
     (S: Cohttp_lwt.S.Server)
     (FS: Mirage_types_lwt.KV_RO)
@@ -43,6 +56,11 @@ module Make
     let uri = Uri.to_string uri in
     Lwt.return (`Not_found uri)
 
+  let redirect domain r =
+    let uri = Site_config.uri domain r in
+    let uri = Uri.to_string uri in
+    Lwt.return (`Redirect uri)
+
   let asset domain fs path =
     let path_s = String.concat "/" path in
     let asset () = Lwt.return (`Asset (fs_read fs path_s)) in
@@ -62,6 +80,7 @@ module Make
   (** Page feeds. *)
 
   let blog_feed domain tmpl =
+    Log.info (fun f -> f "Building blog feed");
     Data.Feed.blog domain (fun n -> read_entry tmpl ("/blog/"^n))
 
   let updates_feed domain tmpl =
@@ -69,6 +88,7 @@ module Make
 
   let updates_feeds domain tmpl =
     tmpl_read tmpl "posts.json" >>= fun posts ->
+    Log.info (fun f -> f "Reading updates_feed");
     let entries = Data.Blog.entries posts in
     Lwt.return([
       `Blog (blog_feed domain tmpl, entries);
@@ -98,6 +118,7 @@ module Make
   let blog domain tmpl =
     let feed = blog_feed domain tmpl in
     tmpl_read tmpl "posts.json" >>= fun posts ->
+    Log.info (fun f -> f "Getting blog entries");
     let entries = Data.Blog.entries posts in
     let read = tmpl_read tmpl in
     Blog.dispatch ~domain ~feed ~entries ~read
@@ -151,10 +172,13 @@ module Make
 
   let start http fs tmpl clock =
     let host = Key_gen.host () in
+    let red = Key_gen.redirect () in
     let http_port = Key_gen.http_port () in
     let host = host ^ ":" ^ (string_of_int http_port) in
     let domain = `Http, host in
-    let dispatch = dispatch domain fs tmpl in
+    let dispatch = match red with
+      | None -> dispatch domain fs tmpl
+      | Some domain -> redirect (domain_of_string domain) in
     let callback = create domain dispatch in
     let build_id = Key_gen.build_id () in
     Log.info (fun f -> f "Build version: %s" build_id);
@@ -162,4 +186,3 @@ module Make
       http (`TCP (Key_gen.http_port ())) callback
 
 end
-
