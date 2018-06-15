@@ -7,17 +7,6 @@ type t = read:string read -> domain:domain -> contents Lwt.t
 
 type dispatch = feed:Cowabloga.Atom_feed.t -> read:string read -> Www_types.dispatch
 
-let centered_content content ?spacing () =
-  let grid_cls = match spacing with
-    | None -> "cell"
-    | Some e -> "cell " ^ e
-  in
-   list [
-        div ~cls:"grid-x" (list [
-            (div ~cls:grid_cls content);
-          ]);
-      ]
-
 let not_found ~domain section path =
   let uri = Site_config.uri domain (section :: path) in
   `Not_found uri
@@ -155,7 +144,7 @@ end
 module About = struct
   let t ~read ~domain =
     read_file read "/about.md" >>= fun abody ->
-    let content = centered_content abody ?spacing:(Some "medium-6 medium-offset-3 large-4 large-offset-4") ()
+    let content = Utils.Style.centered_content abody ?spacing:(Some "medium-6 medium-offset-3 large-4 large-offset-4") ()
     in
     Global.t ~title:"About" ~headers:[] ~content ~domain ~read
 end
@@ -163,7 +152,7 @@ end
 module Projects = struct
   let t ~read ~domain =
     read_file read "/projects.md" >>= fun pbody ->
-    let content = centered_content pbody ?spacing:(Some "medium-8 medium-offset-2") ()
+    let content = Utils.Style.centered_content pbody ?spacing:(Some "medium-8 medium-offset-2") ()
     in
     Global.t ~title:"About" ~headers:[] ~content ~domain ~read
 end
