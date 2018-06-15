@@ -45,7 +45,6 @@ h1,h2,h3,h3,h5,h6 {
 body { font-family: "Muli"; san-serif}
 
 a { color: #333399; }
-p a { border-bottom: 1px dotted #999999; }
 p { margin-top: 0.7rem; margin-bottom: 0.2rem;}
 
 article a:hover {
