@@ -12,7 +12,39 @@ end
 module Projects = struct
 
   module Location  = struct
+    open Cow.Html
     type t = [`Github of Uri.t | `Bitbucket of Uri.t]
+
+    type size =
+      | Small
+      | Large
+      | XL
+      | XXL
+
+    let string_of_size size =
+      match size with
+      | Small -> "fa-sm"
+      | Large -> "fa-lg"
+      | XL -> "fa-2x"
+      | XXL -> "fa-3x"
+
+    let mk icon href ?cls ?size () =
+      let sz = match size with
+        | Some s -> " " ^ (string_of_size s)
+        | None -> ""
+      in
+      let icon_cls = "fab " ^ "fa-" ^ icon ^ sz
+      in
+      let cls2 = match cls with
+        | Some c -> c
+        | None -> ""
+      in
+      a ~cls:cls2 ~href (i ~cls:icon_cls empty)
+
+    let mk_link loc ?cls ?sizing  () =
+      match loc with
+      | `Github l -> mk "github" l ?cls ?size:sizing ()
+      | `Bitbucket l -> mk "bitbucket" l ?cls ?size:sizing ()
   end
 
   type t = {

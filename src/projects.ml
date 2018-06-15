@@ -8,8 +8,11 @@ type t = read:string read -> domain:domain -> contents Lwt.t
 
 let build_project project =
   div (list [
-       tag "hr" empty;
-    h4 (string project.title);
+      tag "hr" empty;
+      div ~cls:"grid-x" (list [
+          h4 ~cls:"project-title cell small-10" (string project.title);
+          Location.mk_link project.location ?cls:(Some "project-location cell auto") ?sizing:(Some Location.XL) ();
+        ]);
     p (string project.description);
     ])
 

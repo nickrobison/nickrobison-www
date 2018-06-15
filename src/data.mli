@@ -13,6 +13,14 @@ module Projects: sig
 
   module Location: sig
     type t = [`Github of Uri.t | `Bitbucket of Uri.t]
+
+    type size =
+      | Small
+      | Large
+      | XL
+      | XXL
+
+    val mk_link: t -> ?cls: string -> ?sizing: size -> unit -> Cow.Html.t
   end
 
   type t = {

@@ -227,4 +227,16 @@ div.trace-viewer button {
     transition: background-color .2s ease-in;
 }
 
+/* Projects page */
+
+.project-title {
+    margin-top: 0;
+}
+
+.project-location {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: right;
+    color: black;
+}
 
