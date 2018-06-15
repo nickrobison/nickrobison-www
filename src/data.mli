@@ -26,7 +26,7 @@ module Projects: sig
   type t = {
     title: string;
     location: Location.t;
-    description: string;
+    description: Cow.Markdown.t;
   }
 
   val entries: t list

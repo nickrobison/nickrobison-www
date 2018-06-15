@@ -13,7 +13,7 @@ let build_project project =
           h4 ~cls:"project-title cell small-10" (string project.title);
           Location.mk_link project.location ?cls:(Some "project-location cell auto") ?sizing:(Some Location.XL) ();
         ]);
-    p (string project.description);
+    project.description;
     ])
 
 let t ~read ~domain =

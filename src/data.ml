@@ -50,28 +50,46 @@ module Projects = struct
   type t = {
     title: string;
     location: Location.t;
-    description: string;
+    description: Cow.Markdown.t;
+  }
+
+  let trestle = {
+    title = "Trestle";
+    location = (`Bitbucket (Uri.of_string "https://bitbucket.org/nickrobison/trestle"));
+    description = Cow.Markdown.of_string "Novel graph-based spatio-temporal database, designed to improve management of complex, time-varying spatial data.\nCore deliverable of my PhD research.\n\nNot public yet, but will be soon!"
   }
 
   let fasttuple = {
     title = "FastTuple";
     location = (`Github (Uri.of_string "https://github.com/nickrobison/fasttuple"));
-    description = "Fast tuple desc"
+    description = Cow.Markdown.of_string "Tuple library for the JVM. Allows for really quick operations over large arrays by using bytecode generation and efficient memory layout.\n\nForked from the original Boundary project, with a few improvements.";
   }
 
   let go_cddns = {
     title = "Go-CDDNS";
     location = (`Github (Uri.of_string "https://github.com/nickrobison/else-let"));
-    description = "Simple client for dynamically updating Cloudflare DNS records";
+    description = Cow.Markdown.of_string "Go library for dynamically updating Cloudflare DNS records.\nUsed primarily to expose my internal development resources over the internet.";
   }
 
   let else_let = {
     title = "Else-Let";
     location = (`Github (Uri.of_string "https://github.com/nickrobison/else-let"));
-    description = "Clojure macro for conditional binding of values, in the face nils.";
+    description = Cow.Markdown.of_string "Clojure macro for conditional binding of values. Mimics the *Optional.orElse()* functionality in Java.";
   }
 
-  let entries = [fasttuple; go_cddns; else_let]
+  let homebrew = {
+    title = "Homebrew-OSGEO";
+    location = (`Github (Uri.of_string "https://github.com/osgeo/homebrew-osgeo4mac"));
+    description = Cow.Markdown.of_string "I help maintain the [Homebrew](https://brew.sh) tap for various Geospatial packages on MacOS."
+  }
+
+  let nickrobison = {
+    title = "nickrobison.com";
+    location = (`Github (Uri.of_string "https://github.com/nickrobison/nickrobison-www"));
+    description = Cow.Markdown.of_string "This website is a [Mirage Unikernel](https://mirage.io) written in OCaml and running on Google Compute Engine.";
+  }
+
+  let entries = [trestle; fasttuple; nickrobison; homebrew; go_cddns; else_let]
 end
 
 
