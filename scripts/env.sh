@@ -21,7 +21,7 @@
 
 # Setup OPAM
 export OCAML_VERSION=4.06
-export OCAML_VERSION_FULL=4.06.1+flambda
+export OCAML_FULL_VERSION=4.06.1+flambda
 
 # Mirage settings
 export MIRAGE_IMAGE=virtio

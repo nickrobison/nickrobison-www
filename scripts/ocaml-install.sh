@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # If there's no cache dir, then we need to init things
-if [ -d /home/travis/.opam/${OCAML_VERSION_FULL} ]; then
+if [ -d /home/travis/.opam/${OCAML_FULL_VERSION} ]; then
     echo "Switch exists, not initializing"
     export OPAM_INIT=false
 fi
