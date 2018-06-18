@@ -131,7 +131,7 @@ module Blog = struct
                                 (Re.replace_string regexp "" title)
                                 " " "-")
         in
-    Log.info (fun f -> f "Parsing title: [%s]" filtered);
+    Log.debug (fun f -> f "Parsing title: [%s]" filtered);
     (string_of_int d.year) ^ "-"
     ^ (padded_string_of_int d.month) ^ "-"
     ^ (padded_string_of_int d.day) ^ "-"
@@ -165,7 +165,7 @@ module Blog = struct
 
 
   let entries ~yaml_file =
-    Log.info (fun f -> f "Entries is called.");
+    Log.debug (fun f -> f "Entries is called.");
     let open Cowabloga.Blog.Entry in
     (**
     I don't know when we can bring yaml back into the mix, but we'll stick with JSON for now.
@@ -183,7 +183,7 @@ module Blog = struct
     List.fold_left (fun acc p ->
         let title =  Ezjsonm.(get_string (find p ["title"])) in
         let url = Ezjsonm.(get_string (find p ["url"])) in
-        Log.info (fun f -> f "Parsing [%s]" title);
+        Log.debug (fun f -> f "Parsing [%s]" title);
         let draft = Ezjsonm.mem p ["draft"] in
         if draft then acc
         else begin
