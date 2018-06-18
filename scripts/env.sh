@@ -20,13 +20,8 @@
 #sudo apt-get install -y syslinux/backports
 
 # Setup OPAM
-export OCAML_VERSION=4.05
-export OCAML_VERSION_FULL=4.05.0
-# If there's no cache dir, then we need to init things
-if [ -d /home/travis/.opam/4.05.0 ]; then
-    echo "Switch exists, not initializing"
-    export OPAM_INIT=false
-fi
+export OCAML_VERSION=4.06
+export OCAML_VERSION_FULL=4.06.1+flambda
 
 # Mirage settings
 export MIRAGE_IMAGE=virtio
