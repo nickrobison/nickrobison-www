@@ -10,6 +10,9 @@ env:
   - BUILD_ID=$(date +%s)
 before_install:
 - source scripts/env.sh
+# Unbundle the certs
+- openssl aes-256-cbc -K $encrypted_e48455ed36d7_key -iv $encrypted_e48455ed36d7_iv -in certs.tar.gz.enc -out certs.tar.gz -d
+- tar -zxf certs.tar.gz
 install:
 - wget https://raw.githubusercontent.com/ocaml/ocaml-ci-scripts/master/.travis-ocaml.sh
 # Script throws an exception if the switch already exists, so we need to swallow it.
