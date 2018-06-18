@@ -20,8 +20,7 @@
 #sudo apt-get install -y syslinux/backports
 
 # Setup OPAM
-export OCAML_VERSION=4.06
-export OCAML_FULL_VERSION=4.06.1+flambda
+export OCAML_FULL_VERSION=4.05.0+flambda
 
 # Mirage settings
 export MIRAGE_IMAGE=virtio
