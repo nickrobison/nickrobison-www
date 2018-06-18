@@ -25,7 +25,7 @@ let http_port =
       ~doc: "Port to listen on for plain HTTP connections"
       ~docv: "PORT" ["http-port"]
   in
-  Key.(create "http-port" Arg.(opt ~stage: `Both int 8080 doc))
+  Key.(create "http-port" Arg.(opt ~stage: `Both int 80 doc))
 
 let https_port =
   let doc = Key.Arg.info

@@ -13,7 +13,7 @@ opam pin add -y cowabloga https://github.com/nickrobison/cowabloga.git
 
 
 pushd src
-mirage configure -t ${MIRAGE_IMAGE} --dhcp=true --http-port=80 --host=${HOSTNAME} --build-id=${BUILD_ID}
+mirage configure -t ${MIRAGE_IMAGE} --dhcp=true --host=${HOSTNAME} --build-id=${BUILD_ID}
 make depends
 make -j2
 popd
