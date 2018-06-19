@@ -48,7 +48,7 @@ module Style = struct
     | Some e -> "cell " ^ e
   in
    list [
-        div ~cls:"grid-x" (list [
+        div ~cls:"grid-x grid-margin-x" (list [
             (div ~cls:grid_cls content);
           ]);
       ]

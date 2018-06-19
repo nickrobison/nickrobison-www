@@ -47,6 +47,11 @@ body {
     margin-bottom: 50px;
 }
 
+.grid-margin-x {
+    margin-left: 0rem;
+    margin-right: 0rem;
+}
+
 a { color: #333399; }
 p { margin-top: 0.7rem; margin-bottom: 0.2rem;}
 
