@@ -13,7 +13,7 @@ h1,h2,h3,h4,h5,h6 { margin-top: 2rem; }
 /* Need these three settings in order ot make the topbar black. */
 .top-bar, .top-bar ul {
     background-color: black;
-    font-family: "Rubik"; san-serif;
+    font-family: "Rubik", sans-serif;
     font-weight: light;
 }
 
@@ -39,10 +39,18 @@ h1,h2,h3,h4,h5,h6 { margin-top: 2rem; }
 }
 
 h1,h2,h3,h3,h5,h6 {
-    font-family: "Ovo", san-serif;
+    font-family: "Ovo", serif;
 }
 
-body { font-family: "Muli"; san-serif}
+body {
+    font-family: "Muli", sans-serif;
+    margin-bottom: 50px;
+}
+
+.grid-margin-x {
+    margin-left: 0rem;
+    margin-right: 0rem;
+}
 
 a { color: #333399; }
 p { margin-top: 0.7rem; margin-bottom: 0.2rem;}
@@ -131,6 +139,29 @@ div.trace-viewer button {
 
     justify-content: center;
 
+}
+
+/* Hero section */
+.hero-section {
+    background: url("https://storage.googleapis.com/files.nickrobison.com/images/header-image.jpg") 50% no-repeat;
+    background-size: cover;
+    height: 60vh;
+    text-align: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.hero-section .hero-section-text h1,
+.hero-section .hero-section-text h5{
+    color: #fefefe;
+    text-shadow: 1px 1px 2px #0a0a0a;
 }
 
 /* Blog post */

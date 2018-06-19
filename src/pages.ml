@@ -88,6 +88,11 @@ module Index = struct
     read_file read "/intro-f.html" >>= fun footer ->
     Cowabloga.Feed.to_html ~limit:12 feeds >>= fun recent ->
     let content = list [
+        div ~cls:"grid-y" (list [
+            div ~cls:"hero-section" (div ~cls:"hero-section-text" (list [
+                h1 (string "Hello, my name is Nick");
+                h5 (string "The homepage of Nick Robison");
+              ]));
         div ~cls:"grid-x" (list [
             (div ~cls:"cell medium-6 large-4 large-offset-2" l1);
             div ~cls:"cell medium-6 large-4 front_updates"
@@ -98,7 +103,7 @@ module Index = struct
                   ])
                 ++ recent
                )
-          ]);
+          ])]);
         div ~cls:"grid-x" (div ~cls:"cell large-8 large-offset-2" footer)
       ]
     in
