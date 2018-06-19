@@ -133,6 +133,29 @@ div.trace-viewer button {
 
 }
 
+/* Hero section */
+.hero-section {
+    background: url("https://storage.googleapis.com/files.nickrobison.com/images/header-image.jpg") 50% no-repeat;
+    background-size: cover;
+    height: 60vh;
+    text-align: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.hero-section .hero-section-text h1,
+.hero-section .hero-section-text h5{
+    color: #fefefe;
+    text-shadow: 1px 1px 2px #0a0a0a;
+}
+
 /* Blog post */
 .responsive-blog-post {
     margin-bottom: 4rem;
