@@ -28,3 +28,5 @@ parser.*
 TAGS
 # Don't commit the API credentials
 client-secret.json
+secrets.tar.gz
+tls/
