@@ -71,7 +71,7 @@ module Global = struct
     let headers = font @ headers in
     let content = top_nav () @ content in
     let body =
-      Cowabloga.Foundation.body ~highlight:"/css/magula.css"
+      Cowabloga.Foundation.body ~highlight:"/css/vendor/magula.css" ~bigfoot:true
         ~title ~headers ~content
         ~trailers: [] ()
     in
