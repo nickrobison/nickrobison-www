@@ -10,10 +10,12 @@ let build_project project =
   div (list [
       tag "hr" empty;
       div ~cls:"grid-x" (list [
-          h4 ~cls:"project-title cell small-10" (string project.title);
+          div ~cls:"cell small-10 medium-11" (list [
+              h4 ~cls:"project-title" (string project.title);
+              project.description;
+            ]);
           Location.mk_link project.location ?cls:(Some "project-location cell auto") ?sizing:(Some Location.XL) ();
         ]);
-    project.description;
     ])
 
 let t ~read ~domain =
