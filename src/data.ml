@@ -62,12 +62,12 @@ module Projects = struct
   let fasttuple = {
     title = "FastTuple";
     location = (`Github (Uri.of_string "https://github.com/nickrobison/fasttuple"));
-    description = Cow.Markdown.of_string "Tuple library for the JVM. Allows for really quick operations over large arrays by using bytecode generation and efficient memory layout.\n\nForked from the original Boundary project, with a few improvements.";
+    description = Cow.Markdown.of_string "Tuple library for the JVM. Allows for fast computation and filtering operations over large arrays by using bytecode generation and efficient memory layout.\n\nForked from the original Boundary project, with a few improvements.";
   }
 
   let go_cddns = {
     title = "Go-CDDNS";
-    location = (`Github (Uri.of_string "https://github.com/nickrobison/else-let"));
+    location = (`Github (Uri.of_string "https://github.com/nickrobison/go-cddns"));
     description = Cow.Markdown.of_string "Go library for dynamically updating Cloudflare DNS records.\nUsed primarily to expose my internal development resources over the internet.";
   }
 
