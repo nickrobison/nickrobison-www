@@ -20,7 +20,7 @@ install:
 - bash .travis-ocaml.sh
 #- bash scripts/ocaml-install.sh
 #- opam switch $OCAML_FULL_VERSION
-#- eval $(opam config env)
+- eval $(opam config env)
 - make depends
 - export PATH=/home/travis/.opam/$OCAML_FULL_VERSION/bin:$PATH
 - opam update && opam upgrade -y

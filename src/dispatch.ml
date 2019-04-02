@@ -39,17 +39,27 @@ module Make
       | Error e -> err "%a" pp_error e
       | Ok bufs -> Lwt.return (Cstruct.copyv bufs)
 
+  let tmpl_read dev name = TMPL.get dev (Mirage_kv.Key.v name) >|= function
+    | Ok data -> data
+    | Error e -> err "%a" TMPL.pp_error e
+(**
   let tmpl_read =
     size_then_read ~pp_error:TMPL.pp_error ~size:TMPL.size ~read:TMPL.read
-
+ **)
   let cowabloga (x:contents): cowabloga = match x with
     | `Html _ | `Page _ as e -> e
     | `Not_found p -> `Not_found (Uri.to_string p)
     | `Redirect p -> `Redirect (Uri.to_string p)
 
+
   let mk f path = f >|= (fun f -> cowabloga (f path))
 
+  (**
   let fs_read = size_then_read ~pp_error:FS.pp_error ~size:FS.size ~read:FS.read
+     **)
+  let fs_read dev name = FS.get dev (Mirage_kv.Key.v name) >|= function
+    | Ok data -> data
+    | Error e -> err "%a" FS.pp_error e
 
     let not_found domain path =
     let uri = Site_config.uri domain path in
