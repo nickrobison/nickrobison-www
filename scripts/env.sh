@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Setup OPAM
-export OCAML_FULL_VERSION=4.05.0+flambda
+export OCAML_FULL_VERSION=4.07.1
 
 # Mirage settings
 export MIRAGE_IMAGE=virtio
