@@ -9,7 +9,7 @@ services:
 env:
   global:
   - BUILD_ID=$(date +%s)
-  - OCAML_VERSION=4.07
+  - OCAML_VERSION=4.06
 before_install:
 - source scripts/env.sh
 # Unbundle the secrets
