@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Setup OPAM
-export OCAML_FULL_VERSION=4.05.0+flambda
+export OCAML_FULL_VERSION=4.07
+export OCAML_VERSION=4.07
 
 # Mirage settings
 export MIRAGE_IMAGE=virtio
@@ -13,6 +14,6 @@ export GAE_PYTHONPATH=${HOME}/.cache/google_appengine PATH=$PATH:${HOME}/google-
 export GCLOUD_PROJECT=blog-203416
 export GS_BUCKET=nickrobison-blog-images
 export IMAGE_FAMILY=mirage-blog
-export PUBLIC_IP=35.230.13.173
+export PUBLIC_IP=35.199.155.136
 export INSTANCE_NAME=blog
 export GCE_ZONE=us-west1-c
