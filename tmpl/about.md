@@ -1,7 +1,8 @@
-My name is Nick Robison, I'm a PhD candidate in Biomedical and Health Informatics at the University of Washington.
+My name is Nick Robison, I'm an engineer with the [United States Digital Services](https://usds.gov). 
+I'm primarily assigned to the [Centers for Medicare and Medicaid Services](https://cms.gov) where I work on a number of projects related to data interoperability.
 
-I spent most of my time working with spatio-temporal data in public health research. I'm primarily focused on developing new data management techniques for complex, historical spatial data. Which is the subject of my dissertation.
-
+Previously, I was a graduate student at the University of Washington, in Biomedical and Health Informatics program.
+My research was primarily focused on developing new data management techniques for complex, historical spatial data, primarily within the context of global health and disease survaillance.
 
 I also spend a lot of time toying with a variety of technologies from geospatial analysis, to high performance computing.
 
