@@ -36,6 +36,8 @@ deploy:
   skip_cleanup: true
   provider: script
   script: make deploy
+  on:
+    branch: build
 
 notifications:
   slack:
