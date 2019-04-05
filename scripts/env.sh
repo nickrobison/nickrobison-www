@@ -14,6 +14,6 @@ export GAE_PYTHONPATH=${HOME}/.cache/google_appengine PATH=$PATH:${HOME}/google-
 export GCLOUD_PROJECT=blog-203416
 export GS_BUCKET=nickrobison-blog-images
 export IMAGE_FAMILY=mirage-blog
-export PUBLIC_IP=35.212.137.11
+export PUBLIC_IP=35.199.155.136
 export INSTANCE_NAME=blog
 export GCE_ZONE=us-west1-c
