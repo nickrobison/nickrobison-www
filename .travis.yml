@@ -9,7 +9,7 @@ services:
 env:
   global:
   - BUILD_ID=$(date +%s)
-  - OCAML_VERSION=4.06
+  - OCAML_VERSION=4.07
 before_install:
 - source scripts/env.sh
 # Unbundle the secrets
@@ -19,11 +19,8 @@ install:
 - wget https://raw.githubusercontent.com/ocaml/ocaml-ci-scripts/master/.travis-ocaml.sh
 # Script throws an exception if the switch already exists, so we need to swallow it.
 - bash .travis-ocaml.sh
-#- bash scripts/ocaml-install.sh
-#- opam switch $OCAML_FULL_VERSION
 - eval $(opam config env)
 - make depends
-#- export PATH=/home/travis/.opam/$OCAML_FULL_VERSION/bin:$PATH
 - opam update && opam upgrade -y
 script:
 - make build
