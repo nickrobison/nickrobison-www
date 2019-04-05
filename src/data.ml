@@ -59,6 +59,12 @@ module Projects = struct
     description = Cow.Markdown.of_string "Novel graph-based spatio-temporal database, designed to improve management of complex, time-varying spatial data.\nCore deliverable of my PhD research.\n\nNot public yet, but will be soon!"
   }
 
+  let dpc = {
+    title = "Data@ThePointofCare";
+    location = (`Github (Uri.of_string "https://github.com/CMSGov/dpc-app"));
+    description = Cow.Markdown.of_string "Technical lead on an experiemnetal project to enable access to Medicare claims data within the medical record.";
+  }
+
   let fasttuple = {
     title = "FastTuple";
     location = (`Github (Uri.of_string "https://github.com/nickrobison/fasttuple"));
@@ -89,7 +95,7 @@ module Projects = struct
     description = Cow.Markdown.of_string "This website is a [Mirage Unikernel](https://mirage.io) written in OCaml and running on Google Compute Engine.";
   }
 
-  let entries = [trestle; fasttuple; nickrobison; homebrew; go_cddns; else_let]
+  let entries = [trestle; dpc; nickrobison; fasttuple; go_cddns; else_let; homebrew]
 end
 
 
