@@ -83,13 +83,7 @@ module Index = struct
 
   let uri = Uri.of_string
 
-  module Cache = Cache.Make
-
-  let cache = Cache.create ()
-
-
   let t ~feeds ~read ~domain =
-    Cache.fetch cache (Uri.of_string "http://google.com") >>= fun cached_val ->
     read_file read "/intro.md" >>= fun l1 ->
     read_file read "/intro-f.html" >>= fun footer ->
     Cowabloga.Feed.to_html ~limit:12 feeds >>= fun recent ->
@@ -97,8 +91,7 @@ module Index = struct
         div ~cls:"grid-y" (list [
             div ~cls:"hero-section" (div ~cls:"hero-section-text" (list [
                 h1 (string "Hello, my name is Nick");
-                h1 (string cached_val)
-                (**h5 (string "The homepage of Nick Robison");**)
+                h5 (string "The homepage of Nick Robison");
               ]));
             div ~cls:"grid-x" (list [
                 (div ~cls:"cell medium-6 large-4 large-offset-2" l1);

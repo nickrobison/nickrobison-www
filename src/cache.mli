@@ -1,8 +1,14 @@
-module Make: sig
+open Www_types
 
-type t
+module Make
+    (S: Cohttp_lwt.S.Server)
+    (FS: Mirage_types_lwt.KV_RO)
+    (TMPL: Mirage_types_lwt.KV_RO):
+sig
 
-val create: unit -> t
+  type t
 
-val fetch: t -> Uri.t -> string Lwt.t
+  val create: unit -> t
+
+  val fetch: t -> domain -> TMPL.t -> (domain -> TMPL.t -> cowabloga Lwt.t) -> cowabloga Lwt.t
 end
