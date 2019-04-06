@@ -24,7 +24,7 @@ let read_file tmpl_read f =
       (fun () -> tmpl_read f >|= fn)
       (fun exn ->
          printf "Pages.read_file: exception %s\n!" (Printexc.to_string exn);
-                 exit 1)
+         exit 1)
   in
   match get_extension f with
   | Some "md" -> read Cow.Markdown.of_string
@@ -62,7 +62,7 @@ module Global = struct
     let font =
       link ~rel: "stylesheet" (Uri.of_string "https://pro.fontawesome.com/releases/v5.0.13/css/all.css")
         ~attrs:["integrity", "sha384-oi8o31xSQq8S0RpBcb4FaLB8LJi9AT8oIdmS1QldR8Ui7KUQjNAnDlJjp55Ba8FG";
-               "crossorigin", "anonymous"]
+                "crossorigin", "anonymous"]
       ++
       link ~rel: "stylesheet" ~ty: "text/css" (Uri.of_string fonts)
       ++
@@ -83,7 +83,13 @@ module Index = struct
 
   let uri = Uri.of_string
 
+  module Cache = Cache.Make
+
+  let cache = Cache.create ()
+
+
   let t ~feeds ~read ~domain =
+    Cache.fetch cache (Uri.of_string "http://google.com") >>= fun cached_val ->
     read_file read "/intro.md" >>= fun l1 ->
     read_file read "/intro-f.html" >>= fun footer ->
     Cowabloga.Feed.to_html ~limit:12 feeds >>= fun recent ->
@@ -91,19 +97,20 @@ module Index = struct
         div ~cls:"grid-y" (list [
             div ~cls:"hero-section" (div ~cls:"hero-section-text" (list [
                 h1 (string "Hello, my name is Nick");
-                h5 (string "The homepage of Nick Robison");
+                h1 (string cached_val)
+                (**h5 (string "The homepage of Nick Robison");**)
               ]));
-        div ~cls:"grid-x" (list [
-            (div ~cls:"cell medium-6 large-4 large-offset-2" l1);
-            div ~cls:"cell medium-6 large-4 front_updates"
-               (h4 (list [
-                    a ~href:(uri "/updates/atom.xml") (i ~cls:"fa fa-rss" empty);
-                    string " Recent Updates ";
-                    small (a ~href:(uri "/updates/") (string "all"))
-                  ])
-                ++ recent
-               )
-          ])]);
+            div ~cls:"grid-x" (list [
+                (div ~cls:"cell medium-6 large-4 large-offset-2" l1);
+                div ~cls:"cell medium-6 large-4 front_updates"
+                  (h4 (list [
+                       a ~href:(uri "/updates/atom.xml") (i ~cls:"fa fa-rss" empty);
+                       string " Recent Updates ";
+                       small (a ~href:(uri "/updates/") (string "all"))
+                     ])
+                   ++ recent
+                  )
+              ])]);
         div ~cls:"grid-x" (div ~cls:"cell large-8 large-offset-2" footer)
       ]
     in
