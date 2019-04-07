@@ -6,6 +6,8 @@ module Make
     (FS: Mirage_types_lwt.KV_RO)
     (TMPL: Mirage_types_lwt.KV_RO)
     (Clock: Mirage_types.PCLOCK)
+    (RES: Resolver_lwt.S)
+    (CON: Conduit_mirage.S)
 = struct
   let log_src = Logs.Src.create "dispatch_tls" ~doc:"https-tls server"
   module Log = (val Logs.src_log log_src: Logs.LOG)
@@ -17,8 +19,8 @@ module Make
   module Http = Cohttp_mirage.Server(TCP)
   module Https = Cohttp_mirage.Server(TLS)
 
-  module D = Dispatch.Make(Http)(FS)(TMPL)(Clock)
-  module DS = Dispatch.Make(Https)(FS)(TMPL)(Clock)
+  module D = Dispatch.Make(Http)(FS)(TMPL)(Clock)(RES)(CON)
+  module DS = Dispatch.Make(Https)(FS)(TMPL)(Clock)(RES)(CON)
 
   let log str =
     Log.debug (fun f -> f "%s" str)
@@ -41,7 +43,7 @@ module Make
     let conf = Tls.Config.server ~certificates:(`Single cert) () in
     Lwt.return conf
 
-  let start stack keys fs tmpl clock () =
+  let start stack keys fs tmpl clock dns ctx () =
     let build_id = Key_gen.build_id () in
     let host = Key_gen.host () in
     let https_port = Key_gen.https_port () in
@@ -50,7 +52,7 @@ module Make
     tls_init keys >>= fun cfg ->
     let domain = `Https, host in
     let dispatch = match redirect with
-      | None -> DS.dispatch domain fs tmpl
+      | None -> DS.dispatch domain fs tmpl dns ctx
       | Some domain -> DS.redirect (Dispatch.domain_of_string domain)
     in
     let callback = Https.listen (DS.create domain dispatch) in

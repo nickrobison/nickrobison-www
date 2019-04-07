@@ -64,26 +64,30 @@ let stack = generic_stackv4 default_network
 
 let http =
   foreign ~keys "Dispatch.Make"
-    (http @-> kv_ro @-> kv_ro @-> pclock @-> job)
+    (http @-> kv_ro @-> kv_ro @-> pclock @-> resolver @-> conduit @-> job)
 
 let https =
   let packages = [package ~sublibs:["mirage"] "tls"; package "cohttp-mirage"] in
   foreign ~packages ~keys "Dispatch_tls.Make"
     ~deps:[abstract nocrypto]
-    (stackv4 @-> kv_ro @-> kv_ro @-> kv_ro @-> pclock @-> job)
+    (stackv4 @-> kv_ro @-> kv_ro @-> kv_ro @-> pclock @-> resolver @-> conduit @-> job)
 
 let dispatch = if_impl (Key.value tls_key)
     (** With TLS *)
     (https $ stack $ secrets)
     (** HTTP only *)
-    (http $ http_server (conduit_direct stack))
+    (http $ cohttp_server (conduit_direct stack))
 
-let packages = [package "cow"; package "cowabloga"; package "astring";
-               package "ezjsonm"; package "re";
-               package "duration"; package "ptime";]
+let packages = [
+  package "cow"; package "cowabloga";
+  package "astring"; package "cohttp-mirage";
+  package "ezjsonm"; package "re";
+  package "duration"; package "ptime";]
 
 let () =
+  let conduit = conduit_direct ~tls:true stack in
+  let res_dns = resolver_dns stack in
   let tracing = None in
   register ?tracing ~packages image [
-    dispatch $ filesfs $ tmplfs $default_posix_clock
+    dispatch $ filesfs $ tmplfs $default_posix_clock $ res_dns $ conduit
   ]

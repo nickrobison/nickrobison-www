@@ -20,6 +20,8 @@ module Make
     (FS: Mirage_types_lwt.KV_RO)
     (TMPL: Mirage_types_lwt.KV_RO)
     (Clock: Mirage_types.PCLOCK)
+    (RES: Resolver_lwt.S)
+    (CON: Conduit_mirage.S)
 = struct
   open Www_types
 
@@ -31,6 +33,7 @@ module Make
 
   let page_cache = Cache.create ()
 
+  module Reading = Reading.Make (RES)(CON)
 
   type dispatch = path -> cowabloga Lwt.t
   type s = Conduit_mirage.server -> S.t -> unit Lwt.t
@@ -110,7 +113,11 @@ module Make
     updates_feeds domain tmpl >>= fun feeds ->
     Pages.Updates.dispatch ~domain ~feed ~feeds ~read
 
-  let index domain tmpl =
+  let index res ctx domain tmpl =
+    Log.info (fun f -> f "Building index page");
+    let reading = Reading.create ~key:"VrGprW8oB6AiUdDK1ZUQg" ~id:"testusers12552Hello^" res ctx in
+    Reading.fetch reading >>= fun resp ->
+    Log.info (fun f -> f "Has response: %s" resp);
     let read = tmpl_read tmpl in
     updates_feeds domain tmpl >>= fun feeds ->
     Pages.Index.t ~domain ~feeds ~read >|= cowabloga
@@ -134,7 +141,8 @@ module Make
   let stats domain =
     Stats.dispatch ~domain
 
-  let dispatch domain fs tmpl =
+  let dispatch domain fs tmpl res ctx =
+    let index = index res ctx in
     let about = about domain tmpl in
     let projects = projects domain tmpl in
     let blog = blog domain tmpl in
@@ -177,14 +185,14 @@ module Make
     S.make ~callback ~conn_closed ()
 
 
-  let start http fs tmpl clock =
+  let start http fs tmpl clock dns (ctx: CON.t) =
     let host = Key_gen.host () in
     let red = Key_gen.redirect () in
     let http_port = Key_gen.http_port () in
     let host = host ^ ":" ^ (string_of_int http_port) in
     let domain = `Http, host in
     let dispatch = match red with
-      | None -> dispatch domain fs tmpl
+      | None -> dispatch domain fs tmpl dns ctx
       | Some domain -> redirect (domain_of_string domain) in
     let callback = create domain dispatch in
     let build_id = Key_gen.build_id () in
