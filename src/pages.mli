@@ -14,7 +14,7 @@ end
 module Index: sig
   (** The main index page. *)
 
-  val t: feeds: Cowabloga.Feed.feed list -> t
+  val t: books:Book_types.book list -> feeds: Cowabloga.Feed.feed list -> t
 end
 
 module Updates: sig

@@ -117,10 +117,10 @@ module Make
     Log.info (fun f -> f "Building index page");
     let reading = Reading.create ~key:"VrGprW8oB6AiUdDK1ZUQg" ~id:"15176504" res ctx in
     Reading.fetch_books reading "currently-reading" >>= fun books ->
-    List.iter (fun (book: Reading.book) -> Log.info (fun f -> f "Has response: %s" book.title)) books;
-    let read = tmpl_read tmpl in
+    List.iter (fun (book: Book_types.book) -> Log.info (fun f -> f "Has response: %s" book.title)) books;
+        let read = tmpl_read tmpl in
     updates_feeds domain tmpl >>= fun feeds ->
-    Pages.Index.t ~domain ~feeds ~read >|= cowabloga
+    Pages.Index.t ~books ~domain ~feeds ~read >|= cowabloga
 
   let about domain tmpl =
     let read = tmpl_read tmpl in

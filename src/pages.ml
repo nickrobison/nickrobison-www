@@ -83,7 +83,8 @@ module Index = struct
 
   let uri = Uri.of_string
 
-  let t ~feeds ~read ~domain =
+  let t ~books ~feeds ~read ~domain =
+    let (fst: Book_types.book) = List.hd books in
     read_file read "/intro.md" >>= fun l1 ->
     read_file read "/intro-f.html" >>= fun footer ->
     Cowabloga.Feed.to_html ~limit:12 feeds >>= fun recent ->
@@ -91,7 +92,7 @@ module Index = struct
         div ~cls:"grid-y" (list [
             div ~cls:"hero-section" (div ~cls:"hero-section-text" (list [
                 h1 (string "Hello, my name is Nick");
-                h5 (string "The homepage of Nick Robison");
+                h5 (string fst.title);
               ]));
             div ~cls:"grid-x" (list [
                 (div ~cls:"cell medium-6 large-4 large-offset-2" l1);

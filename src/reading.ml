@@ -1,24 +1,10 @@
 open Lwt.Infix
 open Ezxmlm
+open Book_types
 
 module Make
     (RES: Resolver_lwt.S)
-    (CON: Conduit_mirage.S)
-= struct
-
-  type book = {
-    title: string;
-    image_url: Uri.t;
-  }
-
-
-  type review = {
-    id: int;
-    book: book;
-  }
-
-  type action = PROFILE
-              | READING of string
+    (CON: Conduit_mirage.S) = struct
 
   type t = {
     api_key: string;
@@ -26,7 +12,7 @@ module Make
     ctx: Cohttp_mirage.Client.ctx;
   }
 
-  let create ~key ~id res ctx =
+  let create ~key ~id res (ctx: CON.t) =
     let ctx = Cohttp_mirage.Client.ctx res ctx in
     {
       api_key = key;
@@ -37,15 +23,15 @@ module Make
   let build_review review =
     let id = data_to_string (member "id" review) in
     let book = member "book" review in
-    let b =
+    let (b: book) =
       {
         title = data_to_string (member "title" book);
         image_url = Uri.of_string (data_to_string (member "image_url" book))
       } in
-    {
+    ({
       id = int_of_string id;
       book = b;
-    }
+    }: review)
 
   let reviews_of_xml (dtd, xml) =
     member "GoodreadsResponse" xml
@@ -83,8 +69,9 @@ module Make
     let req = build_uri t (READING "currently-reading") in
     fetch t req >>= fun (dtd, xml) ->
     reviews_of_xml (dtd, xml)
-    |> List.map (fun rev -> rev.book)
+    |> List.map (fun (rev: review) -> rev.book)
     |> Lwt.return
 
 
 end
+
