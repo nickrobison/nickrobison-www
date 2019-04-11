@@ -83,8 +83,14 @@ module Index = struct
 
   let uri = Uri.of_string
 
+  let books_to_html books =
+    let lst =List.map (fun (b: Book_types.book) -> li (string b.title)) books in
+    (ul ~add_li:false lst)
+
+
   let t ~books ~feeds ~read ~domain =
     let (fst: Book_types.book) = List.hd books in
+    let bs = books_to_html books in
     read_file read "/intro.md" >>= fun l1 ->
     read_file read "/intro-f.html" >>= fun footer ->
     Cowabloga.Feed.to_html ~limit:12 feeds >>= fun recent ->
@@ -92,10 +98,10 @@ module Index = struct
         div ~cls:"grid-y" (list [
             div ~cls:"hero-section" (div ~cls:"hero-section-text" (list [
                 h1 (string "Hello, my name is Nick");
-                h5 (string fst.title);
+                h5 (string "The homepage of Nick Robison");
               ]));
             div ~cls:"grid-x" (list [
-                (div ~cls:"cell medium-6 large-4 large-offset-2" l1);
+                (div ~cls:"cell medium-6 large-4 large-offset-2" bs);
                 div ~cls:"cell medium-6 large-4 front_updates"
                   (h4 (list [
                        a ~href:(uri "/updates/atom.xml") (i ~cls:"fa fa-rss" empty);
