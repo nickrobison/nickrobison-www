@@ -20,13 +20,30 @@ module Make
       ctx = ctx;
     }
 
+  let string_of_data child nodes =
+    data_to_string (member child nodes)
+
+  let extract_image_uri book =
+    members_with_attr "image_url" book
+    |> List.hd
+    |> snd
+    |> data_to_string
+    |> Uri.of_string
+
+  let fst_book_author book =
+    member "authors" book
+    |> member "author"
+    |> string_of_data "name"
+
   let build_review review =
     let id = data_to_string (member "id" review) in
     let book = member "book" review in
     let (b: book) =
       {
-        title = data_to_string (member "title" book);
-        image_url = Uri.of_string (data_to_string (member "image_url" book))
+        title = string_of_data "title" book;
+        author = fst_book_author book;
+        image_url = extract_image_uri book;
+        link = Uri.of_string (string_of_data "link" book);
       } in
     ({
       id = int_of_string id;

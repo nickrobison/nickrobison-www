@@ -1,6 +1,8 @@
 type book = {
   title: string;
+  author: string;
   image_url: Uri.t;
+  link: Uri.t;
 }
 
 type review = {

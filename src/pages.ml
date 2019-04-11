@@ -83,14 +83,24 @@ module Index = struct
 
   let uri = Uri.of_string
 
-  let books_to_html books =
-    let lst =List.map (fun (b: Book_types.book) -> li (string b.title)) books in
-    (ul ~add_li:false lst)
-
+  (** It feels bad to put this here, it realy should be its own module.*)
+  let books_to_cards books =
+    List.map (fun (b: Book_types.book) ->
+        (div ~cls:"cell"
+           (div ~cls:"card"
+              (list [
+                  (img b.image_url);
+                  (div ~cls:"card-section" (list [
+                       (h6 (string b.title));
+                       (p (string b.author));
+                ]));
+                  (div ~cls:"card-actions button hollow" (list [
+                       (a ~href:b.link (string "More info"));
+                     ]))
+                ])))) books
 
   let t ~books ~feeds ~read ~domain =
-    let (fst: Book_types.book) = List.hd books in
-    let bs = books_to_html books in
+    let bs = books_to_cards books in
     read_file read "/intro.md" >>= fun l1 ->
     read_file read "/intro-f.html" >>= fun footer ->
     Cowabloga.Feed.to_html ~limit:12 feeds >>= fun recent ->
@@ -101,7 +111,12 @@ module Index = struct
                 h5 (string "The homepage of Nick Robison");
               ]));
             div ~cls:"grid-x" (list [
-                (div ~cls:"cell medium-6 large-4 large-offset-2" bs);
+                (div ~cls:"cell medium-6 large-4 large-offset-2"
+                   (div (list [
+                        (h4 (string "Currently reading"));
+                        (div ~cls:"grid-container" (div ~cls:"grid-x grid-padding-x medium-up-2" (list bs)));
+                      ]))
+                );
                 div ~cls:"cell medium-6 large-4 front_updates"
                   (h4 (list [
                        a ~href:(uri "/updates/atom.xml") (i ~cls:"fa fa-rss" empty);
