@@ -29,9 +29,7 @@ module Make
   let log_src = Logs.Src.create "dispatch" ~doc:"Web server"
   module Log = (val Logs.src_log log_src: Logs.LOG)
 
-  module Cache = Cache.Make (S)(FS)(TMPL)
-
-  let page_cache = Cache.create ()
+  module Cache = Cache.Make (S)(FS)(TMPL)(Clock)
 
   module Reading = Reading.Make (RES)(CON)
 
@@ -141,7 +139,8 @@ module Make
   let stats domain =
     Stats.dispatch ~domain
 
-  let dispatch domain fs tmpl res ctx =
+  let dispatch domain fs tmpl res ctx clock =
+    let page_cache = Cache.create clock (Duration.of_sec 10) in
     let index = index res ctx in
     let about = about domain tmpl in
     let projects = projects domain tmpl in
@@ -192,7 +191,7 @@ module Make
     let host = host ^ ":" ^ (string_of_int http_port) in
     let domain = `Http, host in
     let dispatch = match red with
-      | None -> dispatch domain fs tmpl dns ctx
+      | None -> dispatch domain fs tmpl dns ctx clock
       | Some domain -> redirect (domain_of_string domain) in
     let callback = create domain dispatch in
     let build_id = Key_gen.build_id () in
