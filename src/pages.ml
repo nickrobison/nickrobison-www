@@ -85,19 +85,22 @@ module Index = struct
 
   (** It feels bad to put this here, it realy should be its own module.*)
   let books_to_cards books =
-    List.map (fun (b: Book_types.book) ->
-        (div ~cls:"cell"
-           (div ~cls:"card"
-              (list [
-                  (img b.image_url);
-                  (div ~cls:"card-section" (list [
-                       (h6 (string b.title));
-                       (p (string b.author));
-                ]));
-                  (div ~cls:"card-actions button hollow" (list [
-                       (a ~href:b.link (string "More info"));
-                     ]))
-                ])))) books
+    match books with
+    | None -> [(div ~cls:"gray-fade" (string "Disabled"))]
+    | Some books ->
+      List.map (fun (b: Book_types.book) ->
+          (div ~cls:"cell"
+             (div ~cls:"card"
+                (list [
+                    (img b.image_url);
+                    (div ~cls:"card-section" (list [
+                         (h6 (string b.title));
+                         (p (string b.author));
+                       ]));
+                    (div ~cls:"card-actions button hollow" (list [
+                         (a ~href:b.link (string "More info"));
+                       ]))
+                  ])))) books
 
   let t ~books ~feeds ~read ~domain =
     let bs = books_to_cards books in

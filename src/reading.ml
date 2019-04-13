@@ -83,12 +83,13 @@ module Make
     |> Lwt.return
 
   let fetch_books t shelf =
+    match t.api_key with
+    | "" -> Lwt.return None
+    |_ ->
     let req = build_uri t (READING "currently-reading") in
     fetch t req >>= fun (dtd, xml) ->
-    reviews_of_xml (dtd, xml)
-    |> List.map (fun (rev: review) -> rev.book)
-    |> Lwt.return
-
-
+    let reviews = reviews_of_xml (dtd, xml) in
+    let books = List.map (fun (rev: review) -> rev.book) reviews in
+    Lwt.return (Some books)
 end
 

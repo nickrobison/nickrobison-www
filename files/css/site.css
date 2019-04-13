@@ -2,7 +2,10 @@ h1 { font-size: 2.2rem; font-weight: bold; }
 h2 { font-size: 1.8rem; font-weight: bold; }
 h3 { font-size: 1.6rem; font-weight: 600; }
 h4,h5,h6 { color: #222222; font-size: 1.4rem; font-weight: 600; }
-h1,h2,h3,h4,h5,h6 { margin-top: 2rem; }
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Ovo", serif;
+    margin-top: 2rem;
+}
 
 .front_updates { font-style: italic; }
 .front_updates h4 { font-style: italic; font-size: 1.2rem; }
@@ -38,13 +41,14 @@ h1,h2,h3,h4,h5,h6 { margin-top: 2rem; }
   padding-top: 0.5rem;
 }
 
-h1,h2,h3,h3,h5,h6 {
-    font-family: "Ovo", serif;
-}
-
 body {
     font-family: "Muli", sans-serif;
     margin-bottom: 50px;
+}
+
+.gray-fade {
+    font-style: italic;
+    color: gray;
 }
 
 .grid-margin-x {

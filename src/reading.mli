@@ -8,7 +8,7 @@ sig
 
   val fetch: t -> Uri.t -> (Xmlm.dtd * Ezxmlm.nodes) Lwt.t
 
-  val fetch_books: t -> string -> Book_types.book list Lwt.t
+  val fetch_books: t -> string -> Book_types.book list option Lwt.t
 
 end
 

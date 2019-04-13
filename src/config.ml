@@ -44,21 +44,36 @@ let host_key =
 let redirect_key  =
   let doc = Key.Arg.info
       ~doc:"Where to send the redirects. Must start with http:// or https://. \
-            When tls is enabled, the default is https://$HOST."
+            When tls is enabled, the default is https://\$HOST."
       ~docv:"URL" ~env:"REDIRECT" ["redirect"]
   in
   Key.(create "redirect" Arg.(opt (some string) None doc))
 
+let goodreads_key =
+  let doc = Key.Arg.info
+      ~doc:"API Key for Goodreads page"
+      ~docv:"KEY" ~env:"GOODREADS" ["goodreads"]
+  in
+  Key.(create "goodreads" Arg.(opt ~stage:`Both string "" doc))
+
+let goodreads_user_key =
+  let doc = Key.Arg.info
+      ~doc:"Goodreads user"
+      ~docv:"USER" ["goodreads-user"]
+  in
+  Key.(create "goodreads-user" Arg.(opt ~stage:`Both string "15176504" doc))
+
 let lifetime_key =
   let doc = Key.Arg.info
       ~doc:"Lifetime of the index page cache (in minutes)."
-      ~docv:"LIFETIME" ["page-lifetime"]
+      ~docv:"TIME" ["page-lifetime"]
   in
   Key.(create "page-lifetime" Arg.(opt ~stage:`Both int 60 doc))
 
 let keys = Key.([abstract host_key; abstract redirect_key;
                  abstract http_port; abstract https_port;
-                 abstract build_id; abstract lifetime_key])
+                 abstract build_id; abstract lifetime_key;
+                abstract goodreads_key; abstract goodreads_user_key])
 
 let fs_key = Key.(value @@ kv_ro ())
 let filesfs = generic_kv_ro ~key:fs_key "../files"
