@@ -20,6 +20,8 @@ module Make
     (FS: Mirage_types_lwt.KV_RO)
     (TMPL: Mirage_types_lwt.KV_RO)
     (Clock: Mirage_types.PCLOCK)
+    (RES: Resolver_lwt.S)
+    (CON: Conduit_mirage.S)
 = struct
   open Www_types
 
@@ -27,6 +29,9 @@ module Make
   let log_src = Logs.Src.create "dispatch" ~doc:"Web server"
   module Log = (val Logs.src_log log_src: Logs.LOG)
 
+  module Cache = Cache.Make (S)(FS)(TMPL)(Clock)
+
+  module Reading = Reading.Make (RES)(CON)
 
   type dispatch = path -> cowabloga Lwt.t
   type s = Conduit_mirage.server -> S.t -> unit Lwt.t
@@ -42,10 +47,7 @@ module Make
   let tmpl_read dev name = TMPL.get dev (Mirage_kv.Key.v name) >|= function
     | Ok data -> data
     | Error e -> err "%a" TMPL.pp_error e
-(**
-  let tmpl_read =
-    size_then_read ~pp_error:TMPL.pp_error ~size:TMPL.size ~read:TMPL.read
- **)
+
   let cowabloga (x:contents): cowabloga = match x with
     | `Html _ | `Page _ as e -> e
     | `Not_found p -> `Not_found (Uri.to_string p)
@@ -54,14 +56,11 @@ module Make
 
   let mk f path = f >|= (fun f -> cowabloga (f path))
 
-  (**
-  let fs_read = size_then_read ~pp_error:FS.pp_error ~size:FS.size ~read:FS.read
-     **)
   let fs_read dev name = FS.get dev (Mirage_kv.Key.v name) >|= function
     | Ok data -> data
     | Error e -> err "%a" FS.pp_error e
 
-    let not_found domain path =
+  let not_found domain path =
     let uri = Site_config.uri domain path in
     let uri = Uri.to_string uri in
     Lwt.return (`Not_found uri)
@@ -98,11 +97,11 @@ module Make
 
   let updates_feeds domain tmpl =
     tmpl_read tmpl "posts.json" >>= fun posts ->
-    Log.info (fun f -> f "Reading updates_feed");
+    Log.debug (fun f -> f "Reading updates_feed");
     let entries = Data.Blog.entries posts in
     Lwt.return([
-      `Blog (blog_feed domain tmpl, entries);
-    ])
+        `Blog (blog_feed domain tmpl, entries);
+      ])
 
   (** Page types *)
 
@@ -112,10 +111,15 @@ module Make
     updates_feeds domain tmpl >>= fun feeds ->
     Pages.Updates.dispatch ~domain ~feed ~feeds ~read
 
-  let index domain tmpl =
-    let read = tmpl_read tmpl in
+  let index res ctx domain tmpl =
+    Log.info (fun f -> f "Building index page");
+    let reading = Reading.create
+        ~key:(Key_gen.goodreads ())
+        ~id:(Key_gen.goodreads_user ()) res ctx in
+    Reading.fetch_books reading "currently-reading" >>= fun books ->
+        let read = tmpl_read tmpl in
     updates_feeds domain tmpl >>= fun feeds ->
-    Pages.Index.t ~domain ~feeds ~read >|= cowabloga
+    Pages.Index.t ~books ~domain ~feeds ~read >|= cowabloga
 
   let about domain tmpl =
     let read = tmpl_read tmpl in
@@ -136,8 +140,9 @@ module Make
   let stats domain =
     Stats.dispatch ~domain
 
-  let dispatch domain fs tmpl =
-    let index = index domain tmpl in
+  let dispatch domain fs tmpl res ctx clock =
+    let page_cache = Cache.create clock (Duration.of_min (Key_gen.page_lifetime ())) in
+    let index = index res ctx in
     let about = about domain tmpl in
     let projects = projects domain tmpl in
     let blog = blog domain tmpl in
@@ -145,7 +150,7 @@ module Make
     let stats = stats domain in
     function
     | ["index.html"]
-    | [""] | [] -> index
+    | [""] | [] -> Cache.fetch page_cache domain tmpl index
     | ["about"] -> about
     | ["projects"] -> projects
     | "stats" :: tl -> mk stats tl
@@ -167,10 +172,10 @@ module Make
       let cid = Cohttp.Connection.to_string conn_id in
       let io = {
         Cowabloga.Dispatch.log = (fun ~msg -> Log.debug (fun f -> f "[%s %s] %s" hdr cid msg));
-          ok = respond_ok;
-          notfound = (fun ~uri -> not_found ~uri ());
-          redirect = (fun ~uri -> moved_permanently ~uri ());
-        } in
+        ok = respond_ok;
+        notfound = (fun ~uri -> not_found ~uri ());
+        redirect = (fun ~uri -> moved_permanently ~uri ());
+      } in
       Cowabloga.Dispatch.f io dispatch uri
     in
     let conn_closed (_, conn_id) =
@@ -180,19 +185,19 @@ module Make
     S.make ~callback ~conn_closed ()
 
 
-  let start http fs tmpl clock =
+  let start http fs tmpl clock dns (ctx: CON.t) =
     let host = Key_gen.host () in
     let red = Key_gen.redirect () in
     let http_port = Key_gen.http_port () in
     let host = host ^ ":" ^ (string_of_int http_port) in
     let domain = `Http, host in
     let dispatch = match red with
-      | None -> dispatch domain fs tmpl
+      | None -> dispatch domain fs tmpl dns ctx clock
       | Some domain -> redirect (domain_of_string domain) in
     let callback = create domain dispatch in
     let build_id = Key_gen.build_id () in
     Log.info (fun f -> f "Build version: %s" build_id);
     Log.info (fun f -> f "Listening on %s" (Site_config.base_uri domain));
-      http (`TCP (Key_gen.http_port ())) callback
+    http (`TCP (Key_gen.http_port ())) callback
 
 end
