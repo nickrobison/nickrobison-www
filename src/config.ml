@@ -49,9 +49,16 @@ let redirect_key  =
   in
   Key.(create "redirect" Arg.(opt (some string) None doc))
 
+let lifetime_key =
+  let doc = Key.Arg.info
+      ~doc:"Lifetime of the index page cache (in minutes)."
+      ~docv:"LIFETIME" ["page-lifetime"]
+  in
+  Key.(create "page-lifetime" Arg.(opt ~stage:`Both int 60 doc))
+
 let keys = Key.([abstract host_key; abstract redirect_key;
                  abstract http_port; abstract https_port;
-                 abstract build_id])
+                 abstract build_id; abstract lifetime_key])
 
 let fs_key = Key.(value @@ kv_ro ())
 let filesfs = generic_kv_ro ~key:fs_key "../files"

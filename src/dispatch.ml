@@ -140,7 +140,7 @@ module Make
     Stats.dispatch ~domain
 
   let dispatch domain fs tmpl res ctx clock =
-    let page_cache = Cache.create clock (Duration.of_sec 10) in
+    let page_cache = Cache.create clock (Duration.of_min (Key_gen.page_lifetime ())) in
     let index = index res ctx in
     let about = about domain tmpl in
     let projects = projects domain tmpl in
