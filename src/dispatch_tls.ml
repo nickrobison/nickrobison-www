@@ -52,7 +52,7 @@ module Make
     tls_init keys >>= fun cfg ->
     let domain = `Https, host in
     let dispatch = match redirect with
-      | None -> DS.dispatch domain fs tmpl dns ctx
+      | None -> DS.dispatch domain fs tmpl dns ctx clock
       | Some domain -> DS.redirect (Dispatch.domain_of_string domain)
     in
     let callback = Https.listen (DS.create domain dispatch) in
