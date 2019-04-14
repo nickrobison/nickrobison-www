@@ -107,6 +107,9 @@ module Blog = struct
   type t = Cowabloga.Blog.Entry.t
   open People
 
+  (** Internal blog state*)
+  let blogs = ref []
+
   exception YAML_EXCEPTION of string
 
   (** Simple helper function to get an array from a Yaml.value. *)
@@ -126,17 +129,17 @@ module Blog = struct
   let build_md_link (d: Cowabloga.Date.date) title =
     (** Filter out special characters that are causing titles to be wrong. *)
     let regexp = Re.compile (Re.alt [
-      (Re.char ':');
-      (Re.char '?');
-      (Re.str "’");
-      (Re.char ',');
-      (Re.str "-");
-      (Re.punct);
-    ]) in
+        (Re.char ':');
+        (Re.char '?');
+        (Re.str "’");
+        (Re.char ',');
+        (Re.str "-");
+        (Re.punct);
+      ]) in
     let filtered = String.lowercase_ascii (Stringext.replace_all
-                                (Re.replace_string regexp "" title)
-                                " " "-")
-        in
+                                             (Re.replace_string regexp "" title)
+                                             " " "-")
+    in
     Log.debug (fun f -> f "Parsing title: [%s]" filtered);
     (string_of_int d.year) ^ "-"
     ^ (padded_string_of_int d.month) ^ "-"
@@ -164,18 +167,18 @@ module Blog = struct
     let split_time_string  = (List.nth split_string 1) in
     let time_string = String.split_on_char ':' (String.sub split_time_string 0 (String.index split_time_string '+')) in
     Cowabloga.Date.date(int_from_list date_string 0,
-                                   int_from_list date_string 1,
-                                   int_from_list date_string 2,
-                                   int_from_list time_string 0,
+                        int_from_list date_string 1,
+                        int_from_list date_string 2,
+                        int_from_list time_string 0,
                         int_from_list time_string 1)
 
 
-  let entries ~yaml_file =
+  let build_entries ~yaml_file =
     Log.debug (fun f -> f "Entries is called.");
     let open Cowabloga.Blog.Entry in
     (**
-    I don't know when we can bring yaml back into the mix, but we'll stick with JSON for now.
-    let yaml = Yaml.of_string_exn yaml_file in
+       I don't know when we can bring yaml back into the mix, but we'll stick with JSON for now.
+       let yaml = Yaml.of_string_exn yaml_file in
     *)
     let yaml = Ezjsonm.from_string yaml_file in
     let js_first = match yaml with
@@ -183,8 +186,8 @@ module Blog = struct
       | _ -> raise (YAML_EXCEPTION "Cannot get first array")
     in
     let posts = match Ezjsonm.find js_first ["posts"] with
-    | `A p -> p
-    | _ -> raise (YAML_EXCEPTION "Cannot get posts")
+      | `A p -> p
+      | _ -> raise (YAML_EXCEPTION "Cannot get posts")
     in
     List.fold_left (fun acc p ->
         let title =  Ezjsonm.(get_string (find p ["title"])) in
@@ -196,18 +199,27 @@ module Blog = struct
           let date = parse_date Ezjsonm.(get_string (find p ["date"])) in
           let link = build_md_link date title in
           Log.info (fun f -> f "Built link [%s]" link);
-        {
-        updated = date;
-        authors = [nick];
-        subject = title;
-        body = Ezjsonm.(get_string (find p ["file"]));
-        (** We have to trim off the leading / which comes by default from wordpress. *)
-        permalink = String.sub url 1 ((String.length url) - 1);
-        image = get_featured_image p;
-        tags = get_tags p;
-      } :: acc
-      end
+          {
+            updated = date;
+            authors = [nick];
+            subject = title;
+            body = Ezjsonm.(get_string (find p ["file"]));
+            (** We have to trim off the leading / which comes by default from wordpress. *)
+            permalink = String.sub url 1 ((String.length url) - 1);
+            image = get_featured_image p;
+            tags = get_tags p;
+          } :: acc
+        end
       ) [] posts
+
+  let entries ~yaml_file =
+    match !blogs with
+    | [] ->
+      Log.info(fun f -> f "Empty list, building");
+      let b = build_entries yaml_file in
+      blogs := b;
+      b
+    | b -> b
 end
 
 module Feed = struct
