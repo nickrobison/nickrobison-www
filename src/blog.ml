@@ -19,9 +19,9 @@ let make ?title ~read ~domain content =
   let title = "Blog" ^ match title with None -> "" | Some x -> " :: " ^ x
   in
   Pages.Global.t ~title ~headers ~content ~domain ~read
-    (**
-let copyright f = match f.rights with None -> [] | Some r -> [`Data r]
-     *)
+(**
+   let copyright f = match f.rights with None -> [] | Some r -> [`Data r]
+*)
 (** TODO: Get the real copyright. Looks like the feed is not being propogated correctly. *)
 let copyright _ = []
 
@@ -33,23 +33,30 @@ let blog_index ~feed ~entries ~read ~domain ~page_range ~sidebar =
   in
   make ~domain ~read content
 
-let make_index_pages ~feed ~entries ~read ~domain partition =
+let partition_entries entries partition =
   let total_pages = List.length entries mod partition in
   let paritioned = List.sort Cowabloga.Blog.Entry.compare entries |>
-                  Utils.groupi ~break:(fun i _ _ -> i mod partition = 0)
+                   Utils.groupi ~break:(fun i _ _ -> i mod partition = 0) in
+  (total_pages, paritioned)
+
+
+let mk_sidebar feed entries partitioned =
+  Cowabloga.Foundation.Sidebar.t ~title:"Recent Posts" ~content:(Cowabloga.Blog.recent_posts feed (List.hd partitioned))
+
+
+let make_index_pages ~feed ~entries ~read ~domain partition =
+  let (total_pages, partitioned) = partition_entries entries partition
   in
-  let sidebar =
-    Cowabloga.Foundation.Sidebar.t ~title:"Recent Posts" ~content:(Cowabloga.Blog.recent_posts feed (List.hd paritioned))
-  in
+  let sidebar = mk_sidebar feed entries partitioned in
   Lwt_list.mapi_s (fun idx entries ->
       let idx_offset = idx + 1 in
       blog_index ~feed ~entries ~read ~domain ~sidebar ~page_range:(idx_offset, total_pages) >>= fun index_page ->
-      Lwt.return(("blog/" ^ string_of_int (idx + 1)), index_page)) paritioned
+      Lwt.return(("blog/" ^ string_of_int (idx + 1)), index_page)) partitioned
 
 let blog_entry ~feed ~entries ~read ~domain entry =
-  let recent_posts = Cowabloga.Blog.recent_posts feed entries in
   let copyright = copyright feed in
-  let sidebar = Cowabloga.Foundation.Sidebar.t ~title:"Recent Posts" ~content:recent_posts
+  let (total_pages, partitioned) = partition_entries entries 10 in
+  let sidebar = mk_sidebar feed entries partitioned
   in
   Cowabloga.Blog.Entry.to_html ~feed ~entry >>= fun posts ->
   let content = Cowabloga.Foundation.Blog.t ~title:"" ~subtitle:None ~sidebar ~posts ~copyright ()
