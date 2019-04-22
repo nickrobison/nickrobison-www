@@ -1,4 +1,5 @@
 val dispatch:
+  read:string Www_types.read ->
   Www_types.dispatch
 
 val start: sleep: (int -> unit Lwt.t) -> time: (unit -> (int * int64)) -> unit

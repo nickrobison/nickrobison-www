@@ -97,6 +97,9 @@ let start ~sleep ~time =
      end) >>= fun rrd ->
     let rec loop () =
       Log.info(fun f -> f "Updating");
+      total_requests := !total_requests + 5;
+      total_errors := !total_errors + 1;
+      Log.info(fun f -> f "Total errors: %d" !total_errors);
       let timestamp = time () |> Ptime.v |> Ptime.to_float_s in
       update_rrds timestamp (make_dss (Gc.stat ())) rrd;
       sleep 5 >>= fun () ->
@@ -104,9 +107,9 @@ let start ~sleep ~time =
     loop () in
   Lwt.async t
 
-let page () =
+let page ~read =
   let headers = Cowabloga.Headers.html in
-  let body = Lwt.return "Stats!" in
+  let body = read "stats.html" in
   `Page (headers, body)
 
 let get_rrd_updates ~domain =
@@ -139,9 +142,9 @@ let get_rrd_timescales () =
   `Html (Lwt.return (Rrd_timescales.to_json timescales))
 
 (** Dispatch for URI handlers *)
-let dispatch ~domain =
+let dispatch ~read ~domain =
   let f = function
-    | [] -> page ()
+    | [] -> page ~read
     | ["ok"] -> check_ok ~domain
     | ["updates"] -> `Html (get_rrd_updates ~domain)
     | ["timescales"] -> get_rrd_timescales ()

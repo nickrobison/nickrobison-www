@@ -117,7 +117,7 @@ module Make
         ~key:(Key_gen.goodreads ())
         ~id:(Key_gen.goodreads_user ()) res ctx in
     Reading.fetch_books reading "currently-reading" >>= fun books ->
-        let read = tmpl_read tmpl in
+    let read = tmpl_read tmpl in
     updates_feeds domain tmpl >>= fun feeds ->
     Pages.Index.t ~books ~domain ~feeds ~read >|= cowabloga
 
@@ -137,8 +137,9 @@ module Make
     let read = tmpl_read tmpl in
     Blog.dispatch ~domain ~feed ~entries ~read
 
-  let stats domain =
-    Stats.dispatch ~domain
+  let stats domain fs =
+    let read = fs_read fs in
+    Stats.dispatch ~domain ~read
 
   let dispatch domain fs tmpl res ctx clock =
     let page_cache = Cache.create clock (Duration.of_min (Key_gen.page_lifetime ())) in
@@ -147,7 +148,7 @@ module Make
     let projects = projects domain tmpl in
     let blog = blog domain tmpl in
     let updates = updates domain tmpl in
-    let stats = stats domain in
+    let stats = stats domain fs in
     function
     | ["index.html"]
     | [""] | [] -> Cache.fetch page_cache domain tmpl index
