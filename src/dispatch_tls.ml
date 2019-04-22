@@ -46,6 +46,8 @@ module Make
   let start stack keys fs tmpl clock dns ctx () =
     let build_id = Key_gen.build_id () in
     let host = Key_gen.host () in
+    let sleep sec = OS.Time.sleep_ns (Duration.of_sec sec) in
+    Stats.start ~sleep ~time:(fun () -> Clock.now_d_ps clock);
     let https_port = Key_gen.https_port () in
     let redirect = Key_gen.redirect () in
     let host = host ^ ":" ^ (string_of_int https_port) in

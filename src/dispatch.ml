@@ -188,6 +188,8 @@ module Make
   let start http fs tmpl clock dns (ctx: CON.t) =
     let host = Key_gen.host () in
     let red = Key_gen.redirect () in
+    let sleep sec = OS.Time.sleep_ns (Duration.of_sec sec) in
+    Stats.start ~sleep ~time:(fun () -> Clock.now_d_ps clock);
     let http_port = Key_gen.http_port () in
     let host = host ^ ":" ^ (string_of_int http_port) in
     let domain = `Http, host in

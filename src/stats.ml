@@ -1,5 +1,9 @@
 open Lwt.Infix
 
+let log_src = Logs.Src.create "stats" ~doc:"Web server statistics"
+module Log = (val Logs.src_log log_src: Logs.LOG)
+
+
 let not_found ~domain x =
   let uri = Site_config.uri domain ("stats" :: x) in
   `Not_found uri
@@ -66,6 +70,7 @@ let make_dss stats = [
 ]
 
 let create_fresh_rrd timestamp use_min_max dss =
+  Log.info (fun f -> f "Creating fresh RRDs");
   let rras = create_rras use_min_max in
   let dss = Array.of_list (List.map (fun ds ->
       Rrd.ds_create ds.Ds.name ds.Ds.ty ~mrhb:300.0 ~max:ds.Ds.max ~min:ds.Ds.min Rrd.VT_Unknown) dss) in
@@ -90,8 +95,8 @@ let start ~sleep ~time =
        Lwt.wakeup rrd_u x;
        rrd
      end) >>= fun rrd ->
-
     let rec loop () =
+      Log.info(fun f -> f "Updating");
       let timestamp = time () |> Ptime.v |> Ptime.to_float_s in
       update_rrds timestamp (make_dss (Gc.stat ())) rrd;
       sleep 5 >>= fun () ->
@@ -105,15 +110,41 @@ let page () =
   `Page (headers, body)
 
 let get_rrd_updates ~domain =
-  let _uri = Site_config.uri domain [] in
-  `Html (Lwt.return "Updates!")
+  Log.info(fun f -> f "Getting updates");
+  rrd >>= fun rrd ->
+  let uri = Site_config.uri domain [] in
+  let query = Uri.query uri in
+  let get key =
+    if List.mem_assoc key query
+    then match List.assoc key query with
+      | [] -> None
+      | x :: _ -> Some x
+    else
+      None in
+  let (>>=) m f = match m with
+    | None -> None
+    | Some x -> f x in
+  let default d = function
+    | None -> d
+    | Some x -> x
+  in
+  let int64 x = try Some (Int64.of_string x) with _ -> None in
+  let cf x = try Some (Rrd.cf_type_of_string x) with _ -> None in
+  let start = default 0L (get "start" >>= int64) in
+  let interval = default 0L (get "interva" >>= int64) in
+  let cfopt = get "cf" >>= cf in
+  (Lwt.return (Rrd_updates.export ~json:true ["", rrd] start interval cfopt))
+
+let get_rrd_timescales () =
+  `Html (Lwt.return (Rrd_timescales.to_json timescales))
 
 (** Dispatch for URI handlers *)
 let dispatch ~domain =
   let f = function
     | [] -> page ()
     | ["ok"] -> check_ok ~domain
-    | ["updates"] -> get_rrd_updates ~domain
+    | ["updates"] -> `Html (get_rrd_updates ~domain)
+    | ["timescales"] -> get_rrd_timescales ()
     | x -> not_found ~domain x
   in
   Lwt.return f
