@@ -1,3 +1,7 @@
 (executables (names main)
-  (libraries incr_dom)
+  (libraries
+  incr_dom
+  js_of_ocaml-lwt
+  js_of_ocaml-lwt.logger
+  )
   (preprocess (pps js_of_ocaml-ppx ppx_jane)))
