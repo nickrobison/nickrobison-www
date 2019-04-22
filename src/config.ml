@@ -104,7 +104,7 @@ let packages = [
   package "cow"; package "cowabloga";
   package "astring"; package "cohttp-mirage";
   package "ezjsonm"; package "ezxmlm"; package "re";
-  package "duration"; package "ptime";]
+  package "duration"; package "ptime"; package "xapi-rrd";]
 
 let () =
   let conduit = conduit_direct ~tls:true stack in
