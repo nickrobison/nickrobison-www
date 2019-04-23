@@ -17,8 +17,9 @@ module Model = struct
 
 
   let fetch_data model =
+    print_endline "Fetching data";
     let open Lwt.Infix in
-    let _ = Fetch.do_get ~uri:(Uri.make ~path:"/stats/ok" ()) >>= fun text -> print_endline text; Lwt.return_unit in
+    let _ = Fetch.do_get ~uri:(Uri.make ~path:"/stats/updates" ()) >>= fun text -> print_endline ("Result: " ^ text); Lwt.return_unit in
     model
 
 end
@@ -53,7 +54,7 @@ let create model ~old_model:_ ~inject:_ =
     let open Vdom in
     Node.div
       []
-      [ Node.h3 [] [Node.text "Hello from Ocaml"]]
+      [ Node.h3 [] [Node.text "Hello from Ocaml Incr_dom"]]
   in
   Component.create ~apply_action model view
 

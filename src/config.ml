@@ -76,8 +76,8 @@ let keys = Key.([abstract host_key; abstract redirect_key;
                 abstract goodreads_key; abstract goodreads_user_key])
 
 let fs_key = Key.(value @@ kv_ro ())
-let filesfs = generic_kv_ro ~key:fs_key "../files"
-let tmplfs = generic_kv_ro ~key:fs_key "../tmpl"
+let filesfs = generic_kv_ro ~key:fs_key "files"
+let tmplfs = generic_kv_ro ~key:fs_key "tmpl"
 
 let secrets_key = Key.(value @@ kv_ro ~group:"secrets" ())
 let secrets = generic_kv_ro ~key:secrets_key "../tls"

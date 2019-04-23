@@ -11,6 +11,7 @@ B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/base_bigstring
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/base_quickcheck
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/bin_prot
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/bin_prot/shape
+B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/biniou
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/bytes
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/core_kernel
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/core_kernel/balanced_reducer
@@ -22,6 +23,7 @@ B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/core_kernel/uopt
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/core_kernel/weak_array
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/core_kernel/weak_hashtbl
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/core_kernel/weak_pointer
+B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/easy-format
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/fieldslib
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/incr_dom
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/incr_map
@@ -37,6 +39,8 @@ B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/parsexp
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/ppx_assert/runtime-lib
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/ppx_bench/runtime-lib
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/ppx_compare/runtime-lib
+B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/ppx_deriving
+B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/ppx_deriving_yojson/runtime
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/ppx_enumerate/runtime-lib
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/ppx_expect/collector
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/ppx_expect/common
@@ -66,6 +70,7 @@ B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/uutf
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/variantslib
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/virtual_dom
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/virtual_dom/css_gen
+B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/yojson
 B /usr/local/lib/ocaml
 B ../_build/default/stats/.main.eobjs/byte
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/async_js
@@ -80,6 +85,7 @@ S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/base_bigstring
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/base_quickcheck
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/bin_prot
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/bin_prot/shape
+S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/biniou
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/bytes
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/core_kernel
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/core_kernel/balanced_reducer
@@ -91,6 +97,7 @@ S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/core_kernel/uopt
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/core_kernel/weak_array
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/core_kernel/weak_hashtbl
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/core_kernel/weak_pointer
+S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/easy-format
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/fieldslib
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/incr_dom
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/incr_map
@@ -106,6 +113,8 @@ S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/parsexp
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/ppx_assert/runtime-lib
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/ppx_bench/runtime-lib
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/ppx_compare/runtime-lib
+S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/ppx_deriving
+S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/ppx_deriving_yojson/runtime
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/ppx_enumerate/runtime-lib
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/ppx_expect/collector
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/ppx_expect/common
@@ -135,7 +144,8 @@ S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/uutf
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/variantslib
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/virtual_dom
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/virtual_dom/css_gen
+S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/yojson
 S /usr/local/lib/ocaml
 S .
-FLG -ppx '/Users/nickrobison/Developer/git/nickrobison-www/_build/default/.ppx/e769ad9e8facb77dc224164771115c59/ppx.exe --as-ppx'
+FLG -ppx '/Users/nickrobison/Developer/git/nickrobison-www/_build/default/.ppx/8aa0cc869f1d4008cc492899d9cf64ea/ppx.exe --as-ppx'
 FLG -w @a-4-29-40-41-42-44-45-48-58-59-60-40 -strict-sequence -strict-formats -short-paths -keep-locs
