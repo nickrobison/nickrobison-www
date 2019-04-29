@@ -14,14 +14,18 @@ type rrd_update = {
   meta: rrd_meta
 } [@@deriving yojson {strict = false}]
 
-let do_get ~uri =
-  let open XmlHttpRequest  in
+let do_get ~uri f =
   let uri = Uri.to_string uri in
+  let open XmlHttpRequest in
   get uri >>= fun (frame) ->
-  let jsn = Yojson.Safe.from_string frame.content in
-  print_endline (Yojson.Safe.pretty_to_string jsn);
-  match rrd_update_of_yojson jsn with
-  | Error e -> Lwt.return ("Error: " ^ e)
-  | Ok rrd ->
-    print_endline ("End value " ^(string_of_int rrd.meta.en));
-    Lwt.return frame.content
+  match frame.code with
+  | 200 -> Lwt.return_ok (f frame.content)
+  | _ -> Lwt.return_error "Error!"
+
+let fetch_rrd_updates () =
+  let jsn_from_string content =
+    match rrd_update_of_yojson (Yojson.Safe.from_string content) with
+    | Error _e -> raise (Failure "Cannot decode json")
+    | Ok rrd -> rrd
+  in
+  do_get ~uri:(Uri.make ~path:"/rrd_updates" ()) jsn_from_string
