@@ -54,6 +54,9 @@ B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/protocol_version_he
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/re
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/re/posix
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/result
+B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/rpclib/core
+B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/rpclib/json
+B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/rresult
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/seq
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/sexplib
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/sexplib0
@@ -70,9 +73,11 @@ B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/uutf
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/variantslib
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/virtual_dom
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/virtual_dom/css_gen
+B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/xmlm
 B /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/yojson
 B /usr/local/lib/ocaml
 B ../_build/default/stats/.main.eobjs/byte
+B ../_build/default/xcp-rrd/lib/.rrd.objs/byte
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/async_js
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/async_kernel
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/async_kernel/persistent_connection_kernel
@@ -128,6 +133,9 @@ S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/protocol_version_he
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/re
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/re/posix
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/result
+S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/rpclib/core
+S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/rpclib/json
+S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/rresult
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/seq
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/sexplib
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/sexplib0
@@ -144,8 +152,10 @@ S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/uutf
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/variantslib
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/virtual_dom
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/virtual_dom/css_gen
+S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/xmlm
 S /Users/nickrobison/Developer/git/nickrobison-www/_opam/lib/yojson
 S /usr/local/lib/ocaml
 S .
+S ../xcp-rrd/lib
 FLG -ppx '/Users/nickrobison/Developer/git/nickrobison-www/_build/default/.ppx/8aa0cc869f1d4008cc492899d9cf64ea/ppx.exe --as-ppx'
 FLG -w @a-4-29-40-41-42-44-45-48-58-59-60-40 -strict-sequence -strict-formats -short-paths -keep-locs

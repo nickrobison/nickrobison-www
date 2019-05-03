@@ -5,5 +5,6 @@
   js_of_ocaml-lwt.logger
   yojson
   ppx_deriving_yojson.runtime
+  xapi-rrd
   )
   (preprocess (pps js_of_ocaml-ppx ppx_jane ppx_deriving_yojson)))

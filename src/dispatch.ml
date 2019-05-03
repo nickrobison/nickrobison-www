@@ -177,7 +177,14 @@ module Make
         notfound = (fun ~uri -> not_found ~uri ());
         redirect = (fun ~uri -> moved_permanently ~uri ());
       } in
-      Cowabloga.Dispatch.f io dispatch uri
+      if Uri.path uri = "/rrd_updates" then (
+        Stats.get_rrd_updates uri >>= fun body ->
+        S.respond_string ~status:`OK ~body ()
+      ) else if Uri.path uri = "/rrd_timescales" then (
+        Stats.get_rrd_timescales uri >>= fun body ->
+        S.respond_string ~status:`OK ~body ()
+      ) else
+        Cowabloga.Dispatch.f io dispatch uri
     in
     let conn_closed (_, conn_id) =
       let cid = Cohttp.Connection.to_string conn_id in

@@ -14,6 +14,14 @@ type rrd_update = {
   meta: rrd_meta
 } [@@deriving yojson {strict = false}]
 
+type rrd_timescale = {
+  name: string;
+  num_intervals: int;
+  interval_in_steps: int;
+} [@@deriving yojson]
+
+type rrd_timescale_resp = rrd_timescale list [@@deriving yojson]
+
 let do_get ~uri f =
   let uri = Uri.to_string uri in
   let open XmlHttpRequest in
@@ -23,9 +31,10 @@ let do_get ~uri f =
   | _ -> Lwt.return_error "Error!"
 
 let fetch_rrd_updates () =
-  let jsn_from_string content =
-    match rrd_update_of_yojson (Yojson.Safe.from_string content) with
-    | Error _e -> raise (Failure "Cannot decode json")
-    | Ok rrd -> rrd
+  let rrd_from_xml content =
+    Rrd_updates.of_string content
   in
-  do_get ~uri:(Uri.make ~path:"/rrd_updates" ()) jsn_from_string
+  do_get ~uri:(Uri.make ~path:"/rrd_updates" ()) rrd_from_xml
+
+let fetch_timescales () =
+  "hello"

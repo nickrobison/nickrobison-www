@@ -4,11 +4,9 @@ val dispatch:
 
 val start: sleep: (int -> unit Lwt.t) -> time: (unit -> (int * int64)) -> unit
 
-(**
-   val get_rrd_updates: Uri.t -> string Lwt.t
+val get_rrd_updates: Uri.t -> string Lwt.t
 
-   val get_rrd_timescales: Uri.t -> string
-   **)
+val get_rrd_timescales: Uri.t -> string Lwt.t
 
 val total_requests: int ref
 
