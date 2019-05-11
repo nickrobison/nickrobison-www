@@ -49,21 +49,20 @@ let on_startup ~schedule_action _model =
       let open Lwt.Infix in
       let _ = Fetch.fetch_rrd_updates () >>= fun res ->
         Lwt.return (match res with
-            | Ok _r -> print_endline ("Printing: " ^ "hello");
+            | Ok r -> print_endline ("Printing: " ^ (Int64.to_string r.step));
               (**schedule_action (Action.SetTimescales ["test"; "from"; "other"])*)
             | Error e -> print_endline "Error"; print_endline e)
       in
       ());
 
-     let open Lwt.Infix in
-     let _ = Fetch.fetch_timescales () >>= fun res ->
-       Lwt.return (match res with
-           | Ok r -> print_endline ("Named: ");
-             schedule_action
-               (Action.SetTimescales (List.map r ~f:(fun ts -> ts.name)))
-           | Error e -> print_endline "Error"; print_endline e)
-     in
-     ();
+  let open Lwt.Infix in
+  let _ = Fetch.fetch_timescales () >>= fun res ->
+    Lwt.return (match res with
+        | Ok r -> schedule_action
+                    (Action.SetTimescales (List.map r ~f:(fun ts -> ts.name)))
+        | Error e -> print_endline "Error"; print_endline e)
+  in
+  ();
 
 
   Deferred.unit

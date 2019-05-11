@@ -135,7 +135,7 @@ let get_rrd_updates uri =
   let start = default 0L (get "start" >>= int64) in
   let interval = default 0L (get "interva" >>= int64) in
   let cfopt = get "cf" >>= cf in
-  (Lwt.return (Rrd_updates.export ~json:true ["", rrd] start interval cfopt))
+  (Lwt.return (Rrd_updates.export ["", rrd] start interval cfopt))
 
 let get_rrd_timescales uri:_ =
   Lwt.return (Rrd_timescales.to_json timescales)
