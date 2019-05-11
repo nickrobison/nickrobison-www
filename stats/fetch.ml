@@ -37,4 +37,14 @@ let fetch_rrd_updates () =
   do_get ~uri:(Uri.make ~path:"/rrd_updates" ()) rrd_from_xml
 
 let fetch_timescales () =
-  "hello"
+  let scales_from_json content =
+    let safed = Yojson.Safe.from_string content
+    |> rrd_timescale_resp_of_yojson in
+    match safed with
+    | Ok r -> r
+    | Error _ -> raise (Invalid_argument "can't")
+  in
+  do_get ~uri:(Uri.make ~path:"/rrd_timescales" ()) scales_from_json
+
+let test () =
+  Lwt.return_ok "Hello"

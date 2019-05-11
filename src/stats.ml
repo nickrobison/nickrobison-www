@@ -112,10 +112,9 @@ let page ~read =
   let body = read "stats.html" in
   `Page (headers, body)
 
-let get_rrd_updates ~domain =
+let get_rrd_updates uri =
   Log.info(fun f -> f "Getting updates");
   rrd >>= fun rrd ->
-  let uri = Site_config.uri domain [] in
   let query = Uri.query uri in
   let get key =
     if List.mem_assoc key query
@@ -138,16 +137,14 @@ let get_rrd_updates ~domain =
   let cfopt = get "cf" >>= cf in
   (Lwt.return (Rrd_updates.export ~json:true ["", rrd] start interval cfopt))
 
-let get_rrd_timescales () =
-  `Html (Lwt.return (Rrd_timescales.to_json timescales))
+let get_rrd_timescales uri:_ =
+  Lwt.return (Rrd_timescales.to_json timescales)
 
 (** Dispatch for URI handlers *)
 let dispatch ~read ~domain =
   let f = function
     | [] -> page ~read
     | ["ok"] -> check_ok ~domain
-    | ["updates"] -> `Html (get_rrd_updates ~domain)
-    | ["timescales"] -> get_rrd_timescales ()
     | x -> not_found ~domain x
   in
   Lwt.return f
