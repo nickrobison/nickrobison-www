@@ -133,9 +133,9 @@ let get_rrd_updates uri =
   let int64 x = try Some (Int64.of_string x) with _ -> None in
   let cf x = try Some (Rrd.cf_type_of_string x) with _ -> None in
   let start = default 0L (get "start" >>= int64) in
-  let interval = default 0L (get "interva" >>= int64) in
+  let interval = default 0L (get "interval" >>= int64) in
   let cfopt = get "cf" >>= cf in
-  (Lwt.return (Rrd_updates.export ["", rrd] start interval cfopt))
+  (Lwt.return (Rrd_updates.export ~json:true ["", rrd] start interval cfopt))
 
 let get_rrd_timescales uri:_ =
   Lwt.return (Rrd_timescales.to_json timescales)

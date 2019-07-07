@@ -4,26 +4,22 @@ open Incr_dom
 
 module Model = struct
   type t = {
-    timescales: string list;
-    selected_scale: string;
-    metrics: string list;
-    (**
-       rrds: Rrd_updates.t String.Map.t;**)
+    timescales: Fetch.rrd_timescale_resp;
+    selected_scale: Fetch.rrd_timescale;
+    metrics: Fetch.rrd_timescale_resp;
+    legends: string list;
   } [@@deriving sexp, fields, compare]
 
   let cutoff m1 m2 = compare m1 m2 = 0
 
-  (**let update_data model (data: Rrd_updates.t) =
-
-     let t = List.foldi data ~init:model.rrds ~f:(fun _ map rrd -> String.Map.set map ~key:"hello" ~data:rrd)
-     in
-       {model with rrds = t}
-      model**)
+  let update_data model (data: Fetch.rrd_update) =
+    {model with legends = data.meta.legend}
 
   let set_timescales model scales =
     {model with timescales = scales}
 
-  let select_timescale model scale =
+  let select_timescale model (scale: Fetch.rrd_timescale) =
+    print_endline ("Selected: " ^ scale.name);
     {model with selected_scale = scale}
 end
 
@@ -32,25 +28,34 @@ module State = struct
 end
 
 module Action = struct
-  type t = SetTimescales of string list
-         | SelectTimescale of string [@@deriving sexp]
+  type t = RefreshData of Fetch.rrd_update
+         | SetTimescales of Fetch.rrd_timescale_resp
+         | SelectTimescale of Fetch.rrd_timescale [@@deriving sexp]
 end
 
 let apply_action model action _ ~schedule_action:_ =
   match (action: Action.t) with
-  (**| Refresh data -> Model.update_data model data**)
+  | RefreshData data -> Model.update_data model data
   | SetTimescales scales -> Model.set_timescales model scales
   | SelectTimescale scale -> Model.select_timescale model scale
 
+let interval_to_span steps =
+  steps * 5
 
-let on_startup ~schedule_action _model =
+let to_span intervals steps =
+  intervals * steps * 5
+
+let on_startup ~schedule_action model =
   every (Time_ns.Span.of_sec 10.) (fun () ->
       print_endline "Fetching again";
       let open Lwt.Infix in
-      let _ = Fetch.fetch_rrd_updates () >>= fun res ->
+      let selected  = Model.selected_scale model in
+      let start = to_span selected.num_intervals selected.interval_in_steps in
+      let span = interval_to_span selected.num_intervals in
+      let _ = Fetch.fetch_rrd_updates ~start:(string_of_int start) ~interval:(string_of_int span) >>= fun res ->
         Lwt.return (match res with
-            | Ok r -> print_endline ("Printing: " ^ (Int64.to_string r.step));
-              (**schedule_action (Action.SetTimescales ["test"; "from"; "other"])*)
+            | Ok r -> print_endline ("Printing: " ^ (string_of_int r.meta.step));
+              schedule_action (Action.RefreshData r);
             | Error e -> print_endline "Error"; print_endline e)
       in
       ());
@@ -59,7 +64,7 @@ let on_startup ~schedule_action _model =
   let _ = Fetch.fetch_timescales () >>= fun res ->
     Lwt.return (match res with
         | Ok r -> schedule_action
-                    (Action.SetTimescales (List.map r ~f:(fun ts -> ts.name)))
+                    (Action.SetTimescales r)
         | Error e -> print_endline "Error"; print_endline e)
   in
   ();
@@ -67,15 +72,20 @@ let on_startup ~schedule_action _model =
 
   Deferred.unit
 
-let view (model: Model.t Incr.t) ~inject:_ =
+let view (model: Model.t Incr.t) ~inject =
   let open Vdom in
   let open Incr.Let_syntax in
   let%map scales = model >>| Model.timescales in
   print_endline "Updating";
-  let selections = Node.select []
-      (List.map scales ~f:(fun name ->
+  let selections = Node.select [
+    ]
+      (List.map scales ~f:(fun scale ->
+           let name = scale.name in
            Node.option
-             [Attr.value name]
+             [
+               Attr.value name;
+               Attr.on_click (fun _ev -> inject (Action.SelectTimescale scale));
+             ]
              [Node.text name]
          ))
   in
@@ -102,8 +112,13 @@ let create model ~old_model:_ ~inject =
 
 let initial_model () : Model.t =
   {
-    metrics = ["something"; "basic"];
-    selected_scale = "minute";
+    metrics = [];
+    selected_scale = {
+      name = "minute";
+      num_intervals = 120;
+      interval_in_steps = 1;
+    };
     timescales = [];
+    legends = [];
   }
 
