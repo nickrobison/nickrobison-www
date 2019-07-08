@@ -4,7 +4,7 @@ val dispatch:
 
 val start: sleep: (int -> unit Lwt.t) -> time: (unit -> (int * int64)) -> unit
 
-val get_rrd_updates: domain: Www_types.domain -> string Lwt.t
+val get_rrd_updates: uri: Uri.t -> string Lwt.t
 
 val get_rrd_timescales: unit-> string Lwt.t
 

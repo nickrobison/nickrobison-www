@@ -179,7 +179,7 @@ module Make
       } in
       (** I'm pretty sure I don't need this anymore*)
       if Uri.path uri = "/rrd_updates" then (
-        Stats.get_rrd_updates ~domain >>= fun body ->
+        Stats.get_rrd_updates ~uri >>= fun body ->
         S.respond_string ~status:`OK ~body ()
       ) else if Uri.path uri = "/rrd_timescales" then (
         Stats.get_rrd_timescales () >>= fun body ->

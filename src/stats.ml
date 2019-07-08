@@ -112,10 +112,9 @@ let page ~read =
   let body = read "stats.html" in
   `Page (headers, body)
 
-let get_rrd_updates ~domain =
+let get_rrd_updates ~uri =
   Log.info(fun f -> f "Getting updates");
   rrd >>= fun rrd ->
-  let uri = Site_config.uri domain [] in
   let query = Uri.query uri in
   let get key =
     if List.mem_assoc key query
