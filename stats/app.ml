@@ -12,9 +12,31 @@ module Model = struct
 
   let cutoff m1 m2 = compare m1 m2 = 0
 
-  let update_data model (data: Fetch.rrd_update) =
+  let interval_to_span steps =
+    steps * 5
+
+  let to_span interval steps =
+    interval * steps * 5
+
+  let fetch_data model ~schedule_action:_ =
     print_endline "Updating data model";
+    print_endline "Fetching updates";
+    let open Lwt.Infix in
+    let selected  = selected_scale model in
+    let span = interval_to_span selected.num_intervals in
+    let _ = Fetch.fetch_rrd_updates ~start:(string_of_int (to_span selected.num_intervals selected.interval_in_steps)) ~interval:(string_of_int span) >>= fun res ->
+      Lwt.return (match res with
+          | Ok r -> print_endline ("Printing: " ^ (string_of_int r.meta.step))
+          | Error e -> print_endline "Error"; print_endline e)
+
+    in
+    ();
+    model
+
+  let update_data model (data: Fetch.rrd_update) =
+    print_endline "Updating model";
     {model with legends = data.meta.legend}
+
 
   let set_timescales model scales =
     print_endline "Setting timescales";
@@ -34,35 +56,25 @@ module State = struct
 end
 
 module Action = struct
-  type t = RefreshData of Fetch.rrd_update
+  type t = UpdateModel of Fetch.rrd_update
+         |RefreshData
          | SetTimescales of Fetch.rrd_timescale_resp
          | SelectTimescale of string [@@deriving sexp]
 end
 
-let apply_action model action _ ~schedule_action:_ =
+let apply_action model action _ ~schedule_action =
   match (action: Action.t) with
-  | RefreshData data -> Model.update_data model data
+  | UpdateModel data -> Model.update_data model data
+  | RefreshData -> Model.fetch_data model ~schedule_action
   | SetTimescales scales -> Model.set_timescales model scales
   | SelectTimescale scale -> Model.select_timescale model scale
 
-let interval_to_span steps =
-  steps * 5
 
-let on_startup ~schedule_action model =
-  let start = Time.now () in
-  let start_span = Time.to_span_since_epoch start in
+let on_startup ~schedule_action _model =
   every (Time_ns.Span.of_sec 10.) (fun () ->
       print_endline "Fetching updates";
-      let open Lwt.Infix in
-      let selected  = Model.selected_scale model in
-      let span = interval_to_span selected.num_intervals in
-      let _ = Fetch.fetch_rrd_updates ~start:(string_of_float (Time.Span.to_sec start_span)) ~interval:(string_of_int span) >>= fun res ->
-        Lwt.return (match res with
-            | Ok r -> print_endline ("Printing: " ^ (string_of_int r.meta.step));
-              schedule_action (Action.RefreshData r);
-            | Error e -> print_endline "Error"; print_endline e)
-      in
-      ());
+      schedule_action (Action.RefreshData)
+    );
 
   let open Lwt.Infix in
   print_endline "Initial timescale fetch";
@@ -73,8 +85,6 @@ let on_startup ~schedule_action model =
         | Error e -> print_endline "Error"; print_endline e)
   in
   ();
-
-
   Deferred.unit
 
 let view (model: Model.t Incr.t) ~inject =
