@@ -24,7 +24,8 @@ module Model = struct
     let open Lwt.Infix in
     let selected  = selected_scale model in
     let span = interval_to_span selected.num_intervals in
-    let _ = Fetch.fetch_rrd_updates ~start:(string_of_int (to_span selected.num_intervals selected.interval_in_steps)) ~interval:(string_of_int span) >>= fun res ->
+    let start = (-(to_span selected.num_intervals selected.interval_in_steps)) + 1 in
+    let _ = Fetch.fetch_rrd_updates ~start:(string_of_int start) ~interval:(string_of_int span) >>= fun res ->
       Lwt.return (match res with
           | Ok r -> print_endline ("Printing: " ^ (string_of_int r.meta.step))
           | Error e -> print_endline "Error"; print_endline e)
