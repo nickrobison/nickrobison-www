@@ -19,7 +19,7 @@ module Model = struct
     timescales: Fetch.rrd_timescale_resp;
     selected_scale: Fetch.rrd_timescale;
     metrics: Fetch.rrd_timescale_resp;
-    charts: (float *float) list Charts.t;
+    tests: Metric.Model.t Charts.t;
     legends: string list;
   } [@@deriving sexp, fields, compare]
 
@@ -47,10 +47,10 @@ module Model = struct
     ();
     model
 
-  let update_map map key new_value =
+  let update_map map key _new_value =
     match (Charts.find map key) with
-    | Some v -> Map.set map ~key:key ~data:(new_value::v)
-    | None -> Map.set map ~key: key ~data:[new_value]
+    | Some v -> Map.set map ~key:key ~data:v
+    | None -> Map.set map ~key:key ~data: (Metric.Model.create key)
 
   let transform_row columns map (row: Fetch.rrd_data) =
     List.foldi row.values ~init:map ~f:(fun idx m value -> update_map m (List.nth_exn columns idx) (Float.of_int(row.t), value))
@@ -60,13 +60,13 @@ module Model = struct
     in
     let transformer = transform_row legends in
     (** iterate through the rows and append the values*)
-    List.fold data.data ~init:model.charts ~f:transformer
+    List.fold data.data ~init:model.tests ~f:transformer
 
 
 
   let update_data model (data: Fetch.rrd_update) =
     print_endline "Updating model";
-    {model with legends = data.meta.legend; charts = (transform_data model data)}
+    {model with legends = data.meta.legend; tests = (transform_data model data)}
 
 
   let set_timescales model scales =
@@ -112,7 +112,7 @@ let on_startup ~schedule_action _model =
   Deferred.unit
 
 
-
+(*
 let do_update chart_values chart =
   C3.Line.update ~segments: [ C3.Segment.make ~label:"chart vals" ~points:chart_values ~kind:`Area_step ()] chart
 
@@ -121,42 +121,48 @@ let update_chart chart (values: (float * float) list option) =
       | Some v -> do_update v chart
       | None -> ()
 
+   *)
+
 let view (model: Model.t Incr.t) ~inject =
   let open Vdom in
   let open Incr.Let_syntax in
+  let tests = model >>| Model.tests in
   let%map scales = model >>| Model.timescales
-  and charts = model >>| Model.charts in
-  (** Create one chart, just to test*)
-  let chart = C3.Line.make ~kind:`Timeseries ~x_format:"%m/%d" ()
+  and ct = Incr.Map.mapi' tests ~f:(fun ~key:_ ~data -> Metric.view data)
+
+  in
+  (** Create one chart, just to test
+      let chart = C3.Line.make ~kind:`Timeseries ~x_format:"%m/%d" ()
               |> C3.Line.render ~bindto:"#timeseries" in
-  let update_chart = update_chart chart in
-  Charts.find charts "AVERAGE:live_words"
-  |> update_chart;
-let selections = Node.select [
-    Attr.id "ts-select";
-    Attr.on_change (fun _ev value -> inject (Action.SelectTimescale value));
-  ]
-    (List.map scales ~f:(fun scale ->
-         let name = scale.name in
-         Node.option
-           [
-             Attr.value name;
-           ]
-           [Node.text name]
-       ))
-in
-List.iter (Map.keys charts) ~f:(fun name -> print_endline name);
-Node.body [] [
-  Node.h3 [] [Node.text "Blog Stats."];
-  selections;
-  Node.div []
-    [
-      Node.section [] [];
-      Node.h4 [] [Node.text "Section 1"];
-      Node.div [Attr.id "timeseries"] [];
-      Node.section [] [];
-      Node.h4 [] [Node.text "Section 2"];
-    ]]
+      let update_chart = update_chart chart in
+      Charts.find charts "AVERAGE:live_words"
+      |> update_chart;
+  *)
+  let selections = Node.select [
+      Attr.id "ts-select";
+      Attr.on_change (fun _ev value -> inject (Action.SelectTimescale value));
+    ]
+      (List.map scales ~f:(fun scale ->
+           let name = scale.name in
+           Node.option
+             [
+               Attr.value name;
+             ]
+             [Node.text name]
+         ))
+  in
+  let divs = [
+    Node.section [] [];
+    Node.h4 [] [Node.text "Section 1"];
+    Node.div [Attr.id "timeseries"] [];
+    Node.section [] [];
+    Node.h4 [] [Node.text "Section 2"];
+  ] @ (Map.data ct) in
+  Node.body [] [
+    Node.h3 [] [Node.text "Blog Stats."];
+    selections;
+    Node.div []
+      divs ]
 
 let create model ~old_model:_ ~inject =
   let open Incr.Let_syntax in
@@ -176,7 +182,7 @@ let initial_model () : Model.t =
       num_intervals = 120;
       interval_in_steps = 1;
     };
-    charts = Charts.empty;
+    tests = Charts.empty;
     timescales = [];
     legends = [];
   }
