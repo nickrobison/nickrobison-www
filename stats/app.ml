@@ -19,7 +19,7 @@ module Model = struct
     timescales: Fetch.rrd_timescale_resp;
     selected_scale: Fetch.rrd_timescale;
     metrics: Fetch.rrd_timescale_resp;
-    charts: float list Charts.t;
+    charts: (float *float) list Charts.t;
     legends: string list;
   } [@@deriving sexp, fields, compare]
 
@@ -53,7 +53,7 @@ module Model = struct
     | None -> Map.set map ~key: key ~data:[new_value]
 
   let transform_row columns map (row: Fetch.rrd_data) =
-    List.foldi row.values ~init:map ~f:(fun idx m value -> update_map m (List.nth_exn columns idx) value)
+    List.foldi row.values ~init:map ~f:(fun idx m value -> update_map m (List.nth_exn columns idx) (Float.of_int(row.t), value))
 
   let transform_data model (data: Fetch.rrd_update) =
     let legends = data.meta.legend
@@ -111,36 +111,52 @@ let on_startup ~schedule_action _model =
   ();
   Deferred.unit
 
+
+
+let do_update chart_values chart =
+  C3.Line.update ~segments: [ C3.Segment.make ~label:"chart vals" ~points:chart_values ~kind:`Area_step ()] chart
+
+let update_chart chart (values: (float * float) list option) =
+  match values with
+      | Some v -> do_update v chart
+      | None -> ()
+
 let view (model: Model.t Incr.t) ~inject =
   let open Vdom in
   let open Incr.Let_syntax in
   let%map scales = model >>| Model.timescales
   and charts = model >>| Model.charts in
-  print_endline "Updating scales";
-  let selections = Node.select [
-      Attr.id "ts-select";
-      Attr.on_change (fun _ev value -> inject (Action.SelectTimescale value));
-    ]
-      (List.map scales ~f:(fun scale ->
-           let name = scale.name in
-           Node.option
-             [
-               Attr.value name;
-             ]
-             [Node.text name]
-         ))
-  in
-  List.iter (Map.keys charts) ~f:(fun name -> print_endline name);
-  Node.body [] [
-    Node.h3 [] [Node.text "Blog Stats."];
-    selections;
-    Node.div []
-      [
-        Node.section [] [];
-        Node.h4 [] [Node.text "Section 1"];
-        Node.section [] [];
-        Node.h4 [] [Node.text "Section 2"];
-      ]]
+  (** Create one chart, just to test*)
+  let chart = C3.Line.make ~kind:`Timeseries ~x_format:"%m/%d" ()
+              |> C3.Line.render ~bindto:"#timeseries" in
+  let update_chart = update_chart chart in
+  Charts.find charts "AVERAGE:live_words"
+  |> update_chart;
+let selections = Node.select [
+    Attr.id "ts-select";
+    Attr.on_change (fun _ev value -> inject (Action.SelectTimescale value));
+  ]
+    (List.map scales ~f:(fun scale ->
+         let name = scale.name in
+         Node.option
+           [
+             Attr.value name;
+           ]
+           [Node.text name]
+       ))
+in
+List.iter (Map.keys charts) ~f:(fun name -> print_endline name);
+Node.body [] [
+  Node.h3 [] [Node.text "Blog Stats."];
+  selections;
+  Node.div []
+    [
+      Node.section [] [];
+      Node.h4 [] [Node.text "Section 1"];
+      Node.div [Attr.id "timeseries"] [];
+      Node.section [] [];
+      Node.h4 [] [Node.text "Section 2"];
+    ]]
 
 let create model ~old_model:_ ~inject =
   let open Incr.Let_syntax in
