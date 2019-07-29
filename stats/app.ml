@@ -128,7 +128,7 @@ let view (model: Model.t Incr.t) ~inject =
   let open Incr.Let_syntax in
   let tests = model >>| Model.tests in
   let%map scales = model >>| Model.timescales
-  and ct = Incr.Map.mapi' tests ~f:(fun ~key:_ ~data -> Metric.view data)
+  and ct = Incr.Map.mapi' tests ~f:(fun ~key ~data -> (Metric.view data key))
 
   in
   (** Create one chart, just to test

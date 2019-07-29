@@ -12,5 +12,6 @@ module Action : sig
 end
 
 val view : Model.t Incr.t
+  -> string
   -> Vdom.Node.t Incr.t
 

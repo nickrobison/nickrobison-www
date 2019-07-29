@@ -9,3 +9,5 @@
   c3
   )
   (preprocess (pps js_of_ocaml-ppx ppx_jane ppx_deriving_yojson)))
+
+(vendored_dirs ocaml-c3)

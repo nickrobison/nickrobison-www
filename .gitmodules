@@ -1,0 +1,3 @@
+[submodule "stats/ocaml-c3"]
+	path = stats/ocaml-c3
+	url = git@github.com:djs55/ocaml-c3.git
