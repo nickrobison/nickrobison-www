@@ -3,6 +3,17 @@ open Lwt.Infix
 let log_src = Logs.Src.create "stats" ~doc:"Web server statistics"
 module Log = (val Logs.src_log log_src: Logs.LOG)
 
+type stats_init = {
+  start: float;
+  timescales: Rrd_timescales.t list;
+}
+
+let stats_name = [
+  "free_words";
+  "live_words";
+  "requests_per_second";
+  "errors_per_second";
+]
 
 let not_found ~domain x =
   let uri = Site_config.uri domain ("stats" :: x) in
@@ -138,7 +149,13 @@ let get_rrd_updates ~uri =
   (Lwt.return (Rrd_updates.export ~json:true ["", rrd] start interval cfopt))
 
 let get_rrd_timescales () =
-  Lwt.return (Rrd_timescales.to_json timescales)
+  Lwt.return ( Rrd_timescales.to_json timescales)
+
+let get_stats_init () =
+  let resp = Ezjsonm.(dict [
+      ("start", float 0.0);
+    ("metrics", list string stats_name)]) in
+      Lwt.return (Ezjsonm.to_string resp)
 
 (** Dispatch for URI handlers *)
 let dispatch ~read ~domain =

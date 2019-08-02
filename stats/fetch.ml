@@ -2,6 +2,11 @@ open Lwt.Infix
 open Js_of_ocaml_lwt
 open Core_kernel
 
+type stats_init = {
+  start: float;
+  metrics: string list;
+} [@@deriving yojson, sexp]
+
 type rrd_meta = {
   start: int;
   rows: int;
@@ -27,7 +32,7 @@ type rrd_timescale = {
   interval_in_steps: int;
 } [@@deriving yojson, sexp, compare]
 
-type rrd_timescale_resp = rrd_timescale list [@@deriving yojson, sexp, compare]
+type rrd_timescale_resp = Rrd_timescales.t list [@@deriving yojson, sexp, compare]
 
 let rrd_from_json f content =
   let safed = Yojson.Safe.from_string content
@@ -55,6 +60,11 @@ let fetch_timescales () =
   let scales_from_json = rrd_from_json rrd_timescale_resp_of_yojson
   in
   do_get ~uri:(Uri.make ~path:"/rrd_timescales" ()) scales_from_json
+
+let fetch_stats_init () =
+  let stats_from_json = rrd_from_json stats_init_of_yojson
+  in
+  do_get ~uri:(Uri.make ~path:"/stats_init" ()) stats_from_json
 
 let test () =
   Lwt.return_ok "Hello"

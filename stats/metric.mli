@@ -8,10 +8,10 @@ module Model: sig
 end
 
 module Action : sig
-  type t
+  type t = UpdateData of (float * float) list
+         | RenderChart of string [@@deriving sexp]
 end
 
 val view : Model.t Incr.t
-  -> string
   -> Vdom.Node.t Incr.t
 

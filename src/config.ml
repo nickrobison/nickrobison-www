@@ -73,7 +73,7 @@ let lifetime_key =
 let keys = Key.([abstract host_key; abstract redirect_key;
                  abstract http_port; abstract https_port;
                  abstract build_id; abstract lifetime_key;
-                abstract goodreads_key; abstract goodreads_user_key])
+                 abstract goodreads_key; abstract goodreads_user_key])
 
 let fs_key = Key.(value @@ kv_ro ())
 let filesfs = generic_kv_ro ~key:fs_key "files"

@@ -8,7 +8,7 @@ module Charts = Map.Make(String)
 module Action = struct
   type t = UpdateModel of Fetch.rrd_update
          |RefreshData
-         | SetTimescales of Fetch.rrd_timescale_resp
+         | SetTimescales of Rrd_timescales.t list
          | SelectTimescale of string [@@deriving sexp]
 end
 
@@ -16,8 +16,8 @@ end
 module Model = struct
 
   type t = {
-    timescales: Fetch.rrd_timescale_resp;
-    selected_scale: Fetch.rrd_timescale;
+    timescales: Rrd_timescales.t list;
+    selected_scale: Rrd_timescales.t;
     metrics: Fetch.rrd_timescale_resp;
     tests: Metric.Model.t Charts.t;
     legends: string list;
@@ -101,7 +101,7 @@ let on_startup ~schedule_action _model =
     );
 
   let open Lwt.Infix in
-  print_endline "Initial timescale fetch";
+  print_endline "Initial data fetch";
   let _ = Fetch.fetch_timescales () >>= fun res ->
     Lwt.return (match res with
         | Ok r -> schedule_action
@@ -112,32 +112,14 @@ let on_startup ~schedule_action _model =
   Deferred.unit
 
 
-(*
-let do_update chart_values chart =
-  C3.Line.update ~segments: [ C3.Segment.make ~label:"chart vals" ~points:chart_values ~kind:`Area_step ()] chart
-
-let update_chart chart (values: (float * float) list option) =
-  match values with
-      | Some v -> do_update v chart
-      | None -> ()
-
-   *)
-
 let view (model: Model.t Incr.t) ~inject =
   let open Vdom in
   let open Incr.Let_syntax in
   let tests = model >>| Model.tests in
   let%map scales = model >>| Model.timescales
-  and ct = Incr.Map.mapi' tests ~f:(fun ~key ~data -> (Metric.view data key))
+  and ct = Incr.Map.mapi' tests ~f:(fun ~key:_ ~data -> (Metric.view data))
 
   in
-  (** Create one chart, just to test
-      let chart = C3.Line.make ~kind:`Timeseries ~x_format:"%m/%d" ()
-              |> C3.Line.render ~bindto:"#timeseries" in
-      let update_chart = update_chart chart in
-      Charts.find charts "AVERAGE:live_words"
-      |> update_chart;
-  *)
   let selections = Node.select [
       Attr.id "ts-select";
       Attr.on_change (fun _ev value -> inject (Action.SelectTimescale value));

@@ -184,6 +184,9 @@ module Make
       ) else if Uri.path uri = "/rrd_timescales" then (
         Stats.get_rrd_timescales () >>= fun body ->
         S.respond_string ~status:`OK ~body ()
+      ) else if Uri.path uri = "/stats_init" then (
+        Stats.get_stats_init () >>= fun body ->
+        S.respond_string ~status:`OK ~body ()
       ) else
         Cowabloga.Dispatch.f io dispatch uri
     in
