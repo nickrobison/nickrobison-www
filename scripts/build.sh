@@ -4,6 +4,7 @@
 
 set -e
 
+eval $(opam config env)
 source scripts/env.sh
 
 # We currently need the dev version of yaml and our own cowabloga
