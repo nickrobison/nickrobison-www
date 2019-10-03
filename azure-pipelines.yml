@@ -1,7 +1,3 @@
-variables:
-  CACHE_PATH = $(Pipeline.Workspace)/.opam
-
-
 jobs:
   - job: Linux
     pool:
@@ -10,7 +6,7 @@ jobs:
       - task: CacheBeta@0
         inputs:
           key: opam | $(Agent.OS)
-          path: $(CACHE_PATH)
+          path: $(Pipeline.Workspace)/.opam
           displayName: Cache Opam installation
       - task: DownloadSecureFile@1
         name: secrets
