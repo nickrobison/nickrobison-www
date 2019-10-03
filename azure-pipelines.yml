@@ -1,8 +1,17 @@
+variables:
+  CACHE_PATH = $(Pipeline.Workspace)/.opam
+
+
 jobs:
   - job: Linux
     pool:
       vmImage: 'ubuntu-latest'
     steps:
+      - task: CacheBeta@0
+        inputs:
+          key: opam | $(Agent.OS)
+          path: $(CACHE_PATH)
+          displayName: Cache Opam installation
       - task: DownloadSecureFile@1
         name: secrets
         displayName: 'Download Secrets'
@@ -19,3 +28,7 @@ jobs:
         displayName: Update opam
       - script: make build
         displayName: Build website
+        script: docker pull nickrobison/mirage-virtio
+        displayName: Download Docker image
+      - script: docker run --rm -v "${PWD}:/home/opam/mirage" -w /home/opam/mirage -e BUILD_ID nickrobison/mirage-virtio:3.0.8 scripts/bundle.sh
+
