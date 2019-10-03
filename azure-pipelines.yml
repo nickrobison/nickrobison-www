@@ -28,7 +28,8 @@ jobs:
         displayName: Update opam
       - script: make build
         displayName: Build website
-        script: docker pull nickrobison/mirage-virtio
+      - script: docker pull nickrobison/mirage-virtio
         displayName: Download Docker image
-      - script: docker run --rm -v "${PWD}:/home/opam/mirage" -w /home/opam/mirage -e BUILD_ID nickrobison/mirage-virtio:3.0.8 scripts/bundle.sh
+      - script: docker run --rm -v "${PWD}:/home/opam/mirage" -w /home/opam/mirage -e BUILD_ID nickrobison/mirage-virtio scripts/bundle.sh
+        displayName: Build os image
 
