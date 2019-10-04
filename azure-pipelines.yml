@@ -3,7 +3,7 @@ jobs:
     pool:
       vmImage: 'ubuntu-latest'
     variables:
-      OPAM_CACHE_FOLDER: /.opam
+      OPAM_CACHE_FOLDER: /home/vsts/.opam
     steps:
       - task: CacheBeta@0
         inputs:
@@ -27,7 +27,7 @@ jobs:
         displayName: Update opam
       - script: make build
         displayName: Build website
-  - job: Deploy
+  - job: Package
     dependsOn: Build
     pool:
       vmImage: "ubuntu-latest"
@@ -36,5 +36,16 @@ jobs:
         displayName: Download Docker image
       - script: docker run --rm -v "${PWD}:/home/opam/mirage" -w /home/opam/mirage -e BUILD_ID nickrobison/mirage-virtio scripts/bundle.sh
         displayName: Package
+  - deployment: Deploy
+    pool:
+      vmImage: 'ubuntu-latest'
+    dependsOn: Package
+    strategy:
+      runOnce:
+        deploy:
+          displayName: Deploying
+          steps:
+            - script: make deploy
+
 
 
