@@ -34,7 +34,7 @@ jobs:
     steps:
       - script: docker pull nickrobison/mirage-virtio:3.5.2
         displayName: Download Docker image
-      - script: docker run --rm -v "${PWD}:/home/opam/mirage" -w /home/opam/mirage -e BUILD_ID nickrobison/mirage-virtio scripts/bundle.sh
+      - script: docker run --rm -v "${PWD}:/home/opam/mirage" -w /home/opam/mirage -e BUILD_ID nickrobison/mirage-virtio:3.5.2 scripts/bundle.sh
         displayName: Package
   - deployment: Deploy
     pool:
