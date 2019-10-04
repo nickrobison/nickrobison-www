@@ -2,8 +2,7 @@ jobs:
   - job: Build
     pool:
       vmImage: 'ubuntu-latest'
-    variables:
-      OPAM_CACHE_FOLDER: /home/vsts/.opam
+    container: ocaml/opam2:alpine
     steps:
       - task: CacheBeta@0
         inputs:
@@ -18,9 +17,8 @@ jobs:
       - script: |
           echo Unzipping $(secrets.secureFilePath)
           tar -xvf $(secrets.secureFilePath)
-      - script: env AGENT_OS=Linux TEST_DISTRIB=yes scripts/azure-install-ocaml.sh
-        displayName: Install Ocaml
-      - script: ls -lah .
+      #- script: env AGENT_OS=Linux TEST_DISTRIB=yes scripts/azure-install-ocaml.sh
+       # displayName: Install Ocaml
       - script: make depends
         displayName: Install Main Dependencies
       - script: opam update && opam upgrade -y
@@ -34,7 +32,7 @@ jobs:
     steps:
       - script: docker pull nickrobison/mirage-virtio:3.5.2
         displayName: Download Docker image
-      - script: docker run --rm -v "${PWD}:/home/opam/mirage" -w /home/opam/mirage -e BUILD_ID nickrobison/mirage-virtio:3.5.2 scripts/bundle.sh
+      - script: docker run --rm -v "${PWD}:/home/opam/mirage" -w /home/opam/mirage -e BUILD_ID nickrobison/mirage-virtio scripts/bundle.sh
         displayName: Package
   - deployment: Deploy
     pool:
