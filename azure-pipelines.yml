@@ -3,7 +3,7 @@ jobs:
     pool:
       vmImage: 'ubuntu-latest'
     variables:
-      OPAM_CACHE_FOLDER = $(Pipeline.Workspace)/.opam
+      OPAM_CACHE_FOLDER: $(Pipeline.Workspace)/.opam
     steps:
       - task: CacheBeta@0
         inputs:
