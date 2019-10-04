@@ -1,18 +1,21 @@
 jobs:
-  - job: Job
+  - job: Build
     pool:
       vmImage: 'ubuntu-latest'
+    variables:
+      OPAM_CACHE_FOLDER = $(Pipeline.Workspace)/.opam
     steps:
       - task: CacheBeta@0
         inputs:
           key: opam | $(Agent.OS)
-          path: $(Pipeline.Workspace)/.opam
+          path: $(OPAM_CACHE_FOLDER)
           displayName: Cache Opam installation
       - task: DownloadSecureFile@1
         name: secrets
         displayName: 'Download Secrets'
         inputs:
           secureFile: 'secrets.tar.gz'
+      - script: ls -lah .
       - script: |
           echo Unzipping $(secrets.secureFilePath)
           tar -xvf $(secrets.secureFilePath)
@@ -25,6 +28,7 @@ jobs:
       - script: make build
         displayName: Build website
   - job: Deploy
+    dependsOn: Build
     pool:
       vmImage: "ubuntu-latest"
     steps:
