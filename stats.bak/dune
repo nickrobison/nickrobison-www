@@ -1,0 +1,13 @@
+(executable (name main)
+  (libraries
+  incr_dom
+  js_of_ocaml-lwt
+  js_of_ocaml-lwt.logger
+  yojson
+  ppx_deriving_yojson.runtime
+  xapi-rrd
+  c3
+  )
+  (preprocess (pps js_of_ocaml-ppx ppx_jane ppx_deriving_yojson)))
+
+(vendored_dirs ocaml-c3)
