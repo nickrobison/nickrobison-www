@@ -96,7 +96,11 @@ let update_rrds timestamp dss rrd =
 let rrd, rrd_u = Lwt.task ()
 let rrd_created = ref false
 
+let startup = ref None
+
 let start ~sleep ~time =
+  (*Set the startup time*)
+  startup := Some (time () |> Ptime.v);
   let t () =
     (if !rrd_created then rrd
      else begin
@@ -152,8 +156,12 @@ let get_rrd_timescales () =
   Lwt.return ( Rrd_timescales.to_json timescales)
 
 let get_stats_init () =
+  let start_time = match !startup with
+  | Some s -> Ptime.to_float_s s
+  | None -> 0.
+  in
   let resp = Ezjsonm.(dict [
-      ("start", float 0.0);
+      ("start", float start_time);
     ("metrics", list string stats_name)]) in
       Lwt.return (Ezjsonm.to_string resp)
 
