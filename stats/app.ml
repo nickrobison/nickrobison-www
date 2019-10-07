@@ -28,8 +28,11 @@ let apply_action model action _ ~schedule_action:_ =
 
 let on_startup ~schedule_action _model =
   schedule_action (Action.SetHello "Started up");
-  Api.fetch_stats_init () >>| fun _stats -> schedule_action (Action.SetHello "Done fetching");
-  ()
+  Api.fetch_stats_init ()
+  >>| fun stats -> schedule_action (Action.SetHello "Done fetching");
+  match stats with
+  | Some s -> print_endline (string_of_float s.start)
+  | None -> print_endline "Nothing"
 
 let view (model: Model.t Incr.t) ~inject:_ =
   let open Vdom in

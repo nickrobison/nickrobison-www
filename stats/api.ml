@@ -46,9 +46,14 @@ let do_get ~uri f =
   >>| fun body ->
   match body with
   | Ok body -> Some (f body)
-  | Error _e -> None
+  | Error e -> print_endline (Error.to_string_hum e); None
 
 let fetch_stats_init () =
   let stats_from_json = rrd_from_json stats_init_of_yojson
   in
   do_get ~uri:(Uri.make ~path:"/stats_init" ()) stats_from_json
+
+let fetch_timescales () =
+  let scales_from_json = rrd_from_json rrd_meta_of_yojson
+  in
+  do_get ~uri:(Uri.make ~path:"/rrd_timescales" ()) scales_from_json
