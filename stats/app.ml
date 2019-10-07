@@ -1,5 +1,5 @@
 open Core_kernel
-open! Async_kernel
+open Async_kernel
 open Incr_dom
 
 module Model = struct
@@ -28,8 +28,8 @@ let apply_action model action _ ~schedule_action:_ =
 
 let on_startup ~schedule_action _model =
   schedule_action (Action.SetHello "Started up");
-  Deferred.unit
-
+  Api.fetch_stats_init () >>| fun _stats -> schedule_action (Action.SetHello "Done fetching");
+  ()
 
 let view (model: Model.t Incr.t) ~inject:_ =
   let open Vdom in
