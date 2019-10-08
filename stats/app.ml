@@ -2,11 +2,14 @@ open Core_kernel
 open Async_kernel
 open Incr_dom
 
+module Graphs = Map.Make(String)
+
+
 module Model = struct
   type t = {
     hello: string;
     start_time: string option;
-    metrics: string list;
+    metrics: Graph.Model.t Graphs.t;
   } [@@deriving sexp, fields, compare]
 
   let cutoff m1 m2 = compare m1 m2 = 0
@@ -14,10 +17,18 @@ module Model = struct
   let set_hello model new_hello =
     {model with hello = new_hello}
 
+  let add_graph map title =
+    Graphs.add_exn map ~key:title ~data:(Graph.create title)
+
   let initialize_model model (stats_init: Api.stats_init) =
     let start = Time_ns.Span.of_int_sec (int_of_float stats_init.start) in
+    let metrics = List.fold
+        stats_init.metrics
+        ~init:model.metrics
+        ~f:(fun acc m -> add_graph acc m)
+    in
     let st = Time_ns.of_span_since_epoch start in
-    {model with start_time = (Some (Time_ns.to_string st)); metrics = stats_init.metrics}
+    {model with start_time = (Some (Time_ns.to_string st)); metrics = metrics}
 
 end
 
@@ -50,18 +61,26 @@ let view (model: Model.t Incr.t) ~inject:_ =
   let open Vdom in
   let open Incr.Let_syntax in
   let%map hello = model >>| Model.hello
-  and start = model >>| Model.start_time in
+  and start = model >>| Model.start_time
+  and metrics =
+    Incr.Map.mapi' (model >>| Model.metrics)
+      ~f:(fun ~key:_ ~data ->
+          let%map view = Graph.view data
+          in view)
+  in
   let since = match start with
     | Some s -> Node.text s
     | None -> Node.text ""
   in
   let now = Luxon.local () in
-  Node.body [] [
+  let main_div = [
     Node.h3 [] [Node.text "Blog stats"];
     Node.div[] [Node.text hello];
     Node.div [] [since];
     Node.div [][Node.text (Luxon.to_string now)]
-  ]
+  ] @ (Graphs.data metrics)
+  in
+  Node.body [] main_div
 
 let create model ~old_model:_ ~inject =
   let open Incr.Let_syntax in
@@ -79,5 +98,5 @@ let initial_model (): Model.t =
   {
     hello = "";
     start_time = None;
-    metrics = []
+    metrics = Graphs.empty
   }
