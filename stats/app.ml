@@ -52,13 +52,15 @@ let view (model: Model.t Incr.t) ~inject:_ =
   let%map hello = model >>| Model.hello
   and start = model >>| Model.start_time in
   let since = match start with
-                  | Some s -> Node.text s
-                  | None -> Node.text ""
+    | Some s -> Node.text s
+    | None -> Node.text ""
   in
+  let now = Luxon.local () in
   Node.body [] [
     Node.h3 [] [Node.text "Blog stats"];
     Node.div[] [Node.text hello];
-    Node.div [] [since]
+    Node.div [] [since];
+    Node.div [][Node.text (Luxon.to_string now)]
   ]
 
 let create model ~old_model:_ ~inject =

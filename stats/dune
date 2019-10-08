@@ -4,5 +4,17 @@
   (libraries
     incr_dom
     yojson
-    ppx_deriving_yojson.runtime)
-  (preprocess (pps js_of_ocaml-ppx ppx_jane ppx_deriving_yojson)))
+    ppx_deriving_yojson.runtime
+    gen_js_api)
+  (preprocess (pps js_of_ocaml-ppx ppx_jane ppx_deriving_yojson gen_js_api.ppx)))
+
+(rule
+  (targets luxon.ml)
+  (deps luxon.mli)
+  (action (run %{libexec:gen_js_api:gen_js_api} %{deps})))
+
+(rule
+  (targets js_date.ml)
+  (deps js_date.mli)
+  (action (run %{libexec:gen_js_api:gen_js_api} %{deps})))
+
