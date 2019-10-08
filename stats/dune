@@ -5,7 +5,8 @@
     incr_dom
     yojson
     ppx_deriving_yojson.runtime
-    gen_js_api)
+    gen_js_api
+    c3)
   (preprocess (pps js_of_ocaml-ppx ppx_jane ppx_deriving_yojson gen_js_api.ppx)))
 
 (rule

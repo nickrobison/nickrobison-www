@@ -30,12 +30,17 @@ module Model = struct
     let st = Time_ns.of_span_since_epoch start in
     {model with start_time = (Some (Time_ns.to_string st)); metrics = metrics}
 
-end
+  let refresh_data model =
+    print_endline "Fetching updates";
+    Deferred.upon (Api.fetch_updates ()) (fun _updates -> print_endline "Fetched");
+      model
 
+end
 
 module Action = struct
   type t = SetHello of string
          | Initialize of Api.stats_init
+         | RefreshData
   [@@deriving sexp]
 end
 
@@ -47,8 +52,11 @@ let apply_action model action _ ~schedule_action:_ =
   match (action: Action.t) with
   | SetHello hello -> Model.set_hello model hello
   | Initialize init -> Model.initialize_model model init
+  | RefreshData -> Model.refresh_data model
 
 let on_startup ~schedule_action _model =
+  every (Time_ns.Span.of_sec 2.) (fun () ->
+      schedule_action (Action.RefreshData));
   schedule_action (Action.SetHello "Started up");
   Api.fetch_stats_init ()
   >>| fun stats -> schedule_action (Action.SetHello "Done fetching");

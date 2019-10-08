@@ -4,7 +4,7 @@ open Incr.Let_syntax
 
 module Model = struct
   type t = {
-    title: string
+    title: string;
   } [@@deriving compare, fields, sexp]
 
 end
@@ -18,7 +18,8 @@ let view
   let open Vdom in
   let%map title = m >>| Model.title in
   Node.div [] [
-    Node.text title
+    Node.h3 [] [Node.text title];
+    Node.div [Attr.id (title ^ "-chart")] []
   ]
 
 let create title: Model.t =

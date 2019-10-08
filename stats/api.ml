@@ -57,3 +57,7 @@ let fetch_timescales () =
   let scales_from_json = rrd_from_json rrd_meta_of_yojson
   in
   do_get ~uri:(Uri.make ~path:"/rrd_timescales" ()) scales_from_json
+
+let fetch_updates () =
+  let updates_from_json = rrd_from_json rrd_update_of_yojson in
+  do_get ~uri:(Uri.make ~path:"/rrd_updates" ()) updates_from_json
