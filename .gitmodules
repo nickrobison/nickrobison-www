@@ -4,3 +4,9 @@
 [submodule "ocaml-c3"]
 	path = ocaml-c3
 	url = https://github.com/nickrobison/ocaml-c3.git
+[submodule "cowabloga"]
+	path = cowabloga
+	url = https://github.com/nickrobison/cowabloga.git
+[submodule "xcp-rrd"]
+	path = xcp-rrd
+	url = https://github.com/nickrobison/xcp-rrd.git
