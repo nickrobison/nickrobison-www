@@ -1,6 +1,7 @@
 (executable
   (name main)
   (public_name stats)
+  (ocamlc_flags -g)
   (libraries
     incr_dom
     yojson

@@ -4,6 +4,13 @@ open Incr_dom
 
 module Graphs = Map.Make(String)
 
+module Action = struct
+  type t = SetHello of string
+         | Initialize of Api.stats_init
+         | UpdateData of Api.rrd_update option
+         | RefreshData
+  [@@deriving sexp]
+end
 
 module Model = struct
   type t = {
@@ -30,29 +37,70 @@ module Model = struct
     let st = Time_ns.of_span_since_epoch start in
     {model with start_time = (Some (Time_ns.to_string st)); metrics = metrics}
 
-  let refresh_data model =
+  let update_map map key new_value =
+    match (Map.find map key) with
+    | Some v -> Map.set map ~key:key ~data:(new_value :: v)
+    | None -> Map.set map ~key:key ~data: [new_value]
+
+  let transform_row columns map (row: Api.rrd_data) =
+    List.foldi row.values ~init:map ~f:(fun idx m value ->
+        List.nth columns idx
+        |> function
+        | None -> m
+        | Some c -> update_map m c (Float.of_int(row.t), value))
+
+  let split_legend legend =
+    let splits = Stringext.cut ~on:":" legend
+                 |> function
+                 | None -> raise (Invalid_argument "Nope")
+                 | Some s -> s
+    in
+    ((fst splits), (snd splits))
+
+  let apply_graph_action m row_id (action: Graph.Action.t) =
+    let row_id = (snd (split_legend row_id)) in
+    let graphs = Graphs.change m.metrics row_id ~f:(function
+        | None -> None
+        | Some g ->
+          print_endline ("Applying changes to");
+          Some (Graph.apply_action action g))
+    in
+    {m with metrics = graphs}
+
+
+  let handle_updates model updates =
+    match updates with
+    | None -> model
+    | Some (u: Api.rrd_update) ->
+      let legends = List.slice u.meta.legend 0 4 in
+      List.iter legends ~f:(fun l -> print_endline l);
+      let transformer = transform_row legends in
+      let legend_map  = String.Map.empty in
+      let values = List.fold u.data ~init:legend_map ~f:transformer in
+      Map.fold values  ~init:model ~f:(fun ~key ~data graph ->
+          apply_graph_action graph key (Graph.Action.UpdateGraph data))
+
+  let refresh_data model schedule_action =
     print_endline "Fetching updates";
-    Deferred.upon (Api.fetch_updates ()) (fun _updates -> print_endline "Fetched");
-      model
+    Deferred.upon (Api.fetch_updates ()) (fun u ->
+        print_endline "Fetched";
+        schedule_action (Action.UpdateData u));
+    model
 
 end
 
-module Action = struct
-  type t = SetHello of string
-         | Initialize of Api.stats_init
-         | RefreshData
-  [@@deriving sexp]
-end
+
 
 module State = struct
   type t = unit
 end
 
-let apply_action model action _ ~schedule_action:_ =
+let apply_action model action _ ~schedule_action =
   match (action: Action.t) with
   | SetHello hello -> Model.set_hello model hello
   | Initialize init -> Model.initialize_model model init
-  | RefreshData -> Model.refresh_data model
+  | RefreshData -> (Model.refresh_data model schedule_action)
+  | UpdateData data -> (Model.handle_updates model data)
 
 let on_startup ~schedule_action _model =
   every (Time_ns.Span.of_sec 2.) (fun () ->
