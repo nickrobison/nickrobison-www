@@ -11,7 +11,7 @@ module Model = struct
   let cutoff _m1 _m2 = true
 
   let make_chart m =
-    C3.Line.make ~kind:`Timeseries ~x_format:"%m/%d" ()
+    C3.Line.make ~kind:`Timeseries ~x_format:"%Y-%m-%d %H:%M:%S" ()
     |> C3.Line.render ~bindto:("#" ^ (m.title) ^ "-chart")
 
   let update_graph model update =

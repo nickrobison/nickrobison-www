@@ -158,7 +158,21 @@ let view (model: Model.t Incr.t) ~inject =
   let options = Map.data timescales in
   let select = Node.select [Attr.on_change (fun _ev value -> inject (Action.SelectTimescale value))] options in
   let now = Luxon.local () in
+  (*Create the app layout*)
+  let d = Node.div [Attr.classes ["app-dashboard"; "shrink-medium"]]
+      [
+        Node.div [Attr.classes ["row"; "expanded"; "app-dashboard-top-nav-bar"]]
+          [
+            Node.div [Attr.classes ["columns"; "medium-2"]] [
+              Node.a [Attr.classes ["app-dashboard-logo"]] [
+                Node.text "Stats Dashboard"
+              ]
+            ]
+          ]
+      ]
+  in
   let main_div = [
+    d;
     Node.h3 [] [Node.text "Blog stats"];
     Node.div[] [Node.text hello];
     Node.div [] [since];
