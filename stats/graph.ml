@@ -11,13 +11,20 @@ module Model = struct
   let cutoff _m1 _m2 = true
 
   let make_chart m =
-    C3.Line.make ~kind:`Timeseries ~x_format:"%m/%d" ()
-    |> C3.Line.render ~bindto:("#" ^ (m.title) ^ "-chart")
+    let line = C3.Line.make ~kind:`Timeseries ~x_format:"%m/%d" () in
+    print_endline "Lined";
+    let disp = C3.Line.render ~bindto:("#" ^ (m.title) ^ "-chart") line in
+    print_endline "Bound";
+    disp
 
   let update_graph model update =
     print_endline ("Updating " ^ model.title);
     let chart = match model.graph with
-      | None -> make_chart model
+      | None ->
+        print_endline "Making chart";
+        let c = make_chart model in
+        print_endline "make chat";
+        c
       | Some c -> c
     in
     print_endline "Has chart";
@@ -42,10 +49,11 @@ let apply_action action model =
 let view
     (m: Model.t Incr.t) =
   let open Vdom in
+  let style = Css_gen.of_string_css_exn "height: 400px;" in
   let%map title = m >>| Model.title in
   Node.div [] [
     Node.h3 [] [Node.text title];
-    Node.div [Attr.id (title ^ "-chart")] []
+    Node.div [Attr.id (title ^ "-chart"); Attr.style style] []
   ]
 
 let create title: Model.t =

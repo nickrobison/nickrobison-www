@@ -1,3 +1,6 @@
 [submodule "stats/ocaml-c3"]
 	path = stats/ocaml-c3
 	url = git@github.com:djs55/ocaml-c3.git
+[submodule "ocaml-c3"]
+	path = ocaml-c3
+	url = https://github.com/nickrobison/ocaml-c3.git

@@ -72,7 +72,7 @@ module Model = struct
     match updates with
     | None -> model
     | Some (u: Api.rrd_update) ->
-      let legends = List.slice u.meta.legend 0 4 in
+      let legends = List.slice u.meta.legend 0 1 in
       List.iter legends ~f:(fun l -> print_endline l);
       let transformer = transform_row legends in
       let legend_map  = String.Map.empty in
