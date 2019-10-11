@@ -1,4 +1,4 @@
-BUILD = dune build
+BUILD = dune build @install
 
 build: main.ml
 	$(BUILD) {main.bc.js,index.html}

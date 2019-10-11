@@ -30,7 +30,7 @@ module Model = struct
     print_endline "Has chart";
     print_endline ("First: " ^ (string_of_float (fst (List.nth_exn update 0))));
     C3.Line.update ~segments:[
-      C3.Segment.make ~label:"Test" ~points:update ~kind:`Line ()
+      C3.Segment.make ~label:"Test" ~points:update ~kind:`Area_spline ()
     ] chart;
     print_endline "Returning model";
     {model with graph = (Some chart)}
