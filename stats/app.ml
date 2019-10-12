@@ -5,8 +5,7 @@ open Incr_dom
 module Graphs = Map.Make(String)
 
 module Action = struct
-  type t = SetHello of string
-         | Initialize of Api.stats_init
+  type t = Initialize of Api.stats_init
          | UpdateData of Api.rrd_update option
          | RefreshData
          | SetTimescales of Api.rrd_timescale list
@@ -17,7 +16,6 @@ end
 
 module Model = struct
   type t = {
-    hello: string;
     start_time: string option;
     uptime: Time_ns.Span.t;
     metrics: Graph.Model.t Graphs.t;
@@ -26,9 +24,6 @@ module Model = struct
   } [@@deriving sexp, fields, compare]
 
   let cutoff m1 m2 = compare m1 m2 = 0
-
-  let set_hello model new_hello =
-    {model with hello = new_hello}
 
   let set_timescales model timescales =
     let timescales' = List.fold timescales ~init:String.Map.empty ~f:(fun map (t: Api.rrd_timescale) -> Map.set map ~key:t.name ~data:t) in
@@ -120,7 +115,6 @@ end
 
 let apply_action model action _ ~schedule_action =
   match (action: Action.t) with
-  | SetHello hello -> Model.set_hello model hello
   | Initialize init -> Model.initialize_model model init
   | RefreshData -> (Model.refresh_data model schedule_action)
   | UpdateData data -> (Model.handle_updates model data)
@@ -131,15 +125,14 @@ let apply_action model action _ ~schedule_action =
 let on_startup ~schedule_action _model =
   every (Time_ns.Span.of_sec 5.) (fun () ->
       schedule_action (Action.RefreshData));
-  schedule_action (Action.SetHello "Started up");
 
   Api.fetch_stats_init ()
   >>= fun stats ->
   ( match stats with
     | Some s -> print_endline (string_of_float s.start);
       schedule_action (Action.Initialize s)
-    | None -> print_endline "Nothing";
-      schedule_action (Action.SetHello "Done fetching"));
+    | None -> print_endline "Nothing"
+  );
   Api.fetch_timescales ()
   >>| fun resp ->
   match resp with
@@ -149,8 +142,7 @@ let on_startup ~schedule_action _model =
 let view (model: Model.t Incr.t) ~inject =
   let open Vdom in
   let open Incr.Let_syntax in
-  let%map hello = model >>| Model.hello
-  and start = model >>| Model.start_time
+  let%map start = model >>| Model.start_time
   and timescales =
     Incr.Map.mapi (model >>| Model.timescales)
       ~f:(fun ~key:_ ~(data:Api.rrd_timescale) ->
@@ -184,8 +176,6 @@ let view (model: Model.t Incr.t) ~inject =
       "app-dashboard-body-content";
     ];
     ] [
-      Node.h3 [] [Node.text "Blog stats"];
-      Node.div [] [Node.text hello];
       Node.div [] [since];
       Node.div [] [Node.text (Luxon.to_string now)];
       select;
@@ -214,7 +204,6 @@ let create model ~old_model:_ ~inject =
 let initial_model (): Model.t =
   let uptime = Time_ns.Span.of_int_sec 0 in
   {
-    hello = "";
     start_time = None;
     uptime;
     metrics = Graphs.empty;
