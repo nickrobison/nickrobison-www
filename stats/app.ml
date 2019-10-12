@@ -179,17 +179,9 @@ let view (model: Model.t Incr.t) ~inject =
         ]
       ]
   in
-  let sidebar = Node.div [Attr.id "app-dashboard-sidebar"; Attr.classes ["app-dashboard-sidebar"; "positiion-left"; "off-canvas"; "off-canvas-absolute"; "reveal-for-medium"]] [
-      Node.div [Attr.classes ["app-dashboard-sidebar-title-area"]] [
-        Node.h3 [Attr.classes ["app-dashboard-sidebar-block-title"]]
-          [Node.text "Sidebar"]
-      ]
-    ]
-  in
   let graphs = Node.div [] (Graphs.data metrics) in
   let body = Node.div [Attr.classes [
       "app-dashboard-body-content";
-      "off-canvas-content"
     ];
     ] [
       Node.h3 [] [Node.text "Blog stats"];
@@ -202,7 +194,6 @@ let view (model: Model.t Incr.t) ~inject =
   in
   let main_div = [
     header;
-    sidebar;
     body;
   ]
   in
