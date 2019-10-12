@@ -11,6 +11,7 @@ module Action = struct
          | RefreshData
          | SetTimescales of Api.rrd_timescale list
          | SelectTimescale of string
+         | BumpUptime
   [@@deriving sexp]
 end
 
@@ -18,6 +19,7 @@ module Model = struct
   type t = {
     hello: string;
     start_time: string option;
+    uptime: Time_ns.Span.t;
     metrics: Graph.Model.t Graphs.t;
     timescales: Api.rrd_timescale String.Map.t;
     selected_timescale: Api.rrd_timescale option;
@@ -49,7 +51,9 @@ module Model = struct
         ~f:(fun acc m -> add_graph acc m)
     in
     let st = Time_ns.of_span_since_epoch start in
-    {model with start_time = (Some (Time_ns.to_string st)); metrics = metrics}
+    let uptime = Time_ns.abs_diff (Time_ns.of_span_since_epoch start) (Time_ns.now ())
+    in
+    {model with start_time = (Some (Time_ns.to_string st)); metrics = metrics; uptime}
 
   let update_map map key new_value =
     match (Map.find map key) with
@@ -78,6 +82,11 @@ module Model = struct
         | Some g -> Some (Graph.apply_action action g))
     in
     {m with metrics = graphs}
+
+  let bump_uptime model =
+    let open Time_ns.Span in
+    let plus = Time_ns.Span.of_int_sec 1 in
+    {model with uptime = (model.uptime + plus)}
 
 
   let handle_updates model updates =
@@ -117,6 +126,7 @@ let apply_action model action _ ~schedule_action =
   | UpdateData data -> (Model.handle_updates model data)
   | SetTimescales options -> (Model.set_timescales model options)
   | SelectTimescale name -> (Model.select_timescale model name)
+  | BumpUptime -> (Model.bump_uptime model)
 
 let on_startup ~schedule_action _model =
   every (Time_ns.Span.of_sec 5.) (fun () ->
@@ -150,6 +160,7 @@ let view (model: Model.t Incr.t) ~inject =
       ~f:(fun ~key:_ ~data ->
           let%map view = Graph.view data
           in view)
+  and _uptime = model >>| Model.uptime
   in
   let since = match start with
     | Some s -> Node.text s
@@ -182,14 +193,14 @@ let view (model: Model.t Incr.t) ~inject =
     ];
     ] [
       Node.h3 [] [Node.text "Blog stats"];
-      Node.div[] [Node.text hello];
+      Node.div [] [Node.text hello];
       Node.div [] [since];
-      Node.div [][Node.text (Luxon.to_string now)];
+      Node.div [] [Node.text (Luxon.to_string now)];
       select;
       graphs
     ]
   in
-    let main_div = [
+  let main_div = [
     header;
     sidebar;
     body;
@@ -210,9 +221,11 @@ let create model ~old_model:_ ~inject =
 
 
 let initial_model (): Model.t =
+  let uptime = Time_ns.Span.of_int_sec 0 in
   {
     hello = "";
     start_time = None;
+    uptime;
     metrics = Graphs.empty;
     timescales = String.Map.empty;
     selected_timescale = None
