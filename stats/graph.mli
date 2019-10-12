@@ -14,6 +14,7 @@ end
 val apply_action : Action.t -> Model.t -> Model.t
 
 val view: Model.t Incr.t
+  -> Vdom.Attr.t list
   -> Vdom.Node.t Incr.t
 
 val create: string -> Model.t

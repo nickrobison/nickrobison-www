@@ -37,12 +37,13 @@ let apply_action action model =
   | UpdateGraph u -> Model.update_graph model u
 
 let view
-    (m: Model.t Incr.t) =
+    (m: Model.t Incr.t)
+    attrs =
   let open Vdom in
   let style = Css_gen.of_string_css_exn "height: 400px;" in
   let%map title = m >>| Model.title in
-  Node.div [] [
-    Node.h3 [] [Node.text title];
+  Node.div attrs [
+    Node.h4 [] [Node.text title];
     Node.div [Attr.id (title ^ "-chart"); Attr.style style] []
   ]
 

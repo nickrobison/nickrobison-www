@@ -150,7 +150,7 @@ let view (model: Model.t Incr.t) ~inject =
   and metrics =
     Incr.Map.mapi' (model >>| Model.metrics)
       ~f:(fun ~key:_ ~data ->
-          let%map view = Graph.view data
+          let%map view = Graph.view data [Attr.classes ["cell"; "small-12"; "medium-6"; "large-4"]]
           in view)
   and _uptime = model >>| Model.uptime
   in
@@ -171,7 +171,14 @@ let view (model: Model.t Incr.t) ~inject =
         ]
       ]
   in
-  let graphs = Node.div [] (Graphs.data metrics) in
+  let graphs = Node.div [Attr.classes [
+      "grid-container";
+      "fluid"]
+    ]
+      [Node.div [Attr.classes ["grid-margin-x"; "grid-x"]]
+         (Graphs.data metrics)
+      ]
+  in
   let body = Node.div [Attr.classes [
       "app-dashboard-body-content";
     ];
