@@ -159,28 +159,43 @@ let view (model: Model.t Incr.t) ~inject =
   let select = Node.select [Attr.on_change (fun _ev value -> inject (Action.SelectTimescale value))] options in
   let now = Luxon.local () in
   (*Create the app layout*)
-  let d = Node.div [Attr.classes ["app-dashboard"; "shrink-medium"]]
+  let header = Node.div [Attr.classes ["row"; "expanded"; "app-dashboard-top-nav-bar"]]
       [
-        Node.div [Attr.classes ["row"; "expanded"; "app-dashboard-top-nav-bar"]]
-          [
-            Node.div [Attr.classes ["columns"; "medium-2"]] [
-              Node.a [Attr.classes ["app-dashboard-logo"]] [
-                Node.text "Stats Dashboard"
-              ]
-            ]
+        Node.div [Attr.classes ["columns"; "medium-2"]] [
+          Node.a [Attr.classes ["app-dashboard-logo"]] [
+            Node.text "Stats Dashboard"
           ]
+        ]
       ]
   in
-  let main_div = [
-    d;
-    Node.h3 [] [Node.text "Blog stats"];
-    Node.div[] [Node.text hello];
-    Node.div [] [since];
-    Node.div [][Node.text (Luxon.to_string now)];
-    select
-  ] @ (Graphs.data metrics)
+  let sidebar = Node.div [Attr.id "app-dashboard-sidebar"; Attr.classes ["app-dashboard-sidebar"; "positiion-left"; "off-canvas"; "off-canvas-absolute"; "reveal-for-medium"]] [
+      Node.div [Attr.classes ["app-dashboard-sidebar-title-area"]] [
+        Node.h3 [Attr.classes ["app-dashboard-sidebar-block-title"]]
+          [Node.text "Sidebar"]
+      ]
+    ]
   in
-  Node.body [] main_div
+  let graphs = Node.div [] (Graphs.data metrics) in
+  let body = Node.div [Attr.classes [
+      "app-dashboard-body-content";
+      "off-canvas-content"
+    ];
+    ] [
+      Node.h3 [] [Node.text "Blog stats"];
+      Node.div[] [Node.text hello];
+      Node.div [] [since];
+      Node.div [][Node.text (Luxon.to_string now)];
+      select;
+      graphs
+    ]
+  in
+    let main_div = [
+    header;
+    sidebar;
+    body;
+  ]
+  in
+  Node.div [Attr.classes ["app-dashboard"; "shrink-medium"]] main_div
 
 let create model ~old_model:_ ~inject =
   let open Incr.Let_syntax in
