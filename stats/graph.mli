@@ -8,7 +8,7 @@ module Model : sig
 end
 
 module Action : sig
-  type t = UpdateGraph of (float * float) list [@@deriving sexp]
+  type t = UpdateGraph of (string * (float * float) list) [@@deriving sexp]
 end
 
 val apply_action : Action.t -> Model.t -> Model.t

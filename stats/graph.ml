@@ -21,7 +21,7 @@ module Model = struct
       | Some c -> c
     in
     C3.Line.update ~segments:[
-      C3.Segment.make ~label:"Test" ~points:update ~kind:`Area_spline ()
+      C3.Segment.make ~label:(fst update) ~points:(snd update) ~kind:`Area_spline ()
     ] chart;
     {model with graph = (Some chart)}
 
@@ -29,7 +29,7 @@ end
 
 module Action = struct
   type t =
-      UpdateGraph of (float * float) list [@@deriving sexp]
+      UpdateGraph of (string * (float * float) list) [@@deriving sexp]
 end
 
 let apply_action action model =

@@ -68,7 +68,7 @@ module Model = struct
                  | None -> raise (Invalid_argument "Nope")
                  | Some s -> s
     in
-    ((fst splits), (snd splits))
+    splits
 
   let apply_graph_action m row_id (action: Graph.Action.t) =
     let row_id = (snd (split_legend row_id)) in
@@ -88,13 +88,14 @@ module Model = struct
     match updates with
     | None -> model
     | Some (u: Api.rrd_update) ->
-      let legends = List.slice u.meta.legend 0 4 in
+      let legends = u.meta.legend in
       List.iter legends ~f:(fun l -> print_endline l);
       let transformer = transform_row legends in
       let legend_map  = String.Map.empty in
       let values = List.fold u.data ~init:legend_map ~f:transformer in
       Map.fold values  ~init:model ~f:(fun ~key ~data graph ->
-          apply_graph_action graph key (Graph.Action.UpdateGraph data))
+          let type_pair = split_legend key in
+          apply_graph_action graph key (Graph.Action.UpdateGraph ((fst type_pair), data)))
 
   let refresh_data model schedule_action =
     print_endline "Fetching updates";
