@@ -152,15 +152,18 @@ let view (model: Model.t Incr.t) ~inject =
       ~f:(fun ~key:_ ~data ->
           let%map view = Graph.view data [Attr.classes ["cell"; "small-12"; "medium-6"; "large-4"]]
           in view)
-  and _uptime = model >>| Model.uptime
+  and uptime = model >>| Model.uptime
   in
   let since = match start with
-    | Some s -> Node.text s
-    | None -> Node.text ""
+    | Some s -> s
+    | None -> ""
   in
   let options = Map.data timescales in
   let select = Node.select [Attr.on_change (fun _ev value -> inject (Action.SelectTimescale value))] options in
-  let now = Luxon.local () in
+  let now = Luxon.DateTime.local () in
+  let u = Luxon.Duration.from_millis (Time_ns.Span.to_ms uptime) in
+  let running = Luxon.DateTime.minus now u in
+  let tm = Printf.sprintf "Running since: %s. %s." since (Luxon.DateTime.to_relative running) in
   (*Create the app layout*)
   let header = Node.div [Attr.classes ["row"; "expanded"; "app-dashboard-top-nav-bar"]]
       [
@@ -183,8 +186,7 @@ let view (model: Model.t Incr.t) ~inject =
       "app-dashboard-body-content";
     ];
     ] [
-      Node.div [] [since];
-      Node.div [] [Node.text (Luxon.to_string now)];
+      Node.div [] [Node.text tm];
       select;
       graphs
     ]
