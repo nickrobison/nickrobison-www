@@ -5,6 +5,11 @@ jobs:
     variables:
       OPAM_CACHE_FOLDER: /home/vsts/.opam
     steps:
+      - task: CacheBeta@0
+        inputs:
+          key: opam | $(Agent.OS)
+          path: $(OPAM_CACHE_FOLDER)
+          displayName: Cache Opam installation
       - task: DownloadSecureFile@1
         name: secrets
         displayName: 'Download Secrets'
