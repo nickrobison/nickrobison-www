@@ -23,7 +23,7 @@ jobs:
       - script: ls -lah .
       - script: make depends
         displayName: Install Main Dependencies
-      - script: opam update && opam upgrade -y
+      - script: opam update && opam upgrade -y && opam clean
         displayName: Update opam
       - script: make build
         displayName: Build website
