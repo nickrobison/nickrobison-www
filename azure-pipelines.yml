@@ -4,10 +4,11 @@ jobs:
       vmImage: 'ubuntu-latest'
     variables:
       OPAM_CACHE_FOLDER: /home/vsts/.opam
+      AZP_CACHING_TAR: true
     steps:
-      - task: CacheBeta@0
+      - task: CacheBeta@1
         inputs:
-          key: opam | $(Agent.OS)
+          key: opam | $(Agent.OS) | new
           path: $(OPAM_CACHE_FOLDER)
           displayName: Cache Opam installation
       - task: DownloadSecureFile@1

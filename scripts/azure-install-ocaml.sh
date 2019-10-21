@@ -11,6 +11,7 @@ Linux)
   sudo apt-get update
   sudo apt-get -y install opam
   opam init --auto-setup https://github.com/ocaml/opam-repository.git
+  opam update
   opam install depext
   git config --global user.name "Azure Pipelines CI"
   git config --global user.email "bactrian@ocaml.org"
