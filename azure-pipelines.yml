@@ -6,11 +6,11 @@ jobs:
       OPAM_CACHE_FOLDER: /home/vsts/.opam
       AZP_CACHING_TAR: true
     steps:
-      - task: CacheBeta@0
-        inputs:
-          key: opam | $(Agent.OS) | new
-          path: $(OPAM_CACHE_FOLDER)
-          displayName: Cache Opam installation
+      #- task: CacheBeta@0
+      #  inputs:
+      #    key: opam | $(Agent.OS) | new
+      #    path: $(OPAM_CACHE_FOLDER)
+      #    displayName: Cache Opam installation
       - task: DownloadSecureFile@1
         name: secrets
         displayName: 'Download Secrets'
@@ -31,11 +31,18 @@ jobs:
           popd
       - script: make build
         displayName: Build website
+      - publish: $(System.DefaultWorkingDirectory)/src/src/nickrobison_www.virtio
+        artifact: VirtioImage
+
   - job: Package
     dependsOn: Build
     pool:
       vmImage: "ubuntu-latest"
     steps:
+      - task: DownloadPipelineArtifact@2
+        inputs:
+          artifactName: VirtioImage
+          targetPath: $(System.DefaultWorkingDirectory)/src/src/nickrobison_www.virtio
       - script: docker pull nickrobison/mirage-virtio:3.5.2
         displayName: Download Docker image
       - script: ls -lah
