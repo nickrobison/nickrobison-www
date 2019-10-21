@@ -30,7 +30,7 @@ jobs:
           pushd /home/vsts/.opam
           echo $PWD
           ls -lah .
-          opam update -vv && opam upgrade -y && opam clean
+          opam upgrade -y && opam clean
           popd
       - script: make build
         displayName: Build website
