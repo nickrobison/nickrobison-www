@@ -278,3 +278,8 @@ div.trace-viewer button {
     color: black;
 }
 
+/* Goodreads card */
+
+.card {
+    max-width: 129px;
+}
