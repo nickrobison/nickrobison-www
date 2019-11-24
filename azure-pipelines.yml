@@ -6,7 +6,7 @@ jobs:
       OPAM_CACHE_FOLDER: /home/vsts/.opam
       AZP_CACHING_TAR: true
     steps:
-      - task: CacheBeta@1
+      - task: Cache@2
         inputs:
           key: opam | $(Agent.OS) | new
           path: $(OPAM_CACHE_FOLDER)
