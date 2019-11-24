@@ -6,11 +6,11 @@ jobs:
       OPAM_CACHE_FOLDER: /home/vsts/.opam
       AZP_CACHING_TAR: true
     steps:
-      #- task: CacheBeta@0
-      #  inputs:
-      #    key: opam | $(Agent.OS) | new
-      #    path: $(OPAM_CACHE_FOLDER)
-      #    displayName: Cache Opam installation
+      - task: CacheBeta@1
+        inputs:
+          key: opam | $(Agent.OS) | new
+          path: $(OPAM_CACHE_FOLDER)
+          displayName: Cache Opam installation
       - task: DownloadSecureFile@1
         name: secrets
         displayName: 'Download Secrets'
