@@ -15,7 +15,7 @@ sig
   val redirect: domain -> dispatch
   (** [redirect d path] redirects the user to [path] on domain [d]. *)
 
-  val dispatch: domain -> FS.t -> TMPL.t -> Resolver_lwt.t -> CON.t-> unit -> dispatch
+  val dispatch: domain -> FS.t -> TMPL.t -> Resolver_lwt.t -> CON.t-> dispatch
   (** [dispatcher d fs tmpl path] is the object served by the HTTP
       server.
 

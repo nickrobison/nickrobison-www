@@ -1,5 +1,5 @@
 module Make
-    (S: Mirage_stack_lwt.V4)
+    (S: Mirage_stack.V4)
     (KEYS: Mirage_kv.RO)
     (FS: Mirage_kv.RO)
     (TMPL: Mirage_kv.RO)

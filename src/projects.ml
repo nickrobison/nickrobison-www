@@ -1,5 +1,3 @@
-open Printf
-open Lwt.Infix
 open Cow.Html
 open Www_types
 open Data.Projects
