@@ -17,9 +17,9 @@ let domain_of_string x =
 
 module Make
     (S: Cohttp_lwt.S.Server)
-    (FS: Mirage_types_lwt.KV_RO)
-    (TMPL: Mirage_types_lwt.KV_RO)
-    (Clock: Mirage_types.PCLOCK)
+    (FS: Mirage_kv.RO)
+    (TMPL: Mirage_kv.RO)
+    (Clock: Mirage_clock.PCLOCK)
     (RES: Resolver_lwt.S)
     (CON: Conduit_mirage.S)
 = struct
@@ -141,7 +141,7 @@ module Make
     Stats.dispatch ~domain
 
   let dispatch domain fs tmpl res ctx clock =
-    let page_cache = Cache.create clock (Duration.of_min (Key_gen.page_lifetime ())) in
+    let page_cache = Cache.create (Duration.of_min (Key_gen.page_lifetime ())) in
     let index = index res ctx in
     let about = about domain tmpl in
     let projects = projects domain tmpl in

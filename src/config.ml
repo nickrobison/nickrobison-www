@@ -101,7 +101,7 @@ let dispatch = if_impl (Key.value tls_key)
     (http $ cohttp_server (conduit_direct stack))
 
 let packages = [
-  package "cow"; package "cowabloga" ~pin:"git+https://github.com/nickrobison/cowabloga.git";
+  package "cow"; package "cowabloga";
   package "astring"; package "cohttp-mirage";
   package "ezjsonm"; package "ezxmlm"; package "re";
   package "duration"; package "ptime";]
