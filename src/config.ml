@@ -44,7 +44,7 @@ let host_key =
 let redirect_key  =
   let doc = Key.Arg.info
       ~doc:"Where to send the redirects. Must start with http:// or https://. \
-            When tls is enabled, the default is https://\$HOST."
+            When tls is enabled, the default is https://\\$HOST."
       ~docv:"URL" ~env:"REDIRECT" ["redirect"]
   in
   Key.(create "redirect" Arg.(opt (some string) None doc))
@@ -95,13 +95,13 @@ let https =
     (stackv4 @-> kv_ro @-> kv_ro @-> kv_ro @-> pclock @-> resolver @-> conduit @-> job)
 
 let dispatch = if_impl (Key.value tls_key)
-    (** With TLS *)
+    (* With TLS *)
     (https $ stack $ secrets)
-    (** HTTP only *)
+    (* HTTP only *)
     (http $ cohttp_server (conduit_direct stack))
 
 let packages = [
-  package "cow"; package "cowabloga";
+  package "cow"; package "cowabloga" ~pin:"git+https://github.com/nickrobison/cowabloga.git";
   package "astring"; package "cohttp-mirage";
   package "ezjsonm"; package "ezxmlm"; package "re";
   package "duration"; package "ptime";]
