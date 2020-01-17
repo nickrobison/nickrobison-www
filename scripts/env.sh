@@ -5,7 +5,7 @@ export OCAML_FULL_VERSION=4.07
 export OCAML_VERSION=4.07
 
 # Mirage settings
-export MIRAGE_IMAGE=virtio
+export MIRAGE_IMAGE=hvt
 export HOSTNAME=www.nickrobison.com
 #export BUILD_ID=$(date +%s)
 
