@@ -1,5 +1,4 @@
 open Cow
-open Printf
 
 module People = struct
   let nick = {
@@ -112,12 +111,6 @@ module Blog = struct
 
   exception YAML_EXCEPTION of string
 
-  (** Simple helper function to get an array from a Yaml.value. *)
-  let get_array yaml =
-    match yaml with
-    | `A obj -> obj
-    | _ -> raise (YAML_EXCEPTION "Nope")
-
   let padded_string_of_int int =
     let int_string = (string_of_int int) in
     if String.length int_string == 1 then "0" ^ int_string else int_string
@@ -127,7 +120,7 @@ module Blog = struct
     int_of_string (inth)
 
   let build_md_link (d: Cowabloga.Date.date) title =
-    (** Filter out special characters that are causing titles to be wrong. *)
+    (* Filter out special characters that are causing titles to be wrong. *)
     let regexp = Re.compile (Re.alt [
         (Re.char ':');
         (Re.char '?');
@@ -144,10 +137,10 @@ module Blog = struct
     (string_of_int d.year) ^ "-"
     ^ (padded_string_of_int d.month) ^ "-"
     ^ (padded_string_of_int d.day) ^ "-"
-    (** We also need to convert everything to lowercase and remove the spaces. *)
+    (* We also need to convert everything to lowercase and remove the spaces. *)
     ^ Re.replace_string (Re.compile (Re.str "-–-")) "-" filtered
 
-  (** Get the featured image URI, if it exists. *)
+  (* Get the featured image URI, if it exists. *)
   let get_featured_image yaml =
     let has_key = Ezjsonm.(mem yaml ["featured_image"]) in
     match has_key with
@@ -160,7 +153,7 @@ module Blog = struct
     | false -> None
     | true -> Some(Ezjsonm.(get_list get_string (find yaml ["tags"])))
 
-  (** Another part of OCaml that defeats me. Regexp. *)
+  (* Another part of OCaml that defeats me. Regexp. *)
   let parse_date date_string =
     let split_string = String.split_on_char 'T' date_string in
     let date_string = String.split_on_char '-' (List.nth split_string 0) in
@@ -173,10 +166,10 @@ module Blog = struct
                         int_from_list time_string 1)
 
 
-  let build_entries ~yaml_file =
+  let build_entries yaml_file =
     Log.debug (fun f -> f "Entries is called.");
     let open Cowabloga.Blog.Entry in
-    (**
+    (*
        I don't know when we can bring yaml back into the mix, but we'll stick with JSON for now.
        let yaml = Yaml.of_string_exn yaml_file in
     *)
@@ -204,7 +197,7 @@ module Blog = struct
             authors = [nick];
             subject = title;
             body = Ezjsonm.(get_string (find p ["file"]));
-            (** We have to trim off the leading / which comes by default from wordpress. *)
+            (* We have to trim off the leading / which comes by default from wordpress. *)
             permalink = String.sub url 1 ((String.length url) - 1);
             image = get_featured_image p;
             tags = get_tags p;
@@ -212,7 +205,7 @@ module Blog = struct
         end
       ) [] posts
 
-  let entries ~yaml_file =
+  let entries yaml_file =
     match !blogs with
     | [] ->
       Log.info(fun f -> f "Empty list, building");

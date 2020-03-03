@@ -1,11 +1,11 @@
 open Lwt.Infix
 
 module Make
-    (S: Mirage_stack_lwt.V4)
-    (KEYS: Mirage_types_lwt.KV_RO)
-    (FS: Mirage_types_lwt.KV_RO)
-    (TMPL: Mirage_types_lwt.KV_RO)
-    (Clock: Mirage_types.PCLOCK)
+    (S: Mirage_stack.V4)
+    (KEYS: Mirage_kv.RO)
+    (FS: Mirage_kv.RO)
+    (TMPL: Mirage_kv.RO)
+    (Clock: Mirage_clock.PCLOCK)
     (RES: Resolver_lwt.S)
     (CON: Conduit_mirage.S)
 = struct
@@ -21,9 +21,6 @@ module Make
 
   module D = Dispatch.Make(Http)(FS)(TMPL)(Clock)(RES)(CON)
   module DS = Dispatch.Make(Https)(FS)(TMPL)(Clock)(RES)(CON)
-
-  let log str =
-    Log.debug (fun f -> f "%s" str)
 
   let with_tls cfg tcp ~f =
     let peer, port = TCP.dst tcp in
@@ -43,7 +40,7 @@ module Make
     let conf = Tls.Config.server ~certificates:(`Single cert) () in
     Lwt.return conf
 
-  let start stack keys fs tmpl clock dns ctx () =
+  let start stack keys fs tmpl _clock dns ctx () =
     let build_id = Key_gen.build_id () in
     let host = Key_gen.host () in
     let sleep sec = OS.Time.sleep_ns (Duration.of_sec sec) in
@@ -54,7 +51,7 @@ module Make
     tls_init keys >>= fun cfg ->
     let domain = `Https, host in
     let dispatch = match redirect with
-      | None -> DS.dispatch domain fs tmpl dns ctx clock
+      | None -> DS.dispatch domain fs tmpl dns ctx
       | Some domain -> DS.redirect (Dispatch.domain_of_string domain)
     in
     let callback = Https.listen (DS.create domain dispatch) in

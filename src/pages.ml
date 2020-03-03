@@ -97,8 +97,8 @@ module Index = struct
                          (h6 (string b.title));
                          (p (string b.author));
                        ]));
-                    (div ~cls:"card-actions button hollow" (list [
-                         (a ~href:b.link (string "More info"));
+                    (a ~href:b.link ~cls:"card-actions button hollow" (list [
+                         (string "More info");
                        ]))
                   ])))) books
 

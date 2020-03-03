@@ -17,9 +17,9 @@ let domain_of_string x =
 
 module Make
     (S: Cohttp_lwt.S.Server)
-    (FS: Mirage_types_lwt.KV_RO)
-    (TMPL: Mirage_types_lwt.KV_RO)
-    (Clock: Mirage_types.PCLOCK)
+    (FS: Mirage_kv.RO)
+    (TMPL: Mirage_kv.RO)
+    (Clock: Mirage_clock.PCLOCK)
     (RES: Resolver_lwt.S)
     (CON: Conduit_mirage.S)
 = struct
@@ -141,8 +141,8 @@ module Make
     let read = fs_read fs in
     Stats.dispatch ~domain ~read
 
-  let dispatch domain fs tmpl res ctx clock =
-    let page_cache = Cache.create clock (Duration.of_min (Key_gen.page_lifetime ())) in
+  let dispatch domain fs tmpl res ctx =
+    let page_cache = Cache.create (Duration.of_min (Key_gen.page_lifetime ())) in
     let index = index res ctx in
     let about = about domain tmpl in
     let projects = projects domain tmpl in
@@ -197,7 +197,7 @@ module Make
     S.make ~callback ~conn_closed ()
 
 
-  let start http fs tmpl clock dns (ctx: CON.t) =
+  let start http fs tmpl _clock dns (ctx: CON.t) =
     let host = Key_gen.host () in
     let red = Key_gen.redirect () in
     let sleep sec = OS.Time.sleep_ns (Duration.of_sec sec) in
@@ -206,7 +206,7 @@ module Make
     let host = host ^ ":" ^ (string_of_int http_port) in
     let domain = `Http, host in
     let dispatch = match red with
-      | None -> dispatch domain fs tmpl dns ctx clock
+      | None -> dispatch domain fs tmpl dns ctx
       | Some domain -> redirect (domain_of_string domain) in
     let callback = create domain dispatch in
     let build_id = Key_gen.build_id () in

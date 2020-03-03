@@ -3,9 +3,9 @@ module Blog: sig
 
 
   type t = Cowabloga.Blog.Entry.t
-(** The type for blog entries. *)
+  (** The type for blog entries. *)
 
-  val entries: yaml_file:string -> t list
+  val entries: string -> t list
   (** Gets the blog entries from the given index file. *)
 end
 
@@ -41,7 +41,7 @@ module Feed: sig
   val blog: t
 
   val updates: t
-    (** The static feed for site updates. *)
+  (** The static feed for site updates. *)
 end
 
 val empty_feed: Cowabloga.Atom_feed.t
