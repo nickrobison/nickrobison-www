@@ -31,3 +31,6 @@ TAGS
 client-secret.json
 secrets.tar.gz
 tls/
+
+src/duniverse/
+src/dist/

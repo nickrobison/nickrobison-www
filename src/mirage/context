@@ -1,0 +1,4 @@
+configure
+-t
+macos
+--net=socket
