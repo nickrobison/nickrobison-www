@@ -3,17 +3,15 @@ open Ezxmlm
 open Book_types
 
 module Make
-    (RES: Resolver_lwt.S)
-    (CON: Conduit_mirage.S) = struct
+(Client: Cohttp_lwt.S.Client) = struct
 
   type t = {
     api_key: string;
     user_id: string;
-    ctx: Cohttp_mirage.Client.ctx;
+    ctx: Client.ctx;
   }
 
-  let create ~key ~id res (ctx: CON.t) =
-    let ctx = Cohttp_mirage.Client.ctx res ctx in
+  let create ~key ~id ctx =
     {
       api_key = key;
       user_id = id;
@@ -50,7 +48,7 @@ module Make
       book = b;
     }: review)
 
-  let reviews_of_xml (dtd, xml) =
+  let reviews_of_xml (_dtd, xml) =
     member "GoodreadsResponse" xml
     |> member "reviews"
     |> members "review"
@@ -67,7 +65,7 @@ module Make
           )
         ~query: ["key", [t.api_key];]
         () in
-    (** Add any additional query params that we might need*)
+    (* Add any additional query params that we might need*)
     match action with
     | PROFILE -> uri
     | READING s -> Uri.add_query_params uri
@@ -76,13 +74,13 @@ module Make
                        "shelf", [s];]
 
   let fetch t req =
-    Cohttp_mirage.Client.get ~ctx:t.ctx req >>= fun (resp, body) ->
+    Client.get ~ctx:t.ctx req >>= fun (_resp, body) ->
     body
     |> Cohttp_lwt.Body.to_string >>= fun xml ->
     from_string xml
     |> Lwt.return
 
-  let fetch_books t shelf =
+  let fetch_books t _shelf =
     match t.api_key with
     | "" -> Lwt.return None
     |_ ->

@@ -104,7 +104,7 @@ module Index = struct
 
   let t ~books ~feeds ~read ~domain =
     let bs = books_to_cards books in
-    read_file read "/intro.md" >>= fun l1 ->
+    read_file read "/intro.md" >>= fun _l1 ->
     read_file read "/intro-f.html" >>= fun footer ->
     Cowabloga.Feed.to_html ~limit:12 feeds >>= fun recent ->
     let content = list [

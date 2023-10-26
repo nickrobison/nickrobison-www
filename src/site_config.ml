@@ -12,7 +12,7 @@ let uri (scheme, host) path =
     | Some x -> (int_of_string (snd x))
     | None -> match scheme with
       | `Https -> 443
-      | `Http -> 80
+      | `Http -> 8081
   in
   let scheme = string_of_scheme scheme in
   Uri.make ~scheme ~host ~port ~path ()

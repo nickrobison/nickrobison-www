@@ -75,29 +75,30 @@ let keys = Key.([v host_key; v redirect_key;
                  v build_id; v lifetime_key;
                 v goodreads_key; v goodreads_user_key])
 
-let fs_key = Key.(value @@ kv_ro ())
-let filesfs = generic_kv_ro ~key:fs_key "../files"
-let tmplfs = generic_kv_ro ~key:fs_key "../tmpl"
+let fs_key = Key.(value @@ kv_ro ~group:"data" ())
+let filesfs = generic_kv_ro ~key:fs_key "files"
+let tmplfs = generic_kv_ro ~key:fs_key "tmpl"
 
 let secrets_key = Key.(value @@ kv_ro ~group:"secrets" ())
-let secrets = generic_kv_ro ~key:secrets_key "../tls"
+let secrets = generic_kv_ro ~key:secrets_key "tls"
 
 let stack = generic_stackv4v6 default_network
 
 let http =
-  foreign ~keys "Dispatch.Make"
-    (http @-> kv_ro @-> kv_ro @-> pclock @-> resolver @-> conduit @-> job)
+  main ~keys "Dispatch.Make" @@ kv_ro @-> kv_ro @-> pclock @-> resolver @-> conduit @-> http_client @-> job
 
 let https =
   let packages = [package ~sublibs:["mirage"] "tls"; package "cohttp-mirage"] in
-  foreign ~packages ~keys "Dispatch_tls.Make"
+  main ~packages ~keys "Dispatch_tls.Make"
     (stackv4v6 @-> kv_ro @-> kv_ro @-> kv_ro @-> pclock @-> resolver @-> conduit @-> job)
 
+(*
 let dispatch = if_impl (Key.value tls_key)
     (* With TLS *)
     (https $ stack $ secrets)
     (* HTTP only *)
     (http $ cohttp_server (conduit_direct stack))
+*)
 
 let packages = [
   package "cow"; package "cowabloga";
@@ -109,5 +110,5 @@ let () =
   let conduit = conduit_direct ~tls:true stack in
   let res_dns = resolver_dns stack in
   register ~packages image [
-    dispatch $ filesfs $ tmplfs $default_posix_clock $ res_dns $ conduit
+    http $ filesfs $ tmplfs $default_posix_clock $ res_dns $ conduit $ cohttp_client res_dns conduit
   ]

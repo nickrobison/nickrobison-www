@@ -1,6 +1,6 @@
 open Lwt.Infix
 
-let err fmt = Fmt.kstrf failwith fmt
+let err fmt = Fmt.kstr failwith fmt
 
 let domain_of_string x =
   let uri = Uri.of_string x in
@@ -16,12 +16,12 @@ let domain_of_string x =
   scheme, host
 
 module Make
-    (S: Cohttp_lwt.S.Server)
     (FS: Mirage_kv.RO)
     (TMPL: Mirage_kv.RO)
     (Clock: Mirage_clock.PCLOCK)
-    (RES: Resolver_lwt.S)
+    (RES: Resolver_mirage.S)
     (CON: Conduit_mirage.S)
+    (C: Cohttp_lwt.S.Client)
 = struct
   open Www_types
 
@@ -29,14 +29,15 @@ module Make
   let log_src = Logs.Src.create "dispatch" ~doc:"Web server"
   module Log = (val Logs.src_log log_src: Logs.LOG)
 
-  module Cache = Cache.Make (S)(FS)(TMPL)(Clock)
+  module Cache = Cache.Make (FS)(TMPL)(Clock)
 
-  module Reading = Reading.Make (RES)(CON)
+  module S = Cohttp_mirage.Server.Make(CON)
+
+  module Reading = Reading.Make (C)
 
   type dispatch = path -> cowabloga Lwt.t
-  type s = Conduit_mirage.server -> S.t -> unit Lwt.t
 
-  let size_then_read ~pp_error ~size ~read device name =
+  let _size_then_read ~pp_error ~size ~read device name =
     size device name >>= function
     | Error e -> err "%a" pp_error e
     | Ok size ->
@@ -111,11 +112,11 @@ module Make
     updates_feeds domain tmpl >>= fun feeds ->
     Pages.Updates.dispatch ~domain ~feed ~feeds ~read
 
-  let index res ctx domain tmpl =
+  let index ctx domain tmpl =
     Log.info (fun f -> f "Building index page");
     let reading = Reading.create
         ~key:(Key_gen.goodreads ())
-        ~id:(Key_gen.goodreads_user ()) res ctx in
+        ~id:(Key_gen.goodreads_user ()) ctx in
     Reading.fetch_books reading "currently-reading" >>= fun books ->
         let read = tmpl_read tmpl in
     updates_feeds domain tmpl >>= fun feeds ->
@@ -140,9 +141,9 @@ module Make
   let stats domain =
     Stats.dispatch ~domain
 
-  let dispatch domain fs tmpl res ctx =
+  let dispatch domain fs tmpl _res ctx =
     let page_cache = Cache.create (Duration.of_min (Key_gen.page_lifetime ())) in
-    let index = index res ctx in
+    let index = index ctx in
     let about = about domain tmpl in
     let projects = projects domain tmpl in
     let blog = blog domain tmpl in
@@ -185,19 +186,19 @@ module Make
     S.make ~callback ~conn_closed ()
 
 
-  let start http fs tmpl _clock dns (ctx: CON.t) =
+  let start fs tmpl _clock res con ctx  =
     let host = Key_gen.host () in
     let red = Key_gen.redirect () in
     let http_port = Key_gen.http_port () in
     let host = host ^ ":" ^ (string_of_int http_port) in
     let domain = `Http, host in
     let dispatch = match red with
-      | None -> dispatch domain fs tmpl dns ctx
+      | None -> dispatch domain fs tmpl res ctx
       | Some domain -> redirect (domain_of_string domain) in
     let callback = create domain dispatch in
     let build_id = Key_gen.build_id () in
     Log.info (fun f -> f "Build version: %s" build_id);
     Log.info (fun f -> f "Listening on %s" (Site_config.base_uri domain));
-    http (`TCP (Key_gen.http_port ())) callback
+    S.listen con (`TCP (Key_gen.http_port ())) callback
 
 end

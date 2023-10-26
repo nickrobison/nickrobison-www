@@ -1,12 +1,12 @@
 open Www_types
 
 module Make
-    (S: Cohttp_lwt.S.Server)
     (FS: Mirage_kv.RO)
     (TMPL: Mirage_kv.RO)
-    (Clock: Mirage_clock.PCLOCK)
-    (RES: Resolver_lwt.S)
-    (CON: Conduit_mirage.S):
+    (CLOCK: Mirage_clock.PCLOCK)
+    (RES: Resolver_mirage.S)
+    (CON: Conduit_mirage.S)
+    (C: Cohttp_lwt.S.Client):
 sig
 
   type dispatch = path -> cowabloga Lwt.t
@@ -15,7 +15,7 @@ sig
   val redirect: domain -> dispatch
   (** [redirect d path] redirects the user to [path] on domain [d]. *)
 
-  val dispatch: domain -> FS.t -> TMPL.t -> Resolver_lwt.t -> CON.t-> dispatch
+  val dispatch: domain -> FS.t -> TMPL.t -> RES.t -> C.ctx-> dispatch
   (** [dispatcher d fs tmpl path] is the object served by the HTTP
       server.
 
@@ -26,15 +26,12 @@ sig
       {- [tmpl] is a read-only key/value store holding the proccessed data such
       as blog posts and wiki entries.}} *)
 
-  val create: domain -> dispatch -> S.t
 
-  type s = Conduit_mirage.server -> S.t -> unit Lwt.t
-  (** The type for HTTP callbacks. *)
-
-  val start: s -> FS.t -> TMPL.t -> unit -> Resolver_lwt.t -> CON.t -> unit Lwt.t
+  val start: FS.t -> TMPL.t -> unit -> RES.t -> CON.t -> C.ctx -> unit Lwt.t
   (** The HTTP server's start function. *)
 end
 
 val domain_of_string: string -> domain
 (** [domain_of_string d] parser the string [d] to build a domain. Should be of the form {i http://host} or {i https://host}. *)
+
 
