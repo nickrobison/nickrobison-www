@@ -10,12 +10,12 @@ let sub l ~pos ~len =
          else acc))
 
 let take offset amount list =
-  let sub_list = sub list offset ((List.length list) - 1)
+  let sub_list = sub list ~pos:offset ~len:((List.length list) - 1)
   in
   let rec take_rec amount list =
     match amount with
     | 0 -> []
-    | x -> match list with
+    | _ -> match list with
       | [] -> []
       | hd :: tl -> hd :: take_rec (amount - 1) tl
   in

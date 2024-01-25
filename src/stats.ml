@@ -3,7 +3,7 @@ let not_found ~domain x =
   `Not_found uri
 
 (** Implement checks*)
-let check_ok ~domain =
+let check_ok ~domain:_ =
   let headers = Cowabloga.Headers.html in
   let body = Lwt.return "Site ok" in
   `Page (headers, body)

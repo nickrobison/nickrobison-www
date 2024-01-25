@@ -19,10 +19,10 @@ let make ?title ~read ~domain content =
   let title = "Blog" ^ match title with None -> "" | Some x -> " :: " ^ x
   in
   Pages.Global.t ~title ~headers ~content ~domain ~read
-(**
+(*
    let copyright f = match f.rights with None -> [] | Some r -> [`Data r]
 *)
-(** TODO: Get the real copyright. Looks like the feed is not being propogated correctly. *)
+(* TODO: Get the real copyright. Looks like the feed is not being propogated correctly. *)
 let copyright _ = []
 
 let blog_index ~feed ~entries ~read ~domain ~page_range ~sidebar =
@@ -40,7 +40,7 @@ let partition_entries entries partition =
   (total_pages, paritioned)
 
 
-let mk_sidebar feed entries partitioned =
+let mk_sidebar feed _entries partitioned =
   Cowabloga.Foundation.Sidebar.t ~title:"Recent Posts" ~content:(Cowabloga.Blog.recent_posts feed (List.hd partitioned))
 
 
@@ -55,7 +55,7 @@ let make_index_pages ~feed ~entries ~read ~domain partition =
 
 let blog_entry ~feed ~entries ~read ~domain entry =
   let copyright = copyright feed in
-  let (total_pages, partitioned) = partition_entries entries 10 in
+  let (_total_pages, partitioned) = partition_entries entries 10 in
   let sidebar = mk_sidebar feed entries partitioned
   in
   Cowabloga.Blog.Entry.to_html ~feed ~entry >>= fun posts ->
@@ -87,7 +87,7 @@ let dispatch ~feed ~entries ~read ~domain =
   blog_entries ~domain ~read ~feed ~entries >>= fun blog_entries ->
   make_index_pages ~domain ~read ~feed ~entries 10 >>= fun index_pages ->
   let index_page page =
-    (**blog_index_page ~domain ~feed ~entries ~read page >|= (fun f -> f)*)
+    (*blog_index_page ~domain ~feed ~entries ~read page >|= (fun f -> f)*)
     try List.assoc page index_pages
     with Not_found -> not_found ~domain [page]
   in
@@ -99,7 +99,7 @@ let dispatch ~feed ~entries ~read ~domain =
     | ["index.html"]
     | [""] | [] -> index_page ("blog/" ^ "1")
     | ["atom.xml"] -> atom_feed
-    | "entries" :: x :: tl -> blog_entry ("entries/" ^ x)
+    | "entries" :: x :: _tl -> blog_entry ("entries/" ^ x)
     | hd :: [] -> index_page ("blog/" ^ hd)
     | x -> not_found ~domain x
   in

@@ -1,10 +1,9 @@
 module Make
-    (RES: Resolver_lwt.S)
-    (CON: Conduit_mirage.S):
+    (Client: Cohttp_lwt.S.Client):
 sig
   type t
 
-  val create: key:string -> id:string -> Resolver_lwt.t -> CON.t -> t
+  val create: key:string -> id:string -> Client.ctx -> t
 
   val fetch: t -> Uri.t -> (Xmlm.dtd * Ezxmlm.nodes) Lwt.t
 

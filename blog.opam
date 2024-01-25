@@ -9,5 +9,4 @@ depends: [
   "cow"
   "astring"
   "ezxmlm"
-  "depext"
 ]

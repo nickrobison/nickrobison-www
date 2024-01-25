@@ -130,15 +130,15 @@ module Blog = struct
         (Re.punct);
       ]) in
     let filtered = String.lowercase_ascii (Stringext.replace_all
-                                             (Re.replace_string regexp "" title)
-                                             " " "-")
+                                             ~pattern:(Re.replace_string regexp ~by:"" title)
+                                             ~with_:" " "-")
     in
     Log.debug (fun f -> f "Parsing title: [%s]" filtered);
     (string_of_int d.year) ^ "-"
     ^ (padded_string_of_int d.month) ^ "-"
     ^ (padded_string_of_int d.day) ^ "-"
     (* We also need to convert everything to lowercase and remove the spaces. *)
-    ^ Re.replace_string (Re.compile (Re.str "-–-")) "-" filtered
+    ^ Re.replace_string (Re.compile (Re.str "-–-")) ~by:"-" filtered
 
   (* Get the featured image URI, if it exists. *)
   let get_featured_image yaml =

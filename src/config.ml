@@ -70,35 +70,35 @@ let lifetime_key =
   in
   Key.(create "page-lifetime" Arg.(opt ~stage:`Both int 60 doc))
 
-let keys = Key.([abstract host_key; abstract redirect_key;
-                 abstract http_port; abstract https_port;
-                 abstract build_id; abstract lifetime_key;
-                abstract goodreads_key; abstract goodreads_user_key])
+let keys = Key.([v host_key; v redirect_key;
+                 v http_port; v https_port;
+                 v build_id; v lifetime_key;
+                v goodreads_key; v goodreads_user_key])
 
-let fs_key = Key.(value @@ kv_ro ())
-let filesfs = generic_kv_ro ~key:fs_key "../files"
-let tmplfs = generic_kv_ro ~key:fs_key "../tmpl"
+let fs_key = Key.(value @@ kv_ro ~group:"data" ())
+let filesfs = generic_kv_ro ~key:fs_key "files"
+let tmplfs = generic_kv_ro ~key:fs_key "tmpl"
 
 let secrets_key = Key.(value @@ kv_ro ~group:"secrets" ())
-let secrets = generic_kv_ro ~key:secrets_key "../tls"
+let secrets = generic_kv_ro ~key:secrets_key "tls"
 
-let stack = generic_stackv4 default_network
+let stack = generic_stackv4v6 default_network
 
 let http =
-  foreign ~keys "Dispatch.Make"
-    (http @-> kv_ro @-> kv_ro @-> pclock @-> resolver @-> conduit @-> job)
+  main ~keys "Dispatch.Make" @@ kv_ro @-> kv_ro @-> pclock @-> resolver @-> conduit @-> http_client @-> job
 
 let https =
   let packages = [package ~sublibs:["mirage"] "tls"; package "cohttp-mirage"] in
-  foreign ~packages ~keys "Dispatch_tls.Make"
-    ~deps:[abstract nocrypto]
-    (stackv4 @-> kv_ro @-> kv_ro @-> kv_ro @-> pclock @-> resolver @-> conduit @-> job)
+  main ~packages ~keys "Dispatch_tls.Make"
+    (stackv4v6 @-> kv_ro @-> kv_ro @-> kv_ro @-> pclock @-> resolver @-> conduit @-> job)
 
+(*
 let dispatch = if_impl (Key.value tls_key)
     (* With TLS *)
     (https $ stack $ secrets)
     (* HTTP only *)
     (http $ cohttp_server (conduit_direct stack))
+*)
 
 let packages = [
   package "cow"; package "cowabloga";
@@ -109,7 +109,6 @@ let packages = [
 let () =
   let conduit = conduit_direct ~tls:true stack in
   let res_dns = resolver_dns stack in
-  let tracing = None in
-  register ?tracing ~packages image [
-    dispatch $ filesfs $ tmplfs $default_posix_clock $ res_dns $ conduit
+  register ~packages image [
+    http $ filesfs $ tmplfs $default_posix_clock $ res_dns $ conduit $ cohttp_client res_dns conduit
   ]
